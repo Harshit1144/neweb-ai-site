@@ -1,0 +1,67 @@
+[
+  {
+    "id": "14b3e50d-210a-4814-8feb-a511f0721158",
+    "date": "Feb 2026",
+    "headline": "How Neweb is putting India's small businesses online — for ₹249 a month.",
+    "outlet": "The Ken",
+    "description": "feature interview with Harshit Rajput",
+    "url": "#",
+    "published": true,
+    "order": 0,
+    "createdAt": "2026-04-20T12:40:55.364Z",
+    "updatedAt": "2026-04-20T12:40:55.364Z",
+    "publishedAt": "2026-04-20T12:40:55.364Z"
+  },
+  {
+    "id": "11b7b38b-2d1f-4ed5-860c-c70d208764e6",
+    "date": "Jan 2026",
+    "headline": "The quiet rise of 'presence management' as a category.",
+    "outlet": "YourStory",
+    "description": "industry analysis",
+    "url": "#",
+    "published": true,
+    "order": 1,
+    "createdAt": "2026-04-20T12:40:55.364Z",
+    "updatedAt": "2026-04-20T12:40:55.364Z",
+    "publishedAt": "2026-04-20T12:40:55.364Z"
+  },
+  {
+    "id": "b19bdbab-e5f2-46d7-a497-e3e43ee950a5",
+    "date": "Nov 2025",
+    "headline": "Neweb crosses 1,000 small-business customers across 22 Indian cities.",
+    "outlet": "Inc42",
+    "description": "milestone coverage",
+    "url": "#",
+    "published": true,
+    "order": 2,
+    "createdAt": "2026-04-20T12:40:55.364Z",
+    "updatedAt": "2026-04-20T12:40:55.364Z",
+    "publishedAt": "2026-04-20T12:40:55.364Z"
+  },
+  {
+    "id": "e9db9220-31ed-42bf-948f-d62aa90c1b93",
+    "date": "Aug 2025",
+    "headline": "A four-question form, and your bakery is online.",
+    "outlet": "The Ken",
+    "description": "product deep-dive",
+    "url": "#",
+    "published": true,
+    "order": 3,
+    "createdAt": "2026-04-20T12:40:55.364Z",
+    "updatedAt": "2026-04-20T12:40:55.364Z",
+    "publishedAt": "2026-04-20T12:40:55.364Z"
+  },
+  {
+    "id": "40cdab63-78e2-46ba-92aa-5a11f5387486",
+    "date": "Feb 2025",
+    "headline": "How a bootstrapped Ahmedabad startup is fixing the SMB web, one jeweller at a time.",
+    "outlet": "YourStory",
+    "description": "founder profile",
+    "url": "#",
+    "published": true,
+    "order": 4,
+    "createdAt": "2026-04-20T12:40:55.364Z",
+    "updatedAt": "2026-04-20T12:40:55.364Z",
+    "publishedAt": "2026-04-20T12:40:55.364Z"
+  }
+]

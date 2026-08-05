@@ -1,0 +1,127 @@
+DirectoryIndex index.html index.php
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # API routes → api.php
+  RewriteRule ^api(/.*)?$ api.php [L,QSA]
+
+  # Canonical host: www → apex
+  RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+  RewriteRule ^ https://%1%{REQUEST_URI} [R=301,L]
+
+  # Trailing slash → canonical (skip real directories and root)
+  RewriteCond %{REQUEST_URI} !^/$
+  RewriteCond %{THE_REQUEST} \s/+([^?\s]+?)/+[\s?] [NC]
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^(.+?)/+$ /$1 [R=301,L,NE]
+
+  # NOTE: The blog.neweb.ai subdomain 403 is a DNS/subdomain vhost issue
+  # and cannot be fixed in this main-domain .htaccess (separate vhost).
+
+  # Force HTTPS
+  RewriteCond %{HTTPS} !=on
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+  # WP-era legacy path redirects (post-migration cleanup)
+  RewriteRule ^about-us/?$ /pages/about [R=301,L]
+  RewriteRule ^tag(/.*)?$ /pages/blog [R=301,L]
+  RewriteRule ^elementskit-content(/.*)?$ - [G,L]
+
+  # Legacy blog query-string URLs → clean server-rendered post URLs
+  # /pages/blog-post?slug=foo  →  /pages/blog/foo
+  RewriteCond %{QUERY_STRING} (?:^|&)slug=([a-z0-9-]+) [NC]
+  RewriteRule ^pages/blog-post/?$ /pages/blog/%1? [R=301,L,NE]
+
+  # Redirect /index.html → /
+  RewriteRule ^index\.html$ / [R=301,L]
+
+  # Redirect /path/foo.html → /path/foo  (strip .html from URL)
+  RewriteCond %{THE_REQUEST} \s/+([^\s?]+)\.html[\s?] [NC]
+  RewriteRule ^ /%1 [R=301,L,NE]
+
+  # Hub pages: if /pages/foo is a directory AND /pages/foo.html exists (hub + sub-pages dir),
+  # serve the .html instead of LiteSpeed redirecting to /foo/ then 403.
+  # This must run BEFORE the normal extensionless rewrite below.
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.+?)/?$ /$1.html [L]
+
+  # Internally serve /path/foo → /path/foo.html when that file exists
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.+?)/?$ $1.html [L]
+</IfModule>
+
+# Turn off auto-redirect to trailing slash (LiteSpeed/Apache DirectorySlash)
+DirectorySlash Off
+
+Options -Indexes
+
+<DirectoryMatch "^.*/data(/.*)?$">
+  Require all denied
+</DirectoryMatch>
+
+# Security headers
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+  # HSTS — 1 year, includeSubDomains. Remove `preload` until HSTS preload submission is planned.
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+  # Content-Security-Policy — permissive-but-real. Allows inline styles/scripts (the site
+  # relies on them), Google Fonts, Microsoft Clarity, and the jsDelivr CDN. Runtime fetches
+  # to dns.google / api.country.is / clarity are whitelisted under connect-src.
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.clarity.ms https://cdn.jsdelivr.net https://*.clarity.ms; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://*.clarity.ms https://dns.google https://api.country.is; frame-ancestors 'self'"
+</IfModule>
+
+# Compression
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/x-javascript application/json application/xml application/rss+xml application/atom+xml image/svg+xml font/ttf font/otf font/woff font/woff2 application/font-woff2
+</IfModule>
+<IfModule mod_brotli.c>
+  AddOutputFilterByType BROTLI_COMPRESS text/html text/plain text/xml text/css text/javascript application/javascript application/json application/xml image/svg+xml font/ttf font/otf font/woff font/woff2
+</IfModule>
+
+# Expires (legacy, broad)
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault                           "access plus 1 month"
+  ExpiresByType text/html                  "access plus 0 seconds"
+  ExpiresByType text/xml                   "access plus 0 seconds"
+  ExpiresByType application/xml            "access plus 0 seconds"
+  ExpiresByType application/json           "access plus 0 seconds"
+  ExpiresByType image/png                  "access plus 1 year"
+  ExpiresByType image/jpeg                 "access plus 1 year"
+  ExpiresByType image/webp                 "access plus 1 year"
+  ExpiresByType image/avif                 "access plus 1 year"
+  ExpiresByType image/svg+xml              "access plus 1 year"
+  ExpiresByType image/x-icon               "access plus 1 year"
+  ExpiresByType text/css                   "access plus 1 year"
+  ExpiresByType application/javascript     "access plus 1 year"
+  ExpiresByType font/woff                  "access plus 1 year"
+  ExpiresByType font/woff2                 "access plus 1 year"
+  ExpiresByType application/font-woff      "access plus 1 year"
+  ExpiresByType application/font-woff2     "access plus 1 year"
+</IfModule>
+
+# Strong Cache-Control for versioned/immutable assets
+<IfModule mod_headers.c>
+  <FilesMatch "\.(css|js|png|jpe?g|gif|webp|avif|svg|ico|woff2?|ttf|otf|eot)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.(html|xml|json|txt)$">
+    Header set Cache-Control "public, max-age=0, must-revalidate"
+  </FilesMatch>
+</IfModule>
+
+# Additional MIME types (helps mod_expires/mod_deflate/browsers)
+<IfModule mod_mime.c>
+  AddType image/webp .webp
+  AddType image/avif .avif
+  AddType font/woff2 .woff2
+  AddType application/manifest+json .webmanifest
+</IfModule>

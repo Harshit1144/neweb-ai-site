@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/assets/neweb-mark.svg">
+<title>Neweb — Blog</title>
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="description" content="Read the latest notes, essays, and updates from the Neweb team.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+<link rel="stylesheet" href="shared.css?v=3">
+<style>
+  .post-hero{padding:72px 0 32px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#fafbff 0%, #fff 100%)}
+  .post-hero .meta{display:flex;gap:12px;align-items:center;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+  .post-hero .meta .tag-chip{color:var(--brand);background:var(--brand-soft);border:1px solid rgba(61,76,255,.16);padding:4px 10px;border-radius:999px;font-weight:500}
+  .post-hero h1{font-size:clamp(36px,5vw,60px);line-height:1.05;letter-spacing:-.035em;font-weight:600;margin:4px 0 18px;max-width:860px;text-wrap:balance}
+  .post-hero h1 .serif{font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;color:var(--brand)}
+  .post-hero .lede{font-size:19px;color:var(--ink-2);max-width:720px;line-height:1.5;margin:0}
+  .post-cover{aspect-ratio:16/7;border-radius:18px;overflow:hidden;background:linear-gradient(135deg,var(--brand-soft),#dde3ff);margin:32px 0}
+  .post-cover img{width:100%;height:100%;object-fit:cover;display:block}
+
+  .article{max-width:760px;margin:0 auto;font-size:18px;line-height:1.7;color:var(--ink-2)}
+  .article p{margin:0 0 20px}
+  .article h2{font-size:30px;letter-spacing:-.025em;color:var(--ink);margin:40px 0 14px;font-weight:600;line-height:1.2}
+  .article h3{font-size:22px;letter-spacing:-.015em;color:var(--ink);margin:32px 0 10px;font-weight:600}
+  .article a{color:var(--brand);border-bottom:1px solid rgba(61,76,255,.3)}
+  .article blockquote{border-left:3px solid var(--brand);padding:10px 0 10px 24px;margin:24px 0;font-family:"Instrument Serif",serif;font-style:italic;font-size:22px;color:var(--ink);line-height:1.4;background:var(--bg-2);border-radius:0 10px 10px 0}
+  .article code{font-family:"JetBrains Mono",monospace;font-size:.88em;background:var(--bg-2);border:1px solid var(--line);padding:1px 6px;border-radius:5px}
+  .article pre{background:var(--ink-dark);color:#e5e8f5;padding:20px;border-radius:12px;overflow:auto;font-family:"JetBrains Mono",monospace;font-size:13.5px;line-height:1.6;margin:24px 0}
+  .article pre code{background:none;border:0;padding:0;color:inherit}
+  .article ul,.article ol{margin:0 0 20px;padding-left:22px}
+  .article li{margin-bottom:8px}
+  .article img{max-width:100%;border-radius:12px;margin:18px 0;border:1px solid var(--line)}
+
+  .author-card{display:flex;align-items:center;gap:14px;padding:20px 0;border-top:1px solid var(--line);margin-top:48px}
+  .author-card .ava{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--brand-soft),#dde3ff);display:grid;place-items:center;font-family:"Instrument Serif",serif;font-style:italic;color:var(--brand);font-size:22px}
+  .author-card .who .n{font-weight:600;font-size:15px}
+  .author-card .who .r{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:2px}
+
+  .back{display:inline-flex;align-items:center;gap:6px;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
+  .back:hover{color:var(--brand)}
+
+  .notfound{text-align:center;padding:80px 24px}
+  .notfound h1{font-size:48px;letter-spacing:-.03em;margin:0 0 10px}
+  .notfound p{color:var(--ink-2);margin:0 0 20px}
+</style>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "qeya57o0ci");
+</script>
+</head>
+<body>
+
+<nav class="top">
+  <div class="wrap nav-row">
+    <a href="/" class="brand" aria-label="neweb.ai">
+      <img src="assets/neweb-logo.png" alt="Neweb — online presence manager" width="70" height="28" decoding="async" fetchpriority="high" />
+    </a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/pages/features">Features</a>
+      <a href="/pages/pricing">Pricing</a>
+      <div class="nav-drop">
+        <button class="nav-drop-btn" type="button" aria-haspopup="true">Solutions <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="nav-drop-menu" role="menu">
+          <a class="mega-item" href="/pages/solutions">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">All solutions</p><p class="mega-d">Every industry we serve</p></div>
+          </a>
+          <a class="mega-item" href="/pages/solutions/restaurants">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M6 7v13h12V7M9 4h6v3H9z"/><path d="M12 11v5"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Restaurants &amp; bakeries</p><p class="mega-d">Menus, reservations, food-first SEO</p></div>
+          </a>
+          <a class="mega-item" href="/pages/solutions/jewellers">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M6 3h12l4 6-10 12L2 9z"/><path d="M2 9h20M8 3l-2 6 6 12M16 3l2 6-6 12"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Jewellers</p><p class="mega-d">Catalogue, bookings, showroom storytelling</p></div>
+          </a>
+          <a class="mega-item" href="/pages/solutions/clinics">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 3v18M3 12h18M9 7h6v10H9z"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Clinics &amp; doctors</p><p class="mega-d">Doctor profiles, bookings, DPDP-ready</p></div>
+          </a>
+          <a class="mega-item" href="/pages/solutions/tutoring">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 5h12a2 2 0 0 1 2 2v14H6a2 2 0 0 1-2-2V5z"/><path d="M4 19a2 2 0 0 1 2-2h12"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Tutoring &amp; coaching</p><p class="mega-d">Batches, results, parent enquiry flow</p></div>
+          </a>
+          <a class="mega-item" href="/pages/templates">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Templates</p><p class="mega-d">Industry-tuned starting points</p></div>
+          </a>
+        </div>
+      </div>
+      <a href="/pages/why-neweb" class="">Why Neweb</a>
+      <a href="/pages/templates">Templates</a>
+      <div class="nav-drop">
+        <button class="nav-drop-btn" type="button" aria-haspopup="true">Resources <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="nav-drop-menu align-right" role="menu">
+          <a class="mega-item" href="/pages/blog">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h12l4 4v12H4z"/><path d="M7 10h10M7 14h10M7 18h6"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Blog</p><p class="mega-d">Notes from the Neweb team</p></div>
+          </a>
+          <a class="mega-item" href="/pages/guides">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 19.5V5a2 2 0 0 1 2-2h14v16H6a2 2 0 0 0-2 2z"/><path d="M8 7h8M8 11h8"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Guides</p><p class="mega-d">Practical how-tos for small businesses</p></div>
+          </a>
+          <a class="mega-item" href="/pages/compare">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4v16M17 4v16"/><path d="M5 8l2-2 2 2M15 16l2 2 2-2"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Compare</p><p class="mega-d">Neweb vs other website builders</p></div>
+          </a>
+          <a class="mega-item" href="/pages/customer-stories">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="10" r="2.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M14 20c0-2.5 1.8-4.5 4-4.5s3 2 3 4.5"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Customer stories</p><p class="mega-d">Real businesses. Real numbers.</p></div>
+          </a>
+          <a class="mega-item" href="/pages/domain-checker">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Domain checker</p><p class="mega-d">Check availability in seconds, free</p></div>
+          </a>
+          <a class="mega-item" href="/pages/changelog">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Changelog</p><p class="mega-d">Every update we ship</p></div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="nav-cta">
+      <a href="https://dashboard.neweb.ai/login" class="btn btn-ghost">Sign in</a>
+      <a href="https://dashboard.neweb.ai/signup" class="btn btn-brand">Get Started</a>
+    </div>
+  </div>
+</nav>
+<main id="main">
+
+<div id="view"></div>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="ft-top">
+      <div class="ft-brand">
+        <a href="/" class="brand" aria-label="neweb.ai">
+          <img src="/assets/neweb-logo.png" alt="Neweb logo" width="90" height="36" loading="lazy" decoding="async" style="height:36px" />
+        </a>
+        <p class="ft-tag"><em>Digital Dreams to Reality.</em> Neweb is the online presence manager for small businesses &mdash; website, domain, Google Business, and SEO in one subscription.</p>
+        <div class="ft-social" aria-label="Neweb on social media">
+          <a href="https://www.linkedin.com/company/newebai/" aria-label="LinkedIn" rel="noopener" target="_blank"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.11 1 2.48 1s2.5 1.12 2.5 2.5zM.22 8h4.52v14H.22V8zm7.5 0h4.33v1.92h.06c.6-1.14 2.08-2.34 4.27-2.34 4.57 0 5.42 3.01 5.42 6.92V22h-4.52v-6.27c0-1.5-.03-3.43-2.09-3.43-2.09 0-2.41 1.63-2.41 3.32V22H7.72V8z"/></svg></a>
+          <a href="https://www.instagram.com/neweb.ai/" aria-label="Instagram" rel="noopener" target="_blank"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 01-1.38-.9 3.7 3.7 0 01-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.77.13 4.9.33 4.14.63c-.79.3-1.46.71-2.13 1.38A5.9 5.9 0 00.63 4.14c-.3.76-.5 1.63-.56 2.9C.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.28.26 2.15.56 2.91.3.79.71 1.46 1.38 2.13.67.67 1.34 1.08 2.13 1.38.76.3 1.63.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.28-.06 2.15-.26 2.91-.56.79-.3 1.46-.71 2.13-1.38.67-.67 1.08-1.34 1.38-2.13.3-.76.5-1.63.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.28-.26-2.15-.56-2.91a5.9 5.9 0 00-1.38-2.13A5.9 5.9 0 0019.86.63c-.76-.3-1.63-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 100 12.32 6.16 6.16 0 000-12.32zM12 16a4 4 0 110-8 4 4 0 010 8zm6.4-11.85a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/></svg></a>
+        </div>
+      </div>
+      <div class="ft-col"><h3 class="ft-h">Product</h3>
+        <a href="/pages/features">Features</a>
+        <a href="/pages/pricing">Pricing</a>
+        <a href="/pages/why-neweb">Why Neweb</a>
+        <a href="/pages/templates">Templates</a>
+        <a href="/pages/changelog">Changelog</a>
+        <a href="/pages/domain-checker">Domain checker</a>
+      </div>
+      <div class="ft-col"><h3 class="ft-h">Solutions</h3>
+        <a href="/pages/solutions/restaurants">Restaurants</a>
+        <a href="/pages/solutions/jewellers">Jewellers</a>
+        <a href="/pages/solutions/clinics">Clinics</a>
+        <a href="/pages/solutions/tutoring">Tutoring centres</a>
+        <a href="/pages/solutions">All industries</a>
+      </div>
+      <div class="ft-col"><h3 class="ft-h">Resources</h3>
+        <a href="/pages/blog">Blog</a>
+        <a href="/pages/guides">Guides</a>
+        <a href="/pages/compare">Compare</a>
+        <a href="/pages/customer-stories">Customer stories</a>
+        <a href="/pages/press">Press kit</a>
+      </div>
+      <div class="ft-col"><h3 class="ft-h">Company</h3>
+        <a href="/pages/about">About</a>
+        <a href="/pages/careers">Careers</a>
+        <a href="/pages/contact">Contact</a>
+        <a href="/pages/security">Security</a>
+        <a href="/pages/privacy">Privacy</a>
+        <a href="/pages/terms">Terms</a>
+        <a href="/pages/refund">Refund</a>
+      </div>
+    </div>
+
+    <div class="ft-offices">
+      <div class="ft-office">
+        <h4 class="ft-h">India Office</h4>
+        <p>909, Sharan Circle Business Hub,<br>Zundal Circle, Ahmedabad,<br>Gujarat, India &mdash; 382421</p>
+      </div>
+      <div class="ft-office">
+        <h4 class="ft-h">USA Office</h4>
+        <p>30 N Gould St Ste R,<br>Sheridan, WY 82801,<br>United States</p>
+      </div>
+      <div class="ft-office">
+        <h4 class="ft-h">Get in touch</h4>
+        <p><a href="mailto:support@neweb.ai">support@neweb.ai</a><br><a href="mailto:sales@neweb.ai">sales@neweb.ai</a><br><a href="tel:+19789811118">+1 978 981 1118</a></p>
+      </div>
+    </div>
+
+    <div class="ft-bot">
+      <span>&copy; 2026 Commerciax Infotech Private Limited. All Rights Reserved.</span>
+      <span>Made for the open web &middot; Built with AI &middot; Powered by Experts.</span>
+    </div>
+    <div class="foot-mega" aria-hidden="true" role="presentation">NEWEB.AI</div>
+  </div>
+</footer>
+
+<script>
+  function fmtDate(iso){
+    if(!iso) return '';
+    return new Date(iso).toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'});
+  }
+  function esc(s){
+    return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+  function safeUrl(raw){
+    const u = String(raw||'').trim();
+    if(!u) return '#';
+    if(/^(https?:|mailto:|tel:|#|\/|\.\/|\.\.\/)/i.test(u)) return u;
+    return '#';
+  }
+  function mdToHtml(md){
+    if(!md) return '';
+    const lines = md.replace(/\r\n/g,'\n').split('\n');
+    let html = '', inCode = false, inList = false, listType = '';
+    const flushList = () => { if(inList){ html += `</${listType}>`; inList = false; } };
+    const inline = s => esc(s)
+      .replace(/!\[([^\]]*)\]\(([^)\s]+)(?:\s+&quot;([^&]+)&quot;)?\)/g, (_,alt,url,title) => `<img src="${safeUrl(url.replace(/&amp;/g,'&'))}" alt="${alt}"${title?` title="${title}"`:''} />`)
+      .replace(/`([^`]+)`/g,'<code>$1</code>')
+      .replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>')
+      .replace(/~~([^~]+)~~/g,'<del>$1</del>')
+      .replace(/\*([^*]+)\*/g,'<em>$1</em>')
+      .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (_,text,url) => `<a href="${safeUrl(url.replace(/&amp;/g,'&'))}" rel="noopener">${text}</a>`);
+    for(const line of lines){
+      if(line.trim().startsWith('```')){
+        flushList();
+        if(!inCode){ html += '<pre><code>'; inCode = true; }
+        else { html += '</code></pre>'; inCode = false; }
+        continue;
+      }
+      if(inCode){ html += esc(line)+'\n'; continue; }
+      if(/^\s*$/.test(line)){ flushList(); continue; }
+      if(/^\s*(---|\*\*\*|___)\s*$/.test(line)){ flushList(); html += '<hr>'; continue; }
+      let m;
+      if((m = line.match(/^######\s+(.*)$/))){ flushList(); html += `<h3 class="ft-h">${inline(m[1])}</h3>`; continue; }
+      if((m = line.match(/^#####\s+(.*)$/))){ flushList(); html += `<h5>${inline(m[1])}</h5>`; continue; }
+      if((m = line.match(/^####\s+(.*)$/))){ flushList(); html += `<h4>${inline(m[1])}</h4>`; continue; }
+      if((m = line.match(/^###\s+(.*)$/))){ flushList(); html += `<h3>${inline(m[1])}</h3>`; continue; }
+      if((m = line.match(/^##\s+(.*)$/))){ flushList(); html += `<h2>${inline(m[1])}</h2>`; continue; }
+      if((m = line.match(/^#\s+(.*)$/))){ flushList(); html += `<h2>${inline(m[1])}</h2>`; continue; }
+      if((m = line.match(/^\s*>\s?(.*)$/))){ flushList(); html += `<blockquote>${inline(m[1])}</blockquote>`; continue; }
+      if((m = line.match(/^\s*[-*]\s+(.*)$/))){
+        if(!inList || listType !== 'ul'){ flushList(); html += '<ul>'; inList = true; listType = 'ul'; }
+        html += `<li>${inline(m[1])}</li>`; continue;
+      }
+      if((m = line.match(/^\s*\d+\.\s+(.*)$/))){
+        if(!inList || listType !== 'ol'){ flushList(); html += '<ol>'; inList = true; listType = 'ol'; }
+        html += `<li>${inline(m[1])}</li>`; continue;
+      }
+      flushList();
+      html += `<p>${inline(line)}</p>`;
+    }
+    if(inCode) html += '</code></pre>';
+    flushList();
+    return html;
+  }
+
+  async function load(){
+    const slug = new URLSearchParams(location.search).get('slug');
+    const view = document.getElementById('view');
+    if(!slug){ return renderNotFound(view, 'No post selected.'); }
+    // Legacy URL: blog posts are now server-rendered at clean /pages/blog/<slug>.
+    // Redirect there (a 301 also exists at the .htaccess level for crawlers).
+    if (/^[a-z0-9-]+$/i.test(slug)) { location.replace('/pages/blog/' + slug); return; }
+    const res = await fetch(`/api/blogs/${encodeURIComponent(slug)}`);
+    if(!res.ok){ return renderNotFound(view); }
+    const p = await res.json();
+    document.title = `${p.title} — Neweb Blog`;
+    // Update SEO meta on the fly so crawlers that render JS see the right signals
+    const canonicalUrl = `https://neweb.ai/pages/blog-post?slug=${encodeURIComponent(p.slug)}`;
+    const desc = (p.excerpt || p.body.slice(0, 158).replace(/[#*_\[\]`\n]/g,' ').replace(/\s+/g,' ').trim());
+    const setMeta = (sel, attr, val) => {
+      let el = document.head.querySelector(sel);
+      if(!el){ el = document.createElement('meta'); const [a,v] = sel.replace(/meta\[|\]/g,'').split('='); el.setAttribute(a, v.replace(/"/g,'')); document.head.appendChild(el); }
+      el.setAttribute(attr, val);
+    };
+    setMeta('meta[name="description"]', 'content', desc);
+    setMeta('meta[property="og:title"]', 'content', p.title);
+    setMeta('meta[property="og:description"]', 'content', desc);
+    setMeta('meta[property="og:type"]', 'content', 'article');
+    setMeta('meta[property="og:url"]', 'content', canonicalUrl);
+    if(p.cover) setMeta('meta[property="og:image"]', 'content', p.cover);
+    setMeta('meta[name="twitter:card"]', 'content', 'summary_large_image');
+    setMeta('meta[name="twitter:title"]', 'content', p.title);
+    setMeta('meta[name="twitter:description"]', 'content', desc);
+    let link = document.head.querySelector('link[rel="canonical"]');
+    if(!link){ link = document.createElement('link'); link.setAttribute('rel','canonical'); document.head.appendChild(link); }
+    link.setAttribute('href', canonicalUrl);
+    // Article + BreadcrumbList JSON-LD
+    const ld = document.createElement('script');
+    ld.type = 'application/ld+json';
+    ld.textContent = JSON.stringify({
+      '@context':'https://schema.org',
+      '@graph':[
+        {'@type':'Article','headline':p.title,'description':desc,'author':{'@type':'Person','name':p.author||'Neweb Team'},
+         'datePublished':p.publishedAt,'dateModified':p.updatedAt||p.publishedAt,
+         'image': p.cover || 'https://neweb.ai/assets/og-default.png',
+         'publisher':{'@type':'Organization','name':'Neweb','logo':{'@type':'ImageObject','url':'https://neweb.ai/assets/neweb-logo.png'}},
+         'mainEntityOfPage':canonicalUrl,'url':canonicalUrl},
+        {'@type':'BreadcrumbList','itemListElement':[
+          {'@type':'ListItem','position':1,'name':'Home','item':'https://neweb.ai/'},
+          {'@type':'ListItem','position':2,'name':'Blog','item':'https://neweb.ai/pages/blog'},
+          {'@type':'ListItem','position':3,'name':p.title,'item':canonicalUrl}
+        ]}
+      ]
+    });
+    document.head.appendChild(ld);
+    const cover = p.cover
+      ? `<div class="wrap"><div class="post-cover"><img src="${esc(p.cover)}" alt=""></div></div>`
+      : '';
+    view.innerHTML = `
+      <section class="post-hero">
+        <div class="wrap">
+          <a href="blog" class="back">← All posts</a>
+          <div class="meta">
+            <span class="tag-chip">${esc(p.tag||'Product')}</span>
+            <span>${fmtDate(p.publishedAt)}</span>
+            <span>· ${esc(p.author||'Neweb Team')}</span>
+          </div>
+          <h1>${esc(p.title)}</h1>
+          ${p.excerpt ? `<p class="lede">${esc(p.excerpt)}</p>` : ''}
+        </div>
+      </section>
+      ${cover}
+      <section class="section" style="padding-top:24px">
+        <div class="wrap">
+          <article class="article">${mdToHtml(p.body)}</article>
+          <div class="article">
+            <div class="author-card">
+              <div class="ava">${esc((p.author||'N').trim().charAt(0).toUpperCase())}</div>
+              <div class="who"><div class="n">${esc(p.author||'Neweb Team')}</div><div class="r">Neweb · Writing</div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    `;
+  }
+
+  function renderNotFound(view, msg){
+    view.innerHTML = `
+      <section class="section"><div class="wrap"><div class="notfound">
+        <h2>Post not found</h2>
+        <p>${msg || "We couldn't find that post. It may have been unpublished."}</p>
+        <a href="blog" class="btn btn-brand">Back to blog</a>
+      </div></div></section>`;
+  }
+
+  load().catch(e => { console.error(e); renderNotFound(document.getElementById('view'), 'Something went wrong loading this post.'); });
+</script>
+<script src="/assets/nav.js?v=3" defer></script>
+</body>
+</html>

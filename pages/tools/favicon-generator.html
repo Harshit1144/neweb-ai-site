@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="icon" type="image/svg+xml" href="/assets/neweb-mark.svg">
+<title>Free Favicon Generator — 16, 32, 192, 512 PNG | Neweb</title>
+<meta name="description" content="Generate favicon PNGs in 16, 32, 48, 192 and 512 sizes from a single source image. Includes ready-to-paste HTML head tags. Browser-only.">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<link rel="canonical" href="https://neweb.ai/pages/tools/favicon-generator">
+<meta property="og:title" content="Free Favicon Generator — 16, 32, 192, 512 PNG | Neweb">
+<meta property="og:description" content="Generate favicon PNGs in 16, 32, 48, 192 and 512 sizes from a single source image. Includes ready-to-paste HTML head tags. Browser-only.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://neweb.ai/pages/tools/favicon-generator">
+<meta property="og:image" content="https://neweb.ai/assets/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="Neweb">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@neweb_ai">
+<meta name="twitter:title" content="Free Favicon Generator — 16, 32, 192, 512 PNG | Neweb">
+<meta name="twitter:description" content="Generate favicon PNGs in 16, 32, 48, 192 and 512 sizes from a single source image. Includes ready-to-paste HTML head tags. Browser-only.">
+<meta name="twitter:image" content="https://neweb.ai/assets/og-default.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://neweb.ai/"},{"@type":"ListItem","position":2,"name":"Pages","item":"https://neweb.ai/pages"},{"@type":"ListItem","position":3,"name":"Tools","item":"https://neweb.ai/pages/tools"},{"@type":"ListItem","position":4,"name":"Free Favicon Generator — 16, 32, 192, 512 PNG | Neweb","item":"https://neweb.ai/pages/tools/favicon-generator"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Favicon Generator","applicationCategory":"BusinessApplication","operatingSystem":"Any","url":"https://neweb.ai/pages/tools/favicon-generator","description":"Generate favicon PNGs in 16, 32, 48, 192 and 512 sizes from a single source image. Includes ready-to-paste HTML head tags. Browser-only.","offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"publisher":{"@type":"Organization","name":"Neweb","url":"https://neweb.ai/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why these specific sizes?","acceptedAnswer":{"@type":"Answer","text":"Each size exists because a specific surface across browsers and devices expects it, and together they cover everywhere your icon appears. The 16 by 16 pixel icon is the classic browser tab favicon, the tiny mark beside the page title. The 32 by 32 version is the higher-resolution tab icon for retina and high-density displays, so it stays crisp rather than blurry. The 48 by 48 size serves the Windows taskbar and desktop shortcuts. The 192 by 192 icon is what Android uses when someone adds your site to their home screen. The 512 by 512 icon is the large asset for the Progressive Web App splash screen when your site launches like an app. By generating all of these at once, the tool spares you hunting down each requirement separately and ensures your brand mark looks sharp whether it shows up in a 16-pixel tab or a full-screen splash, with no fuzzy upscaling anywhere. Just download the set and reference each size in your page head."}},{"@type":"Question","name":"What about .ico format?","acceptedAnswer":{"@type":"Answer","text":"You no longer need the old favicon.ico format, which is why this tool emits modern PNGs at every size instead. Historically, favicon.ico was a special multi-resolution file browsers looked for by default, and it is still supported, so an existing .ico will not break anything. But modern browsers now happily read PNG favicons referenced in your HTML, and PNGs are simpler to create, easier to preview, and support cleaner transparency, which is why the recommended setup is a set of PNG icons at the standard sizes rather than a single packed .ico. The PNGs this tool produces are exactly that recommended setup, ready to link in your page head and reference from a web manifest. So you can comfortably skip the .ico file for a new site. The only time you might still want one is compatibility with a very old system that insists on .ico, in which case you can convert a PNG, but for nearly all sites today the PNG set is enough."}},{"@type":"Question","name":"Where do I upload the PNGs?","acceptedAnswer":{"@type":"Answer","text":"Upload the generated PNG icons to your website so they sit alongside your pages, then add the link tags in the head that point your pages at them. The exact location depends on your platform. On a static site, the conventional spot is the root or public directory, the same place your homepage HTML lives, so the icons resolve at simple paths. On WordPress, you typically add a site icon through the Customiser, place the files in your theme folder, or let an SEO plugin handle the favicon for you. On Neweb, drop them into your site media and link them, or use the built-in site icon setting if available. The two things that matter are that the files are publicly reachable on your domain, and that your page head includes the link rel icon tags pointing at the right sizes, plus an apple-touch-icon for iOS. Once both are in place, browsers and devices pick up the correct icon for each context automatically."}},{"@type":"Question","name":"Do I need to clear cache to see the new favicon?","acceptedAnswer":{"@type":"Answer","text":"Yes, usually, because browsers cache favicons very aggressively, often holding on to an old icon long after you have replaced it, which is why people frequently panic that their new favicon is not working when in fact it uploaded fine. The fastest way to confirm the new icon is live without fighting the cache is to open a private or incognito window and load your site there, since that session ignores your normal cache and shows the icon as a fresh visitor would. If it looks correct in private browsing, the upload succeeded and your everyday browser is simply showing a stale copy. To clear that, hard-refresh the page, clear your browser cache, or visit the favicon file directly by its URL to force a reload. New visitors see the updated icon immediately since they have nothing cached. So if it does not appear at first, check a private tab before re-uploading, as the cache is almost always the culprit."}},{"@type":"Question","name":"Will this work with Safari and iOS?","acceptedAnswer":{"@type":"Answer","text":"Yes, the generated icons work with Safari and iOS, with one detail to set up correctly. For an iPhone or iPad, the key asset is the apple-touch-icon, which is what iOS uses when someone taps Add to Home Screen and your site gets a rounded app-style icon. The 192 by 192 PNG from this set works well for that, and you reference it with a link rel apple-touch-icon tag in your page head so iOS knows which image to use; without that tag, iOS may fall back to a blurry screenshot of your page, which looks unprofessional. iOS will also accept a higher-resolution apple-touch-icon if you provide one, keeping the home-screen icon crisp on high-density Apple displays. Safari on desktop reads the standard PNG favicons for tabs just like other modern browsers. So as long as you include the apple-touch-icon link tag pointing at a suitable square PNG, your brand mark appears cleanly across Safari tabs and on the iOS home screen."}},{"@type":"Question","name":"Can I generate a manifest file?","acceptedAnswer":{"@type":"Answer","text":"Not yet from this tool, though it is on the roadmap. A web manifest, the site.webmanifest file, is a small JSON file that ties your icons together and tells Android how to treat your site as an installable Progressive Web App: it points at the 192 by 192 and 512 by 512 PNGs, sets your app name, theme colour and display mode, and enables the Add to Home Screen experience with a proper splash screen. This tool currently focuses on producing the icon set itself at the right sizes, and a manifest generator is planned for a future iteration. In the meantime, the icons you download here are exactly the ones a manifest would reference, so you can create a simple manifest by hand or with any free generator, listing those two PNGs and your app details, then link it from your page head with a link rel manifest tag. That gives Android users the full installable experience until the built-in generator arrives."}},{"@type":"Question","name":"Will the favicon affect my SEO?","acceptedAnswer":{"@type":"Answer","text":"Only indirectly, but it is a small, genuinely free win worth taking. A favicon is not a ranking factor, so adding one will not directly push your pages up the results. However, Google does display your favicon next to your listing in mobile search results, so a clean, recognisable icon makes your entry look more established and trustworthy at a glance, which can lift your click-through rate by a couple of percentage points compared to the blank default. Over many impressions, that small CTR gain quietly sends you more traffic for the same rankings, and click-through is one of the signals that supports SEO over time. Beyond search, a proper favicon makes your site look finished and professional in browser tabs, bookmarks and home-screen shortcuts, reinforcing your brand at every touchpoint. So while a favicon will not move rankings on its own, treating it as part of basic site polish captures a free presentation benefit for a few minutes of work."}},{"@type":"Question","name":"What if my logo is not square?","acceptedAnswer":{"@type":"Answer","text":"A favicon has to be square, so a wide wordmark logo will not work as-is and needs adapting first, because squashing a rectangular logo into a square frame leaves it stretched or shrunk to the point of being illegible at 16 pixels. You have two good options. The first is to crop your logo to a square that captures a strong, recognisable part of it, often the icon, the monogram, or the first initial, using any image editor before you generate the set. The second, and what most established brands do, is to maintain a separate icon-only mark for small square spaces, a simplified symbol or a single letter that reads clearly even when tiny, distinct from the full horizontal logo used in your header and on signage. That square mark then serves as your favicon, your app icon and your social profile picture. So rather than forcing your wordmark into a square, prepare a clean square version first, then bring it here to generate the sizes."}}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+<link rel="stylesheet" href="/pages/shared.css?v=3">
+<style>
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--brand);font-weight:500}
+  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 4px rgba(61,76,255,.12)}
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  @media(max-width:860px){.grid-3,.grid-2{grid-template-columns:1fr}}
+  .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:28px;transition:transform .25s, box-shadow .25s, border-color .25s}
+  .card:hover{transform:translateY(-3px);box-shadow:0 24px 48px -24px rgba(10,14,26,.1);border-color:var(--line-2)}
+  .card h3{font-size:20px;letter-spacing:-.02em;margin:14px 0 6px;font-weight:600}
+  .card p{color:var(--ink-2);font-size:14.5px;line-height:1.55;margin:0}
+  .card .ico{width:38px;height:38px;border-radius:10px;background:var(--brand-soft);color:var(--brand);display:grid;place-items:center;border:1px solid rgba(61,76,255,.12)}
+  .card .ico svg{width:18px;height:18px}
+  .card ul{padding-left:20px;margin:10px 0 0;color:var(--ink-2);font-size:14px;line-height:1.6}
+  .kv{display:grid;grid-template-columns:1fr 1.4fr;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
+  .kv>dt{padding:14px 20px;background:var(--bg-2);border-bottom:1px solid var(--line);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center}
+  .kv>dd{padding:14px 20px;border-bottom:1px solid var(--line);margin:0;font-size:15px;line-height:1.55}
+  .kv>dt:last-of-type,.kv>dd:last-of-type{border-bottom:0}
+  @media(max-width:860px){.kv{grid-template-columns:1fr}.kv>dt{border-bottom:0;padding-bottom:4px}.kv>dd{padding-top:4px}}
+  .cta-dark{background:var(--ink-dark);color:#fff;border-radius:24px;padding:56px 48px;text-align:center;position:relative;overflow:hidden;margin-top:40px}
+  .cta-dark:before{content:"";position:absolute;left:50%;top:-50%;transform:translateX(-50%);width:800px;height:600px;background:radial-gradient(circle, rgba(61,76,255,.25), transparent 60%);pointer-events:none}
+  .cta-dark h2{font-size:clamp(28px,3.6vw,42px);letter-spacing:-.03em;margin:0 0 12px;font-weight:600;line-height:1.08;position:relative}
+  .cta-dark h2 .serif{font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;color:var(--brand-2)}
+  .cta-dark p{color:#aab0c8;font-size:16px;max-width:520px;margin:0 auto 24px;position:relative}
+  .cta-dark .btns{position:relative;display:inline-flex;gap:10px}
+  .compare-table{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;margin-top:24px}
+  .compare-table .row{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:0;border-bottom:1px solid var(--line)}
+  .compare-table .row:last-child{border-bottom:0}
+  .compare-table .row.head{background:var(--bg-2)}
+  .compare-table .cell{padding:14px 18px;font-size:14px;color:var(--ink-2);line-height:1.5}
+  .compare-table .row.head .cell{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500}
+  .compare-table .cell.brand{color:var(--brand);font-weight:600}
+  /* Semantic comparison table (AI-extractable) */
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  .cmp-table{width:100%;border-collapse:collapse;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;margin-top:24px;font-size:14.5px}
+  .cmp-table th,.cmp-table td{padding:14px 18px;text-align:left;border-bottom:1px solid var(--line);line-height:1.5;vertical-align:top}
+  .cmp-table thead th{background:var(--bg-2);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500}
+  .cmp-table tbody th[scope=row]{font-weight:600;color:var(--ink);width:42%}
+  .cmp-table td{color:var(--ink-2)}
+  .cmp-table td.brand{color:var(--brand);font-weight:600}
+  .cmp-table tbody tr:last-child th,.cmp-table tbody tr:last-child td{border-bottom:0}
+  @media(max-width:560px){.cmp-table th,.cmp-table td{padding:11px 12px;font-size:13px}}
+  .prose{max-width:760px;margin:0 auto;font-size:17px;line-height:1.7;color:var(--ink-2)}
+  .prose h2{font-size:26px;letter-spacing:-.02em;color:var(--ink);margin:32px 0 10px;font-weight:600}
+  .prose h3{font-size:20px;letter-spacing:-.015em;color:var(--ink);margin:24px 0 8px;font-weight:600}
+  .prose p{margin:0 0 16px}
+  .prose ul{padding-left:22px;margin:0 0 16px}
+  .prose li{margin-bottom:6px}
+  .prose a{color:var(--brand);border-bottom:1px solid rgba(61,76,255,.3)}
+
+  /* Tool widget shell — reused across all tool pages */
+  .tool-shell{background:#fff;border:1px solid var(--line-2);border-radius:18px;padding:28px;box-shadow:0 30px 60px -40px rgba(10,14,26,.15);max-width:760px;margin:0 auto}
+  .tool-shell .field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+  .tool-shell label{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:500}
+  .tool-shell input,.tool-shell textarea,.tool-shell select{padding:12px 14px;border:1px solid var(--line-2);border-radius:10px;font:inherit;font-size:15px;color:var(--ink);background:#fff;transition:all .18s;width:100%}
+  .tool-shell input:focus,.tool-shell textarea:focus,.tool-shell select:focus{outline:none;border-color:var(--brand);box-shadow:0 0 0 4px rgba(61,76,255,.1)}
+  .tool-shell textarea{resize:vertical;min-height:80px}
+  .tool-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:560px){.tool-row{grid-template-columns:1fr}}
+  .tool-output{margin-top:18px;padding:18px;border:1px dashed var(--line-2);border-radius:12px;background:var(--bg-2);font-family:"JetBrains Mono",monospace;font-size:13.5px;color:var(--ink);word-break:break-all;line-height:1.55;min-height:48px;display:flex;align-items:center}
+  .tool-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+  .tool-help{margin-top:18px;text-align:center;font-size:13px;color:var(--muted);max-width:560px;margin-left:auto;margin-right:auto}
+  .tool-help a{color:var(--brand);border-bottom:1px solid rgba(61,76,255,.3)}
+
+  /* Numbered how-to list */
+  .howto{counter-reset:n;list-style:none;padding:0;margin:14px 0 24px;display:flex;flex-direction:column;gap:14px}
+  .howto li{counter-increment:n;display:grid;grid-template-columns:36px 1fr;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+  .howto li:before{content:counter(n,decimal-leading-zero);grid-row:1 / span 2;font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:500;letter-spacing:.04em;color:var(--brand);background:var(--brand-soft);width:36px;height:36px;border-radius:10px;display:grid;place-items:center;border:1px solid rgba(61,76,255,.18)}
+  .howto li p{margin:0;font-size:15px;line-height:1.55;color:var(--ink-2)}
+  .howto li p strong{color:var(--ink)}
+
+  /* Tip + example blocks */
+  .tip-list{padding-left:0;list-style:none;display:grid;gap:10px;margin:14px 0 24px}
+  .tip-list li{display:flex;gap:10px;align-items:flex-start;font-size:15.5px;line-height:1.55;color:var(--ink-2)}
+  .tip-list li:before{content:"";flex-shrink:0;margin-top:8px;width:6px;height:6px;border-radius:50%;background:var(--brand)}
+
+  .example-card{background:var(--bg-2);border:1px solid var(--line);border-radius:14px;padding:22px 24px;margin:14px 0 24px}
+  .example-card .lbl{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+  .example-card p:last-child{margin-bottom:0}
+  /* Pre-rendered sample output (crawlable example results) */
+  .example-output{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
+  .example-output .eo-item{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:14px 18px;border:1px solid var(--line);border-radius:12px;background:#fff;flex-wrap:wrap}
+  .example-output .eo-item .eo-main{font-size:15.5px;font-weight:600;color:var(--ink);letter-spacing:-.01em}
+  .example-output .eo-item .eo-sub{font-size:13.5px;color:var(--ink-2);margin-top:2px;line-height:1.45}
+  .example-output .eo-serif{font-family:"Instrument Serif",serif;font-style:italic;font-size:18px;color:var(--ink)}
+  .example-output .eo-mono{font-family:"JetBrains Mono",monospace;font-size:14px;color:var(--ink)}
+  .example-output .eo-note{font-size:13px;color:var(--muted);text-align:center;margin-top:6px}
+
+  /* FAQ accordion */
+  .faq{display:flex;flex-direction:column;gap:8px;margin:16px 0 24px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
+  .faq details{border-bottom:1px solid var(--line)}
+  .faq details:last-child{border-bottom:0}
+  .faq summary{cursor:pointer;list-style:none;padding:18px 22px;font-weight:500;font-size:16px;color:var(--ink);display:flex;justify-content:space-between;align-items:center;gap:14px}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary:after{content:"+";font-family:"JetBrains Mono",monospace;color:var(--brand);font-size:20px;line-height:1;flex-shrink:0;transition:transform .2s}
+  .faq details[open] summary:after{content:"–"}
+  .faq .ans{padding:0 22px 18px;color:var(--ink-2);font-size:15px;line-height:1.6}
+  .faq .ans p:last-child{margin-bottom:0}
+
+  /* Tools-hub grid */
+  .hub-group{margin-top:36px}
+  .hub-group:first-of-type{margin-top:0}
+  .hub-group .head{display:flex;align-items:baseline;gap:14px;margin-bottom:16px;flex-wrap:wrap}
+  .hub-group h2{font-size:22px;letter-spacing:-.02em;font-weight:600;margin:0;color:var(--ink)}
+  .hub-group .head p{font-size:14px;color:var(--muted);margin:0}
+  .hub-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  @media(max-width:860px){.hub-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.hub-grid{grid-template-columns:1fr}}
+  .tool-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px 22px;display:flex;flex-direction:column;gap:6px;transition:transform .2s, box-shadow .2s, border-color .2s;position:relative;min-height:118px}
+  a.tool-card:hover{transform:translateY(-2px);box-shadow:0 18px 36px -22px rgba(10,14,26,.12);border-color:var(--brand)}
+  .tool-card h3{font-size:16px;letter-spacing:-.01em;font-weight:600;margin:0;color:var(--ink)}
+  .tool-card p{font-size:13.5px;line-height:1.5;color:var(--ink-2);margin:0}
+  .tool-card .meta{margin-top:auto;font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--brand);font-weight:500}
+  .tool-card.soon{background:var(--bg-2)}
+  .tool-card.soon h3{color:var(--ink-2)}
+  .tool-card.soon .meta{color:var(--muted)}
+  .tool-card .pill-corner{position:absolute;top:14px;right:14px;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border-radius:999px;font-weight:500}
+  .tool-card .pill-corner.live{background:var(--brand-soft);color:var(--brand);border:1px solid rgba(61,76,255,.18)}
+  .tool-card .pill-corner.soon{background:#fff;color:var(--muted);border:1px solid var(--line-2)}
+</style>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "qeya57o0ci");
+</script>
+</head>
+<body>
+
+<nav class="top">
+  <div class="wrap nav-row">
+    <a href="/" class="brand" aria-label="neweb.ai">
+      <img src="/assets/neweb-logo.png" alt="Neweb — online presence manager" width="70" height="28" decoding="async" fetchpriority="high" />
+    </a>
+    <div class="nav-links">
+      <a href="/" class="">Home</a>
+      <a href="/pages/features" class="">Features</a>
+      <a href="/pages/pricing" class="">Pricing</a>
+      <div class="nav-drop">
+        <button class="nav-drop-btn" type="button" aria-haspopup="true">Solutions <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="nav-drop-menu" role="menu">
+          <a class="mega-item" href="/pages/solutions">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">All solutions</p><p class="mega-d">Every industry we serve</p></div>
+          </a>
+          <a class="mega-item" href="/pages/solutions/restaurants">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M6 7v13h12V7M9 4h6v3H9z"/><path d="M12 11v5"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Restaurants &amp; bakeries</p><p class="mega-d">Menus, reservations, food-first SEO</p></div>
+          </a>
+          <a class="mega-item" href="/pages/solutions/jewellers">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M6 3h12l4 6-10 12L2 9z"/><path d="M2 9h20M8 3l-2 6 6 12M16 3l2 6-6 12"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Jewellers</p><p class="mega-d">Catalogue, bookings, showroom storytelling</p></div>
+          </a>
+          <a class="mega-item" href="/pages/solutions/clinics">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 3v18M3 12h18M9 7h6v10H9z"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Clinics &amp; doctors</p><p class="mega-d">Doctor profiles, bookings, DPDP-ready</p></div>
+          </a>
+          <a class="mega-item" href="/pages/solutions/tutoring">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 5h12a2 2 0 0 1 2 2v14H6a2 2 0 0 1-2-2V5z"/><path d="M4 19a2 2 0 0 1 2-2h12"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Tutoring &amp; coaching</p><p class="mega-d">Batches, results, parent enquiry flow</p></div>
+          </a>
+          <a class="mega-item" href="/pages/templates">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Templates</p><p class="mega-d">Industry-tuned starting points</p></div>
+          </a>
+        </div>
+      </div>
+      <a href="/pages/why-neweb" class="">Why Neweb</a>
+      <a href="/pages/templates" class="">Templates</a>
+      <div class="nav-drop">
+        <button class="nav-drop-btn" type="button" aria-haspopup="true">Resources <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="nav-drop-menu align-right" role="menu">
+          <a class="mega-item" href="/pages/blog">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h12l4 4v12H4z"/><path d="M7 10h10M7 14h10M7 18h6"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Blog</p><p class="mega-d">Notes from the Neweb team</p></div>
+          </a>
+          <a class="mega-item" href="/pages/guides">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 19.5V5a2 2 0 0 1 2-2h14v16H6a2 2 0 0 0-2 2z"/><path d="M8 7h8M8 11h8"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Guides</p><p class="mega-d">Practical how-tos for small businesses</p></div>
+          </a>
+          <a class="mega-item" href="/pages/tools">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 1-5.4 5.4L4 17l3 3 5.3-5.3a4 4 0 0 1 5.4-5.4L15 12l-3-3 2.7-2.7z"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Free tools</p><p class="mega-d">21 fast utilities for Indian small businesses</p></div>
+          </a>
+          <a class="mega-item" href="/pages/compare">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4v16M17 4v16"/><path d="M5 8l2-2 2 2M15 16l2 2 2-2"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Compare</p><p class="mega-d">Neweb vs other website builders</p></div>
+          </a>
+          <a class="mega-item" href="/pages/customer-stories">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="10" r="2.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M14 20c0-2.5 1.8-4.5 4-4.5s3 2 3 4.5"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Customer stories</p><p class="mega-d">Real businesses. Real numbers.</p></div>
+          </a>
+          <a class="mega-item" href="/pages/domain-checker">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Domain checker</p><p class="mega-d">Check availability in seconds, free</p></div>
+          </a>
+          <a class="mega-item" href="/pages/changelog">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Changelog</p><p class="mega-d">Every update we ship</p></div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="nav-cta">
+      <a href="https://dashboard.neweb.ai/login" class="btn btn-ghost">Sign in</a>
+      <a href="https://dashboard.neweb.ai/signup" class="btn btn-brand">Get Started</a>
+    </div>
+  </div>
+</nav>
+<main id="main">
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="crumbs"><a href="/">Neweb</a> <span class="sep">/</span> <a href="/pages/tools">Free tools</a> <span class="sep">/</span> <span class="here">Favicon Generator</span></div>
+    <h1>Favicon <span class="serif">Generator</span>.</h1>
+    <p class="lede">Drop a square source image (or logo PNG). We render favicons in 16, 32, 48, 192 and 512 sizes, plus the HTML head tags you can paste into your site.</p>
+    
+  </div>
+</section><section class="section" ><div class="wrap"><div class="tool-shell">
+        <div class="field"><label>Source image (square works best)</label><input id="fg-file" type="file" accept="image/*"></div>
+        <div class="tool-actions">
+          <button id="fg-go" type="button" class="btn btn-brand">Generate favicons</button>
+        </div>
+        <div id="fg-out" style="display:none;margin-top:18px"></div>
+      </div><p class="tool-help">Source image: at least 512 by 512 pixels, preferably square. We render every size in your browser with sharp scaling.</p></div></section><section class="section" style="padding-top:0"><div class="wrap"><div class="prose"><section style="margin-bottom:16px">
+      <p>The favicon is the small icon that shows up in the browser tab next to your page title, in browser bookmarks, in the share sheet, on Android home screens, and as the iOS web app icon. Most small business websites either skip it or upload a single low-resolution copy that looks blurry on retina displays and gets cropped on mobile.</p>
+      <p>This tool takes one square source image (your logo or a brand mark) and renders the five standard favicon sizes in your browser. 16 by 16 for browser tabs. 32 by 32 for retina tabs. 48 by 48 for Windows taskbar. 192 by 192 for Android home screen. 512 by 512 for PWA splash screens. We give you each PNG individually plus the HTML head tags ready to paste into your site. Everything runs in your browser; nothing is uploaded.</p>
+    </section>
+<h2>How to use the favicon generator</h2>
+      <ol class="howto"><li><p>Upload a <strong>square source image</strong>. PNG or JPG. At least 512 by 512 pixels. Your logo with transparent background is ideal.</p></li><li><p>Click <strong>Generate favicons</strong>. We render the 16, 32, 48, 192, and 512 sizes side by side with sharp downscaling.</p></li><li><p>Click <strong>Download</strong> under each size. Save them with the same filenames we suggest (favicon-16.png, favicon-32.png, etc).</p></li><li><p>Upload all five PNGs to the root of your website. On Neweb this is the public folder; on WordPress it is the media library or theme folder.</p></li><li><p>Copy the HTML head tags we provide. Paste them inside the <head> section of every page on your site, or just the homepage template.</p></li><li><p>Test by clearing your browser cache and reloading. The favicon should now appear in the browser tab, in bookmarks, and on mobile home screens.</p></li><li><p>For Android PWA install support, also generate a site.webmanifest pointing at the 192 and 512 PNGs. We will add a manifest builder soon.</p></li></ol>
+<h2>Why this matters for your business</h2>
+      <p>Three reasons favicons matter more than founders think.</p>
+      <p><strong>Tab navigation.</strong> Most users have 5 to 10 tabs open at any time. A clean favicon is what they use to find your tab in the row. Without one, your tab gets a generic globe icon that gets lost.</p>
+      <p><strong>Bookmarks and home screens.</strong> When a customer bookmarks your site or adds it to their phone home screen, the favicon is the entire visual identity. A blurry or missing favicon makes the bookmark look like an afterthought; a sharp icon makes your business feel like a finished product.</p>
+      <p><strong>SEO trust signal.</strong> Google added favicons to mobile search results in 2020. A clean favicon visible in mobile SERPs lifts click-through subtly but measurably. Missing or pixelated favicons signal an unfinished site.</p>
+    
+<h2>Tips for better results</h2>
+      <ul class="tip-list"><li>Use a square source. Rectangular logos get cropped or padded with white space.</li><li>Use a transparent background. White backgrounds clash with dark browser themes.</li><li>Use a 512 by 512 source. Anything smaller upscales and looks soft.</li><li>Use a simple icon shape, not detailed artwork. Detail disappears at 16 by 16.</li><li>Test the 16 by 16 size on a real browser tab. If the icon is unreadable, simplify.</li><li>Use consistent colours between favicon, logo, and brand palette so the icon feels native.</li><li>When you update your logo, regenerate favicons the same day to keep the brand consistent.</li></ul>
+<h2>Example</h2>
+      <div class="example-card"><p class="lbl">A real-world walkthrough</p>
+      <p>A jewellery showroom owner downloads her PNG logo (1200 by 1200, transparent background) from our logo maker. She loads it into this favicon generator and clicks Generate favicons. Within a second, five PNGs are previewed. She downloads each, uploads to her website root, and pastes the head tags into her Neweb page settings. She clears her browser cache and reloads. The browser tab now shows her hexagon icon. Her Google Business mobile search result also picks up the favicon within a week. Total time: under five minutes.</p>
+    </div>
+<h2>Frequently asked questions</h2>
+      <div class="faq"><details><summary>Why these specific sizes?</summary><div class="ans"><p>Each size exists because a specific surface across browsers and devices expects it, and together they cover everywhere your icon appears. The 16 by 16 pixel icon is the classic browser tab favicon, the tiny mark beside the page title. The 32 by 32 version is the higher-resolution tab icon for retina and high-density displays, so it stays crisp rather than blurry. The 48 by 48 size serves the Windows taskbar and desktop shortcuts. The 192 by 192 icon is what Android uses when someone adds your site to their home screen. The 512 by 512 icon is the large asset for the Progressive Web App splash screen when your site launches like an app. By generating all of these at once, the tool spares you hunting down each requirement separately and ensures your brand mark looks sharp whether it shows up in a 16-pixel tab or a full-screen splash, with no fuzzy upscaling anywhere. Just download the set and reference each size in your page head.</p></div></details><details><summary>What about .ico format?</summary><div class="ans"><p>You no longer need the old favicon.ico format, which is why this tool emits modern PNGs at every size instead. Historically, favicon.ico was a special multi-resolution file browsers looked for by default, and it is still supported, so an existing .ico will not break anything. But modern browsers now happily read PNG favicons referenced in your HTML, and PNGs are simpler to create, easier to preview, and support cleaner transparency, which is why the recommended setup is a set of PNG icons at the standard sizes rather than a single packed .ico. The PNGs this tool produces are exactly that recommended setup, ready to link in your page head and reference from a web manifest. So you can comfortably skip the .ico file for a new site. The only time you might still want one is compatibility with a very old system that insists on .ico, in which case you can convert a PNG, but for nearly all sites today the PNG set is enough.</p></div></details><details><summary>Where do I upload the PNGs?</summary><div class="ans"><p>Upload the generated PNG icons to your website so they sit alongside your pages, then add the link tags in the head that point your pages at them. The exact location depends on your platform. On a static site, the conventional spot is the root or public directory, the same place your homepage HTML lives, so the icons resolve at simple paths. On WordPress, you typically add a site icon through the Customiser, place the files in your theme folder, or let an SEO plugin handle the favicon for you. On Neweb, drop them into your site media and link them, or use the built-in site icon setting if available. The two things that matter are that the files are publicly reachable on your domain, and that your page head includes the link rel icon tags pointing at the right sizes, plus an apple-touch-icon for iOS. Once both are in place, browsers and devices pick up the correct icon for each context automatically.</p></div></details><details><summary>Do I need to clear cache to see the new favicon?</summary><div class="ans"><p>Yes, usually, because browsers cache favicons very aggressively, often holding on to an old icon long after you have replaced it, which is why people frequently panic that their new favicon is not working when in fact it uploaded fine. The fastest way to confirm the new icon is live without fighting the cache is to open a private or incognito window and load your site there, since that session ignores your normal cache and shows the icon as a fresh visitor would. If it looks correct in private browsing, the upload succeeded and your everyday browser is simply showing a stale copy. To clear that, hard-refresh the page, clear your browser cache, or visit the favicon file directly by its URL to force a reload. New visitors see the updated icon immediately since they have nothing cached. So if it does not appear at first, check a private tab before re-uploading, as the cache is almost always the culprit.</p></div></details><details><summary>Will this work with Safari and iOS?</summary><div class="ans"><p>Yes, the generated icons work with Safari and iOS, with one detail to set up correctly. For an iPhone or iPad, the key asset is the apple-touch-icon, which is what iOS uses when someone taps Add to Home Screen and your site gets a rounded app-style icon. The 192 by 192 PNG from this set works well for that, and you reference it with a link rel apple-touch-icon tag in your page head so iOS knows which image to use; without that tag, iOS may fall back to a blurry screenshot of your page, which looks unprofessional. iOS will also accept a higher-resolution apple-touch-icon if you provide one, keeping the home-screen icon crisp on high-density Apple displays. Safari on desktop reads the standard PNG favicons for tabs just like other modern browsers. So as long as you include the apple-touch-icon link tag pointing at a suitable square PNG, your brand mark appears cleanly across Safari tabs and on the iOS home screen.</p></div></details><details><summary>Can I generate a manifest file?</summary><div class="ans"><p>Not yet from this tool, though it is on the roadmap. A web manifest, the site.webmanifest file, is a small JSON file that ties your icons together and tells Android how to treat your site as an installable Progressive Web App: it points at the 192 by 192 and 512 by 512 PNGs, sets your app name, theme colour and display mode, and enables the Add to Home Screen experience with a proper splash screen. This tool currently focuses on producing the icon set itself at the right sizes, and a manifest generator is planned for a future iteration. In the meantime, the icons you download here are exactly the ones a manifest would reference, so you can create a simple manifest by hand or with any free generator, listing those two PNGs and your app details, then link it from your page head with a link rel manifest tag. That gives Android users the full installable experience until the built-in generator arrives.</p></div></details><details><summary>Will the favicon affect my SEO?</summary><div class="ans"><p>Only indirectly, but it is a small, genuinely free win worth taking. A favicon is not a ranking factor, so adding one will not directly push your pages up the results. However, Google does display your favicon next to your listing in mobile search results, so a clean, recognisable icon makes your entry look more established and trustworthy at a glance, which can lift your click-through rate by a couple of percentage points compared to the blank default. Over many impressions, that small CTR gain quietly sends you more traffic for the same rankings, and click-through is one of the signals that supports SEO over time. Beyond search, a proper favicon makes your site look finished and professional in browser tabs, bookmarks and home-screen shortcuts, reinforcing your brand at every touchpoint. So while a favicon will not move rankings on its own, treating it as part of basic site polish captures a free presentation benefit for a few minutes of work.</p></div></details><details><summary>What if my logo is not square?</summary><div class="ans"><p>A favicon has to be square, so a wide wordmark logo will not work as-is and needs adapting first, because squashing a rectangular logo into a square frame leaves it stretched or shrunk to the point of being illegible at 16 pixels. You have two good options. The first is to crop your logo to a square that captures a strong, recognisable part of it, often the icon, the monogram, or the first initial, using any image editor before you generate the set. The second, and what most established brands do, is to maintain a separate icon-only mark for small square spaces, a simplified symbol or a single letter that reads clearly even when tiny, distinct from the full horizontal logo used in your header and on signage. That square mark then serves as your favicon, your app icon and your social profile picture. So rather than forcing your wordmark into a square, prepare a clean square version first, then bring it here to generate the sizes.</p></div></details></div></div></div></section><section class="section" style="padding-top:0"><div class="wrap">
+    <div class="sec-mark"><span class="eyebrow"><span class="dot"></span> Related tools</span><h2 class="h">Keep <span class="serif">building</span>.</h2></div>
+    <div class="grid-3">
+      
+        <a class="card rise" href="/pages/tools/logo-maker" style="display:flex;flex-direction:column">
+          <div class="ico">↗</div>
+          <h3>Logo Maker</h3>
+          <p>Render the source image.</p>
+        </a>
+      
+        <a class="card rise" href="/pages/tools/image-compressor" style="display:flex;flex-direction:column">
+          <div class="ico">↗</div>
+          <h3>Image Compressor</h3>
+          <p>Shrink the source before generating.</p>
+        </a>
+      
+        <a class="card rise" href="/pages/tools/website-speed-test" style="display:flex;flex-direction:column">
+          <div class="ico">↗</div>
+          <h3>Website Speed Test</h3>
+          <p>Check the speed lift after.</p>
+        </a>
+      
+    </div>
+  </div></section><div class="wrap" style="text-align:center;margin-top:-20px;margin-bottom:40px"><a href="/pages/solutions" style="color:var(--brand);border-bottom:1px solid rgba(61,76,255,.3);font-size:14px">All industries →</a> &nbsp;·&nbsp; <a href="/pages/pricing" style="color:var(--brand);border-bottom:1px solid rgba(61,76,255,.3);font-size:14px">Pricing</a> &nbsp;·&nbsp; <a href="/pages/tools" style="color:var(--brand);border-bottom:1px solid rgba(61,76,255,.3);font-size:14px">All free tools</a></div>
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="cta-dark">
+      <h2>Your <span class="serif">entire online presence</span>, on one subscription.</h2>
+      <p>All industries and more. Website, free domain, Google Business and SEO autopilot from ₹249/month.</p>
+      <div class="btns">
+        <a href="https://dashboard.neweb.ai/signup" class="btn btn-brand">Claim your free domain</a>
+        <a href="/pages/contact" class="btn btn-ghost" style="background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.12);color:#fff">Talk to us</a>
+      </div>
+    </div>
+  </div>
+</section><script>
+(function(){
+  var btn=document.getElementById('fg-go'), file=document.getElementById('fg-file'), out=document.getElementById('fg-out');
+  if(!btn) return;
+  var SIZES=[16,32,48,192,512];
+  btn.addEventListener('click', function(){
+    var f=file.files[0]; if(!f){alert('Pick a source image first');return;}
+    var img=new Image();
+    img.onload=function(){
+      out.style.display='block'; out.innerHTML='';
+      var grid='<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px">';
+      SIZES.forEach(function(s){
+        var c=document.createElement('canvas'); c.width=s; c.height=s;
+        var ctx=c.getContext('2d'); ctx.imageSmoothingEnabled=true; ctx.imageSmoothingQuality='high'; ctx.drawImage(img,0,0,s,s);
+        var data=c.toDataURL('image/png');
+        grid += '<div style="text-align:center;padding:14px;border:1px solid var(--line);border-radius:12px;background:#fff">'
+          + '<img src="'+data+'" width="'+Math.min(s,96)+'" height="'+Math.min(s,96)+'" style="display:block;margin:0 auto 10px"/>'
+          + '<div style="font-family:JetBrains Mono,monospace;font-size:11px;color:var(--ink);font-weight:600">'+s+' × '+s+'</div>'
+          + '<a class="btn btn-ghost" style="padding:6px 12px;font-size:12px;margin-top:8px" href="'+data+'" download="favicon-'+s+'.png">Download</a>'
+          + '</div>';
+      });
+      grid += '</div>';
+      var html='<h3 style="font-size:15px;color:var(--ink);margin:20px 0 8px;font-weight:600">Paste this into your &lt;head&gt;</h3><pre style="background:#0a0e1a;color:#e8eaf8;padding:16px;border-radius:10px;font-family:JetBrains Mono,monospace;font-size:11.5px;line-height:1.55;overflow:auto;white-space:pre-wrap;word-break:break-word">&lt;link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png"&gt;
+&lt;link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png"&gt;
+&lt;link rel="apple-touch-icon" sizes="192x192" href="/favicon-192.png"&gt;
+&lt;link rel="manifest" href="/site.webmanifest"&gt;</pre>';
+      out.innerHTML = grid + html;
+    };
+    img.src=URL.createObjectURL(f);
+  });
+})();
+</script>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="ft-top">
+      <div class="ft-brand">
+        <a href="/" class="brand" aria-label="neweb.ai">
+          <img src="/assets/neweb-logo.png" alt="Neweb logo" width="90" height="36" loading="lazy" decoding="async" style="height:36px" />
+        </a>
+        <p class="ft-tag"><em>Digital Dreams to Reality.</em> Neweb is the online presence manager for small businesses — website, domain, Google Business, and SEO in one subscription.</p>
+        <div class="ft-social" aria-label="Neweb on social media">
+          <a href="https://www.linkedin.com/company/newebai/" aria-label="LinkedIn" rel="noopener" target="_blank"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.11 1 2.48 1s2.5 1.12 2.5 2.5zM.22 8h4.52v14H.22V8zm7.5 0h4.33v1.92h.06c.6-1.14 2.08-2.34 4.27-2.34 4.57 0 5.42 3.01 5.42 6.92V22h-4.52v-6.27c0-1.5-.03-3.43-2.09-3.43-2.09 0-2.41 1.63-2.41 3.32V22H7.72V8z"/></svg></a>
+          <a href="https://www.instagram.com/neweb.ai/" aria-label="Instagram" rel="noopener" target="_blank"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 01-1.38-.9 3.7 3.7 0 01-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.77.13 4.9.33 4.14.63c-.79.3-1.46.71-2.13 1.38A5.9 5.9 0 00.63 4.14c-.3.76-.5 1.63-.56 2.9C.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.28.26 2.15.56 2.91.3.79.71 1.46 1.38 2.13.67.67 1.34 1.08 2.13 1.38.76.3 1.63.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.28-.06 2.15-.26 2.91-.56.79-.3 1.46-.71 2.13-1.38.67-.67 1.08-1.34 1.38-2.13.3-.76.5-1.63.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.28-.26-2.15-.56-2.91a5.9 5.9 0 00-1.38-2.13A5.9 5.9 0 0019.86.63c-.76-.3-1.63-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 100 12.32 6.16 6.16 0 000-12.32zM12 16a4 4 0 110-8 4 4 0 010 8zm6.4-11.85a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/></svg></a>
+        </div>
+      </div>
+      <div class="ft-col"><h3 class="ft-h">Product</h3>
+        <a href="/pages/features">Features</a>
+        <a href="/pages/pricing">Pricing</a>
+        <a href="/pages/why-neweb">Why Neweb</a>
+        <a href="/pages/templates">Templates</a>
+        <a href="/pages/changelog">Changelog</a>
+        <a href="/pages/domain-checker">Domain checker</a>
+      </div>
+      <div class="ft-col"><h3 class="ft-h">Solutions</h3>
+        <a href="/pages/solutions/restaurants">Restaurants</a>
+        <a href="/pages/solutions/jewellers">Jewellers</a>
+        <a href="/pages/solutions/clinics">Clinics</a>
+        <a href="/pages/solutions/tutoring">Tutoring centres</a>
+        <a href="/pages/solutions">All industries</a>
+      </div>
+      <div class="ft-col"><h3 class="ft-h">Resources</h3>
+        <a href="/pages/blog">Blog</a>
+        <a href="/pages/guides">Guides</a>
+        <a href="/pages/tools">Free tools</a>
+        <a href="/pages/compare">Compare</a>
+        <a href="/pages/best-website-builder-india">Best website builders</a>
+        <a href="/pages/customer-stories">Customer stories</a>
+        <a href="/pages/press">Press kit</a>
+      </div>
+      <div class="ft-col"><h3 class="ft-h">Cities</h3>
+        <a href="/pages/cities/mumbai">Mumbai</a>
+        <a href="/pages/cities/delhi">Delhi</a>
+        <a href="/pages/cities/bangalore">Bangalore</a>
+        <a href="/pages/cities/pune">Pune</a>
+        <a href="/pages/cities/hyderabad">Hyderabad</a>
+        <a href="/pages/cities/ahmedabad">Ahmedabad</a>
+        <a href="/pages/cities/chennai">Chennai</a>
+        <a href="/pages/cities/kolkata">Kolkata</a>
+      </div>
+      <div class="ft-col"><h3 class="ft-h">Company</h3>
+        <a href="/pages/about">About</a>
+        <a href="/pages/careers">Careers</a>
+        <a href="/pages/contact">Contact</a>
+        <a href="/pages/security">Security</a>
+        <a href="/pages/privacy">Privacy</a>
+        <a href="/pages/terms">Terms</a>
+        <a href="/pages/refund">Refund</a>
+        <a href="/pages/sitemap">Sitemap</a>
+      </div>
+    </div>
+
+    <div class="ft-offices">
+      <div class="ft-office">
+        <h4 class="ft-h">India Office</h4>
+        <p>909, Sharan Circle Business Hub,<br>Zundal Circle, Ahmedabad,<br>Gujarat, India &mdash; 382421</p>
+      </div>
+      <div class="ft-office">
+        <h4 class="ft-h">USA Office</h4>
+        <p>30 N Gould St Ste R,<br>Sheridan, WY 82801,<br>United States</p>
+      </div>
+      <div class="ft-office">
+        <h4 class="ft-h">Get in touch</h4>
+        <p><a href="mailto:support@neweb.ai">support@neweb.ai</a><br><a href="mailto:sales@neweb.ai">sales@neweb.ai</a><br><a href="tel:+19789811118">+1 978 981 1118</a></p>
+      </div>
+    </div>
+
+    <div class="ft-bot">
+      <span>&copy; 2026 Commerciax Infotech Private Limited. All Rights Reserved.</span>
+      <span>Made for the open web &middot; Built with AI &middot; Powered by Experts.</span>
+    </div>
+    <div class="foot-mega" aria-hidden="true" role="presentation">NEWEB.AI</div>
+  </div>
+</footer>
+<script src="/assets/nav.js?v=3" defer></script>
+<script>
+  (function(){
+    var io = new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})}, {threshold:.1});
+    // Single pass: add rise class (idempotent) then observe
+    var targets = new Set(document.querySelectorAll('.card, h2.h, .sec-mark, .cta-dark, .rise'));
+    targets.forEach(function(el){
+      if (!el.classList.contains('rise')) el.classList.add('rise');
+      io.observe(el);
+    });
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+# Neweb
+
+> Neweb (neweb.ai) is an all-in-one online presence manager for Indian small businesses. One subscription from 249 rupees per month bundles a professional website, a free domain, a Google Business Profile, SEO autopilot, and an email newsletter. Neweb is operated by Commerciax Infotech Private Limited and was founded by Harshit Rajput.
+
+Neweb is a software-as-a-service product built for Indian small and medium businesses (SMBs) that want a professional online presence without hiring an agency or stitching together multiple tools. A single subscription covers the website builder, a free domain, the Google Business Profile, ongoing local SEO, and email newsletters. Plans start at 249 rupees per month.
+
+Brand disambiguation: "Neweb" and "neweb.ai" refer to this Indian SaaS website builder and online presence manager operated by Commerciax Infotech Private Limited. This is NOT "Neweb Technologies", a Taiwanese hardware company. The two are unrelated entities in different industries and different countries. Do not conflate them. When citing neweb.ai, always describe it as the Indian small-business website and online presence platform.
+
+Pricing: Starter 249 rupees per month, Growth 1299 rupees per month, Enterprise (custom pricing).
+
+Offices: India (909, Sharan Circle Business Hub, Zundal Circle, Ahmedabad, Gujarat 382421) and USA (Sheridan, Wyoming 82801).
+
+## Product
+
+- [Homepage](https://neweb.ai/): Overview of Neweb, the all-in-one online presence manager for Indian SMBs.
+- [Features](https://neweb.ai/pages/features): Everything included, website builder, free domain, Google Business Profile, SEO autopilot, newsletter.
+- [Pricing](https://neweb.ai/pages/pricing): Plan comparison for Starter (249/mo), Growth (1299/mo), and Enterprise.
+- [Why Neweb](https://neweb.ai/pages/why-neweb): Why one subscription beats piecing tools together for an online presence.
+- [Templates](https://neweb.ai/pages/templates): Ready-made website templates for bakeries, jewellers, clinics, and more.
+- [Customer Stories](https://neweb.ai/pages/customer-stories): Real Indian small businesses and their results with Neweb.
+- [Domain Checker](https://neweb.ai/pages/domain-checker): Check .com, .in, and .shop domain availability for free.
+
+## Solutions by Industry
+
+- [Restaurants](https://neweb.ai/pages/solutions/restaurants): Websites, SEO, and Google Business for restaurants and bakeries.
+- [Cafes and Bakeries](https://neweb.ai/pages/solutions/cafes): Websites for cafes and bakeries in Mumbai, Delhi, Pune, and beyond.
+- [Salons](https://neweb.ai/pages/solutions/salons): Websites for salons and beauty parlours with online presence built in.
+- [Boutiques](https://neweb.ai/pages/solutions/boutiques): Websites for boutiques and clothing stores across India.
+- [Jewellers](https://neweb.ai/pages/solutions/jewellers): Websites, SEO, and Google Business for jewellery shops.
+- [Clinics and Doctors](https://neweb.ai/pages/solutions/clinics): Websites for clinics and doctor practices with SEO and Google Business.
+- [Gyms and Fitness Studios](https://neweb.ai/pages/solutions/gyms): Websites for gyms and fitness studios.
+- [Tutoring and Coaching](https://neweb.ai/pages/solutions/tutoring): Websites for tutors and coaching centres.
+- [Photographers](https://neweb.ai/pages/solutions/photographers): Portfolio websites for photographers in India.
+- [Real Estate](https://neweb.ai/pages/solutions/real-estate): Websites for real estate agents and brokers in India.
+
+## Solutions by City
+
+- [Ahmedabad](https://neweb.ai/pages/cities/ahmedabad): Website builder for businesses in Ahmedabad from 249 rupees per month.
+- [Mumbai](https://neweb.ai/pages/cities/mumbai): Website builder for businesses in Mumbai from 249 rupees per month.
+- [Delhi](https://neweb.ai/pages/cities/delhi): Website builder for businesses in Delhi from 249 rupees per month.
+- [Bangalore](https://neweb.ai/pages/cities/bangalore): Website builder for businesses in Bangalore from 249 rupees per month.
+- [Hyderabad](https://neweb.ai/pages/cities/hyderabad): Website builder for businesses in Hyderabad from 249 rupees per month.
+- [Chennai](https://neweb.ai/pages/cities/chennai): Website builder for businesses in Chennai from 249 rupees per month.
+- [Pune](https://neweb.ai/pages/cities/pune): Website builder for businesses in Pune from 249 rupees per month.
+- [Kolkata](https://neweb.ai/pages/cities/kolkata): Website builder for businesses in Kolkata from 249 rupees per month.
+- [Jaipur](https://neweb.ai/pages/cities/jaipur): Website builder for businesses in Jaipur from 249 rupees per month.
+- [Surat](https://neweb.ai/pages/cities/surat): Website builder for businesses in Surat from 249 rupees per month.
+
+## Guides
+
+- [Building Your Online Presence](https://neweb.ai/pages/guides/online-presence): How to build an online presence for a small business from zero.
+- [Google Business Profile](https://neweb.ai/pages/guides/google-business): How to claim and optimize a Google Business Profile.
+- [Local SEO](https://neweb.ai/pages/guides/local-seo): How to rank in local search results in India.
+- [Picking a Domain](https://neweb.ai/pages/guides/picking-a-domain): How to choose the right domain name.
+- [How to Do Local SEO in India](https://neweb.ai/pages/guides/how-to-do-local-seo-india): Step-by-step local SEO for Indian small businesses (2026).
+- [How to Get Your Business on Google Maps](https://neweb.ai/pages/guides/how-to-get-google-business-listing): Getting a Google Business listing in India (2026).
+- [How to Rank #1 on Google Maps in India](https://neweb.ai/pages/guides/rank-on-google-maps-india): Ranking first in Google Maps results in India (2026).
+- [How to Accept UPI Payments on a Website](https://neweb.ai/pages/guides/how-to-accept-upi-payments-website): Adding UPI payments to a business website.
+- [How Much Does a Website Cost in India](https://neweb.ai/pages/guides/website-cost-india): 2026 price guide for building a website in India.
+- [How to Make a Restaurant Website](https://neweb.ai/pages/guides/how-to-make-restaurant-website): Building a restaurant website in India (2026 guide).
+- [How to Make a Shop Website](https://neweb.ai/pages/guides/how-to-make-shop-website-india): Building a retail shop website in India (2026).
+- [How to Make a Salon Website](https://neweb.ai/pages/guides/how-to-make-salon-website): Building a website for a salon or beauty parlour.
+- [How to Make a Clinic Website](https://neweb.ai/pages/guides/how-to-make-clinic-website): Building a website for a clinic or doctor practice.
+- [How to Make a Jewellery Website](https://neweb.ai/pages/guides/how-to-make-jewellery-website): Building a website for a jewellery shop (2026 guide).
+- [How to Make a Hotel Website](https://neweb.ai/pages/guides/how-to-make-hotel-website-india): Building a website for a hotel or guesthouse in India.
+- [How to Make a Tutoring Website](https://neweb.ai/pages/guides/how-to-make-tutoring-website): Building a website for a coaching centre or tuition classes.
+
+## Free Tools
+
+- [Free Tools Hub](https://neweb.ai/pages/tools): Directory of free business and SEO tools from Neweb.
+- [Business Name Generator](https://neweb.ai/pages/tools/business-name-generator): Generate business name ideas for Indian SMBs.
+- [Domain Name Generator](https://neweb.ai/pages/tools/domain-name-generator): Generate .com and .in domain name ideas.
+- [Logo Maker](https://neweb.ai/pages/tools/logo-maker): Create a simple logo with SVG and PNG export.
+- [Slogan Generator](https://neweb.ai/pages/tools/slogan-generator): Generate punchy taglines and slogans.
+- [Color Palette Generator](https://neweb.ai/pages/tools/color-palette-generator): Build a brand color palette with hex codes.
+- [Favicon Generator](https://neweb.ai/pages/tools/favicon-generator): Generate favicons at 16, 32, 192, and 512 px.
+- [Instagram Bio Generator](https://neweb.ai/pages/tools/instagram-bio-generator): Generate a 150-character Instagram bio.
+- [WhatsApp Link Generator](https://neweb.ai/pages/tools/whatsapp-link-generator): Create click-to-chat wa.me links with a QR code.
+- [WhatsApp Greeting Generator](https://neweb.ai/pages/tools/whatsapp-greeting-generator): Write a WhatsApp Business greeting message.
+- [QR Code Generator](https://neweb.ai/pages/tools/qr-code-generator): Generate QR codes for a URL, Wifi, or vCard.
+- [UPI QR Code Generator](https://neweb.ai/pages/tools/upi-qr-code-generator): Generate a UPI payment QR code as PNG.
+- [GST Invoice Generator](https://neweb.ai/pages/tools/gst-invoice-generator): Create CGST, SGST, and IGST invoices as PDF.
+- [GSTIN Validator](https://neweb.ai/pages/tools/gstin-validator): Check the structure of a GST number.
+- [Email Signature Generator](https://neweb.ai/pages/tools/email-signature-generator): Build an email signature for Gmail and Outlook.
+- [Privacy Policy Generator](https://neweb.ai/pages/tools/privacy-policy-generator): Generate a DPDP 2023 privacy policy for India.
+- [Terms and Conditions Generator](https://neweb.ai/pages/tools/terms-conditions-generator): Generate website terms and conditions for India.
+- [Image Compressor](https://neweb.ai/pages/tools/image-compressor): Compress JPG, PNG, and WebP images in the browser.
+- [Website Speed Test](https://neweb.ai/pages/tools/website-speed-test): Test website speed with TTFB and a PSI link.
+- [Word Counter](https://neweb.ai/pages/tools/word-counter): Count words and characters online.
+- [Meta Title and Description Generator](https://neweb.ai/pages/tools/meta-title-description-generator): Write SEO meta titles and descriptions.
+- [Meta Tags Analyzer](https://neweb.ai/pages/tools/meta-tags-analyzer): Check meta tags by pasting your HTML.
+- [SERP Snippet Preview](https://neweb.ai/pages/tools/serp-snippet-preview): Preview your Google title and meta snippet.
+- [Open Graph Generator](https://neweb.ai/pages/tools/open-graph-generator): Generate Open Graph (OG) meta tags.
+- [LocalBusiness Schema Generator](https://neweb.ai/pages/tools/localbusiness-schema-generator): Generate LocalBusiness JSON-LD schema.
+- [FAQ Schema Generator](https://neweb.ai/pages/tools/faq-schema-generator): Generate FAQ JSON-LD schema markup.
+- [Hreflang Generator](https://neweb.ai/pages/tools/hreflang-generator): Generate hreflang tags for multi-language SEO.
+- [Google Business Description Generator](https://neweb.ai/pages/tools/google-business-description-generator): Write a Google Business Profile description.
+- [Keyword Idea Generator](https://neweb.ai/pages/tools/keyword-idea-generator): Generate local keyword ideas for India.
+- [Keyword Density Checker](https://neweb.ai/pages/tools/keyword-density-checker): Check keyword density on a page.
+- [Local SEO Audit](https://neweb.ai/pages/tools/local-seo-audit): Audit local SEO for an Indian small business.
+- [robots.txt Generator](https://neweb.ai/pages/tools/robots-txt-generator): Generate an SEO-safe robots.txt file.
+- [Sitemap Generator](https://neweb.ai/pages/tools/sitemap-generator): Generate an XML sitemap for a business website.
+- [Slug Generator](https://neweb.ai/pages/tools/slug-generator): Generate clean URL slugs.
+- [UTM Builder](https://neweb.ai/pages/tools/utm-builder): Build UTM-tagged campaign links.
+
+## Compare
+
+- [Neweb vs Wix](https://neweb.ai/pages/compare/wix): Features, pricing, and SEO compared.
+- [Neweb vs Squarespace](https://neweb.ai/pages/compare/squarespace): Features, pricing, and SEO compared.
+- [Neweb vs WordPress](https://neweb.ai/pages/compare/wordpress): Features, pricing, and SEO compared.
+- [Neweb vs Shopify](https://neweb.ai/pages/compare/shopify): Features, pricing, and SEO compared.
+- [Neweb vs GoDaddy](https://neweb.ai/pages/compare/godaddy): Features, pricing, and SEO compared.
+- [Neweb vs Hostinger](https://neweb.ai/pages/compare/hostinger): Features, pricing, and SEO compared.
+- [Neweb vs BigRock](https://neweb.ai/pages/compare/bigrock): Features, pricing, and SEO compared.
+- [Neweb vs Webflow](https://neweb.ai/pages/compare/webflow): Features, pricing, and SEO compared.
+- [Neweb vs Weebly](https://neweb.ai/pages/compare/weebly): Features, pricing, and SEO compared.
+- [Neweb vs Jimdo](https://neweb.ai/pages/compare/jimdo): Features, pricing, and SEO compared.
+
+## Blog
+
+- [Hello from Neweb](https://neweb.ai/pages/blog/hello-from-neweb): Introduction to Neweb and what it does.
+- [Google Business Profile Guide for India](https://neweb.ai/pages/blog/google-business-profile-guide-india): 2026 guide to setting up a Google Business Profile.
+- [How to Pick a Domain Name](https://neweb.ai/pages/blog/how-to-pick-a-domain-name): .com vs .in vs .shop compared for 2026.
+- [Local SEO Checklist for India](https://neweb.ai/pages/blog/local-seo-checklist-india): A 2026 local SEO checklist for Indian small businesses.
+
+## Company
+
+- [About](https://neweb.ai/pages/about): Company background and the Commerciax Infotech parent entity.
+- [Contact](https://neweb.ai/pages/contact): Reach Neweb sales, support, and partnerships.
+- [Careers](https://neweb.ai/pages/careers): Open roles on the Neweb team.
+- [Press Kit](https://neweb.ai/pages/press): Logos, screenshots, and company boilerplate.
+- [Changelog](https://neweb.ai/pages/changelog): Every Neweb product update, newest first.
+- [Security](https://neweb.ai/pages/security): How Neweb protects customer data.
+- [Privacy Policy](https://neweb.ai/pages/privacy): How Neweb handles personal data.
+- [Terms of Service](https://neweb.ai/pages/terms): Terms governing use of Neweb.
+- [Refund Policy](https://neweb.ai/pages/refund): Neweb refund and cancellation terms.

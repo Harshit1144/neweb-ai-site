@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/assets/neweb-mark.svg">
+<title>Press Kit — Logos, screenshots, and boilerplate | Neweb</title>
+<link rel="canonical" href="https://neweb.ai/pages/press">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="description" content="Neweb press kit — logos, palette, fact sheet, and founder quotes. No permission required.">
+<meta property="og:title" content="Press Kit — Logos, screenshots, and boilerplate | Neweb">
+<meta property="og:description" content="Neweb press kit — logos, palette, fact sheet, and founder quotes. No permission required.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://neweb.ai/pages/press">
+<meta property="og:image" content="https://neweb.ai/assets/og-default.png">
+<meta property="og:site_name" content="Neweb">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@neweb_ai">
+<meta name="twitter:image" content="https://neweb.ai/assets/og-default.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+<link rel="stylesheet" href="shared.css?v=3">
+<style>
+  .fact-sheet{display:grid;grid-template-columns:1fr 1.4fr;gap:0;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff}
+  @media(max-width:860px){.fact-sheet{grid-template-columns:1fr}}
+  .fact-sheet dt{padding:16px 22px;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--line);background:var(--bg-2);display:flex;align-items:center}
+  .fact-sheet dd{padding:16px 22px;margin:0;font-size:15px;color:var(--ink);line-height:1.55;border-bottom:1px solid var(--line)}
+  .fact-sheet dt:last-of-type,.fact-sheet dd:last-of-type{border-bottom:0}
+  @media(max-width:860px){.fact-sheet dt{border-bottom:0;padding-bottom:4px}.fact-sheet dd{padding-top:4px}}
+
+  .assets{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
+  @media(max-width:860px){.assets{grid-template-columns:1fr}}
+  .asset{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;display:flex;flex-direction:column;transition:all .25s}
+  .asset:hover{transform:translateY(-2px);border-color:var(--line-2);box-shadow:0 14px 28px -18px rgba(10,14,26,.15)}
+  .asset .preview{aspect-ratio:16/10;display:grid;place-items:center;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+  .asset .preview.light{background:#fff}
+  .asset .preview.dark{background:var(--ink-dark)}
+  .asset .preview.brand{background:var(--brand)}
+  .asset .preview img{max-width:55%;max-height:56%;object-fit:contain}
+  .asset .preview.dark img{filter:brightness(0) invert(1)}
+  .asset .preview.brand img{filter:brightness(0) invert(1)}
+  .asset .body{padding:16px 18px;display:flex;justify-content:space-between;align-items:center;gap:14px}
+  .asset .body h5{margin:0;font-size:14.5px;font-weight:600;letter-spacing:-.01em}
+  .asset .body .sz{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--muted);letter-spacing:.04em;margin-top:2px}
+  .asset .dl{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--brand);border:1px solid var(--brand-soft);padding:6px 12px;border-radius:999px;background:var(--brand-soft)}
+  .asset .dl:hover{background:var(--brand);color:#fff}
+
+  .logo-mark{width:70%;height:70%;background:var(--brand);border-radius:50%;position:relative;box-shadow:0 0 60px rgba(61,76,255,.4)}
+
+  .palette{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:24px}
+  @media(max-width:860px){.palette{grid-template-columns:repeat(2,1fr)}}
+  .swatch{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
+  .swatch .chip{aspect-ratio:1.3;display:flex;align-items:flex-end;padding:14px;color:#fff}
+  .swatch .chip.ink{color:#fff}
+  .swatch .chip.bg{color:var(--ink)}
+  .swatch .meta{padding:12px 14px;display:flex;flex-direction:column;gap:2px;border-top:1px solid var(--line)}
+  .swatch .n{font-size:13px;font-weight:600;letter-spacing:-.01em}
+  .swatch .hex{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);letter-spacing:.02em}
+
+  .quote-block{background:var(--bg-2);border:1px solid var(--line);border-radius:16px;padding:32px 36px;margin-top:24px}
+  .quote-block blockquote{font-family:"Instrument Serif",serif;font-style:italic;font-size:26px;line-height:1.35;color:var(--ink);margin:0 0 14px;text-wrap:balance}
+  .quote-block .by{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+
+  .news-list{display:grid;grid-template-columns:1fr;gap:0;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff}
+  .news{display:grid;grid-template-columns:120px 1.6fr auto;gap:20px;padding:20px 24px;border-bottom:1px solid var(--line);align-items:center;transition:background .2s}
+  .news:last-child{border-bottom:0}
+  .news:hover{background:var(--bg-2)}
+  .news .d{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+  .news h4{font-size:15.5px;margin:0 0 4px;letter-spacing:-.01em;font-weight:600}
+  .news .src{font-size:13px;color:var(--ink-2)}
+  .news .out{color:var(--brand);font-weight:500}
+  .news .arrow{color:var(--muted);font-size:18px}
+  @media(max-width:860px){.news{grid-template-columns:1fr auto}.news .d{grid-column:1/-1;margin-bottom:-4px}}
+
+  .press-cta{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:32px}
+  @media(max-width:860px){.press-cta{grid-template-columns:1fr}}
+  .press-cta .card{padding:28px}
+  .press-cta h3{font-size:20px;margin:0 0 8px}
+  .press-cta p{margin:0 0 14px}
+
+  .ruler{display:flex;align-items:center;gap:14px;font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);margin-top:20px;letter-spacing:.08em;text-transform:uppercase}
+  .ruler .bar{flex:1;height:1px;background:var(--line)}
+</style>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "qeya57o0ci");
+</script>
+</head>
+<body>
+
+<nav class="top">
+  <div class="wrap nav-row">
+    <a href="/" class="brand" aria-label="neweb.ai">
+      <img src="assets/neweb-logo.png" alt="Neweb — online presence manager" width="70" height="28" decoding="async" fetchpriority="high" />
+    </a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/pages/features">Features</a>
+      <a href="/pages/pricing">Pricing</a>
+      <div class="nav-drop">
+        <button class="nav-drop-btn" type="button" aria-haspopup="true">Solutions <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="nav-drop-menu" role="menu">
+          <a class="mega-item" href="/pages/solutions">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">All solutions</p><p class="mega-d">Every industry we serve</p></div>
+          </a>
+          <a class="mega-item" href="/pages/solutions/restaurants">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M6 7v13h12V7M9 4h6v3H9z"/><path d="M12 11v5"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Restaurants &amp; bakeries</p><p class="mega-d">Menus, reservations, food-first SEO</p></div>
+          </a>
+          <a class="mega-item" href="/pages/solutions/jewellers">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M6 3h12l4 6-10 12L2 9z"/><path d="M2 9h20M8 3l-2 6 6 12M16 3l2 6-6 12"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Jewellers</p><p class="mega-d">Catalogue, bookings, showroom storytelling</p></div>
+          </a>
+          <a class="mega-item" href="/pages/solutions/clinics">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 3v18M3 12h18M9 7h6v10H9z"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Clinics &amp; doctors</p><p class="mega-d">Doctor profiles, bookings, DPDP-ready</p></div>
+          </a>
+          <a class="mega-item" href="/pages/solutions/tutoring">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 5h12a2 2 0 0 1 2 2v14H6a2 2 0 0 1-2-2V5z"/><path d="M4 19a2 2 0 0 1 2-2h12"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Tutoring &amp; coaching</p><p class="mega-d">Batches, results, parent enquiry flow</p></div>
+          </a>
+          <a class="mega-item" href="/pages/templates">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Templates</p><p class="mega-d">Industry-tuned starting points</p></div>
+          </a>
+        </div>
+      </div>
+      <a href="/pages/why-neweb" class="">Why Neweb</a>
+      <a href="/pages/templates">Templates</a>
+      <div class="nav-drop">
+        <button class="nav-drop-btn" type="button" aria-haspopup="true">Resources <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="nav-drop-menu align-right" role="menu">
+          <a class="mega-item" href="/pages/blog">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h12l4 4v12H4z"/><path d="M7 10h10M7 14h10M7 18h6"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Blog</p><p class="mega-d">Notes from the Neweb team</p></div>
+          </a>
+          <a class="mega-item" href="/pages/guides">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 19.5V5a2 2 0 0 1 2-2h14v16H6a2 2 0 0 0-2 2z"/><path d="M8 7h8M8 11h8"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Guides</p><p class="mega-d">Practical how-tos for small businesses</p></div>
+          </a>
+          <a class="mega-item" href="/pages/compare">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4v16M17 4v16"/><path d="M5 8l2-2 2 2M15 16l2 2 2-2"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Compare</p><p class="mega-d">Neweb vs other website builders</p></div>
+          </a>
+          <a class="mega-item" href="/pages/customer-stories">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="10" r="2.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M14 20c0-2.5 1.8-4.5 4-4.5s3 2 3 4.5"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Customer stories</p><p class="mega-d">Real businesses. Real numbers.</p></div>
+          </a>
+          <a class="mega-item" href="/pages/domain-checker">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Domain checker</p><p class="mega-d">Check availability in seconds, free</p></div>
+          </a>
+          <a class="mega-item" href="/pages/changelog">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Changelog</p><p class="mega-d">Every update we ship</p></div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="nav-cta">
+      <a href="https://dashboard.neweb.ai/login" class="btn btn-ghost">Sign in</a>
+      <a href="https://dashboard.neweb.ai/signup" class="btn btn-brand">Get Started</a>
+    </div>
+  </div>
+</nav>
+<main id="main">
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="crumbs"><a href="/">Neweb</a> <span class="sep">/</span> <span class="here">Press kit</span></div>
+    <h1>Press &amp; <span class="serif">brand</span> kit.</h1>
+    <p class="lede">Logos, colour tokens, fact sheet, founder quotes, and recent coverage. Everything you need to write about Neweb — no permission required.</p>
+    <div style="margin-top:26px;display:flex;gap:10px;flex-wrap:wrap">
+      <a href="#assets" class="btn btn-primary">Download all assets (ZIP, 4.2 MB)</a>
+      <a href="contact" class="btn btn-ghost">Press enquiries</a>
+    </div>
+  </div>
+</section>
+
+<!-- FACT SHEET -->
+<section class="section">
+  <div class="wrap">
+    <div class="sec-mark">
+      <span class="eyebrow"><span class="dot"></span> Fact sheet</span>
+      <h2 class="h">The one-pager, <span class="serif">on one page</span>.</h2>
+    </div>
+    <dl class="fact-sheet">
+      <dt>Legal name</dt><dd>Commerciax Infotech Private Limited</dd>
+      <dt>Product</dt><dd>Neweb — online presence manager that builds and maintains websites, domains, Google Business profiles, SEO, and newsletters for small businesses.</dd>
+      <dt>Founded</dt><dd>January 2024, Ahmedabad</dd>
+      <dt>Founders</dt><dd>Harshit Rajput (CEO) &amp; Udit Raj (CTO)</dd>
+      <dt>Team</dt><dd>20+ full-time, Ahmedabad (hybrid)</dd>
+      <dt>Customers</dt><dd>1,000+ small businesses across India</dd>
+      <dt>Starting price</dt><dd>₹249 / month — includes website, domain, SSL, hosting, SEO, Google Business setup</dd>
+      <dt>Funding</dt><dd>Bootstrapped, founder-funded, revenue-profitable since 2024</dd>
+      <dt>Headquarters</dt><dd>909 Sharan Circle Business Hub, Zundal Circle, Ahmedabad 382421, Gujarat, India</dd>
+      <dt>Website</dt><dd><a href="/" style="color:var(--brand)">neweb.ai</a></dd>
+      <dt>Media contact</dt><dd><a href="mailto:press@neweb.ai" style="color:var(--brand)">press@neweb.ai</a> · response within 24 hours</dd>
+    </dl>
+  </div>
+</section>
+
+<!-- LOGO ASSETS -->
+<section class="section" style="padding-top:0" id="assets">
+  <div class="wrap">
+    <div class="sec-mark">
+      <span class="eyebrow"><span class="dot"></span> Logo &amp; wordmark</span>
+      <h2 class="h">Download-ready <span class="serif">assets</span>.</h2>
+      <p>SVG and PNG in primary, inverted, and monochrome variants. Please don't stretch, recolour, or add effects to the wordmark.</p>
+    </div>
+
+    <div class="assets">
+      <div class="asset">
+        <div class="preview light"><img src="assets/neweb-logo.png" alt="Neweb primary" width="240" height="96" loading="lazy" decoding="async" /></div>
+        <div class="body"><div><h5>Primary wordmark</h5><div class="sz">SVG · PNG · 240px</div></div><a href="#" class="dl">Download</a></div>
+      </div>
+      <div class="asset">
+        <div class="preview dark"><img src="assets/neweb-logo.png" alt="Neweb inverted" width="240" height="96" loading="lazy" decoding="async" /></div>
+        <div class="body"><div><h5>Inverted (on dark)</h5><div class="sz">SVG · PNG · 240px</div></div><a href="#" class="dl">Download</a></div>
+      </div>
+      <div class="asset">
+        <div class="preview brand"><img src="assets/neweb-logo.png" alt="Neweb on brand" width="240" height="96" loading="lazy" decoding="async" /></div>
+        <div class="body"><div><h5>On brand blue</h5><div class="sz">SVG · PNG · 240px</div></div><a href="#" class="dl">Download</a></div>
+      </div>
+      <div class="asset">
+        <div class="preview light"><div class="logo-mark"></div></div>
+        <div class="body"><div><h5>Mark only · light</h5><div class="sz">SVG · PNG · 512px</div></div><a href="#" class="dl">Download</a></div>
+      </div>
+      <div class="asset">
+        <div class="preview dark"><div class="logo-mark" style="background:#fff;box-shadow:0 0 60px rgba(255,255,255,.3)"></div></div>
+        <div class="body"><div><h5>Mark only · inverted</h5><div class="sz">SVG · PNG · 512px</div></div><a href="#" class="dl">Download</a></div>
+      </div>
+      <div class="asset">
+        <div class="preview" style="background:var(--bg-2)"><div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:72px;color:var(--ink);letter-spacing:-.02em">neweb.ai</div></div>
+        <div class="body"><div><h5>Italic serif treatment</h5><div class="sz">SVG · for editorial</div></div><a href="#" class="dl">Download</a></div>
+      </div>
+    </div>
+
+    <div class="ruler"><span>Clear space</span><span class="bar"></span><span>≥ cap height &times; 1</span></div>
+  </div>
+</section>
+
+<!-- PALETTE -->
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-mark">
+      <span class="eyebrow"><span class="dot"></span> Colour palette</span>
+      <h2 class="h">Four colours. <span class="serif">Used sparingly.</span></h2>
+    </div>
+    <div class="palette">
+      <div class="swatch">
+        <div class="chip ink" style="background:#3d4cff">Primary</div>
+        <div class="meta"><span class="n">Neweb Blue</span><span class="hex">#3D4CFF · oklch 59% .22 270</span></div>
+      </div>
+      <div class="swatch">
+        <div class="chip ink" style="background:#07091a">Ink</div>
+        <div class="meta"><span class="n">Deep Ink</span><span class="hex">#07091A · for dark surfaces</span></div>
+      </div>
+      <div class="swatch">
+        <div class="chip bg" style="background:#f7f8fb">Canvas</div>
+        <div class="meta"><span class="n">Off-white</span><span class="hex">#F7F8FB · section wash</span></div>
+      </div>
+      <div class="swatch">
+        <div class="chip ink" style="background:#ff7a45">Accent</div>
+        <div class="meta"><span class="n">Ember</span><span class="hex">#FF7A45 · highlight only</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDER QUOTES -->
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-mark">
+      <span class="eyebrow"><span class="dot"></span> Founder quotes</span>
+      <h2 class="h">Ready-to-quote. <span class="serif">No edits needed.</span></h2>
+    </div>
+    <div class="quote-block">
+      <blockquote>"The small-business web has been stuck in 2012. You buy a domain here, a host there, a theme somewhere else, and two years later none of it talks to each other. Neweb collapses all of it into one subscription — and one place where it all stays in sync."</blockquote>
+      <div class="by">— Harshit Rajput, Co-founder &amp; CEO</div>
+    </div>
+    <div class="quote-block" style="margin-top:14px">
+      <blockquote>"We didn't want to be a website builder. We wanted to be the operating system for a small business's online presence — the site, the domain, the Google listing, the SEO, the weekly tune-up. One product, one price, no upsells."</blockquote>
+      <div class="by">— Udit Raj, Co-founder &amp; CTO</div>
+    </div>
+  </div>
+</section>
+
+<!-- COVERAGE -->
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-mark">
+      <span class="eyebrow"><span class="dot"></span> In the news</span>
+      <h2 class="h">Recent coverage.</h2>
+    </div>
+    <div class="news-list" id="news-list"></div>
+  </div>
+</section>
+
+<!-- PRESS CTA -->
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="press-cta">
+      <div class="card">
+        <h3>Press enquiries</h3>
+        <p>Interview requests, expert commentary on the SMB web, fact-checks. Response within 24 hours, weekdays.</p>
+        <a href="mailto:press@neweb.ai" class="btn btn-primary">press@neweb.ai</a>
+      </div>
+      <div class="card">
+        <h3>Partnership &amp; investor</h3>
+        <p>For agency partnerships, regional rollouts, or investor updates — our team will route you to the right person.</p>
+        <a href="contact" class="btn btn-ghost">Contact form</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="ft-top">
+      <div class="ft-brand">
+        <a href="/" class="brand" aria-label="neweb.ai">
+          <img src="/assets/neweb-logo.png" alt="Neweb logo" width="90" height="36" loading="lazy" decoding="async" style="height:36px" />
+        </a>
+        <p class="ft-tag"><em>Digital Dreams to Reality.</em> Neweb is the online presence manager for small businesses &mdash; website, domain, Google Business, and SEO in one subscription.</p>
+        <div class="ft-social" aria-label="Neweb on social media">
+          <a href="https://www.linkedin.com/company/newebai/" aria-label="LinkedIn" rel="noopener" target="_blank"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.11 1 2.48 1s2.5 1.12 2.5 2.5zM.22 8h4.52v14H.22V8zm7.5 0h4.33v1.92h.06c.6-1.14 2.08-2.34 4.27-2.34 4.57 0 5.42 3.01 5.42 6.92V22h-4.52v-6.27c0-1.5-.03-3.43-2.09-3.43-2.09 0-2.41 1.63-2.41 3.32V22H7.72V8z"/></svg></a>
+          <a href="https://www.instagram.com/neweb.ai/" aria-label="Instagram" rel="noopener" target="_blank"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 01-1.38-.9 3.7 3.7 0 01-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.77.13 4.9.33 4.14.63c-.79.3-1.46.71-2.13 1.38A5.9 5.9 0 00.63 4.14c-.3.76-.5 1.63-.56 2.9C.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.28.26 2.15.56 2.91.3.79.71 1.46 1.38 2.13.67.67 1.34 1.08 2.13 1.38.76.3 1.63.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.28-.06 2.15-.26 2.91-.56.79-.3 1.46-.71 2.13-1.38.67-.67 1.08-1.34 1.38-2.13.3-.76.5-1.63.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.28-.26-2.15-.56-2.91a5.9 5.9 0 00-1.38-2.13A5.9 5.9 0 0019.86.63c-.76-.3-1.63-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 100 12.32 6.16 6.16 0 000-12.32zM12 16a4 4 0 110-8 4 4 0 010 8zm6.4-11.85a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/></svg></a>
+        </div>
+      </div>
+      <div class="ft-col"><h3 class="ft-h">Product</h3>
+        <a href="/pages/features">Features</a>
+        <a href="/pages/pricing">Pricing</a>
+        <a href="/pages/why-neweb">Why Neweb</a>
+        <a href="/pages/templates">Templates</a>
+        <a href="/pages/changelog">Changelog</a>
+        <a href="/pages/domain-checker">Domain checker</a>
+      </div>
+      <div class="ft-col"><h3 class="ft-h">Solutions</h3>
+        <a href="/pages/solutions/restaurants">Restaurants</a>
+        <a href="/pages/solutions/jewellers">Jewellers</a>
+        <a href="/pages/solutions/clinics">Clinics</a>
+        <a href="/pages/solutions/tutoring">Tutoring centres</a>
+        <a href="/pages/solutions">All industries</a>
+      </div>
+      <div class="ft-col"><h3 class="ft-h">Resources</h3>
+        <a href="/pages/blog">Blog</a>
+        <a href="/pages/guides">Guides</a>
+        <a href="/pages/compare">Compare</a>
+        <a href="/pages/customer-stories">Customer stories</a>
+        <a href="/pages/press">Press kit</a>
+      </div>
+      <div class="ft-col"><h3 class="ft-h">Company</h3>
+        <a href="/pages/about">About</a>
+        <a href="/pages/careers">Careers</a>
+        <a href="/pages/contact">Contact</a>
+        <a href="/pages/security">Security</a>
+        <a href="/pages/privacy">Privacy</a>
+        <a href="/pages/terms">Terms</a>
+        <a href="/pages/refund">Refund</a>
+      </div>
+    </div>
+
+    <div class="ft-offices">
+      <div class="ft-office">
+        <h4 class="ft-h">India Office</h4>
+        <p>909, Sharan Circle Business Hub,<br>Zundal Circle, Ahmedabad,<br>Gujarat, India &mdash; 382421</p>
+      </div>
+      <div class="ft-office">
+        <h4 class="ft-h">USA Office</h4>
+        <p>30 N Gould St Ste R,<br>Sheridan, WY 82801,<br>United States</p>
+      </div>
+      <div class="ft-office">
+        <h4 class="ft-h">Get in touch</h4>
+        <p><a href="mailto:support@neweb.ai">support@neweb.ai</a><br><a href="mailto:sales@neweb.ai">sales@neweb.ai</a><br><a href="tel:+19789811118">+1 978 981 1118</a></p>
+      </div>
+    </div>
+
+    <div class="ft-bot">
+      <span>&copy; 2026 Commerciax Infotech Private Limited. All Rights Reserved.</span>
+      <span>Made for the open web &middot; Built with AI &middot; Powered by Experts.</span>
+    </div>
+    <div class="foot-mega" aria-hidden="true" role="presentation">NEWEB.AI</div>
+  </div>
+</footer>
+
+<script>
+  function esc(s){ return String(s||'').replace(/[&<>"']/g,c=>({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c])); }
+  const LIST = document.getElementById('news-list');
+  async function loadPress(){
+    try {
+      const res = await fetch('/api/press');
+      const items = res.ok ? await res.json() : [];
+      if(!items.length){
+        LIST.innerHTML = `<div style="padding:28px 24px;color:var(--muted)">No press coverage listed yet.</div>`;
+        return;
+      }
+      LIST.innerHTML = items.map(p => `
+        <a class="news rise" href="${esc(p.url||'#')}"${p.url && p.url !== '#' ? ' target="_blank" rel="noopener"' : ''}>
+          <div class="d">${esc(p.date||'')}</div>
+          <div>
+            <h4>${esc(p.headline||'')}</h4>
+            <div class="src"><span class="out">${esc(p.outlet||'')}</span>${p.description ? ' · ' + esc(p.description) : ''}</div>
+          </div>
+          <div class="arrow">↗</div>
+        </a>`).join('');
+      wireReveal();
+    } catch(e){
+      LIST.innerHTML = `<div style="padding:24px;color:var(--muted)">Could not load coverage.</div>`;
+    }
+  }
+  function wireReveal(){
+    const io = new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}), {threshold:.1});
+    document.querySelectorAll('.asset, .swatch, .quote-block, .news, .press-cta .card, h2.h').forEach(el=>{el.classList.add('rise'); io.observe(el)});
+  }
+  wireReveal();
+  loadPress();
+</script>
+<script src="/assets/nav.js?v=3" defer></script>
+</body>
+</html>

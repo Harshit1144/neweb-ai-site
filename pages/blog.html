@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/assets/neweb-mark.svg">
+<title>Blog — Notes on domains, SEO, and online presence | Neweb</title>
+<link rel="canonical" href="https://neweb.ai/pages/blog">
+<meta property="og:title" content="Blog — Notes on domains, SEO, and online presence | Neweb">
+<meta property="og:description" content="Field reports, product essays, and engineering notes from the team building Neweb — India's online presence manager for small businesses.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://neweb.ai/pages/blog">
+<meta property="og:image" content="https://neweb.ai/assets/og-default.png">
+<meta property="og:site_name" content="Neweb">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@neweb_ai">
+<meta name="twitter:title" content="Blog — Notes on domains, SEO, and online presence | Neweb">
+<meta name="twitter:description" content="Field reports, product essays, and engineering notes from the team building Neweb.">
+<meta name="twitter:image" content="https://neweb.ai/assets/og-default.png">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="description" content="Field reports, product essays, and engineering notes from the team building Neweb.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+<link rel="stylesheet" href="shared.css?v=3">
+<style>
+  .post-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  @media(max-width:1000px){.post-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:640px){.post-grid{grid-template-columns:1fr}}
+  .post{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:all .25s;display:flex;flex-direction:column}
+  .post:hover{transform:translateY(-3px);border-color:var(--line-2);box-shadow:0 24px 48px -24px rgba(10,14,26,.12)}
+  .post .cover{aspect-ratio:16/9;background:linear-gradient(135deg,var(--brand-soft),#dde3ff);display:grid;place-items:center;font-family:"Instrument Serif",serif;font-style:italic;color:var(--brand);font-size:72px;overflow:hidden;position:relative}
+  .post .cover img{width:100%;height:100%;object-fit:cover;display:block}
+  .post .body{padding:22px;display:flex;flex-direction:column;gap:10px;flex:1}
+  .post .meta{display:flex;align-items:center;gap:10px;font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .post .meta .tag-chip{color:var(--brand);background:var(--brand-soft);border:1px solid rgba(61,76,255,.16);padding:3px 8px;border-radius:999px;font-weight:500}
+  .post h3{font-size:20px;letter-spacing:-.02em;margin:4px 0 0;font-weight:600;line-height:1.25;text-wrap:balance}
+  .post p.excerpt{color:var(--ink-2);font-size:14.5px;line-height:1.55;margin:0}
+  .post .read{margin-top:auto;padding-top:8px;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--brand);font-weight:500;display:inline-flex;align-items:center;gap:6px}
+  .post .read:after{content:"→";transition:transform .2s}
+  .post:hover .read:after{transform:translateX(4px)}
+
+  .empty{background:var(--bg-2);border:1px dashed var(--line-2);border-radius:16px;padding:56px 24px;text-align:center;color:var(--ink-2)}
+  .empty h3{margin:0 0 6px;font-size:20px;color:var(--ink);letter-spacing:-.01em}
+  .empty p{margin:0;font-size:15px}
+
+  .featured{display:grid;grid-template-columns:1.2fr 1fr;gap:32px;background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;margin-bottom:28px}
+  @media(max-width:860px){.featured{grid-template-columns:1fr}}
+  .featured .cover{aspect-ratio:auto;min-height:320px;font-size:120px}
+  .featured .body{padding:40px}
+  .featured h2{font-size:clamp(24px,3vw,34px);letter-spacing:-.025em;margin:10px 0 12px;font-weight:600;line-height:1.15;text-wrap:balance}
+  .featured p.excerpt{font-size:16px;margin-bottom:12px}
+</style>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "qeya57o0ci");
+</script>
+</head>
+<body>
+
+<nav class="top">
+  <div class="wrap nav-row">
+    <a href="/" class="brand" aria-label="neweb.ai">
+      <img src="assets/neweb-logo.png" alt="Neweb — online presence manager" width="70" height="28" decoding="async" fetchpriority="high" />
+    </a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/pages/features">Features</a>
+      <a href="/pages/pricing">Pricing</a>
+      <div class="nav-drop">
+        <button class="nav-drop-btn" type="button" aria-haspopup="true">Solutions <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="nav-drop-menu" role="menu">
+          <a class="mega-item" href="/pages/solutions">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">All solutions</p><p class="mega-d">Every industry we serve</p></div>
+          </a>
+          <a class="mega-item" href="/pages/solutions/restaurants">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M6 7v13h12V7M9 4h6v3H9z"/><path d="M12 11v5"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Restaurants &amp; bakeries</p><p class="mega-d">Menus, reservations, food-first SEO</p></div>
+          </a>
+          <a class="mega-item" href="/pages/solutions/jewellers">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M6 3h12l4 6-10 12L2 9z"/><path d="M2 9h20M8 3l-2 6 6 12M16 3l2 6-6 12"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Jewellers</p><p class="mega-d">Catalogue, bookings, showroom storytelling</p></div>
+          </a>
+          <a class="mega-item" href="/pages/solutions/clinics">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 3v18M3 12h18M9 7h6v10H9z"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Clinics &amp; doctors</p><p class="mega-d">Doctor profiles, bookings, DPDP-ready</p></div>
+          </a>
+          <a class="mega-item" href="/pages/solutions/tutoring">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 5h12a2 2 0 0 1 2 2v14H6a2 2 0 0 1-2-2V5z"/><path d="M4 19a2 2 0 0 1 2-2h12"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Tutoring &amp; coaching</p><p class="mega-d">Batches, results, parent enquiry flow</p></div>
+          </a>
+          <a class="mega-item" href="/pages/templates">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Templates</p><p class="mega-d">Industry-tuned starting points</p></div>
+          </a>
+        </div>
+      </div>
+      <a href="/pages/why-neweb" class="">Why Neweb</a>
+      <a href="/pages/templates">Templates</a>
+      <div class="nav-drop">
+        <button class="nav-drop-btn" type="button" aria-haspopup="true">Resources <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="nav-drop-menu align-right" role="menu">
+          <a class="mega-item" href="/pages/blog">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h12l4 4v12H4z"/><path d="M7 10h10M7 14h10M7 18h6"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Blog</p><p class="mega-d">Notes from the Neweb team</p></div>
+          </a>
+          <a class="mega-item" href="/pages/guides">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 19.5V5a2 2 0 0 1 2-2h14v16H6a2 2 0 0 0-2 2z"/><path d="M8 7h8M8 11h8"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Guides</p><p class="mega-d">Practical how-tos for small businesses</p></div>
+          </a>
+          <a class="mega-item" href="/pages/compare">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4v16M17 4v16"/><path d="M5 8l2-2 2 2M15 16l2 2 2-2"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Compare</p><p class="mega-d">Neweb vs other website builders</p></div>
+          </a>
+          <a class="mega-item" href="/pages/customer-stories">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="10" r="2.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M14 20c0-2.5 1.8-4.5 4-4.5s3 2 3 4.5"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Customer stories</p><p class="mega-d">Real businesses. Real numbers.</p></div>
+          </a>
+          <a class="mega-item" href="/pages/domain-checker">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Domain checker</p><p class="mega-d">Check availability in seconds, free</p></div>
+          </a>
+          <a class="mega-item" href="/pages/changelog">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Changelog</p><p class="mega-d">Every update we ship</p></div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="nav-cta">
+      <a href="https://dashboard.neweb.ai/login" class="btn btn-ghost">Sign in</a>
+      <a href="https://dashboard.neweb.ai/signup" class="btn btn-brand">Get Started</a>
+    </div>
+  </div>
+</nav>
+<main id="main">
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="crumbs"><a href="/">Neweb</a> <span class="sep">/</span> <span class="here">Blog</span></div>
+    <h1>Notes from the <span class="serif">open web</span>.</h1>
+    <p class="lede">Field reports, product essays, and engineering notes from the team building Neweb for the next hundred million small businesses.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div id="featured">
+      <a href="/pages/blog/msme-registration-benefits-small-business" class="featured">
+        <div class="cover">M</div>
+        <div class="body">
+          <div class="meta"><span class="tag-chip">Compliance</span><span>Aug 5, 2026</span><span>· Harshit Rajput</span></div>
+          <h2>MSME Registration Benefits: What Udyam Registration Actually Gets You</h2>
+          <p class="excerpt">The concrete, practical benefits of MSME (Udyam) registration beyond the certificate itself: cheaper loans, payment protection, tender access, and tax benefits explained one by one.</p>
+          <span class="read">Read the post</span>
+        </div>
+      </a></div>
+    <div id="posts" class="post-grid">
+      <a href="/pages/blog/how-to-check-domain-name-availability-india" class="post">
+        <div class="cover">H</div>
+        <div class="body">
+          <div class="meta"><span class="tag-chip">Domains</span><span>Aug 3, 2026</span></div>
+          <h3>How to Check Domain Name Availability in India (Free, Correctly)</h3>
+          <p class="excerpt">How to actually check if a domain name is free, why different checkers give different answers, and what to check beyond simple availability before you buy.</p>
+          <span class="read">Read more</span>
+        </div>
+      </a>
+      <a href="/pages/blog/best-website-builder-in-india-2026" class="post">
+        <div class="cover">B</div>
+        <div class="body">
+          <div class="meta"><span class="tag-chip">Guides</span><span>Aug 1, 2026</span></div>
+          <h3>Best Website Builder in India (2026): How to Actually Choose One</h3>
+          <p class="excerpt">A practical framework for choosing a website builder in India, what actually differs between them (support, India-specific features, real total cost), and where each type of builder fits.</p>
+          <span class="read">Read more</span>
+        </div>
+      </a>
+      <a href="/pages/blog/how-to-calculate-roi-return-on-investment" class="post">
+        <div class="cover">H</div>
+        <div class="body">
+          <div class="meta"><span class="tag-chip">Finance</span><span>Jul 30, 2026</span></div>
+          <h3>How to Calculate ROI (Return on Investment): Formula, Examples, and When It Misleads You</h3>
+          <p class="excerpt">The actual ROI formula, worked examples for a small business, why the same ROI number can mean very different things, and when to use annualized ROI instead of simple ROI.</p>
+          <span class="read">Read more</span>
+        </div>
+      </a>
+      <a href="/pages/blog/how-to-list-your-business-on-google-for-free" class="post">
+        <div class="cover">H</div>
+        <div class="body">
+          <div class="meta"><span class="tag-chip">Local SEO</span><span>Jul 28, 2026</span></div>
+          <h3>How to List Your Business on Google for Free (Step-by-Step)</h3>
+          <p class="excerpt">The exact steps to get your business listed on Google Search and Google Maps for free, what Google actually checks before it shows your listing, and the mistakes that get listings rejected or hidden.</p>
+          <span class="read">Read more</span>
+        </div>
+      </a>
+      <a href="/pages/blog/gst-registration-process-explained" class="post">
+        <div class="cover">G</div>
+        <div class="body">
+          <div class="meta"><span class="tag-chip">Compliance</span><span>Jul 20, 2026</span></div>
+          <h3>GST Registration Process for Small Businesses: A Simple Explainer</h3>
+          <p class="excerpt">A plain-English walkthrough of the actual GST registration process in India: who needs to register, the documents required, the step-by-step application, and what changes once you&#39;re registered.</p>
+          <span class="read">Read more</span>
+        </div>
+      </a>
+      <a href="/pages/blog/business-ideas-with-website-first-approach" class="post">
+        <div class="cover">W</div>
+        <div class="body">
+          <div class="meta"><span class="tag-chip">Business</span><span>Jul 18, 2026</span></div>
+          <h3>Why Every Small Business Idea Needs a Website From Day One</h3>
+          <p class="excerpt">A persuasive case for treating a website as day-one infrastructure rather than a later reward, covering trust, ownership, marketing leverage, and the compounding cost of delay.</p>
+          <span class="read">Read more</span>
+        </div>
+      </a>
+      <a href="/pages/blog/how-to-create-a-business-email" class="post">
+        <div class="cover">H</div>
+        <div class="body">
+          <div class="meta"><span class="tag-chip">Guides</span><span>Jul 16, 2026</span></div>
+          <h3>How to Create a Professional Business Email for Your Company</h3>
+          <p class="excerpt">A step-by-step guide to setting up a professional business email address in India, from picking a domain to configuring DNS records, and why it matters more than it seems.</p>
+          <span class="read">Read more</span>
+        </div>
+      </a>
+      <a href="/pages/blog/digital-marketing-tips-for-small-business-india" class="post">
+        <div class="cover">1</div>
+        <div class="body">
+          <div class="meta"><span class="tag-chip">Marketing</span><span>Jul 13, 2026</span></div>
+          <h3>10 Digital Marketing Tips for Small Businesses in India</h3>
+          <p class="excerpt">Ten practical, low-cost digital marketing tactics for Indian small businesses, from Google Business Profile and WhatsApp to Instagram Reels and simple measurement, ranked by impact.</p>
+          <span class="read">Read more</span>
+        </div>
+      </a>
+      <a href="/pages/blog/how-to-sell-products-online-in-india" class="post">
+        <div class="cover">H</div>
+        <div class="body">
+          <div class="meta"><span class="tag-chip">Ecommerce</span><span>Jul 10, 2026</span></div>
+          <h3>How to Sell Products Online in India: Marketplaces vs Your Own Website</h3>
+          <p class="excerpt">An honest comparison of selling on Amazon, Flipkart, and Meesho versus building your own website, the real trade-offs in fees, margin, and customer ownership, and why most sellers end up using both.</p>
+          <span class="read">Read more</span>
+        </div>
+      </a>
+      <a href="/pages/blog/how-to-register-a-company-in-india" class="post">
+        <div class="cover">H</div>
+        <div class="body">
+          <div class="meta"><span class="tag-chip">Compliance</span><span>Jul 7, 2026</span></div>
+          <h3>How to Register a Company in India: MCA, SPICe+, and What You Actually Need</h3>
+          <p class="excerpt">A practical walkthrough of incorporating a private limited company in India through the MCA&#39;s SPICe+ form, the documents you need, and what compliance looks like after incorporation.</p>
+          <span class="read">Read more</span>
+        </div>
+      </a>
+      <a href="/pages/blog/types-of-business-structures-in-india" class="post">
+        <div class="cover">S</div>
+        <div class="body">
+          <div class="meta"><span class="tag-chip">Compliance</span><span>Jul 4, 2026</span></div>
+          <h3>Sole Proprietorship vs Partnership vs Pvt Ltd: Choosing Your Business Structure in India</h3>
+          <p class="excerpt">A side-by-side comparison of sole proprietorship, partnership/LLP, and private limited company structures in India, covering liability, cost, compliance, and which fits your stage.</p>
+          <span class="read">Read more</span>
+        </div>
+      </a>
+      <a href="/pages/blog/udyam-msme-registration-guide" class="post">
+        <div class="cover">U</div>
+        <div class="body">
+          <div class="meta"><span class="tag-chip">Compliance</span><span>Jul 1, 2026</span></div>
+          <h3>Udyam Registration Guide: How Indian Small Businesses Register as MSME</h3>
+          <p class="excerpt">A beginner-friendly walkthrough of Udyam/MSME registration in India, the benefits it unlocks, the step-by-step process, and how it connects to your website and online credibility.</p>
+          <span class="read">Read more</span>
+        </div>
+      </a>
+      <a href="/pages/blog/small-business-ideas-low-investment-india" class="post">
+        <div class="cover">3</div>
+        <div class="body">
+          <div class="meta"><span class="tag-chip">Business</span><span>Jun 28, 2026</span></div>
+          <h3>30 Small Business Ideas You Can Start in India With Low Investment</h3>
+          <p class="excerpt">Thirty realistic, low-investment business ideas for India across food, services, retail, trades, and digital, with honest starting costs and what each one actually needs to succeed.</p>
+          <span class="read">Read more</span>
+        </div>
+      </a>
+      <a href="/pages/blog/how-to-start-a-business-in-india" class="post">
+        <div class="cover">H</div>
+        <div class="body">
+          <div class="meta"><span class="tag-chip">Business</span><span>Jun 25, 2026</span></div>
+          <h3>How to Start a Business in India: A Step-by-Step Guide for First-Time Founders</h3>
+          <p class="excerpt">A practical first-time founder&#39;s roadmap for India: validating your idea, choosing a business structure, the registration basics, and why getting online early matters more than you think.</p>
+          <span class="read">Read more</span>
+        </div>
+      </a>
+      <a href="/pages/blog/local-seo-mistakes-indian-businesses-make" class="post">
+        <div class="cover">8</div>
+        <div class="body">
+          <div class="meta"><span class="tag-chip">Local SEO</span><span>Jun 20, 2026</span></div>
+          <h3>8 local SEO mistakes Indian businesses make (and how to fix them)</h3>
+          <p class="excerpt">The common local SEO mistakes that quietly cost Indian small businesses customers, from inconsistent details to ignored reviews, with a simple fix for each.</p>
+          <span class="read">Read more</span>
+        </div>
+      </a>
+      <a href="/pages/blog/domain-name-tips-for-indian-business" class="post">
+        <div class="cover">D</div>
+        <div class="body">
+          <div class="meta"><span class="tag-chip">Domains</span><span>Jun 13, 2026</span></div>
+          <h3>Domain name tips for Indian businesses: .in vs .com and how to choose</h3>
+          <p class="excerpt">How to pick the right domain for an Indian business: when .in beats .com, naming rules that save you headaches, and how to check availability before you commit.</p>
+          <span class="read">Read more</span>
+        </div>
+      </a>
+      <a href="/pages/blog/instagram-marketing-for-indian-small-business" class="post">
+        <div class="cover">I</div>
+        <div class="body">
+          <div class="meta"><span class="tag-chip">Marketing</span><span>Jun 6, 2026</span></div>
+          <h3>Instagram marketing for Indian small businesses that actually works</h3>
+          <p class="excerpt">Practical Instagram growth tactics for Indian SMBs: a bio that converts, Reels that get reach, local hashtags that bring nearby customers, and a posting rhythm you can sustain.</p>
+          <span class="read">Read more</span>
+        </div>
+      </a>
+      <a href="/pages/blog/gst-basics-for-small-business-website" class="post">
+        <div class="cover">G</div>
+        <div class="body">
+          <div class="meta"><span class="tag-chip">Compliance</span><span>May 28, 2026</span></div>
+          <h3>GST basics every small business website owner should know</h3>
+          <p class="excerpt">A plain-English guide to the GST essentials for small businesses with a website: when you need to register, what your invoices must show, displaying your GSTIN, and common rate slabs.</p>
+          <span class="read">Read more</span>
+        </div>
+      </a>
+      <a href="/pages/blog/free-tools-every-indian-small-business-needs" class="post">
+        <div class="cover">F</div>
+        <div class="body">
+          <div class="meta"><span class="tag-chip">Tools</span><span>May 21, 2026</span></div>
+          <h3>Free tools every Indian small business needs in 2026</h3>
+          <p class="excerpt">A roundup of genuinely free tools that save Indian small businesses time and money, from domain checkers and QR generators to invoicing and payments, with no hidden upsells.</p>
+          <span class="read">Read more</span>
+        </div>
+      </a>
+      <a href="/pages/blog/how-to-get-more-google-reviews" class="post">
+        <div class="cover">H</div>
+        <div class="body">
+          <div class="meta"><span class="tag-chip">Local SEO</span><span>May 15, 2026</span></div>
+          <h3>How to get more Google reviews for your local business (the honest way)</h3>
+          <p class="excerpt">Reviews are the single biggest local ranking and trust signal. Here are ethical, repeatable tactics to get more of them, plus the mistakes that get your reviews wiped by Google.</p>
+          <span class="read">Read more</span>
+        </div>
+      </a>
+      <a href="/pages/blog/whatsapp-business-tips-for-small-business" class="post">
+        <div class="cover">W</div>
+        <div class="body">
+          <div class="meta"><span class="tag-chip">Marketing</span><span>May 9, 2026</span></div>
+          <h3>WhatsApp Business setup and tips for Indian small businesses</h3>
+          <p class="excerpt">A practical, no-fluff guide to setting up WhatsApp Business properly: catalogue, quick replies, labels, broadcast lists, and wa.me links that turn your website visitors into chats.</p>
+          <span class="read">Read more</span>
+        </div>
+      </a>
+      <a href="/pages/blog/how-much-does-a-website-cost-in-india" class="post">
+        <div class="cover">H</div>
+        <div class="body">
+          <div class="meta"><span class="tag-chip">Guide</span><span>May 4, 2026</span></div>
+          <h3>How much does a website cost in India? An honest 2026 breakdown</h3>
+          <p class="excerpt">Freelancer, agency, DIY builder, or a managed service like Neweb? Here are the real rupee ranges for each route, the hidden costs nobody warns you about, and how to pick the right one for your shop.</p>
+          <span class="read">Read more</span>
+        </div>
+      </a>
+      <a href="/pages/blog/local-seo-checklist-india" class="post">
+        <div class="cover">L</div>
+        <div class="body">
+          <div class="meta"><span class="tag-chip">SEO</span><span>Apr 22, 2026</span></div>
+          <h3>Local SEO checklist for Indian small businesses (2026)</h3>
+          <p class="excerpt">The 15-step checklist we run for every Neweb Growth customer. Covers GBP, NAP consistency, citations, reviews, schema, content, backlinks, and measurement — in priority order.</p>
+          <span class="read">Read more</span>
+        </div>
+      </a>
+      <a href="/pages/blog/hello-from-neweb" class="post">
+        <div class="cover">H</div>
+        <div class="body">
+          <div class="meta"><span class="tag-chip">Product</span><span>Apr 20, 2026</span></div>
+          <h3>Hello from Neweb</h3>
+          <p class="excerpt">Our blog is live.</p>
+          <span class="read">Read more</span>
+        </div>
+      </a>
+      <a href="/pages/blog/how-to-pick-a-domain-name" class="post">
+        <div class="cover">H</div>
+        <div class="body">
+          <div class="meta"><span class="tag-chip">Guides</span><span>Apr 20, 2026</span></div>
+          <h3>How to pick a domain name for your business in 2026 (.com vs .in vs .shop, compared)</h3>
+          <p class="excerpt">A practical guide to picking a domain that is short, trustworthy, SEO-friendly, and legally clean — with honest trade-offs between every extension that matters for Indian small businesses.</p>
+          <span class="read">Read more</span>
+        </div>
+      </a>
+      <a href="/pages/blog/google-business-profile-guide-india" class="post">
+        <div class="cover">G</div>
+        <div class="body">
+          <div class="meta"><span class="tag-chip">SEO</span><span>Apr 17, 2026</span></div>
+          <h3>Google Business Profile setup for Indian small businesses: the 2026 guide</h3>
+          <p class="excerpt">Everything you need to know to set up, verify, and maintain a Google Business Profile that actually ranks — with the seven-step setup, the weekly upkeep routine, and the five mistakes that tank new listings.</p>
+          <span class="read">Read more</span>
+        </div>
+      </a></div>
+    <div id="empty" class="empty" hidden>
+      <h3>No posts yet.</h3>
+      <p>The team is drafting the first ones. Check back soon.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="ft-top">
+      <div class="ft-brand">
+        <a href="/" class="brand" aria-label="neweb.ai">
+          <img src="/assets/neweb-logo.png" alt="Neweb logo" width="90" height="36" loading="lazy" decoding="async" style="height:36px" />
+        </a>
+        <p class="ft-tag"><em>Digital Dreams to Reality.</em> Neweb is the online presence manager for small businesses &mdash; website, domain, Google Business, and SEO in one subscription.</p>
+        <div class="ft-social" aria-label="Neweb on social media">
+          <a href="https://www.linkedin.com/company/newebai/" aria-label="LinkedIn" rel="noopener" target="_blank"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.11 1 2.48 1s2.5 1.12 2.5 2.5zM.22 8h4.52v14H.22V8zm7.5 0h4.33v1.92h.06c.6-1.14 2.08-2.34 4.27-2.34 4.57 0 5.42 3.01 5.42 6.92V22h-4.52v-6.27c0-1.5-.03-3.43-2.09-3.43-2.09 0-2.41 1.63-2.41 3.32V22H7.72V8z"/></svg></a>
+          <a href="https://www.instagram.com/neweb.ai/" aria-label="Instagram" rel="noopener" target="_blank"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 01-1.38-.9 3.7 3.7 0 01-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.77.13 4.9.33 4.14.63c-.79.3-1.46.71-2.13 1.38A5.9 5.9 0 00.63 4.14c-.3.76-.5 1.63-.56 2.9C.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.28.26 2.15.56 2.91.3.79.71 1.46 1.38 2.13.67.67 1.34 1.08 2.13 1.38.76.3 1.63.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.28-.06 2.15-.26 2.91-.56.79-.3 1.46-.71 2.13-1.38.67-.67 1.08-1.34 1.38-2.13.3-.76.5-1.63.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.28-.26-2.15-.56-2.91a5.9 5.9 0 00-1.38-2.13A5.9 5.9 0 0019.86.63c-.76-.3-1.63-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 100 12.32 6.16 6.16 0 000-12.32zM12 16a4 4 0 110-8 4 4 0 010 8zm6.4-11.85a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/></svg></a>
+        </div>
+      </div>
+      <div class="ft-col"><h3 class="ft-h">Product</h3>
+        <a href="/pages/features">Features</a>
+        <a href="/pages/pricing">Pricing</a>
+        <a href="/pages/why-neweb">Why Neweb</a>
+        <a href="/pages/templates">Templates</a>
+        <a href="/pages/changelog">Changelog</a>
+        <a href="/pages/domain-checker">Domain checker</a>
+      </div>
+      <div class="ft-col"><h3 class="ft-h">Solutions</h3>
+        <a href="/pages/solutions/restaurants">Restaurants</a>
+        <a href="/pages/solutions/jewellers">Jewellers</a>
+        <a href="/pages/solutions/clinics">Clinics</a>
+        <a href="/pages/solutions/tutoring">Tutoring centres</a>
+        <a href="/pages/solutions">All industries</a>
+      </div>
+      <div class="ft-col"><h3 class="ft-h">Resources</h3>
+        <a href="/pages/blog">Blog</a>
+        <a href="/pages/guides">Guides</a>
+        <a href="/pages/compare">Compare</a>
+        <a href="/pages/customer-stories">Customer stories</a>
+        <a href="/pages/press">Press kit</a>
+      </div>
+      <div class="ft-col"><h3 class="ft-h">Company</h3>
+        <a href="/pages/about">About</a>
+        <a href="/pages/careers">Careers</a>
+        <a href="/pages/contact">Contact</a>
+        <a href="/pages/security">Security</a>
+        <a href="/pages/privacy">Privacy</a>
+        <a href="/pages/terms">Terms</a>
+        <a href="/pages/refund">Refund</a>
+      </div>
+    </div>
+
+    <div class="ft-offices">
+      <div class="ft-office">
+        <h4 class="ft-h">India Office</h4>
+        <p>909, Sharan Circle Business Hub,<br>Zundal Circle, Ahmedabad,<br>Gujarat, India &mdash; 382421</p>
+      </div>
+      <div class="ft-office">
+        <h4 class="ft-h">USA Office</h4>
+        <p>30 N Gould St Ste R,<br>Sheridan, WY 82801,<br>United States</p>
+      </div>
+      <div class="ft-office">
+        <h4 class="ft-h">Get in touch</h4>
+        <p><a href="mailto:support@neweb.ai">support@neweb.ai</a><br><a href="mailto:sales@neweb.ai">sales@neweb.ai</a><br><a href="tel:+19789811118">+1 978 981 1118</a></p>
+      </div>
+    </div>
+
+    <div class="ft-bot">
+      <span>&copy; 2026 Commerciax Infotech Private Limited. All Rights Reserved.</span>
+      <span>Made for the open web &middot; Built with AI &middot; Powered by Experts.</span>
+    </div>
+    <div class="foot-mega" aria-hidden="true" role="presentation">NEWEB.AI</div>
+  </div>
+</footer>
+
+<script>
+  function fmtDate(iso){
+    if(!iso) return '';
+    const d = new Date(iso);
+    return d.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
+  }
+  function initial(title){ return (title||'N').trim().charAt(0).toUpperCase(); }
+  function coverHTML(p){
+    if(p.cover) return `<div class="cover"><img src="${p.cover}" alt=""></div>`;
+    return `<div class="cover">${initial(p.title)}</div>`;
+  }
+  async function load(){
+    const featured = document.getElementById('featured');
+    const grid = document.getElementById('posts');
+    const empty = document.getElementById('empty');
+    // If the index was server-rendered at build time, leave it as-is (the cards
+    // are already in the HTML for crawlers and users). Only fetch when empty.
+    if (featured.children.length || grid.children.length) return;
+    const res = await fetch('/api/blogs');
+    const posts = await res.json();
+    if(!posts.length){ empty.hidden = false; return; }
+    const [first, ...rest] = posts;
+    featured.innerHTML = `
+      <a href="/pages/blog/${encodeURIComponent(first.slug)}" class="featured">
+        ${coverHTML(first)}
+        <div class="body">
+          <div class="meta"><span class="tag-chip">${first.tag||'Product'}</span><span>${fmtDate(first.publishedAt)}</span><span>· ${first.author||'Neweb Team'}</span></div>
+          <h2>${first.title}</h2>
+          <p class="excerpt">${first.excerpt||''}</p>
+          <span class="read">Read the post</span>
+        </div>
+      </a>`;
+    grid.innerHTML = rest.map(p => `
+      <a href="/pages/blog/${encodeURIComponent(p.slug)}" class="post">
+        ${coverHTML(p)}
+        <div class="body">
+          <div class="meta"><span class="tag-chip">${p.tag||'Product'}</span><span>${fmtDate(p.publishedAt)}</span></div>
+          <h3>${p.title}</h3>
+          <p class="excerpt">${p.excerpt||''}</p>
+          <span class="read">Read more</span>
+        </div>
+      </a>`).join('');
+  }
+  load().catch(e => {
+    document.getElementById('empty').hidden = false;
+    console.error(e);
+  });
+</script>
+<script src="/assets/nav.js?v=3" defer></script>
+</body>
+</html>

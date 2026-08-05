@@ -1,0 +1,58 @@
+[
+  {
+    "id": "835b65ad-4b11-47f3-b239-b7bcb9e3264d",
+    "title": "Full-stack Engineer — Editor",
+    "category": "eng",
+    "team": "Engineering",
+    "location": "Ahmedabad · Remote (IN)",
+    "description": "The plain-English edit surface. React, TypeScript, PHP/WP internals.",
+    "applyUrl": "#apply",
+    "published": true,
+    "order": 2,
+    "createdAt": "2026-04-20T12:40:55.364Z",
+    "updatedAt": "2026-04-20T12:40:55.364Z",
+    "publishedAt": "2026-04-20T12:40:55.364Z"
+  },
+  {
+    "id": "7014a35f-ce69-44e2-acaf-329a32812af8",
+    "title": "Senior Product Designer",
+    "category": "design",
+    "team": "Design",
+    "location": "Ahmedabad · Hybrid",
+    "description": "Own the four-question onboarding. Systems thinker who can also push pixels.",
+    "applyUrl": "#apply",
+    "published": true,
+    "order": 3,
+    "createdAt": "2026-04-20T12:40:55.364Z",
+    "updatedAt": "2026-04-20T12:40:55.364Z",
+    "publishedAt": "2026-04-20T12:40:55.364Z"
+  },
+  {
+    "id": "6275b1e3-f623-4fc6-8dda-3680ceb50264",
+    "title": "Customer Success Lead",
+    "category": "ops",
+    "team": "Ops",
+    "location": "Ahmedabad · Hybrid",
+    "description": "Own the first 48 hours of a new site. Turn one-time signups into loyalists.",
+    "applyUrl": "#apply",
+    "published": true,
+    "order": 6,
+    "createdAt": "2026-04-20T12:40:55.364Z",
+    "updatedAt": "2026-04-20T12:40:55.364Z",
+    "publishedAt": "2026-04-20T12:40:55.364Z"
+  },
+  {
+    "id": "2feca321-8201-490d-93d3-58d999832866",
+    "title": "Intern — Frontend",
+    "category": "eng",
+    "team": "Engineering",
+    "location": "Ahmedabad",
+    "description": "Six-month paid internship.",
+    "applyUrl": "#apply",
+    "order": 7,
+    "published": true,
+    "createdAt": "2026-04-20T12:41:37.912Z",
+    "updatedAt": "2026-04-20T12:41:37.912Z",
+    "publishedAt": "2026-04-20T12:41:37.912Z"
+  }
+]

@@ -1,0 +1,680 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="icon" type="image/svg+xml" href="/assets/neweb-mark.svg">
+<title>Free Meta Tags Analyzer &amp; Checker — Paste Your HTML | Neweb</title>
+<meta name="description" content="Paste your page's HTML head and instantly check title, meta description, canonical, Open Graph and Twitter tags. Free meta tags analyzer for Indian websites.">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<link rel="canonical" href="https://neweb.ai/pages/tools/meta-tags-analyzer">
+<meta property="og:title" content="Free Meta Tags Analyzer &amp; Checker — Paste Your HTML | Neweb">
+<meta property="og:description" content="Paste your page's HTML head and instantly check title, meta description, canonical, Open Graph and Twitter tags. Free meta tags analyzer for Indian websites.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://neweb.ai/pages/tools/meta-tags-analyzer">
+<meta property="og:image" content="https://neweb.ai/assets/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="Neweb">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Free Meta Tags Analyzer &amp; Checker — Paste Your HTML | Neweb">
+<meta name="twitter:description" content="Paste your page's HTML head and instantly check title, meta description, canonical, Open Graph and Twitter tags. Free meta tags analyzer for Indian websites.">
+<meta name="twitter:site" content="@neweb_ai">
+<meta name="twitter:image" content="https://neweb.ai/assets/og-default.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://neweb.ai/"},{"@type":"ListItem","position":2,"name":"Pages","item":"https://neweb.ai/pages"},{"@type":"ListItem","position":3,"name":"Tools","item":"https://neweb.ai/pages/tools"},{"@type":"ListItem","position":4,"name":"Free Meta Tags Analyzer &amp; Checker — Paste Your HTML | Neweb","item":"https://neweb.ai/pages/tools/meta-tags-analyzer"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Meta Tags Analyzer","applicationCategory":"BusinessApplication","operatingSystem":"Any","url":"https://neweb.ai/pages/tools/meta-tags-analyzer","description":"Paste your page's HTML head and instantly check title, meta description, canonical, Open Graph and Twitter tags. Free meta tags analyzer for Indian websites.","offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"publisher":{"@type":"Organization","name":"Neweb","url":"https://neweb.ai/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a meta tags analyzer and how does it work?","acceptedAnswer":{"@type":"Answer","text":"A meta tags analyzer reads the HTML of your page's head section and checks whether the important SEO tags are present and correctly formatted. This tool parses your pasted HTML right in your browser using the built-in DOMParser, then runs a checklist over the title, meta description, canonical URL, viewport, charset, robots, Open Graph tags, Twitter Card tags, the lang attribute and your H1. Each item gets a pass, warning or fail with a one-line fix tip and an overall score out of 100."}},{"@type":"Question","name":"What is the ideal meta title and meta description length in 2026?","acceptedAnswer":{"@type":"Answer","text":"Aim for a title tag of roughly 50 to 60 characters so it does not get truncated in Google results, and a meta description of about 140 to 158 characters. Google measures the display in pixels rather than characters, so these ranges are guidelines. The key is to front-load your most important keyword and, for Indian local pages, include your city name so users searching from Mumbai, Delhi or Surat see relevance immediately."}},{"@type":"Question","name":"Do Open Graph and Twitter Card tags affect SEO rankings?","acceptedAnswer":{"@type":"Answer","text":"Open Graph and Twitter Card tags do not directly influence Google rankings, but they control how your link looks when shared on WhatsApp, Facebook, LinkedIn and X. For Indian businesses, WhatsApp sharing is huge, and a missing og:image or og:title means your link appears as a bare grey box that almost nobody clicks. Strong social tags raise click-through, which indirectly supports your traffic and reach."}},{"@type":"Question","name":"Is my HTML uploaded anywhere when I use this checker?","acceptedAnswer":{"@type":"Answer","text":"No. The entire analysis runs locally in your browser using JavaScript and the DOMParser API. Nothing you paste is sent to Neweb or any server, so you can safely check unpublished pages, staging sites or client work without privacy concerns. Close the tab and the data is gone."}}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+<link rel="stylesheet" href="/pages/shared.css">
+<style>
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--brand);font-weight:500}
+  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 4px rgba(61,76,255,.12)}
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  @media(max-width:860px){.grid-3,.grid-2{grid-template-columns:1fr}}
+  .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:28px;transition:transform .25s, box-shadow .25s, border-color .25s}
+  .card:hover{transform:translateY(-3px);box-shadow:0 24px 48px -24px rgba(10,14,26,.1);border-color:var(--line-2)}
+  .card h3{font-size:20px;letter-spacing:-.02em;margin:14px 0 6px;font-weight:600}
+  .card p{color:var(--ink-2);font-size:14.5px;line-height:1.55;margin:0}
+  .card .ico{width:38px;height:38px;border-radius:10px;background:var(--brand-soft);color:var(--brand);display:grid;place-items:center;border:1px solid rgba(61,76,255,.12)}
+  .card .ico svg{width:18px;height:18px}
+  .card ul{padding-left:20px;margin:10px 0 0;color:var(--ink-2);font-size:14px;line-height:1.6}
+  .kv{display:grid;grid-template-columns:1fr 1.4fr;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
+  .kv>dt{padding:14px 20px;background:var(--bg-2);border-bottom:1px solid var(--line);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center}
+  .kv>dd{padding:14px 20px;border-bottom:1px solid var(--line);margin:0;font-size:15px;line-height:1.55}
+  .kv>dt:last-of-type,.kv>dd:last-of-type{border-bottom:0}
+  @media(max-width:860px){.kv{grid-template-columns:1fr}.kv>dt{border-bottom:0;padding-bottom:4px}.kv>dd{padding-top:4px}}
+  .cta-dark{background:var(--ink-dark);color:#fff;border-radius:24px;padding:56px 48px;text-align:center;position:relative;overflow:hidden;margin-top:40px}
+  .cta-dark:before{content:"";position:absolute;left:50%;top:-50%;transform:translateX(-50%);width:800px;height:600px;background:radial-gradient(circle, rgba(61,76,255,.25), transparent 60%);pointer-events:none}
+  .cta-dark h2{font-size:clamp(28px,3.6vw,42px);letter-spacing:-.03em;margin:0 0 12px;font-weight:600;line-height:1.08;position:relative}
+  .cta-dark h2 .serif{font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;color:var(--brand-2)}
+  .cta-dark p{color:#aab0c8;font-size:16px;max-width:520px;margin:0 auto 24px;position:relative}
+  .cta-dark .btns{position:relative;display:inline-flex;gap:10px}
+  .compare-table{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;margin-top:24px}
+  .compare-table .row{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:0;border-bottom:1px solid var(--line)}
+  .compare-table .row:last-child{border-bottom:0}
+  .compare-table .row.head{background:var(--bg-2)}
+  .compare-table .cell{padding:14px 18px;font-size:14px;color:var(--ink-2);line-height:1.5}
+  .compare-table .row.head .cell{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500}
+  .compare-table .cell.brand{color:var(--brand);font-weight:600}
+  .prose{max-width:760px;margin:0 auto;font-size:17px;line-height:1.7;color:var(--ink-2)}
+  .prose h2{font-size:26px;letter-spacing:-.02em;color:var(--ink);margin:32px 0 10px;font-weight:600}
+  .prose h3{font-size:20px;letter-spacing:-.015em;color:var(--ink);margin:24px 0 8px;font-weight:600}
+  .prose p{margin:0 0 16px}
+  .prose ul{padding-left:22px;margin:0 0 16px}
+  .prose li{margin-bottom:6px}
+  .prose a{color:var(--brand);border-bottom:1px solid rgba(61,76,255,.3)}
+
+  /* Tool widget shell — reused across all tool pages */
+  .tool-shell{background:#fff;border:1px solid var(--line-2);border-radius:18px;padding:28px;box-shadow:0 30px 60px -40px rgba(10,14,26,.15);max-width:760px;margin:0 auto}
+  .tool-shell .field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+  .tool-shell label{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:500}
+  .tool-shell input,.tool-shell textarea,.tool-shell select{padding:12px 14px;border:1px solid var(--line-2);border-radius:10px;font:inherit;font-size:15px;color:var(--ink);background:#fff;transition:all .18s;width:100%}
+  .tool-shell input:focus,.tool-shell textarea:focus,.tool-shell select:focus{outline:none;border-color:var(--brand);box-shadow:0 0 0 4px rgba(61,76,255,.1)}
+  .tool-shell textarea{resize:vertical;min-height:80px}
+  .tool-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:560px){.tool-row{grid-template-columns:1fr}}
+  .tool-output{margin-top:18px;padding:18px;border:1px dashed var(--line-2);border-radius:12px;background:var(--bg-2);font-family:"JetBrains Mono",monospace;font-size:13.5px;color:var(--ink);word-break:break-all;line-height:1.55;min-height:48px;display:flex;align-items:center}
+  .tool-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+  .tool-help{margin-top:18px;text-align:center;font-size:13px;color:var(--muted);max-width:560px;margin-left:auto;margin-right:auto}
+  .tool-help a{color:var(--brand);border-bottom:1px solid rgba(61,76,255,.3)}
+
+  /* Numbered how-to list */
+  .howto{counter-reset:n;list-style:none;padding:0;margin:14px 0 24px;display:flex;flex-direction:column;gap:14px}
+  .howto li{counter-increment:n;display:grid;grid-template-columns:36px 1fr;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+  .howto li:before{content:counter(n,decimal-leading-zero);grid-row:1 / span 2;font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:500;letter-spacing:.04em;color:var(--brand);background:var(--brand-soft);width:36px;height:36px;border-radius:10px;display:grid;place-items:center;border:1px solid rgba(61,76,255,.18)}
+  .howto li p{margin:0;font-size:15px;line-height:1.55;color:var(--ink-2)}
+  .howto li p strong{color:var(--ink)}
+
+  /* Tip + example blocks */
+  .tip-list{padding-left:0;list-style:none;display:grid;gap:10px;margin:14px 0 24px}
+  .tip-list li{display:flex;gap:10px;align-items:flex-start;font-size:15.5px;line-height:1.55;color:var(--ink-2)}
+  .tip-list li:before{content:"";flex-shrink:0;margin-top:8px;width:6px;height:6px;border-radius:50%;background:var(--brand)}
+
+  .example-card{background:var(--bg-2);border:1px solid var(--line);border-radius:14px;padding:22px 24px;margin:14px 0 24px}
+  .example-card .lbl{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+  .example-card p:last-child{margin-bottom:0}
+
+  /* FAQ accordion */
+  .faq{display:flex;flex-direction:column;gap:8px;margin:16px 0 24px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
+  .faq details{border-bottom:1px solid var(--line)}
+  .faq details:last-child{border-bottom:0}
+  .faq summary{cursor:pointer;list-style:none;padding:18px 22px;font-weight:500;font-size:16px;color:var(--ink);display:flex;justify-content:space-between;align-items:center;gap:14px}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary:after{content:"+";font-family:"JetBrains Mono",monospace;color:var(--brand);font-size:20px;line-height:1;flex-shrink:0;transition:transform .2s}
+  .faq details[open] summary:after{content:"–"}
+  .faq .ans{padding:0 22px 18px;color:var(--ink-2);font-size:15px;line-height:1.6}
+  .faq .ans p:last-child{margin-bottom:0}
+
+  /* Tools-hub grid */
+  .hub-group{margin-top:36px}
+  .hub-group:first-of-type{margin-top:0}
+  .hub-group .head{display:flex;align-items:baseline;gap:14px;margin-bottom:16px;flex-wrap:wrap}
+  .hub-group h2{font-size:22px;letter-spacing:-.02em;font-weight:600;margin:0;color:var(--ink)}
+  .hub-group .head p{font-size:14px;color:var(--muted);margin:0}
+  .hub-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  @media(max-width:860px){.hub-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.hub-grid{grid-template-columns:1fr}}
+  .tool-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px 22px;display:flex;flex-direction:column;gap:6px;transition:transform .2s, box-shadow .2s, border-color .2s;position:relative;min-height:118px}
+  a.tool-card:hover{transform:translateY(-2px);box-shadow:0 18px 36px -22px rgba(10,14,26,.12);border-color:var(--brand)}
+  .tool-card h3{font-size:16px;letter-spacing:-.01em;font-weight:600;margin:0;color:var(--ink)}
+  .tool-card p{font-size:13.5px;line-height:1.5;color:var(--ink-2);margin:0}
+  .tool-card .meta{margin-top:auto;font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--brand);font-weight:500}
+  .tool-card.soon{background:var(--bg-2)}
+  .tool-card.soon h3{color:var(--ink-2)}
+  .tool-card.soon .meta{color:var(--muted)}
+  .tool-card .pill-corner{position:absolute;top:14px;right:14px;font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border-radius:999px;font-weight:500}
+  .tool-card .pill-corner.live{background:var(--brand-soft);color:var(--brand);border:1px solid rgba(61,76,255,.18)}
+  .tool-card .pill-corner.soon{background:#fff;color:var(--muted);border:1px solid var(--line-2)}
+
+  /* Meta tags analyzer specific styles */
+  .mt-score-card{display:flex;align-items:center;gap:20px;background:var(--bg-2);border:1px solid var(--line);border-radius:16px;padding:20px 24px;margin-bottom:18px;flex-wrap:wrap}
+  .mt-score-ring{width:88px;height:88px;border-radius:50%;display:grid;place-items:center;flex-shrink:0;background:conic-gradient(var(--brand) calc(var(--p)*1%), var(--line) 0);position:relative}
+  .mt-score-ring:before{content:"";position:absolute;inset:8px;border-radius:50%;background:#fff}
+  .mt-score-ring .num{position:relative;font-family:"JetBrains Mono",monospace;font-size:24px;font-weight:500;color:var(--ink);line-height:1}
+  .mt-score-meta .grade{font-size:18px;font-weight:600;color:var(--ink);margin:0 0 4px}
+  .mt-score-meta p{margin:0;font-size:14px;color:var(--ink-2);line-height:1.5}
+  .mt-counts{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+  .mt-count{font-family:"JetBrains Mono",monospace;font-size:12px;padding:6px 12px;border-radius:999px;font-weight:500;letter-spacing:.03em}
+  .mt-count.pass{background:#d1fae5;color:#065f46;border:1px solid #6ee7b7}
+  .mt-count.warn{background:#fef3c7;color:#92400e;border:1px solid #fcd34d}
+  .mt-count.fail{background:#fee2e2;color:#991b1b;border:1px solid #fca5a5}
+  .mt-list{display:flex;flex-direction:column;gap:8px}
+  .mt-item{display:grid;grid-template-columns:26px 1fr;gap:12px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px 16px}
+  .mt-item .ic{font-size:16px;line-height:1.4;text-align:center}
+  .mt-item .body{min-width:0}
+  .mt-item .name{font-weight:600;font-size:14.5px;color:var(--ink);margin:0 0 2px;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+  .mt-item .name .tag{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--muted);font-weight:400;text-transform:none;letter-spacing:0}
+  .mt-item .val{font-family:"JetBrains Mono",monospace;font-size:12.5px;color:var(--ink-2);word-break:break-word;margin:0 0 3px;line-height:1.5}
+  .mt-item .tip{font-size:13px;color:var(--muted);margin:0;line-height:1.5}
+  .mt-item.fail{border-color:#fca5a5}
+  .mt-item.warn{border-color:#fcd34d}
+</style>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "qeya57o0ci");
+</script>
+</head>
+<body>
+
+<nav class="top">
+  <div class="wrap nav-row">
+    <a href="/" class="brand" aria-label="neweb.ai">
+      <img src="/assets/neweb-logo.png" alt="Neweb — online presence manager" width="70" height="28" decoding="async" fetchpriority="high" />
+    </a>
+    <div class="nav-links">
+      <a href="/" class="">Home</a>
+      <a href="/pages/features" class="">Features</a>
+      <a href="/pages/pricing" class="">Pricing</a>
+      <div class="nav-drop">
+        <button class="nav-drop-btn" type="button" aria-haspopup="true">Solutions <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="nav-drop-menu" role="menu">
+          <a class="mega-item" href="/pages/solutions">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">All solutions</p><p class="mega-d">Every industry we serve</p></div>
+          </a>
+          <a class="mega-item" href="/pages/solutions/restaurants">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M6 7v13h12V7M9 4h6v3H9z"/><path d="M12 11v5"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Restaurants &amp; bakeries</p><p class="mega-d">Menus, reservations, food-first SEO</p></div>
+          </a>
+          <a class="mega-item" href="/pages/solutions/jewellers">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M6 3h12l4 6-10 12L2 9z"/><path d="M2 9h20M8 3l-2 6 6 12M16 3l2 6-6 12"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Jewellers</p><p class="mega-d">Catalogue, bookings, showroom storytelling</p></div>
+          </a>
+          <a class="mega-item" href="/pages/solutions/clinics">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 3v18M3 12h18M9 7h6v10H9z"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Clinics &amp; doctors</p><p class="mega-d">Doctor profiles, bookings, DPDP-ready</p></div>
+          </a>
+          <a class="mega-item" href="/pages/solutions/tutoring">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 5h12a2 2 0 0 1 2 2v14H6a2 2 0 0 1-2-2V5z"/><path d="M4 19a2 2 0 0 1 2-2h12"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Tutoring &amp; coaching</p><p class="mega-d">Batches, results, parent enquiry flow</p></div>
+          </a>
+          <a class="mega-item" href="/pages/templates">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Templates</p><p class="mega-d">Industry-tuned starting points</p></div>
+          </a>
+        </div>
+      </div>
+      <a href="/pages/why-neweb" class="">Why Neweb</a>
+      <a href="/pages/templates" class="">Templates</a>
+      <div class="nav-drop">
+        <button class="nav-drop-btn" type="button" aria-haspopup="true">Resources <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="nav-drop-menu align-right" role="menu">
+          <a class="mega-item" href="/pages/blog">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h12l4 4v12H4z"/><path d="M7 10h10M7 14h10M7 18h6"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Blog</p><p class="mega-d">Notes from the Neweb team</p></div>
+          </a>
+          <a class="mega-item" href="/pages/guides">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 19.5V5a2 2 0 0 1 2-2h14v16H6a2 2 0 0 0-2 2z"/><path d="M8 7h8M8 11h8"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Guides</p><p class="mega-d">Practical how-tos for small businesses</p></div>
+          </a>
+          <a class="mega-item" href="/pages/tools">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 1-5.4 5.4L4 17l3 3 5.3-5.3a4 4 0 0 1 5.4-5.4L15 12l-3-3 2.7-2.7z"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Free tools</p><p class="mega-d">21 fast utilities for Indian small businesses</p></div>
+          </a>
+          <a class="mega-item" href="/pages/compare">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4v16M17 4v16"/><path d="M5 8l2-2 2 2M15 16l2 2 2-2"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Compare</p><p class="mega-d">Neweb vs other website builders</p></div>
+          </a>
+          <a class="mega-item" href="/pages/customer-stories">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="10" r="2.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M14 20c0-2.5 1.8-4.5 4-4.5s3 2 3 4.5"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Customer stories</p><p class="mega-d">Real businesses. Real numbers.</p></div>
+          </a>
+          <a class="mega-item" href="/pages/domain-checker">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Domain checker</p><p class="mega-d">Check availability in seconds, free</p></div>
+          </a>
+          <a class="mega-item" href="/pages/changelog">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Changelog</p><p class="mega-d">Every update we ship</p></div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="nav-cta">
+      <a href="https://dashboard.neweb.ai/login" class="btn btn-ghost">Sign in</a>
+      <a href="https://dashboard.neweb.ai/signup" class="btn btn-brand">Get Started</a>
+    </div>
+  </div>
+</nav>
+<main id="main">
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="crumbs"><a href="/">Neweb</a> <span class="sep">/</span> <a href="/pages/tools">Free tools</a> <span class="sep">/</span> <span class="here">Meta Tags Analyzer</span></div>
+    <h1>Meta Tags <span class="serif">Analyzer</span>.</h1>
+    <p class="lede">Paste your page's <code>&lt;head&gt;</code> HTML (or the full page) and get an instant checklist: title, meta description, canonical, viewport, robots, Open Graph and Twitter Card tags — each scored with a fix tip, all in your browser.</p>
+  </div>
+</section>
+
+<section class="section"><div class="wrap"><div class="tool-shell">
+  <div class="field">
+    <label>Paste your HTML head (or full HTML)</label>
+    <textarea id="mt-input" placeholder="&lt;head&gt;&#10;  &lt;title&gt;Your page title&lt;/title&gt;&#10;  &lt;meta name=&quot;description&quot; content=&quot;...&quot;&gt;&#10;  ...&#10;&lt;/head&gt;" style="min-height:200px;font-family:'JetBrains Mono',monospace;font-size:13px"></textarea>
+  </div>
+  <div class="tool-actions">
+    <button id="mt-btn" type="button" class="btn btn-brand">Analyze meta tags</button>
+    <button id="mt-sample" type="button" class="btn btn-ghost">Load sample</button>
+  </div>
+  <div id="mt-output" style="margin-top:18px;display:none"></div>
+</div>
+<p class="tool-help">All processing happens in your browser using DOMParser. Your HTML is never sent to any server.</p>
+</div></section>
+<section class="section" style="padding-top:0"><div class="wrap"><div class="prose">
+  <h2>Sample output</h2>
+  <p>Here is a realistic example of what this tool produces, so you know what to expect before you start.</p>
+  <div class="example-card"><p class="lbl">Analysed page — a Chennai dental clinic homepage</p></div>
+  <ul class="tip-list">
+  <li><strong>Title (54 chars):</strong> "Dental Clinic in Adyar, Chennai — Dr. Rao" — good length.</li>
+  <li><strong>Meta description (148 chars):</strong> Present and within limit — good.</li>
+  <li><strong>Canonical:</strong> Present — good.</li>
+  <li><strong>og:image:</strong> Missing — warning. Add a 1200x630 image for WhatsApp and Facebook previews.</li>
+  <li><strong>H1:</strong> One H1 found — good.</li>
+  <li><strong>Viewport:</strong> Present — mobile-ready.</li>
+  </ul>
+  <p>The analyser flags each tag as good, warning, or missing, so you can fix the gaps that hurt rankings and social previews.</p>
+</div></div></section>
+
+
+<section class="section" style="padding-top:0"><div class="wrap"><div class="prose">
+  <section style="margin-bottom:16px">
+    <h2>Why a meta tags checker matters for SEO in 2026</h2>
+    <p>Meta tags are the small lines of HTML that live inside your page's <code>&lt;head&gt;</code>. They never appear in the body of your page, but they tell Google, WhatsApp, Facebook, LinkedIn and X exactly what your page is about and how to display it. In 2026, with AI overviews and richer search results dominating Google in India, getting these tags right is the difference between a listing that earns clicks and one that gets scrolled past.</p>
+    <p>A good meta tags analyzer catches the silent mistakes that quietly cost you traffic. A title tag that is 78 characters long gets chopped mid-word in search results. A missing meta description hands Google permission to pick a random sentence from your page — often the wrong one. A duplicated canonical tag can deindex the page you actually wanted to rank. None of these errors throw a visible error on your live site, which is exactly why they go unnoticed for months. This tool surfaces them in seconds.</p>
+    <p>The most important tags fall into three buckets. First, the <strong>core SEO tags</strong>: the title (aim for 50–60 characters), the meta description (140–158 characters), the canonical URL, and the robots directive that controls whether Google indexes the page. Second, the <strong>technical hygiene tags</strong>: the charset declaration, the viewport tag that makes your site mobile-friendly, and the <code>lang</code> attribute on the <code>&lt;html&gt;</code> element. Third, the <strong>social sharing tags</strong>: Open Graph (<code>og:title</code>, <code>og:description</code>, <code>og:image</code>) and Twitter Card tags that control the preview when someone shares your link.</p>
+  </section>
+
+  <h2>What this analyzer checks</h2>
+  <ul class="tip-list">
+    <li><strong>Title tag</strong> — present, and within the 50–60 character sweet spot so it does not truncate in Google results.</li>
+    <li><strong>Meta description</strong> — present, and between 140 and 158 characters with your keyword and city near the front.</li>
+    <li><strong>Canonical URL</strong> — present and absolute, so duplicate URLs consolidate their ranking signals onto one page.</li>
+    <li><strong>Viewport &amp; charset</strong> — the two tags every mobile-friendly Indian page needs, since most of your traffic is on a phone.</li>
+    <li><strong>Robots directive</strong> — a sanity check that you have not accidentally left <code>noindex</code> on a page you want ranked.</li>
+    <li><strong>Open Graph &amp; Twitter Card</strong> — <code>og:title</code>, <code>og:description</code>, <code>og:image</code> and <code>twitter:card</code> so your link looks great when shared on WhatsApp.</li>
+    <li><strong>Lang attribute &amp; H1</strong> — the <code>lang</code> on <code>&lt;html&gt;</code> and exactly one <code>&lt;h1&gt;</code> (checked when you paste full HTML).</li>
+  </ul>
+
+  <h2>How to use the meta tag analyzer</h2>
+  <ol class="howto">
+    <li><p><strong>Open your page's source.</strong> Right-click your live page and choose "View page source", or in your editor open the HTML file. You only need the <code>&lt;head&gt;</code> section, but pasting the whole page works too.</p></li>
+    <li><p><strong>Paste it into the box above.</strong> Copy everything from <code>&lt;head&gt;</code> to <code>&lt;/head&gt;</code> (or the entire document) and paste it into the text area. Nothing leaves your browser.</p></li>
+    <li><p><strong>Click Analyze.</strong> The tool parses your HTML with DOMParser and runs every check, then shows a score out of 100 with a colour-coded checklist.</p></li>
+    <li><p><strong>Fix the red and amber rows first.</strong> Each failing or warning row comes with a one-line fix tip. Red means a tag is missing or broken; amber means it exists but is the wrong length or format.</p></li>
+    <li><p><strong>Re-paste and re-check.</strong> After editing your page, paste the updated head and run it again until you reach a clean, high score.</p></li>
+  </ol>
+
+  <h2>Meta tag tips for Indian business websites</h2>
+  <p>Indian small businesses compete in crowded local search results, so every pixel of your title and description counts. A few India-specific habits make a real difference.</p>
+  <p><strong>Put your city in the title and description.</strong> A user searching from Pune for a "best CA near me" scans the results for the word "Pune". A title like "Chartered Accountant in Pune — GST &amp; ITR Filing | Sharma &amp; Co" instantly signals relevance. The same logic applies to a "bakery in Indore", a "dentist in Coimbatore" or a "boutique in Jaipur". Front-load the service and the city.</p>
+  <p><strong>Treat WhatsApp as your number-one sharing channel.</strong> In India, links travel through WhatsApp groups far more than any other platform. When your <code>og:image</code> and <code>og:title</code> are set correctly, your link unfurls into an attractive card with a picture and headline. When they are missing, it shows up as a plain grey link that nobody taps. This tool flags a missing <code>og:image</code> immediately so you never share a broken-looking link to a customer group again.</p>
+  <p><strong>Set the lang attribute honestly.</strong> If your page mixes Hindi and English, <code>lang="en-IN"</code> or <code>lang="hi"</code> helps Google and screen readers interpret it correctly. It is a tiny tag with an outsized effect on how your page is understood in regional search.</p>
+  <p><strong>Keep descriptions human, not stuffed.</strong> Write the description for a person deciding whether to tap your result, not for a crawler. One clear sentence about what you offer, where you are, and why someone should choose you beats a list of repeated keywords every time. If you want help drafting these, our <a href="/pages/tools/meta-title-description-generator">meta title and description generator</a> writes ready-to-paste tags, and the <a href="/pages/tools/serp-snippet-preview">SERP snippet preview</a> shows exactly how they will look in Google.</p>
+
+  <h2>Frequently asked questions</h2>
+  <div class="faq">
+    <details><summary>What is a meta tags analyzer and how does it work?</summary><div class="ans"><p>A meta tags analyzer reads the HTML of your page's head section and checks whether the important SEO tags are present and correctly formatted. This tool parses your pasted HTML right in your browser using the built-in DOMParser, then runs a checklist over the title, meta description, canonical URL, viewport, charset, robots, Open Graph tags, Twitter Card tags, the lang attribute and your H1. Each item gets a pass, warning or fail with a one-line fix tip and an overall score out of 100.</p></div></details>
+    <details><summary>What is the ideal meta title and meta description length in 2026?</summary><div class="ans"><p>Aim for a title tag of roughly 50 to 60 characters so it does not get truncated in Google results, and a meta description of about 140 to 158 characters. Google measures the display in pixels rather than characters, so these ranges are guidelines. The key is to front-load your most important keyword and, for Indian local pages, include your city name so users searching from Mumbai, Delhi or Surat see relevance immediately.</p></div></details>
+    <details><summary>Do Open Graph and Twitter Card tags affect SEO rankings?</summary><div class="ans"><p>Open Graph and Twitter Card tags do not directly influence Google rankings, but they control how your link looks when shared on WhatsApp, Facebook, LinkedIn and X. For Indian businesses, WhatsApp sharing is huge, and a missing og:image or og:title means your link appears as a bare grey box that almost nobody clicks. Strong social tags raise click-through, which indirectly supports your traffic and reach.</p></div></details>
+    <details><summary>Is my HTML uploaded anywhere when I use this checker?</summary><div class="ans"><p>No. The entire analysis runs locally in your browser using JavaScript and the DOMParser API. Nothing you paste is sent to Neweb or any server, so you can safely check unpublished pages, staging sites or client work without privacy concerns. Close the tab and the data is gone.</p></div></details>
+  </div>
+</div></div></section>
+
+<section class="section" style="padding-top:0"><div class="wrap">
+  <div class="sec-mark"><span class="eyebrow"><span class="dot"></span> Related tools</span><h2 class="h">Keep <span class="serif">building</span>.</h2></div>
+  <div class="grid-3">
+    <a class="card rise" href="/pages/tools/serp-snippet-preview" style="display:flex;flex-direction:column">
+      <div class="ico">↗</div>
+      <h3>SERP Snippet Preview</h3>
+      <p>See exactly how your title and description will look in Google before you publish.</p>
+    </a>
+    <a class="card rise" href="/pages/tools/open-graph-generator" style="display:flex;flex-direction:column">
+      <div class="ico">↗</div>
+      <h3>Open Graph Generator</h3>
+      <p>Generate clean og: and twitter: tags so links unfurl beautifully on WhatsApp and social.</p>
+    </a>
+    <a class="card rise" href="/pages/tools/meta-title-description-generator" style="display:flex;flex-direction:column">
+      <div class="ico">↗</div>
+      <h3>Meta Title &amp; Description Generator</h3>
+      <p>Write SEO-optimised titles and descriptions that improve click-through rates.</p>
+    </a>
+  </div>
+</div></section>
+
+<div class="wrap" style="text-align:center;margin-top:-20px;margin-bottom:40px"><a href="/pages/solutions" style="color:var(--brand);border-bottom:1px solid rgba(61,76,255,.3);font-size:14px">All industries →</a> &nbsp;·&nbsp; <a href="/pages/pricing" style="color:var(--brand);border-bottom:1px solid rgba(61,76,255,.3);font-size:14px">Pricing</a> &nbsp;·&nbsp; <a href="/pages/tools" style="color:var(--brand);border-bottom:1px solid rgba(61,76,255,.3);font-size:14px">All free tools</a></div>
+
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="cta-dark">
+      <h2>Your <span class="serif">entire online presence</span>, on one subscription.</h2>
+      <p>Neweb writes clean meta tags for every page automatically. Website, free domain, Google Business and SEO autopilot from ₹249/month.</p>
+      <div class="btns">
+        <a href="https://dashboard.neweb.ai/signup" class="btn btn-brand">Claim your free domain</a>
+        <a href="/pages/contact" class="btn btn-ghost" style="background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.12);color:#fff">Talk to us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var btn = document.getElementById('mt-btn');
+  var sampleBtn = document.getElementById('mt-sample');
+  var input = document.getElementById('mt-input');
+  var output = document.getElementById('mt-output');
+  if (!btn) return;
+
+  var SAMPLE = [
+    '<head>',
+    '  <meta charset="utf-8">',
+    '  <meta name="viewport" content="width=device-width, initial-scale=1">',
+    '  <title>Best Bakery in Indore - Fresh Cakes &amp; Breads Daily | Sweet Crust</title>',
+    '  <meta name="description" content="Sweet Crust is a family bakery in Indore baking fresh cakes, breads and pastries every morning. Order online or visit our Vijay Nagar outlet today.">',
+    '  <link rel="canonical" href="https://example.com/">',
+    '  <meta name="robots" content="index,follow">',
+    '  <meta property="og:title" content="Best Bakery in Indore | Sweet Crust">',
+    '  <meta property="og:description" content="Fresh cakes, breads and pastries baked every morning in Indore.">',
+    '  <meta name="twitter:card" content="summary_large_image">',
+    '</head>'
+  ].join('\n');
+
+  function escHtml(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+  // status: 'pass' | 'warn' | 'fail'. weight contributes to score.
+  function makeCheck(name, tag, status, value, tip, weight){
+    return { name:name, tag:tag, status:status, value:value, tip:tip, weight:(weight==null?1:weight) };
+  }
+
+  function analyze(html){
+    var checks = [];
+    var parser = new DOMParser();
+    // Wrap fragment so DOMParser builds a head/body. If full doc pasted it still parses fine.
+    var doc;
+    if (/<html[\s>]/i.test(html)) {
+      doc = parser.parseFromString(html, 'text/html');
+    } else {
+      doc = parser.parseFromString('<!doctype html><html><head>' + html + '</head><body></body></html>', 'text/html');
+    }
+
+    var htmlEl = doc.documentElement;
+    var hasFullDoc = /<html[\s>]/i.test(html);
+
+    // --- Title ---
+    var titleEl = doc.querySelector('title');
+    var titleText = titleEl ? (titleEl.textContent || '').trim() : '';
+    if (!titleEl || !titleText) {
+      checks.push(makeCheck('Title tag','<title>','fail','Not found','Add a unique <title>. Keep it 50–60 characters with your keyword first.',2));
+    } else {
+      var tl = titleText.length;
+      if (tl >= 50 && tl <= 60) {
+        checks.push(makeCheck('Title tag','<title>','pass', titleText + '  ('+tl+' chars)', 'Good length. Make sure your keyword is near the start.',2));
+      } else if (tl >= 40 && tl <= 65) {
+        checks.push(makeCheck('Title tag','<title>','warn', titleText + '  ('+tl+' chars)', tl<50 ? 'A little short — aim for 50–60 characters to use the full width.' : 'A little long — trim toward 60 characters so it does not truncate.',2));
+      } else {
+        checks.push(makeCheck('Title tag','<title>','fail', titleText + '  ('+tl+' chars)', tl<40 ? 'Too short — expand to 50–60 characters with your keyword and city.' : 'Too long — cut to 50–60 characters or Google will truncate it.',2));
+      }
+    }
+
+    // --- Meta description ---
+    var descEl = doc.querySelector('meta[name="description" i]');
+    var desc = descEl ? (descEl.getAttribute('content') || '').trim() : '';
+    if (!descEl || !desc) {
+      checks.push(makeCheck('Meta description','<meta name="description">','fail','Not found','Add a description. Aim for 140–158 characters with your keyword and city.',2));
+    } else {
+      var dl = desc.length;
+      if (dl >= 140 && dl <= 158) {
+        checks.push(makeCheck('Meta description','<meta name="description">','pass', desc + '  ('+dl+' chars)', 'Ideal length. Reads naturally and includes your offer.',2));
+      } else if (dl >= 120 && dl <= 165) {
+        checks.push(makeCheck('Meta description','<meta name="description">','warn', desc + '  ('+dl+' chars)', dl<140 ? 'Slightly short — add detail to reach 140–158 characters.' : 'Slightly long — trim toward 158 so it is not cut off.',2));
+      } else {
+        checks.push(makeCheck('Meta description','<meta name="description">','fail', desc + '  ('+dl+' chars)', dl<120 ? 'Too short — expand to 140–158 characters.' : 'Too long — cut to 140–158 characters to avoid truncation.',2));
+      }
+    }
+
+    // --- Canonical ---
+    var canonEl = doc.querySelector('link[rel="canonical" i]');
+    var canon = canonEl ? (canonEl.getAttribute('href') || '').trim() : '';
+    if (!canonEl || !canon) {
+      checks.push(makeCheck('Canonical URL','<link rel="canonical">','warn','Not found','Add a canonical pointing to this page’s preferred absolute URL.',1));
+    } else if (!/^https?:\/\//i.test(canon)) {
+      checks.push(makeCheck('Canonical URL','<link rel="canonical">','warn', canon, 'Use a full absolute URL (https://...) for the canonical, not a relative path.',1));
+    } else {
+      checks.push(makeCheck('Canonical URL','<link rel="canonical">','pass', canon, 'Canonical is set with an absolute URL.',1));
+    }
+
+    // --- Viewport ---
+    var vpEl = doc.querySelector('meta[name="viewport" i]');
+    var vp = vpEl ? (vpEl.getAttribute('content') || '').trim() : '';
+    if (!vpEl || !vp) {
+      checks.push(makeCheck('Viewport','<meta name="viewport">','fail','Not found','Add <meta name="viewport" content="width=device-width, initial-scale=1"> for mobile.',1));
+    } else if (/width\s*=\s*device-width/i.test(vp)) {
+      checks.push(makeCheck('Viewport','<meta name="viewport">','pass', vp, 'Mobile viewport is configured correctly.',1));
+    } else {
+      checks.push(makeCheck('Viewport','<meta name="viewport">','warn', vp, 'Set content to "width=device-width, initial-scale=1" for proper mobile rendering.',1));
+    }
+
+    // --- Charset ---
+    var csEl = doc.querySelector('meta[charset]');
+    var cs = csEl ? (csEl.getAttribute('charset') || '').trim() : '';
+    if (!csEl) {
+      checks.push(makeCheck('Charset','<meta charset>','warn','Not found','Add <meta charset="utf-8"> as the first tag in the head.',1));
+    } else if (/utf-?8/i.test(cs)) {
+      checks.push(makeCheck('Charset','<meta charset>','pass', cs, 'UTF-8 charset declared.',1));
+    } else {
+      checks.push(makeCheck('Charset','<meta charset>','warn', cs, 'Use utf-8 for full Hindi and emoji support.',1));
+    }
+
+    // --- Robots ---
+    var robEl = doc.querySelector('meta[name="robots" i]');
+    var rob = robEl ? (robEl.getAttribute('content') || '').trim() : '';
+    if (!robEl) {
+      checks.push(makeCheck('Robots directive','<meta name="robots">','pass','Not set (defaults to index,follow)','No robots tag means the page is indexable by default — that is usually fine.',1));
+    } else if (/noindex/i.test(rob)) {
+      checks.push(makeCheck('Robots directive','<meta name="robots">','fail', rob, 'This page is set to NOINDEX — remove it if you want it ranked.',1));
+    } else {
+      checks.push(makeCheck('Robots directive','<meta name="robots">','pass', rob, 'Page is allowed to be indexed.',1));
+    }
+
+    // --- og:title ---
+    var ogTitle = doc.querySelector('meta[property="og:title" i]');
+    if (ogTitle && (ogTitle.getAttribute('content')||'').trim()) {
+      checks.push(makeCheck('og:title','<meta property="og:title">','pass', (ogTitle.getAttribute('content')||'').trim(), 'Open Graph title set for social previews.',1));
+    } else {
+      checks.push(makeCheck('og:title','<meta property="og:title">','warn','Not found','Add og:title so shared links show a headline on WhatsApp and social.',1));
+    }
+
+    // --- og:description ---
+    var ogDesc = doc.querySelector('meta[property="og:description" i]');
+    if (ogDesc && (ogDesc.getAttribute('content')||'').trim()) {
+      checks.push(makeCheck('og:description','<meta property="og:description">','pass', (ogDesc.getAttribute('content')||'').trim(), 'Open Graph description set.',1));
+    } else {
+      checks.push(makeCheck('og:description','<meta property="og:description">','warn','Not found','Add og:description for richer social and WhatsApp link previews.',1));
+    }
+
+    // --- og:image ---
+    var ogImg = doc.querySelector('meta[property="og:image" i]');
+    if (ogImg && (ogImg.getAttribute('content')||'').trim()) {
+      checks.push(makeCheck('og:image','<meta property="og:image">','pass', (ogImg.getAttribute('content')||'').trim(), 'Image set — links will unfurl with a picture.',1));
+    } else {
+      checks.push(makeCheck('og:image','<meta property="og:image">','fail','Not found','Add og:image (1200×630) so links do not appear as a blank grey box on WhatsApp.',1));
+    }
+
+    // --- twitter:card ---
+    var twCard = doc.querySelector('meta[name="twitter:card" i]');
+    if (twCard && (twCard.getAttribute('content')||'').trim()) {
+      checks.push(makeCheck('twitter:card','<meta name="twitter:card">','pass', (twCard.getAttribute('content')||'').trim(), 'Twitter Card type is set.',1));
+    } else {
+      checks.push(makeCheck('twitter:card','<meta name="twitter:card">','warn','Not found','Add twitter:card="summary_large_image" for large preview cards on X.',1));
+    }
+
+    // --- lang attribute (only meaningful for full HTML) ---
+    var lang = hasFullDoc ? (htmlEl.getAttribute('lang')||'').trim() : null;
+    if (hasFullDoc) {
+      if (lang) {
+        checks.push(makeCheck('Lang attribute','<html lang>','pass', lang, 'Language declared — good for accessibility and regional search.',1));
+      } else {
+        checks.push(makeCheck('Lang attribute','<html lang>','warn','Not set','Add lang to <html>, e.g. lang="en-IN" or lang="hi".',1));
+      }
+    }
+
+    // --- H1 count (only for full HTML) ---
+    if (hasFullDoc) {
+      var h1s = doc.querySelectorAll('h1');
+      if (h1s.length === 1) {
+        checks.push(makeCheck('H1 heading','<h1>','pass', (h1s[0].textContent||'').trim().slice(0,90) || '(1 found)', 'Exactly one H1 — ideal for on-page SEO.',1));
+      } else if (h1s.length === 0) {
+        checks.push(makeCheck('H1 heading','<h1>','warn','None found','Add one <h1> with your main keyword.',1));
+      } else {
+        checks.push(makeCheck('H1 heading','<h1>','warn', h1s.length + ' found', 'Use a single <h1> per page; demote the others to <h2>.',1));
+      }
+    }
+
+    return checks;
+  }
+
+  function render(checks){
+    var passW = 0, totalW = 0, nPass=0, nWarn=0, nFail=0;
+    checks.forEach(function(c){
+      totalW += c.weight;
+      if (c.status === 'pass') { passW += c.weight; nPass++; }
+      else if (c.status === 'warn') { passW += c.weight * 0.5; nWarn++; }
+      else { nFail++; }
+    });
+    var score = totalW > 0 ? Math.round((passW/totalW)*100) : 0;
+    var grade = score >= 90 ? 'Excellent' : score >= 75 ? 'Good, minor fixes' : score >= 50 ? 'Needs work' : 'Lots to fix';
+    var gradeMsg = score >= 90 ? 'Your meta tags are in great shape.' : score >= 75 ? 'A couple of quick tweaks and you are set.' : score >= 50 ? 'Several important tags need attention.' : 'Key SEO and social tags are missing.';
+
+    var ICON = { pass:'✅', warn:'⚠️', fail:'❌' };
+
+    var html = '';
+    html += '<div class="mt-score-card">';
+    html += '<div class="mt-score-ring" style="--p:' + score + '"><span class="num">' + score + '</span></div>';
+    html += '<div class="mt-score-meta"><p class="grade">' + grade + ' — ' + score + '/100</p><p>' + gradeMsg + '</p></div>';
+    html += '</div>';
+
+    html += '<div class="mt-counts">';
+    html += '<span class="mt-count pass">✅ ' + nPass + ' passed</span>';
+    html += '<span class="mt-count warn">⚠️ ' + nWarn + ' warnings</span>';
+    html += '<span class="mt-count fail">❌ ' + nFail + ' failed</span>';
+    html += '</div>';
+
+    html += '<div class="mt-list">';
+    checks.forEach(function(c){
+      html += '<div class="mt-item ' + c.status + '">';
+      html += '<div class="ic">' + ICON[c.status] + '</div>';
+      html += '<div class="body">';
+      html += '<p class="name">' + escHtml(c.name) + ' <span class="tag">' + escHtml(c.tag) + '</span></p>';
+      html += '<p class="val">' + escHtml(c.value) + '</p>';
+      html += '<p class="tip">' + escHtml(c.tip) + '</p>';
+      html += '</div></div>';
+    });
+    html += '</div>';
+
+    return html;
+  }
+
+  btn.addEventListener('click', function(){
+    var raw = (input.value || '').trim();
+    if (!raw){ input.focus(); return; }
+    var checks = analyze(raw);
+    output.innerHTML = render(checks);
+    output.style.display = 'block';
+    output.scrollIntoView({behavior:'smooth', block:'nearest'});
+  });
+
+  sampleBtn.addEventListener('click', function(){
+    input.value = SAMPLE;
+    input.focus();
+  });
+})();
+</script>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="ft-top">
+      <div class="ft-brand">
+        <a href="/" class="brand" aria-label="neweb.ai">
+          <img src="/assets/neweb-logo.png" alt="Neweb logo" width="90" height="36" loading="lazy" decoding="async" style="height:36px" />
+        </a>
+        <p class="ft-tag"><em>Digital Dreams to Reality.</em> Neweb is the online presence manager for small businesses — website, domain, Google Business, and SEO in one subscription.</p>
+        <div class="ft-social" aria-label="Neweb on social media">
+          <a href="https://www.linkedin.com/company/newebai/" aria-label="LinkedIn" rel="noopener" target="_blank"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.11 1 2.48 1s2.5 1.12 2.5 2.5zM.22 8h4.52v14H.22V8zm7.5 0h4.33v1.92h.06c.6-1.14 2.08-2.34 4.27-2.34 4.57 0 5.42 3.01 5.42 6.92V22h-4.52v-6.27c0-1.5-.03-3.43-2.09-3.43-2.09 0-2.41 1.63-2.41 3.32V22H7.72V8z"/></svg></a>
+          <a href="https://www.instagram.com/neweb.ai/" aria-label="Instagram" rel="noopener" target="_blank"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 01-1.38-.9 3.7 3.7 0 01-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.77.13 4.9.33 4.14.63c-.79.3-1.46.71-2.13 1.38A5.9 5.9 0 00.63 4.14c-.3.76-.5 1.63-.56 2.9C.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.28.26 2.15.56 2.91.3.79.71 1.46 1.38 2.13.67.67 1.34 1.08 2.13 1.38.76.3 1.63.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.28-.06 2.15-.26 2.91-.56.79-.3 1.46-.71 2.13-1.38.67-.67 1.08-1.34 1.38-2.13.3-.76.5-1.63.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.28-.26-2.15-.56-2.91a5.9 5.9 0 00-1.38-2.13A5.9 5.9 0 0019.86.63c-.76-.3-1.63-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 100 12.32 6.16 6.16 0 000-12.32zM12 16a4 4 0 110-8 4 4 0 010 8zm6.4-11.85a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/></svg></a>
+        </div>
+      </div>
+      <div class="ft-col"><h3 class="ft-h">Product</h3>
+        <a href="/pages/features">Features</a>
+        <a href="/pages/pricing">Pricing</a>
+        <a href="/pages/why-neweb">Why Neweb</a>
+        <a href="/pages/templates">Templates</a>
+        <a href="/pages/changelog">Changelog</a>
+        <a href="/pages/domain-checker">Domain checker</a>
+      </div>
+      <div class="ft-col"><h3 class="ft-h">Solutions</h3>
+        <a href="/pages/solutions/restaurants">Restaurants</a>
+        <a href="/pages/solutions/jewellers">Jewellers</a>
+        <a href="/pages/solutions/clinics">Clinics</a>
+        <a href="/pages/solutions/tutoring">Tutoring centres</a>
+        <a href="/pages/solutions">All industries</a>
+      </div>
+      <div class="ft-col"><h3 class="ft-h">Resources</h3>
+        <a href="/pages/blog">Blog</a>
+        <a href="/pages/guides">Guides</a>
+        <a href="/pages/tools">Free tools</a>
+        <a href="/pages/compare">Compare</a>
+        <a href="/pages/customer-stories">Customer stories</a>
+        <a href="/pages/press">Press kit</a>
+      </div>
+      <div class="ft-col"><h3 class="ft-h">Company</h3>
+        <a href="/pages/about">About</a>
+        <a href="/pages/careers">Careers</a>
+        <a href="/pages/contact">Contact</a>
+        <a href="/pages/security">Security</a>
+        <a href="/pages/privacy">Privacy</a>
+        <a href="/pages/terms">Terms</a>
+        <a href="/pages/refund">Refund</a>
+      </div>
+    </div>
+
+    <div class="ft-offices">
+      <div class="ft-office">
+        <h4 class="ft-h">India Office</h4>
+        <p>909, Sharan Circle Business Hub,<br>Zundal Circle, Ahmedabad,<br>Gujarat, India &mdash; 382421</p>
+      </div>
+      <div class="ft-office">
+        <h4 class="ft-h">USA Office</h4>
+        <p>30 N Gould St Ste R,<br>Sheridan, WY 82801,<br>United States</p>
+      </div>
+      <div class="ft-office">
+        <h4 class="ft-h">Get in touch</h4>
+        <p><a href="mailto:support@neweb.ai">support@neweb.ai</a><br><a href="mailto:sales@neweb.ai">sales@neweb.ai</a><br><a href="tel:+19789811118">+1 978 981 1118</a></p>
+      </div>
+    </div>
+
+    <div class="ft-bot">
+      <span>&copy; 2026 Commerciax Infotech Private Limited. All Rights Reserved.</span>
+      <span>Made for the open web &middot; Built with AI &middot; Powered by Experts.</span>
+    </div>
+    <div class="foot-mega" aria-hidden="true" role="presentation">NEWEB.AI</div>
+  </div>
+</footer>
+<script>
+  (function(){
+    var io = new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})}, {threshold:.1});
+    var targets = new Set(document.querySelectorAll('.card, h2.h, .sec-mark, .cta-dark, .rise'));
+    targets.forEach(function(el){
+      if (!el.classList.contains('rise')) el.classList.add('rise');
+      io.observe(el);
+    });
+  })();
+</script>
+</body>
+</html>

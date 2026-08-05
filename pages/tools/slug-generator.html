@@ -1,0 +1,617 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="icon" type="image/svg+xml" href="/assets/neweb-mark.svg">
+<title>Free URL Slug Generator — SEO-Friendly Slugs | Neweb</title>
+<meta name="description" content="Turn any title into a clean, SEO-friendly URL slug instantly. Strip accents, drop stop words, pick a separator and length. Free slug generator for Indian sites.">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<link rel="canonical" href="https://neweb.ai/pages/tools/slug-generator">
+<meta property="og:title" content="Free URL Slug Generator — SEO-Friendly Slugs | Neweb">
+<meta property="og:description" content="Turn any title into a clean, SEO-friendly URL slug instantly. Strip accents, drop stop words, pick a separator and length. Free slug generator for Indian sites.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://neweb.ai/pages/tools/slug-generator">
+<meta property="og:image" content="https://neweb.ai/assets/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="Neweb">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Free URL Slug Generator — SEO-Friendly Slugs | Neweb">
+<meta name="twitter:description" content="Turn any title into a clean, SEO-friendly URL slug instantly. Strip accents, drop stop words, pick a separator and length. Free slug generator for Indian sites.">
+<meta name="twitter:site" content="@neweb_ai">
+<meta name="twitter:image" content="https://neweb.ai/assets/og-default.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://neweb.ai/"},{"@type":"ListItem","position":2,"name":"Pages","item":"https://neweb.ai/pages"},{"@type":"ListItem","position":3,"name":"Tools","item":"https://neweb.ai/pages/tools"},{"@type":"ListItem","position":4,"name":"Free URL Slug Generator — SEO-Friendly Slugs | Neweb","item":"https://neweb.ai/pages/tools/slug-generator"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"URL Slug Generator","applicationCategory":"BusinessApplication","operatingSystem":"Any","url":"https://neweb.ai/pages/tools/slug-generator","description":"Turn any title into a clean, SEO-friendly URL slug instantly. Strip accents, drop stop words, pick a separator and length. Free slug generator for Indian sites.","offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"publisher":{"@type":"Organization","name":"Neweb","url":"https://neweb.ai/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a URL slug and why does it matter for SEO?","acceptedAnswer":{"@type":"Answer","text":"A URL slug is the part of a web address that identifies a specific page in a human-readable way, for example the 'best-biryani-in-hyderabad' in yoursite.in/best-biryani-in-hyderabad. It matters because a clean, keyword-rich slug helps Google understand the page topic, improves click-through from search results, and is easier for customers to read, remember, and share on WhatsApp."}},{"@type":"Question","name":"Should I use hyphens or underscores in URL slugs?","acceptedAnswer":{"@type":"Answer","text":"Use hyphens. Google treats hyphens as word separators, so 'jewellery-shop-jaipur' is read as three distinct words. Underscores are treated as joiners, so 'jewellery_shop_jaipur' can be read as a single token. For SEO, hyphens are the long-standing best practice. This generator defaults to hyphens but lets you switch to underscores if your platform requires it."}},{"@type":"Question","name":"How long should a URL slug be?","acceptedAnswer":{"@type":"Answer","text":"Shorter is generally better. Aim for three to five meaningful words and keep the slug under about 60 characters. Long slugs get truncated in search results and look spammy. Removing stop words like 'the', 'and', 'of' and 'in' keeps the slug tight while preserving the keywords that actually matter for ranking."}},{"@type":"Question","name":"Should URL slugs be lowercase?","acceptedAnswer":{"@type":"Answer","text":"Yes, always use lowercase. On many servers, URLs are case-sensitive, so /Best-Cafe and /best-cafe can resolve to different pages and split your link equity or cause duplicate-content issues. Lowercase slugs avoid this entirely and are the universal convention. This tool converts everything to lowercase automatically."}}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+<link rel="stylesheet" href="/pages/shared.css">
+<style>
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--brand);font-weight:500}
+  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 4px rgba(61,76,255,.12)}
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  @media(max-width:860px){.grid-3,.grid-2{grid-template-columns:1fr}}
+  .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:28px;transition:transform .25s, box-shadow .25s, border-color .25s}
+  .card:hover{transform:translateY(-3px);box-shadow:0 24px 48px -24px rgba(10,14,26,.1);border-color:var(--line-2)}
+  .card h3{font-size:20px;letter-spacing:-.02em;margin:14px 0 6px;font-weight:600}
+  .card p{color:var(--ink-2);font-size:14.5px;line-height:1.55;margin:0}
+  .card .ico{width:38px;height:38px;border-radius:10px;background:var(--brand-soft);color:var(--brand);display:grid;place-items:center;border:1px solid rgba(61,76,255,.12)}
+  .card .ico svg{width:18px;height:18px}
+  .card ul{padding-left:20px;margin:10px 0 0;color:var(--ink-2);font-size:14px;line-height:1.6}
+  .kv{display:grid;grid-template-columns:1fr 1.4fr;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
+  .kv>dt{padding:14px 20px;background:var(--bg-2);border-bottom:1px solid var(--line);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center}
+  .kv>dd{padding:14px 20px;border-bottom:1px solid var(--line);margin:0;font-size:15px;line-height:1.55}
+  .kv>dt:last-of-type,.kv>dd:last-of-type{border-bottom:0}
+  @media(max-width:860px){.kv{grid-template-columns:1fr}.kv>dt{border-bottom:0;padding-bottom:4px}.kv>dd{padding-top:4px}}
+  .cta-dark{background:var(--ink-dark);color:#fff;border-radius:24px;padding:56px 48px;text-align:center;position:relative;overflow:hidden;margin-top:40px}
+  .cta-dark:before{content:"";position:absolute;left:50%;top:-50%;transform:translateX(-50%);width:800px;height:600px;background:radial-gradient(circle, rgba(61,76,255,.25), transparent 60%);pointer-events:none}
+  .cta-dark h2{font-size:clamp(28px,3.6vw,42px);letter-spacing:-.03em;margin:0 0 12px;font-weight:600;line-height:1.08;position:relative}
+  .cta-dark h2 .serif{font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;color:var(--brand-2)}
+  .cta-dark p{color:#aab0c8;font-size:16px;max-width:520px;margin:0 auto 24px;position:relative}
+  .cta-dark .btns{position:relative;display:inline-flex;gap:10px}
+  .compare-table{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;margin-top:24px}
+  .compare-table .row{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:0;border-bottom:1px solid var(--line)}
+  .compare-table .row:last-child{border-bottom:0}
+  .compare-table .row.head{background:var(--bg-2)}
+  .compare-table .cell{padding:14px 18px;font-size:14px;color:var(--ink-2);line-height:1.5}
+  .compare-table .row.head .cell{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500}
+  .compare-table .cell.brand{color:var(--brand);font-weight:600}
+  .prose{max-width:760px;margin:0 auto;font-size:17px;line-height:1.7;color:var(--ink-2)}
+  .prose h2{font-size:26px;letter-spacing:-.02em;color:var(--ink);margin:32px 0 10px;font-weight:600}
+  .prose h3{font-size:20px;letter-spacing:-.015em;color:var(--ink);margin:24px 0 8px;font-weight:600}
+  .prose p{margin:0 0 16px}
+  .prose ul{padding-left:22px;margin:0 0 16px}
+  .prose li{margin-bottom:6px}
+  .prose a{color:var(--brand);border-bottom:1px solid rgba(61,76,255,.3)}
+
+  /* Tool widget shell — reused across all tool pages */
+  .tool-shell{background:#fff;border:1px solid var(--line-2);border-radius:18px;padding:28px;box-shadow:0 30px 60px -40px rgba(10,14,26,.15);max-width:760px;margin:0 auto}
+  .tool-shell .field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+  .tool-shell label{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:500}
+  .tool-shell input,.tool-shell textarea,.tool-shell select{padding:12px 14px;border:1px solid var(--line-2);border-radius:10px;font:inherit;font-size:15px;color:var(--ink);background:#fff;transition:all .18s;width:100%}
+  .tool-shell input:focus,.tool-shell textarea:focus,.tool-shell select:focus{outline:none;border-color:var(--brand);box-shadow:0 0 0 4px rgba(61,76,255,.1)}
+  .tool-shell textarea{resize:vertical;min-height:80px}
+  .tool-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:560px){.tool-row{grid-template-columns:1fr}}
+  .tool-output{margin-top:18px;padding:18px;border:1px dashed var(--line-2);border-radius:12px;background:var(--bg-2);font-family:"JetBrains Mono",monospace;font-size:13.5px;color:var(--ink);word-break:break-all;line-height:1.55;min-height:48px;display:flex;align-items:center}
+  .tool-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+  .tool-help{margin-top:18px;text-align:center;font-size:13px;color:var(--muted);max-width:560px;margin-left:auto;margin-right:auto}
+  .tool-help a{color:var(--brand);border-bottom:1px solid rgba(61,76,255,.3)}
+
+  /* Numbered how-to list */
+  .howto{counter-reset:n;list-style:none;padding:0;margin:14px 0 24px;display:flex;flex-direction:column;gap:14px}
+  .howto li{counter-increment:n;display:grid;grid-template-columns:36px 1fr;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+  .howto li:before{content:counter(n,decimal-leading-zero);grid-row:1 / span 2;font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:500;letter-spacing:.04em;color:var(--brand);background:var(--brand-soft);width:36px;height:36px;border-radius:10px;display:grid;place-items:center;border:1px solid rgba(61,76,255,.18)}
+  .howto li p{margin:0;font-size:15px;line-height:1.55;color:var(--ink-2)}
+  .howto li p strong{color:var(--ink)}
+
+  /* Tip + example blocks */
+  .tip-list{padding-left:0;list-style:none;display:grid;gap:10px;margin:14px 0 24px}
+  .tip-list li{display:flex;gap:10px;align-items:flex-start;font-size:15.5px;line-height:1.55;color:var(--ink-2)}
+  .tip-list li:before{content:"";flex-shrink:0;margin-top:8px;width:6px;height:6px;border-radius:50%;background:var(--brand)}
+
+  .example-card{background:var(--bg-2);border:1px solid var(--line);border-radius:14px;padding:22px 24px;margin:14px 0 24px}
+  .example-card .lbl{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+  .example-card p:last-child{margin-bottom:0}
+
+  /* FAQ accordion */
+  .faq{display:flex;flex-direction:column;gap:8px;margin:16px 0 24px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
+  .faq details{border-bottom:1px solid var(--line)}
+  .faq details:last-child{border-bottom:0}
+  .faq summary{cursor:pointer;list-style:none;padding:18px 22px;font-weight:500;font-size:16px;color:var(--ink);display:flex;justify-content:space-between;align-items:center;gap:14px}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary:after{content:"+";font-family:"JetBrains Mono",monospace;color:var(--brand);font-size:20px;line-height:1;flex-shrink:0;transition:transform .2s}
+  .faq details[open] summary:after{content:"–"}
+  .faq .ans{padding:0 22px 18px;color:var(--ink-2);font-size:15px;line-height:1.6}
+  .faq .ans p:last-child{margin-bottom:0}
+
+  /* Tools-hub grid */
+  .hub-group{margin-top:36px}
+  .hub-group:first-of-type{margin-top:0}
+  .hub-group .head{display:flex;align-items:baseline;gap:14px;margin-bottom:16px;flex-wrap:wrap}
+  .hub-group h2{font-size:22px;letter-spacing:-.02em;font-weight:600;margin:0;color:var(--ink)}
+  .hub-group .head p{font-size:14px;color:var(--muted);margin:0}
+  .hub-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  @media(max-width:860px){.hub-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.hub-grid{grid-template-columns:1fr}}
+  .tool-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px 22px;display:flex;flex-direction:column;gap:6px;transition:transform .2s, box-shadow .2s, border-color .2s;position:relative;min-height:118px}
+  a.tool-card:hover{transform:translateY(-2px);box-shadow:0 18px 36px -22px rgba(10,14,26,.12);border-color:var(--brand)}
+  .tool-card h3{font-size:16px;letter-spacing:-.01em;font-weight:600;margin:0;color:var(--ink)}
+  .tool-card p{font-size:13.5px;line-height:1.5;color:var(--ink-2);margin:0}
+  .tool-card .meta{margin-top:auto;font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--brand);font-weight:500}
+  .tool-card.soon{background:var(--bg-2)}
+  .tool-card.soon h3{color:var(--ink-2)}
+  .tool-card.soon .meta{color:var(--muted)}
+  .tool-card .pill-corner{position:absolute;top:14px;right:14px;font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border-radius:999px;font-weight:500}
+  .tool-card .pill-corner.live{background:var(--brand-soft);color:var(--brand);border:1px solid rgba(61,76,255,.18)}
+  .tool-card .pill-corner.soon{background:#fff;color:var(--muted);border:1px solid var(--line-2)}
+
+  /* Slug generator specific styles */
+  .slug-out-wrap{margin-top:18px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
+  .slug-out-row{padding:16px 20px;border-bottom:1px solid var(--line)}
+  .slug-out-row:last-child{border-bottom:0}
+  .slug-out-row .lbl{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+  .slug-value{font-family:"JetBrains Mono",monospace;font-size:18px;font-weight:500;color:var(--brand);word-break:break-all;line-height:1.4}
+  .slug-url{font-family:"JetBrains Mono",monospace;font-size:13.5px;color:var(--ink-2);word-break:break-all;line-height:1.5}
+  .slug-url .host{color:var(--muted)}
+  .slug-url .path{color:var(--brand);font-weight:500}
+  .slug-meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+  .slug-pill{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:var(--bg-2);border:1px solid var(--line);color:var(--muted)}
+  .slug-pill.ok{background:#d1fae5;color:#065f46;border-color:#6ee7b7}
+  .slug-pill.warn{background:#fef3c7;color:#92400e;border-color:#fcd34d}
+  .opt-row{display:flex;align-items:center;gap:10px;font-family:inherit}
+  .opt-row input[type=checkbox]{width:auto;margin:0;accent-color:var(--brand)}
+  .opt-row label{font-family:inherit !important;text-transform:none !important;letter-spacing:0 !important;font-size:14.5px !important;color:var(--ink-2) !important;font-weight:400 !important;cursor:pointer}
+  .copied-flash{font-family:"JetBrains Mono",monospace;font-size:11px;color:#065f46;margin-left:4px;opacity:0;transition:opacity .2s}
+  .copied-flash.show{opacity:1}
+</style>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "qeya57o0ci");
+</script>
+</head>
+<body>
+
+<nav class="top">
+  <div class="wrap nav-row">
+    <a href="/" class="brand" aria-label="neweb.ai">
+      <img src="/assets/neweb-logo.png" alt="Neweb — online presence manager" width="70" height="28" decoding="async" fetchpriority="high" />
+    </a>
+    <div class="nav-links">
+      <a href="/" class="">Home</a>
+      <a href="/pages/features" class="">Features</a>
+      <a href="/pages/pricing" class="">Pricing</a>
+      <div class="nav-drop">
+        <button class="nav-drop-btn" type="button" aria-haspopup="true">Solutions <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="nav-drop-menu" role="menu">
+          <a class="mega-item" href="/pages/solutions">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">All solutions</p><p class="mega-d">Every industry we serve</p></div>
+          </a>
+          <a class="mega-item" href="/pages/solutions/restaurants">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M6 7v13h12V7M9 4h6v3H9z"/><path d="M12 11v5"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Restaurants &amp; bakeries</p><p class="mega-d">Menus, reservations, food-first SEO</p></div>
+          </a>
+          <a class="mega-item" href="/pages/solutions/jewellers">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M6 3h12l4 6-10 12L2 9z"/><path d="M2 9h20M8 3l-2 6 6 12M16 3l2 6-6 12"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Jewellers</p><p class="mega-d">Catalogue, bookings, showroom storytelling</p></div>
+          </a>
+          <a class="mega-item" href="/pages/solutions/clinics">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 3v18M3 12h18M9 7h6v10H9z"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Clinics &amp; doctors</p><p class="mega-d">Doctor profiles, bookings, DPDP-ready</p></div>
+          </a>
+          <a class="mega-item" href="/pages/solutions/tutoring">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 5h12a2 2 0 0 1 2 2v14H6a2 2 0 0 1-2-2V5z"/><path d="M4 19a2 2 0 0 1 2-2h12"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Tutoring &amp; coaching</p><p class="mega-d">Batches, results, parent enquiry flow</p></div>
+          </a>
+          <a class="mega-item" href="/pages/templates">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Templates</p><p class="mega-d">Industry-tuned starting points</p></div>
+          </a>
+        </div>
+      </div>
+      <a href="/pages/why-neweb" class="">Why Neweb</a>
+      <a href="/pages/templates" class="">Templates</a>
+      <div class="nav-drop">
+        <button class="nav-drop-btn" type="button" aria-haspopup="true">Resources <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="nav-drop-menu align-right" role="menu">
+          <a class="mega-item" href="/pages/blog">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h12l4 4v12H4z"/><path d="M7 10h10M7 14h10M7 18h6"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Blog</p><p class="mega-d">Notes from the Neweb team</p></div>
+          </a>
+          <a class="mega-item" href="/pages/guides">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 19.5V5a2 2 0 0 1 2-2h14v16H6a2 2 0 0 0-2 2z"/><path d="M8 7h8M8 11h8"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Guides</p><p class="mega-d">Practical how-tos for small businesses</p></div>
+          </a>
+          <a class="mega-item" href="/pages/tools">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 1-5.4 5.4L4 17l3 3 5.3-5.3a4 4 0 0 1 5.4-5.4L15 12l-3-3 2.7-2.7z"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Free tools</p><p class="mega-d">21 fast utilities for Indian small businesses</p></div>
+          </a>
+          <a class="mega-item" href="/pages/compare">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4v16M17 4v16"/><path d="M5 8l2-2 2 2M15 16l2 2 2-2"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Compare</p><p class="mega-d">Neweb vs other website builders</p></div>
+          </a>
+          <a class="mega-item" href="/pages/customer-stories">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="10" r="2.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M14 20c0-2.5 1.8-4.5 4-4.5s3 2 3 4.5"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Customer stories</p><p class="mega-d">Real businesses. Real numbers.</p></div>
+          </a>
+          <a class="mega-item" href="/pages/domain-checker">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Domain checker</p><p class="mega-d">Check availability in seconds, free</p></div>
+          </a>
+          <a class="mega-item" href="/pages/changelog">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Changelog</p><p class="mega-d">Every update we ship</p></div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="nav-cta">
+      <a href="https://dashboard.neweb.ai/login" class="btn btn-ghost">Sign in</a>
+      <a href="https://dashboard.neweb.ai/signup" class="btn btn-brand">Get Started</a>
+    </div>
+  </div>
+</nav>
+<main id="main">
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="crumbs"><a href="/">Neweb</a> <span class="sep">/</span> <a href="/pages/tools">Free tools</a> <span class="sep">/</span> <span class="here">URL Slug Generator</span></div>
+    <h1>URL Slug <span class="serif">Generator</span>.</h1>
+    <p class="lede">Type any page title or headline and instantly get a clean, lowercase, SEO-friendly URL slug. Strip accents, drop stop words, choose your separator and length — with a live preview of the full URL. Everything runs in your browser.</p>
+  </div>
+</section>
+
+<section class="section"><div class="wrap"><div class="tool-shell">
+  <div class="field">
+    <label>Page title or sentence</label>
+    <input id="sg-input" type="text" placeholder="e.g. Best Biryani in Hyderabad — Top 10 Spots for 2026" autocomplete="off" />
+  </div>
+  <div class="tool-row">
+    <div class="field">
+      <label>Separator</label>
+      <select id="sg-sep">
+        <option value="-">Hyphen ( - )  — recommended</option>
+        <option value="_">Underscore ( _ )</option>
+      </select>
+    </div>
+    <div class="field">
+      <label>Max length (characters)</label>
+      <input id="sg-max" type="number" min="0" step="1" value="60" placeholder="0 = no limit" />
+    </div>
+  </div>
+  <div class="field">
+    <div class="opt-row">
+      <input id="sg-stop" type="checkbox" checked />
+      <label for="sg-stop">Remove common stop words (a, the, in, of, and, for…)</label>
+    </div>
+  </div>
+
+  <div class="slug-out-wrap">
+    <div class="slug-out-row">
+      <div class="lbl">Slug</div>
+      <div id="sg-slug" class="slug-value">your-slug-appears-here</div>
+      <div class="slug-meta" id="sg-meta"></div>
+    </div>
+    <div class="slug-out-row">
+      <div class="lbl">URL preview</div>
+      <div class="slug-url"><span class="host">https://yoursite.in/</span><span class="path" id="sg-url-path">your-slug-appears-here</span></div>
+    </div>
+  </div>
+
+  <div class="tool-actions">
+    <button id="sg-copy" type="button" class="btn btn-brand">Copy slug</button>
+    <button id="sg-copy-url" type="button" class="btn btn-ghost">Copy full URL</button>
+    <span class="copied-flash" id="sg-flash">copied ✓</span>
+  </div>
+</div>
+<p class="tool-help">All processing happens in your browser. Nothing you type is ever uploaded or stored.</p>
+</div></section>
+<section class="section" style="padding-top:0"><div class="wrap"><div class="prose">
+  <h2>Sample output</h2>
+  <p>Here is a realistic example of what this tool produces, so you know what to expect before you start.</p>
+  <div class="example-card"><p class="lbl">Input title &rarr; clean slug</p>
+  <p>"The Best Cafes &amp; Bakeries in Koramangala, Bangalore (2026)"<br>&rarr; <code>best-cafes-bakeries-koramangala-bangalore</code></p></div>
+  <div class="example-card"><p class="lbl">More examples</p>
+  <p>"Dr. Sharma&rsquo;s Skin Clinic — Acne Treatment in Pune" &rarr; <code>dr-sharma-skin-clinic-acne-treatment-pune</code><br>
+  "Bridal Gold Necklace Sets, New Collection!" &rarr; <code>bridal-gold-necklace-sets-new-collection</code></p></div>
+  <p>Each slug is lowercased, accent-stripped, stop-words removed and hyphen-separated, leading with the keyword and city for the best ranking signal.</p>
+</div></div></section>
+
+
+<section class="section" style="padding-top:0"><div class="wrap"><div class="prose">
+  <section style="margin-bottom:16px">
+    <h2>Why a clean URL slug matters for SEO</h2>
+    <p>A URL slug is the readable tail of a web address — the <code>best-cafe-in-bandra</code> in <code>yoursite.in/best-cafe-in-bandra</code>. It is small, but it does a surprising amount of work. The slug is one of the first things both Google and a human see, and getting it right is one of the cheapest on-page SEO wins available to any Indian small business.</p>
+    <p>Search engines read the words in your URL as a topic signal. A slug like <code>/diamond-rings-jaipur</code> tells Google, at a glance, exactly what the page is about — before it has even parsed the content. Compare that to a default CMS slug like <code>/product?id=48217</code> or <code>/page-2</code>, which says nothing. A keyword-rich, descriptive slug reinforces relevance for the search terms you actually want to rank for.</p>
+    <p>Clean slugs also lift click-through rates. When your URL appears in the Google results, on a WhatsApp forward, or printed on a flyer, <code>yoursite.in/wedding-catering-pune</code> looks trustworthy and tells the customer where they are going. A messy string of numbers and capital letters looks broken or spammy, and people hesitate to click. Higher click-through is itself a positive ranking signal, so a good slug compounds.</p>
+  </section>
+
+  <h2>How this slug generator works</h2>
+  <ol class="howto">
+    <li><p><strong>Type your title.</strong> Paste a blog headline, product name, or service title — for example "Best Biryani in Hyderabad" or "Dr. Sharma's Dental Clinic, Ind-iranagar".</p></li>
+    <li><p><strong>Accents and punctuation are stripped.</strong> The tool transliterates accented and diacritic characters (é becomes e, ï becomes i), removes apostrophes, commas, and other symbols, and collapses multiple spaces into one separator.</p></li>
+    <li><p><strong>Everything goes lowercase.</strong> Because URLs can be case-sensitive on some servers, the slug is forced to lowercase to avoid duplicate-content and split-link problems.</p></li>
+    <li><p><strong>Stop words are dropped (optional).</strong> With the checkbox on, filler words like "the", "and", "of", "in" and "for" are removed so the slug stays short and keyword-dense. Turn it off to keep the title verbatim.</p></li>
+    <li><p><strong>Length is trimmed.</strong> Set a max length and the tool cuts cleanly at a word boundary so you never end up with a half-word at the end of the slug.</p></li>
+  </ol>
+
+  <h2>URL slug best practices</h2>
+  <ul class="tip-list">
+    <li><strong>Keep it short.</strong> Three to five meaningful words is the sweet spot. Long slugs get truncated in search results and are harder to share. Under 60 characters is a good ceiling.</li>
+    <li><strong>Lead with the keyword.</strong> Put the term you want to rank for early. <code>/seo-services-mumbai</code> is stronger than <code>/our-affordable-and-trusted-seo-services-in-mumbai</code>.</li>
+    <li><strong>Use hyphens, not underscores.</strong> Google reads hyphens as spaces between words. Underscores join words into one token, so <code>jewellery_shop</code> can be read as a single, meaningless string.</li>
+    <li><strong>Always lowercase.</strong> Mixed-case URLs risk resolving to two different pages on case-sensitive servers, splitting your ranking signals.</li>
+    <li><strong>Drop stop words.</strong> "a", "the", "of", "and" rarely add SEO value in a slug. Removing them keeps the URL tight and keyword-rich.</li>
+    <li><strong>Avoid dates and IDs where you can.</strong> <code>/diwali-offers</code> can be reused every year; <code>/diwali-offers-2024</code> looks stale by 2026 and may need redirects.</li>
+    <li><strong>Do not change live slugs casually.</strong> Once a page ranks, changing its slug breaks the URL. If you must, set up a 301 redirect from the old slug to the new one.</li>
+  </ul>
+
+  <h2>Slug examples for Indian businesses</h2>
+  <p>Here is how messy, default-CMS titles become clean, search-ready slugs for common Indian small-business pages. Notice how each one removes filler, keeps the city or category, and reads like a phrase a real customer would type into Google.</p>
+  <div class="example-card">
+    <p class="lbl">Restaurant — blog post</p>
+    <p>Title: "The 10 Best Places for Filter Coffee &amp; Dosa in T. Nagar, Chennai"<br>Slug: <code>best-filter-coffee-dosa-t-nagar-chennai</code></p>
+  </div>
+  <div class="example-card">
+    <p class="lbl">Jeweller — collection page</p>
+    <p>Title: "Bridal Gold &amp; Polki Necklace Sets — New Collection 2026"<br>Slug: <code>bridal-gold-polki-necklace-sets</code></p>
+  </div>
+  <div class="example-card">
+    <p class="lbl">Clinic — service page</p>
+    <p>Title: "Dr. Mehta's Skin &amp; Hair Clinic — Acne Treatment in Pune"<br>Slug: <code>dr-mehta-skin-hair-acne-treatment-pune</code></p>
+  </div>
+  <p>For a salon in Bandra, a tutor in Kota, or a sweet shop in Jaipur, the same rules apply: lead with the service and the city, strip the noise, and keep it readable. A consistent slug structure across your whole site — for instance <code>/services/&lt;service&gt;-&lt;city&gt;</code> — also makes your URLs predictable for both Google and returning customers.</p>
+
+  <h2>Slugs and the rest of your on-page SEO</h2>
+  <p>A great slug is one piece of a larger picture. It should echo your <a href="/pages/tools/meta-title-description-generator">page title and meta description</a> without being identical, and it should target a phrase you have actually researched. If you are still deciding which terms to chase, our <a href="/pages/tools/keyword-idea-generator">keyword idea generator</a> helps you find the queries Indian customers are searching for, so your slugs target real demand rather than guesswork. And if your goal is to show up for "near me" searches in your city, the <a href="/pages/guides/how-to-do-local-seo-india">guide to local SEO in India</a> walks through Google Business Profile, reviews, and location pages — the wider set of moves that make those keyword-rich slugs actually rank.</p>
+
+  <h2>Frequently asked questions</h2>
+  <div class="faq">
+    <details><summary>What is a URL slug and why does it matter for SEO?</summary><div class="ans"><p>A URL slug is the part of a web address that identifies a specific page in a human-readable way, for example the "best-biryani-in-hyderabad" in yoursite.in/best-biryani-in-hyderabad. It matters because a clean, keyword-rich slug helps Google understand the page topic, improves click-through from search results, and is easier for customers to read, remember, and share on WhatsApp.</p></div></details>
+    <details><summary>Should I use hyphens or underscores in URL slugs?</summary><div class="ans"><p>Use hyphens. Google treats hyphens as word separators, so "jewellery-shop-jaipur" is read as three distinct words. Underscores are treated as joiners, so "jewellery_shop_jaipur" can be read as a single token. For SEO, hyphens are the long-standing best practice. This generator defaults to hyphens but lets you switch to underscores if your platform requires it.</p></div></details>
+    <details><summary>How long should a URL slug be?</summary><div class="ans"><p>Shorter is generally better. Aim for three to five meaningful words and keep the slug under about 60 characters. Long slugs get truncated in search results and look spammy. Removing stop words like "the", "and", "of" and "in" keeps the slug tight while preserving the keywords that actually matter for ranking.</p></div></details>
+    <details><summary>Should URL slugs be lowercase?</summary><div class="ans"><p>Yes, always use lowercase. On many servers, URLs are case-sensitive, so /Best-Cafe and /best-cafe can resolve to different pages and split your link equity or cause duplicate-content issues. Lowercase slugs avoid this entirely and are the universal convention. This tool converts everything to lowercase automatically.</p></div></details>
+  </div>
+</div></div></section>
+
+<section class="section" style="padding-top:0"><div class="wrap">
+  <div class="sec-mark"><span class="eyebrow"><span class="dot"></span> Related tools</span><h2 class="h">Keep <span class="serif">building</span>.</h2></div>
+  <div class="grid-3">
+    <a class="card rise" href="/pages/tools/meta-title-description-generator" style="display:flex;flex-direction:column">
+      <div class="ico">↗</div>
+      <h3>Meta Title &amp; Description Generator</h3>
+      <p>Write SEO-optimised titles and descriptions that improve click-through rates.</p>
+    </a>
+    <a class="card rise" href="/pages/tools/keyword-idea-generator" style="display:flex;flex-direction:column">
+      <div class="ico">↗</div>
+      <h3>Keyword Idea Generator</h3>
+      <p>Find the search terms Indian customers actually type, before you write a single slug.</p>
+    </a>
+    <a class="card rise" href="/pages/pricing" style="display:flex;flex-direction:column">
+      <div class="ico">↗</div>
+      <h3>Neweb plans</h3>
+      <p>From ₹249 a month, website plus free domain and SEO autopilot.</p>
+    </a>
+  </div>
+</div></section>
+
+<div class="wrap" style="text-align:center;margin-top:-20px;margin-bottom:40px"><a href="/pages/guides/how-to-do-local-seo-india" style="color:var(--brand);border-bottom:1px solid rgba(61,76,255,.3);font-size:14px">Local SEO guide →</a> &nbsp;·&nbsp; <a href="/pages/pricing" style="color:var(--brand);border-bottom:1px solid rgba(61,76,255,.3);font-size:14px">Pricing</a> &nbsp;·&nbsp; <a href="/pages/tools" style="color:var(--brand);border-bottom:1px solid rgba(61,76,255,.3);font-size:14px">All free tools</a></div>
+
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="cta-dark">
+      <h2>Your <span class="serif">entire online presence</span>, on one subscription.</h2>
+      <p>Clean URLs, fast pages and SEO autopilot — out of the box. Website, free domain and Google Business from ₹249/month.</p>
+      <div class="btns">
+        <a href="https://dashboard.neweb.ai/signup" class="btn btn-brand">Claim your free domain</a>
+        <a href="/pages/contact" class="btn btn-ghost" style="background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.12);color:#fff">Talk to us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var input   = document.getElementById('sg-input');
+  var sepEl   = document.getElementById('sg-sep');
+  var maxEl   = document.getElementById('sg-max');
+  var stopEl  = document.getElementById('sg-stop');
+  var slugEl  = document.getElementById('sg-slug');
+  var pathEl  = document.getElementById('sg-url-path');
+  var metaEl  = document.getElementById('sg-meta');
+  var copyBtn = document.getElementById('sg-copy');
+  var copyUrlBtn = document.getElementById('sg-copy-url');
+  var flash   = document.getElementById('sg-flash');
+  if (!input) return;
+
+  var STOP = new Set([
+    'a','an','and','as','at','be','but','by','for','from','in','into','is','it','of','on',
+    'or','the','to','with','that','this','your','our','my','are','was','were','will','best',
+    'top','new'
+  ]);
+
+  // Basic transliteration map for common non-ASCII chars
+  var MAP = {
+    'à':'a','á':'a','â':'a','ã':'a','ä':'a','å':'a','æ':'ae','ç':'c','è':'e','é':'e','ê':'e',
+    'ë':'e','ì':'i','í':'i','î':'i','ï':'i','ñ':'n','ò':'o','ó':'o','ô':'o','õ':'o','ö':'o',
+    'ø':'o','ù':'u','ú':'u','û':'u','ü':'u','ý':'y','ÿ':'y','š':'s','ž':'z','œ':'oe','ß':'ss',
+    '&':'and','@':'at','₹':'rs','%':'percent','+':'plus'
+  };
+
+  function transliterate(s){
+    // Use Unicode normalisation to strip diacritics where supported
+    if (s.normalize) {
+      s = s.normalize('NFKD').replace(/[̀-ͯ]/g, '');
+    }
+    return s.replace(/[^ -]/g, function(ch){
+      var low = ch.toLowerCase();
+      return MAP.hasOwnProperty(low) ? MAP[low] : '';
+    });
+  }
+
+  function buildSlug(text, sep, maxLen, dropStop){
+    if (!text) return '';
+    var lower = text.toLowerCase();
+    // Replace symbol words first (works on the original chars too)
+    lower = lower.replace(/&/g,' and ').replace(/@/g,' at ').replace(/₹/g,' rs ').replace(/%/g,' percent ').replace(/\+/g,' plus ');
+    var ascii = transliterate(lower);
+    // Replace any non-alphanumeric with a space, then split
+    var words = ascii.replace(/[^a-z0-9]+/g, ' ').trim().split(/\s+/);
+    words = words.filter(function(w){ return w.length > 0; });
+    if (dropStop) {
+      var kept = words.filter(function(w){ return !STOP.has(w); });
+      // Don't let stop-word removal wipe everything out
+      if (kept.length > 0) words = kept;
+    }
+    var slug = words.join(sep);
+    // Enforce max length at a separator boundary
+    if (maxLen && maxLen > 0 && slug.length > maxLen) {
+      var cut = slug.slice(0, maxLen);
+      var lastSep = cut.lastIndexOf(sep);
+      if (lastSep > 0) cut = cut.slice(0, lastSep);
+      slug = cut.replace(new RegExp('\\' + sep + '+$'), '');
+    }
+    return slug;
+  }
+
+  function render(){
+    var sep = sepEl.value || '-';
+    var maxLen = parseInt(maxEl.value, 10);
+    if (isNaN(maxLen) || maxLen < 0) maxLen = 0;
+    var dropStop = stopEl.checked;
+    var slug = buildSlug(input.value, sep, maxLen, dropStop);
+
+    if (!slug) {
+      slugEl.textContent = 'your-slug-appears-here';
+      pathEl.textContent = 'your-slug-appears-here';
+      metaEl.innerHTML = '';
+      return;
+    }
+
+    slugEl.textContent = slug;
+    pathEl.textContent = slug;
+
+    var len = slug.length;
+    var lenCls = len <= 60 ? 'ok' : 'warn';
+    var html = '';
+    html += '<span class="slug-pill ' + lenCls + '">' + len + ' chars</span>';
+    html += '<span class="slug-pill">' + slug.split(sep).filter(function(w){return w;}).length + ' words</span>';
+    if (len > 60) html += '<span class="slug-pill warn">consider shortening</span>';
+    else html += '<span class="slug-pill ok">good length</span>';
+    metaEl.innerHTML = html;
+  }
+
+  function showFlash(){
+    flash.classList.add('show');
+    setTimeout(function(){ flash.classList.remove('show'); }, 1400);
+  }
+
+  function copyText(text){
+    if (!text) return;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(showFlash, function(){ fallbackCopy(text); });
+    } else {
+      fallbackCopy(text);
+    }
+  }
+
+  function fallbackCopy(text){
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.left = '-9999px';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); showFlash(); } catch(e){}
+    document.body.removeChild(ta);
+  }
+
+  input.addEventListener('input', render);
+  sepEl.addEventListener('change', render);
+  maxEl.addEventListener('input', render);
+  stopEl.addEventListener('change', render);
+
+  copyBtn.addEventListener('click', function(){
+    var s = slugEl.textContent;
+    if (s && s !== 'your-slug-appears-here') copyText(s);
+  });
+  copyUrlBtn.addEventListener('click', function(){
+    var s = slugEl.textContent;
+    if (s && s !== 'your-slug-appears-here') copyText('https://yoursite.in/' + s);
+  });
+
+  render();
+})();
+</script>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="ft-top">
+      <div class="ft-brand">
+        <a href="/" class="brand" aria-label="neweb.ai">
+          <img src="/assets/neweb-logo.png" alt="Neweb logo" width="90" height="36" loading="lazy" decoding="async" style="height:36px" />
+        </a>
+        <p class="ft-tag"><em>Digital Dreams to Reality.</em> Neweb is the online presence manager for small businesses — website, domain, Google Business, and SEO in one subscription.</p>
+        <div class="ft-social" aria-label="Neweb on social media">
+          <a href="https://www.linkedin.com/company/newebai/" aria-label="LinkedIn" rel="noopener" target="_blank"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.11 1 2.48 1s2.5 1.12 2.5 2.5zM.22 8h4.52v14H.22V8zm7.5 0h4.33v1.92h.06c.6-1.14 2.08-2.34 4.27-2.34 4.57 0 5.42 3.01 5.42 6.92V22h-4.52v-6.27c0-1.5-.03-3.43-2.09-3.43-2.09 0-2.41 1.63-2.41 3.32V22H7.72V8z"/></svg></a>
+          <a href="https://www.instagram.com/neweb.ai/" aria-label="Instagram" rel="noopener" target="_blank"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 01-1.38-.9 3.7 3.7 0 01-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.77.13 4.9.33 4.14.63c-.79.3-1.46.71-2.13 1.38A5.9 5.9 0 00.63 4.14c-.3.76-.5 1.63-.56 2.9C.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.28.26 2.15.56 2.91.3.79.71 1.46 1.38 2.13.67.67 1.34 1.08 2.13 1.38.76.3 1.63.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.28-.06 2.15-.26 2.91-.56.79-.3 1.46-.71 2.13-1.38.67-.67 1.08-1.34 1.38-2.13.3-.76.5-1.63.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.28-.26-2.15-.56-2.91a5.9 5.9 0 00-1.38-2.13A5.9 5.9 0 0019.86.63c-.76-.3-1.63-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 100 12.32 6.16 6.16 0 000-12.32zM12 16a4 4 0 110-8 4 4 0 010 8zm6.4-11.85a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/></svg></a>
+        </div>
+      </div>
+      <div class="ft-col"><h3 class="ft-h">Product</h3>
+        <a href="/pages/features">Features</a>
+        <a href="/pages/pricing">Pricing</a>
+        <a href="/pages/why-neweb">Why Neweb</a>
+        <a href="/pages/templates">Templates</a>
+        <a href="/pages/changelog">Changelog</a>
+        <a href="/pages/domain-checker">Domain checker</a>
+      </div>
+      <div class="ft-col"><h3 class="ft-h">Solutions</h3>
+        <a href="/pages/solutions/restaurants">Restaurants</a>
+        <a href="/pages/solutions/jewellers">Jewellers</a>
+        <a href="/pages/solutions/clinics">Clinics</a>
+        <a href="/pages/solutions/tutoring">Tutoring centres</a>
+        <a href="/pages/solutions">All industries</a>
+      </div>
+      <div class="ft-col"><h3 class="ft-h">Resources</h3>
+        <a href="/pages/blog">Blog</a>
+        <a href="/pages/guides">Guides</a>
+        <a href="/pages/tools">Free tools</a>
+        <a href="/pages/compare">Compare</a>
+        <a href="/pages/customer-stories">Customer stories</a>
+        <a href="/pages/press">Press kit</a>
+      </div>
+      <div class="ft-col"><h3 class="ft-h">Company</h3>
+        <a href="/pages/about">About</a>
+        <a href="/pages/careers">Careers</a>
+        <a href="/pages/contact">Contact</a>
+        <a href="/pages/security">Security</a>
+        <a href="/pages/privacy">Privacy</a>
+        <a href="/pages/terms">Terms</a>
+        <a href="/pages/refund">Refund</a>
+      </div>
+    </div>
+
+    <div class="ft-offices">
+      <div class="ft-office">
+        <h4 class="ft-h">India Office</h4>
+        <p>909, Sharan Circle Business Hub,<br>Zundal Circle, Ahmedabad,<br>Gujarat, India &mdash; 382421</p>
+      </div>
+      <div class="ft-office">
+        <h4 class="ft-h">USA Office</h4>
+        <p>30 N Gould St Ste R,<br>Sheridan, WY 82801,<br>United States</p>
+      </div>
+      <div class="ft-office">
+        <h4 class="ft-h">Get in touch</h4>
+        <p><a href="mailto:support@neweb.ai">support@neweb.ai</a><br><a href="mailto:sales@neweb.ai">sales@neweb.ai</a><br><a href="tel:+19789811118">+1 978 981 1118</a></p>
+      </div>
+    </div>
+
+    <div class="ft-bot">
+      <span>&copy; 2026 Commerciax Infotech Private Limited. All Rights Reserved.</span>
+      <span>Made for the open web &middot; Built with AI &middot; Powered by Experts.</span>
+    </div>
+    <div class="foot-mega" aria-hidden="true" role="presentation">NEWEB.AI</div>
+  </div>
+</footer>
+<script>
+  (function(){
+    var io = new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})}, {threshold:.1});
+    var targets = new Set(document.querySelectorAll('.card, h2.h, .sec-mark, .cta-dark, .rise'));
+    targets.forEach(function(el){
+      if (!el.classList.contains('rise')) el.classList.add('rise');
+      io.observe(el);
+    });
+  })();
+</script>
+</body>
+</html>

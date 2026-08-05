@@ -1,0 +1,92 @@
+# Neweb robots.txt
+# AI: see https://neweb.ai/llms.txt and https://neweb.ai/llms-full.txt for a structured site overview.
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /data/
+Disallow: /uploads-content/
+Disallow: /pages/admin
+Disallow: /pages/admin.html
+
+User-agent: GPTBot
+Allow: /
+Disallow: /api/
+Disallow: /data/
+Disallow: /uploads-content/
+Disallow: /pages/admin
+Disallow: /pages/admin.html
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /api/
+Disallow: /data/
+Disallow: /uploads-content/
+Disallow: /pages/admin
+Disallow: /pages/admin.html
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /api/
+Disallow: /data/
+Disallow: /uploads-content/
+Disallow: /pages/admin
+Disallow: /pages/admin.html
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /api/
+Disallow: /data/
+Disallow: /uploads-content/
+Disallow: /pages/admin
+Disallow: /pages/admin.html
+
+User-agent: Claude-Web
+Allow: /
+Disallow: /api/
+Disallow: /data/
+Disallow: /uploads-content/
+Disallow: /pages/admin
+Disallow: /pages/admin.html
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /api/
+Disallow: /data/
+Disallow: /uploads-content/
+Disallow: /pages/admin
+Disallow: /pages/admin.html
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /api/
+Disallow: /data/
+Disallow: /uploads-content/
+Disallow: /pages/admin
+Disallow: /pages/admin.html
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /api/
+Disallow: /data/
+Disallow: /uploads-content/
+Disallow: /pages/admin
+Disallow: /pages/admin.html
+
+User-agent: CCBot
+Allow: /
+Disallow: /api/
+Disallow: /data/
+Disallow: /uploads-content/
+Disallow: /pages/admin
+Disallow: /pages/admin.html
+
+User-agent: Bingbot
+Allow: /
+Disallow: /api/
+Disallow: /data/
+Disallow: /uploads-content/
+Disallow: /pages/admin
+Disallow: /pages/admin.html
+
+Sitemap: https://neweb.ai/sitemap.xml

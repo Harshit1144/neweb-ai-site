@@ -1,0 +1,620 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="icon" type="image/svg+xml" href="/assets/neweb-mark.svg">
+<title>Why Neweb — The only platform you need for your entire online presence</title>
+<meta name="description" content="Website, free domain, Google Business, SEO autopilot, newsletter — all in one subscription. See why 1,000+ small businesses ship their presence on Neweb.">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<link rel="canonical" href="https://neweb.ai/pages/why-neweb">
+<meta property="og:title" content="Why Neweb — The only platform you need for your entire online presence">
+<meta property="og:description" content="Website, free domain, Google Business, SEO autopilot, newsletter — all in one subscription. See why 1,000+ small businesses ship their presence on Neweb.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://neweb.ai/pages/why-neweb">
+<meta property="og:image" content="https://neweb.ai/assets/og-default.png">
+<meta property="og:site_name" content="Neweb">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@neweb_ai">
+<meta name="twitter:image" content="https://neweb.ai/assets/og-default.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://neweb.ai/"},{"@type":"ListItem","position":2,"name":"Pages","item":"https://neweb.ai/pages"},{"@type":"ListItem","position":3,"name":"Why Neweb","item":"https://neweb.ai/pages/why-neweb"}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+<link rel="stylesheet" href="/pages/shared.css?v=3">
+<style>
+  /* ===== Why-Neweb page specific ===== */
+  .why-hero{padding:80px 0 48px;text-align:center;background:linear-gradient(180deg,#fafbff 0%, #fff 70%);border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+  .why-hero:before{content:"";position:absolute;left:50%;top:-300px;transform:translateX(-50%);width:900px;height:700px;background:radial-gradient(circle, rgba(61,76,255,.1), transparent 65%);pointer-events:none}
+  .why-hero .eyebrow{justify-content:center;margin-bottom:20px}
+  .why-hero h1{font-size:clamp(40px,6vw,68px);line-height:1.04;letter-spacing:-.035em;margin:0 auto 20px;font-weight:600;max-width:900px;text-wrap:balance;position:relative}
+  .why-hero h1 .serif{font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;color:var(--brand);display:inline-block;position:relative}
+  .why-hero h1 .serif:after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:10px;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 10' preserveAspectRatio='none'><path d='M2 6 Q 75 1 150 5 T 298 5' stroke='%233d4cff' stroke-width='2.5' fill='none' stroke-linecap='round'/></svg>") center/100% 100% no-repeat}
+  .why-hero .lede{font-size:18px;color:var(--ink-2);max-width:640px;margin:0 auto 28px;line-height:1.55;position:relative}
+
+  .why-stats{display:inline-flex;gap:0;background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 8px;box-shadow:0 20px 40px -20px rgba(10,14,26,.08);margin-top:8px;position:relative;flex-wrap:wrap;justify-content:center}
+  .why-stats .stat{padding:6px 28px;border-right:1px solid var(--line);text-align:center;min-width:120px}
+  .why-stats .stat:last-child{border-right:0}
+  .why-stats .stat .n{font-size:24px;font-weight:600;letter-spacing:-.02em;color:var(--ink);line-height:1.1}
+  .why-stats .stat .l{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+  @media(max-width:720px){.why-stats .stat{border-right:0;border-bottom:1px solid var(--line);padding:14px 20px;width:50%;min-width:0}.why-stats .stat:nth-last-child(-n+2){border-bottom:0}}
+
+  .why-cta-row{display:flex;gap:10px;justify-content:center;margin-top:32px;position:relative;flex-wrap:wrap}
+  .why-trial-note{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:14px;position:relative}
+
+  /* ===== Numbered section blocks ===== */
+  .why-num-section{position:relative;padding:72px 0;overflow:hidden;border-bottom:1px solid var(--line)}
+  .why-num-section.alt{background:var(--bg-2)}
+  .why-num-section.dark{background:var(--ink-dark);border-bottom:0;color:#fff}
+  .why-num-section.dark:before{content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:800px;height:600px;background:radial-gradient(circle, rgba(61,76,255,.22), transparent 60%);pointer-events:none}
+
+  .big-num{position:absolute;font-family:"Instrument Serif",serif;font-weight:400;font-size:clamp(240px,34vw,420px);line-height:.8;color:transparent;-webkit-text-stroke:1.5px rgba(10,14,26,.08);letter-spacing:-.05em;pointer-events:none;user-select:none;z-index:0;top:50%;transform:translateY(-50%)}
+  .why-num-section .big-num{right:-20px}
+  .why-num-section.flip .big-num{right:auto;left:-20px}
+  .why-num-section.dark .big-num{-webkit-text-stroke:1.5px rgba(255,255,255,.08)}
+
+  .num-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center;position:relative;z-index:1}
+  .why-num-section.flip .num-grid{direction:rtl}
+  .why-num-section.flip .num-grid > *{direction:ltr}
+  @media(max-width:900px){.num-grid{grid-template-columns:1fr;gap:24px}.why-num-section.flip .num-grid{direction:ltr}}
+
+  .num-copy h2{font-size:clamp(28px,3.4vw,40px);letter-spacing:-.03em;line-height:1.08;margin:14px 0 12px;font-weight:600;text-wrap:balance}
+  .why-num-section.dark .num-copy h2{color:#fff}
+  .num-copy h2 .serif{font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;color:var(--brand)}
+  .why-num-section.dark .num-copy h2 .serif{color:var(--brand-2)}
+  .num-copy p.lede{font-size:16px;line-height:1.6;color:var(--ink-2);margin:0 0 18px;max-width:520px}
+  .why-num-section.dark .num-copy p.lede{color:#aab0c8}
+  .num-copy .tag-mono{display:block;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--brand);font-weight:500}
+  .why-num-section.dark .num-copy .tag-mono{color:var(--brand-2)}
+
+  .chip-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+  .chip{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:13.5px;color:var(--ink-2);font-weight:500;transition:border-color .18s, transform .18s}
+  .chip:hover{border-color:var(--line-2);transform:translateY(-1px)}
+  .chip .chk{width:16px;height:16px;border-radius:50%;background:rgba(22,163,74,.12);color:var(--ok);display:grid;place-items:center;flex-shrink:0}
+  .chip .chk svg{width:10px;height:10px}
+  .why-num-section.dark .chip{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12);color:#e7e9f2}
+  .why-num-section.dark .chip .chk{background:rgba(126,227,184,.18);color:var(--mint)}
+
+  /* ===== Testimonial card ===== */
+  .t-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px 28px;position:relative;box-shadow:0 24px 48px -28px rgba(10,14,26,.12);max-width:460px}
+  .why-num-section.dark .t-card{background:#11132a;border-color:rgba(255,255,255,.08)}
+  .t-card .quote-mark{position:absolute;top:18px;left:28px;font-family:"Instrument Serif",serif;font-size:60px;line-height:1;color:var(--brand);opacity:.35}
+  .why-num-section.dark .t-card .quote-mark{color:var(--brand-2);opacity:.55}
+  .t-card .label{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--brand);font-weight:500;margin:0 0 12px;padding-left:40px}
+  .why-num-section.dark .t-card .label{color:var(--brand-2)}
+  .t-card blockquote{margin:0;font-size:16.5px;line-height:1.55;color:var(--ink);font-weight:500;letter-spacing:-.005em}
+  .why-num-section.dark .t-card blockquote{color:#f0f1fa}
+  .t-card .who{display:flex;gap:12px;align-items:center;margin-top:20px;padding-top:18px;border-top:1px solid var(--line)}
+  .why-num-section.dark .t-card .who{border-top-color:rgba(255,255,255,.08)}
+  .t-card .avatar{width:40px;height:40px;border-radius:50%;background:var(--brand-soft);color:var(--brand);display:grid;place-items:center;font-weight:600;font-size:14px;letter-spacing:-.01em;flex-shrink:0;border:1px solid rgba(61,76,255,.18)}
+  .why-num-section.dark .t-card .avatar{background:rgba(107,123,255,.18);color:var(--brand-2);border-color:rgba(107,123,255,.25)}
+  .t-card .who .name{font-size:13.5px;font-weight:600;color:var(--ink);letter-spacing:-.005em;line-height:1.2;margin:0}
+  .why-num-section.dark .t-card .who .name{color:#fff}
+  .t-card .who .role{font-size:12px;color:var(--muted);margin-top:2px;line-height:1.3}
+
+  /* ===== Comparison section ===== */
+  .why-compare{padding:88px 0;background:#fff;border-bottom:1px solid var(--line)}
+  .why-compare .sec-head{text-align:center;margin-bottom:40px}
+  .why-compare .sec-head .eyebrow{justify-content:center;margin-bottom:14px}
+  .why-compare h2{font-size:clamp(30px,4vw,48px);letter-spacing:-.03em;line-height:1.05;margin:0 auto 10px;font-weight:600;max-width:720px;text-wrap:balance}
+  .why-compare h2 .serif{font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;color:var(--brand)}
+  .why-compare .sec-head p{color:var(--ink-2);font-size:15.5px;max-width:520px;margin:0 auto}
+
+  .ctab{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 20px 40px -24px rgba(10,14,26,.08)}
+  .ctab .row{display:grid;grid-template-columns:2fr 1fr 1fr;border-bottom:1px solid var(--line);align-items:stretch}
+  .ctab .row:last-child{border-bottom:0}
+  .ctab .row.head{background:var(--bg-2)}
+  .ctab .cell{padding:16px 22px;font-size:14.5px;color:var(--ink);line-height:1.5;display:flex;align-items:center;justify-content:flex-start;border-right:1px solid var(--line)}
+  .ctab .cell:last-child{border-right:0}
+  .ctab .cell.brand-col{background:linear-gradient(180deg, rgba(61,76,255,.05), rgba(61,76,255,.02));justify-content:center}
+  .ctab .row.head .cell{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500;padding-top:14px;padding-bottom:14px}
+  .ctab .row.head .cell.brand-col{color:#fff;background:var(--brand);justify-content:center}
+  .ctab .row.head .cell.brand-col img{height:20px;filter:brightness(0) invert(1)}
+  .ctab .feat-name{font-weight:500;color:var(--ink)}
+  .ctab .yes,.ctab .no,.ctab .partial{display:inline-flex;align-items:center;justify-content:center}
+  .ctab .yes{width:28px;height:28px;border-radius:50%;background:rgba(22,163,74,.12);color:var(--ok)}
+  .ctab .no{width:28px;height:28px;border-radius:50%;background:#fde8e8;color:#dc2626}
+  .ctab .partial{font-size:13px;font-weight:600;color:var(--muted);font-family:"JetBrains Mono",monospace}
+  .ctab .yes svg,.ctab .no svg{width:14px;height:14px}
+  @media(max-width:720px){.ctab .row{grid-template-columns:1.6fr .7fr .7fr}.ctab .cell{padding:12px 14px;font-size:13px}}
+
+  /* ===== Who it's built for ===== */
+  .why-for{padding:88px 0;background:var(--bg-2);border-bottom:1px solid var(--line)}
+  .why-for .sec-head{text-align:center;margin-bottom:40px}
+  .why-for h2{font-size:clamp(30px,4vw,48px);letter-spacing:-.03em;line-height:1.05;margin:0 auto 10px;font-weight:600;max-width:780px;text-wrap:balance}
+  .why-for h2 .serif{font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;color:var(--brand)}
+  .persona-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  @media(max-width:900px){.persona-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.persona-grid{grid-template-columns:1fr}}
+  .persona{background:#fff;border:1px solid var(--line);border-radius:16px;padding:28px;text-align:center;transition:transform .22s, box-shadow .22s, border-color .22s;display:block}
+  .persona:hover{transform:translateY(-3px);box-shadow:0 24px 48px -24px rgba(10,14,26,.1);border-color:var(--line-2)}
+  .persona .p-ico{width:44px;height:44px;margin:0 auto 14px;border-radius:12px;background:var(--brand-soft);color:var(--brand);display:grid;place-items:center;border:1px solid rgba(61,76,255,.12)}
+  .persona .p-ico svg{width:20px;height:20px}
+  .persona h3{font-size:17px;letter-spacing:-.01em;margin:0 0 6px;font-weight:600;color:var(--ink)}
+  .persona p{color:var(--ink-2);font-size:13.5px;line-height:1.5;margin:0}
+
+  /* ===== Final CTA ===== */
+  .why-final{padding:80px 0;background:var(--brand);color:#fff;text-align:center;position:relative;overflow:hidden}
+  .why-final:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 30%, rgba(255,255,255,.15), transparent 40%), radial-gradient(circle at 80% 80%, rgba(255,255,255,.1), transparent 40%);pointer-events:none}
+  .why-final h2{font-size:clamp(32px,4.5vw,52px);letter-spacing:-.03em;line-height:1.05;margin:0 auto 10px;font-weight:600;max-width:760px;position:relative;text-wrap:balance}
+  .why-final h2 .serif{font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;color:#fff;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:6px}
+  .why-final p.lede{font-size:17px;color:rgba(255,255,255,.85);max-width:520px;margin:14px auto 28px;position:relative}
+  .why-final .cta-box{display:inline-flex;gap:8px;background:#fff;border-radius:12px;padding:6px;box-shadow:0 20px 40px -20px rgba(0,0,0,.35);position:relative;flex-wrap:wrap;justify-content:center}
+  .why-final .cta-box input{flex:1;min-width:220px;padding:10px 14px;border:0;background:transparent;font:inherit;font-size:14.5px;color:var(--ink);outline:none}
+  .why-final .cta-box input::placeholder{color:var(--muted)}
+  .why-final .cta-box .btn{padding:10px 18px}
+  .why-final .or{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.75);margin:16px 0 12px;position:relative}
+  .why-final .sso-row{display:inline-flex;gap:10px;position:relative;flex-wrap:wrap;justify-content:center}
+  .why-final .sso{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--ink);border-radius:10px;padding:9px 18px;font-size:13.5px;font-weight:500;min-width:160px;justify-content:center;transition:transform .15s}
+  .why-final .sso:hover{transform:translateY(-1px)}
+  .why-final .sso svg{width:16px;height:16px}
+  .why-final .final-note{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-top:22px;position:relative}
+</style>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "qeya57o0ci");
+</script>
+</head>
+<body>
+
+<nav class="top">
+  <div class="wrap nav-row">
+    <a href="/" class="brand" aria-label="neweb.ai">
+      <img src="/assets/neweb-logo.png" alt="Neweb — online presence manager" width="70" height="28" decoding="async" fetchpriority="high" />
+    </a>
+    <div class="nav-links">
+      <a href="/" class="">Home</a>
+      <a href="/pages/features" class="">Features</a>
+      <a href="/pages/pricing" class="">Pricing</a>
+      <div class="nav-drop">
+        <button class="nav-drop-btn" type="button" aria-haspopup="true">Solutions <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="nav-drop-menu" role="menu">
+          <a class="mega-item" href="/pages/solutions">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">All solutions</p><p class="mega-d">Every industry we serve</p></div>
+          </a>
+          <a class="mega-item" href="/pages/solutions/restaurants">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M6 7v13h12V7M9 4h6v3H9z"/><path d="M12 11v5"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Restaurants &amp; bakeries</p><p class="mega-d">Menus, reservations, food-first SEO</p></div>
+          </a>
+          <a class="mega-item" href="/pages/solutions/jewellers">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M6 3h12l4 6-10 12L2 9z"/><path d="M2 9h20M8 3l-2 6 6 12M16 3l2 6-6 12"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Jewellers</p><p class="mega-d">Catalogue, bookings, showroom storytelling</p></div>
+          </a>
+          <a class="mega-item" href="/pages/solutions/clinics">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 3v18M3 12h18M9 7h6v10H9z"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Clinics &amp; doctors</p><p class="mega-d">Doctor profiles, bookings, DPDP-ready</p></div>
+          </a>
+          <a class="mega-item" href="/pages/solutions/tutoring">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 5h12a2 2 0 0 1 2 2v14H6a2 2 0 0 1-2-2V5z"/><path d="M4 19a2 2 0 0 1 2-2h12"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Tutoring &amp; coaching</p><p class="mega-d">Batches, results, parent enquiry flow</p></div>
+          </a>
+          <a class="mega-item" href="/pages/templates">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Templates</p><p class="mega-d">Industry-tuned starting points</p></div>
+          </a>
+        </div>
+      </div>
+      <a href="/pages/why-neweb" class="on">Why Neweb</a>
+      <a href="/pages/templates" class="">Templates</a>
+      <div class="nav-drop">
+        <button class="nav-drop-btn" type="button" aria-haspopup="true">Resources <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="nav-drop-menu align-right" role="menu">
+          <a class="mega-item" href="/pages/blog">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h12l4 4v12H4z"/><path d="M7 10h10M7 14h10M7 18h6"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Blog</p><p class="mega-d">Notes from the Neweb team</p></div>
+          </a>
+          <a class="mega-item" href="/pages/guides">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 19.5V5a2 2 0 0 1 2-2h14v16H6a2 2 0 0 0-2 2z"/><path d="M8 7h8M8 11h8"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Guides</p><p class="mega-d">Practical how-tos for small businesses</p></div>
+          </a>
+          <a class="mega-item" href="/pages/tools">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 1-5.4 5.4L4 17l3 3 5.3-5.3a4 4 0 0 1 5.4-5.4L15 12l-3-3 2.7-2.7z"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Free tools</p><p class="mega-d">21 fast utilities for Indian small businesses</p></div>
+          </a>
+          <a class="mega-item" href="/pages/compare">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4v16M17 4v16"/><path d="M5 8l2-2 2 2M15 16l2 2 2-2"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Compare</p><p class="mega-d">Neweb vs other website builders</p></div>
+          </a>
+          <a class="mega-item" href="/pages/customer-stories">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="10" r="2.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M14 20c0-2.5 1.8-4.5 4-4.5s3 2 3 4.5"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Customer stories</p><p class="mega-d">Real businesses. Real numbers.</p></div>
+          </a>
+          <a class="mega-item" href="/pages/domain-checker">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Domain checker</p><p class="mega-d">Check availability in seconds, free</p></div>
+          </a>
+          <a class="mega-item" href="/pages/changelog">
+            <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+            <div class="mega-txt"><p class="mega-t">Changelog</p><p class="mega-d">Every update we ship</p></div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="nav-cta">
+      <a href="https://dashboard.neweb.ai/login" class="btn btn-ghost">Sign in</a>
+      <a href="https://dashboard.neweb.ai/signup" class="btn btn-brand">Get Started</a>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+
+  <!-- ===== Hero ===== -->
+  <section class="why-hero">
+    <div class="wrap">
+      <span class="eyebrow"><span class="dot"></span> Why Neweb</span>
+      <h1>The only platform you need to run your<br><span class="serif">entire online presence</span>.</h1>
+      <p class="lede">Website, free domain, Google Business, SEO, newsletter, analytics — all in one product. No plugins, no agencies, no juggling logins.</p>
+
+      <div class="why-stats" role="group" aria-label="Key Neweb metrics">
+        <div class="stat"><div class="n">1,000+</div><div class="l">Sites Live</div></div>
+        <div class="stat"><div class="n">2–3 min</div><div class="l">First Draft</div></div>
+        <div class="stat"><div class="n">14</div><div class="l">Languages</div></div>
+        <div class="stat"><div class="n">4.8/5</div><div class="l">Avg Rating</div></div>
+      </div>
+
+      <div class="why-cta-row">
+        <a href="https://dashboard.neweb.ai/signup" class="btn btn-brand">Claim your free domain</a>
+        <a href="/pages/pricing" class="btn btn-ghost">See pricing</a>
+      </div>
+      <p class="why-trial-note">No credit card · cancel anytime</p>
+    </div>
+  </section>
+
+  <!-- ===== 01 — Website + domain + SEO in one ===== -->
+  <section class="why-num-section">
+    <span class="big-num" aria-hidden="true">01</span>
+    <div class="wrap">
+      <div class="num-grid">
+        <div class="num-copy rise">
+          <span class="tag-mono">You need separate tools for presence and growth.</span>
+          <h2>Website, domain and <span class="serif">SEO</span> —<br>all in one platform.</h2>
+          <p class="lede">Build, verify, publish and rank from a single dashboard. No WordPress plugin maze. No SEO agency retainer. No domain renewal surprises.</p>
+          <div class="chip-row">
+            <span class="chip"><span class="chk"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5.5l2 2 4-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Free custom domain (.com, .in, .shop)</span>
+            <span class="chip"><span class="chk"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5.5l2 2 4-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span> 140+ ready-to-use blocks</span>
+            <span class="chip"><span class="chk"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5.5l2 2 4-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span> SEO autopilot</span>
+            <span class="chip"><span class="chk"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5.5l2 2 4-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Google Business sync</span>
+          </div>
+        </div>
+        <div class="t-card rise">
+          <span class="quote-mark" aria-hidden="true">“</span>
+          <p class="label">The future of small-business websites is here.</p>
+          <blockquote>We switched from a stitched-together Wix + SEO plugin setup to Neweb and cut our monthly spend in half. The real delight: my hours on Google match my site, always.</blockquote>
+          <div class="who">
+            <div class="avatar">TF</div>
+            <div><p class="name">Thomas Foley</p><p class="role">Founder, HighTouch Studio</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 02 — Unlimited, pay nothing extra ===== -->
+  <section class="why-num-section alt flip">
+    <span class="big-num" aria-hidden="true">02</span>
+    <div class="wrap">
+      <div class="num-grid">
+        <div class="num-copy rise">
+          <span class="tag-mono">You pay more every time you scale.</span>
+          <h2>Unlimited pages,<br>zero <span class="serif">surprise</span> fees.</h2>
+          <p class="lede">Add pages, team-mates, languages and AI edits without a single upgrade pop-up. One flat subscription — everything is included.</p>
+          <div class="chip-row">
+            <span class="chip"><span class="chk"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5.5l2 2 4-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Unlimited pages</span>
+            <span class="chip"><span class="chk"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5.5l2 2 4-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Unlimited AI edits</span>
+            <span class="chip"><span class="chk"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5.5l2 2 4-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Unlimited team seats</span>
+            <span class="chip"><span class="chk"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5.5l2 2 4-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Unlimited bandwidth</span>
+          </div>
+        </div>
+        <div class="t-card rise">
+          <span class="quote-mark" aria-hidden="true">“</span>
+          <p class="label">The perfect presence stack for our chain.</p>
+          <blockquote>We run 14 franchise sites on one Neweb subscription. Menus, photos and Google Business all stay in sync. There's no "per-site" pricing to worry about.</blockquote>
+          <div class="who">
+            <div class="avatar">GT</div>
+            <div><p class="name">Gino Taka</p><p class="role">Founder, Skyrocket Cafes</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 03 — Dark — Rank on Google ===== -->
+  <section class="why-num-section dark">
+    <span class="big-num" aria-hidden="true">03</span>
+    <div class="wrap">
+      <div class="num-grid">
+        <div class="num-copy rise">
+          <span class="tag-mono">Your results live or die on speed &amp; schema.</span>
+          <h2>Rank on page one,<br>not page <span class="serif">ten</span>.</h2>
+          <p class="lede">Neweb ships LiteSpeed hosting, schema, sitemaps and weekly on-page tunes out of the box. Core Web Vitals stay ≥ 90 on every device.</p>
+          <div class="chip-row">
+            <span class="chip"><span class="chk"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5.5l2 2 4-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Sub-1s loads on 3G</span>
+            <span class="chip"><span class="chk"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5.5l2 2 4-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Schema + sitemaps auto</span>
+            <span class="chip"><span class="chk"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5.5l2 2 4-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Weekly on-page SEO tunes</span>
+          </div>
+        </div>
+        <div class="t-card rise">
+          <span class="quote-mark" aria-hidden="true">“</span>
+          <p class="label">Ranking on rails.</p>
+          <blockquote>Neweb really helps guide us and it creates a sense of trust in the tool. We moved from page three to the local map pack in seven weeks — without hiring an agency.</blockquote>
+          <div class="who">
+            <div class="avatar">GH</div>
+            <div><p class="name">Gareth Hayter</p><p class="role">Founder &amp; CEO, Slyce Software</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 04 — AI writes, edits, translates ===== -->
+  <section class="why-num-section flip">
+    <span class="big-num" aria-hidden="true">04</span>
+    <div class="wrap">
+      <div class="num-grid">
+        <div class="num-copy rise">
+          <span class="tag-mono">Your hand-coded edits take weeks, not minutes.</span>
+          <h2>End-to-end content,<br>with <span class="serif">AI</span> prompts.</h2>
+          <p class="lede">Type what you want changed in plain English — "shorter hero, brighter CTA, swap the gallery for these 6 photos." Neweb edits, translates and A/B-tests it for you.</p>
+          <div class="chip-row">
+            <span class="chip"><span class="chk"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5.5l2 2 4-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span> AI-powered A/B testing</span>
+            <span class="chip"><span class="chk"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5.5l2 2 4-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span> 14-language publishing</span>
+            <span class="chip"><span class="chk"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5.5l2 2 4-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Industry-tuned drafts</span>
+            <span class="chip"><span class="chk"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5.5l2 2 4-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Plain-English editor</span>
+          </div>
+        </div>
+        <div class="t-card rise">
+          <span class="quote-mark" aria-hidden="true">“</span>
+          <p class="label">A must-have in our toolbox.</p>
+          <blockquote>I drafted, translated and shipped a Diwali landing page in Hindi, Gujarati and English in under half an hour. No freelancer, no copy-paste, no broken layouts.</blockquote>
+          <div class="who">
+            <div class="avatar">CN</div>
+            <div><p class="name">Cong Nguyen</p><p class="role">Founder &amp; CEO, Synodus</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 05 — Monitor, optimize, scale ===== -->
+  <section class="why-num-section alt">
+    <span class="big-num" aria-hidden="true">05</span>
+    <div class="wrap">
+      <div class="num-grid">
+        <div class="num-copy rise">
+          <span class="tag-mono">Your dashboards don't actually show conversion.</span>
+          <h2>Monitor, optimize &amp; scale<br>every <span class="serif">surface</span>.</h2>
+          <p class="lede">Track visitors, search terms, Google Business impressions, newsletter deliverability, and booked enquiries — all in one dashboard, without a cookie banner.</p>
+          <div class="chip-row">
+            <span class="chip"><span class="chk"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5.5l2 2 4-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Privacy-first analytics</span>
+            <span class="chip"><span class="chk"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5.5l2 2 4-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span> GBP insights sync</span>
+            <span class="chip"><span class="chk"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5.5l2 2 4-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Newsletter deliverability</span>
+            <span class="chip"><span class="chk"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5.5l2 2 4-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Enquiry funnel</span>
+          </div>
+        </div>
+        <div class="t-card rise">
+          <span class="quote-mark" aria-hidden="true">“</span>
+          <p class="label">Everything I was looking for.</p>
+          <blockquote>I can finally see which search term drove which booking — not just clicks. It takes the guesswork out of what to publish next.</blockquote>
+          <div class="who">
+            <div class="avatar">JL</div>
+            <div><p class="name">Joshua Lim</p><p class="role">Managing Director, Social Hackers</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Comparison Table ===== -->
+  <section class="why-compare">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow"><span class="dot"></span> Comparison</span>
+        <h2>See how Neweb <span class="serif">stacks up</span>.</h2>
+        <p>Feature-by-feature — no vague claims.</p>
+      </div>
+
+      <div class="ctab rise">
+        <div class="row head">
+          <div class="cell">Feature</div>
+          <div class="cell brand-col">Neweb</div>
+          <div class="cell">Other builders</div>
+        </div>
+        <div class="row"><div class="cell feat-name">Free custom domain (.com/.in)</div>
+          <div class="cell brand-col"><span class="yes"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7.5l2.5 2.5 5.5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+          <div class="cell"><span class="no"><svg viewBox="0 0 14 14" fill="none"><path d="M3.5 3.5l7 7M10.5 3.5l-7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></div></div>
+        <div class="row"><div class="cell feat-name">Unlimited pages</div>
+          <div class="cell brand-col"><span class="yes"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7.5l2.5 2.5 5.5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+          <div class="cell"><span class="partial">limited</span></div></div>
+        <div class="row"><div class="cell feat-name">140+ ready-to-use blocks</div>
+          <div class="cell brand-col"><span class="yes"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7.5l2.5 2.5 5.5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+          <div class="cell"><span class="partial">40–60</span></div></div>
+        <div class="row"><div class="cell feat-name">AI first draft in under a minute</div>
+          <div class="cell brand-col"><span class="yes"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7.5l2.5 2.5 5.5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+          <div class="cell"><span class="no"><svg viewBox="0 0 14 14" fill="none"><path d="M3.5 3.5l7 7M10.5 3.5l-7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></div></div>
+        <div class="row"><div class="cell feat-name">Plain-English editing</div>
+          <div class="cell brand-col"><span class="yes"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7.5l2.5 2.5 5.5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+          <div class="cell"><span class="no"><svg viewBox="0 0 14 14" fill="none"><path d="M3.5 3.5l7 7M10.5 3.5l-7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></div></div>
+        <div class="row"><div class="cell feat-name">Google Business auto-sync</div>
+          <div class="cell brand-col"><span class="yes"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7.5l2.5 2.5 5.5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+          <div class="cell"><span class="no"><svg viewBox="0 0 14 14" fill="none"><path d="M3.5 3.5l7 7M10.5 3.5l-7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></div></div>
+        <div class="row"><div class="cell feat-name">SEO autopilot (weekly tunes)</div>
+          <div class="cell brand-col"><span class="yes"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7.5l2.5 2.5 5.5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+          <div class="cell"><span class="no"><svg viewBox="0 0 14 14" fill="none"><path d="M3.5 3.5l7 7M10.5 3.5l-7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></div></div>
+        <div class="row"><div class="cell feat-name">14-language publishing</div>
+          <div class="cell brand-col"><span class="yes"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7.5l2.5 2.5 5.5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+          <div class="cell"><span class="partial">paid add-on</span></div></div>
+        <div class="row"><div class="cell feat-name">Core Web Vitals ≥ 90</div>
+          <div class="cell brand-col"><span class="yes"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7.5l2.5 2.5 5.5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+          <div class="cell"><span class="partial">varies</span></div></div>
+        <div class="row"><div class="cell feat-name">Newsletter + deliverability</div>
+          <div class="cell brand-col"><span class="yes"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7.5l2.5 2.5 5.5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+          <div class="cell"><span class="no"><svg viewBox="0 0 14 14" fill="none"><path d="M3.5 3.5l7 7M10.5 3.5l-7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></div></div>
+        <div class="row"><div class="cell feat-name">One-click WordPress export</div>
+          <div class="cell brand-col"><span class="yes"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7.5l2.5 2.5 5.5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+          <div class="cell"><span class="no"><svg viewBox="0 0 14 14" fill="none"><path d="M3.5 3.5l7 7M10.5 3.5l-7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></div></div>
+        <div class="row"><div class="cell feat-name">Dedicated launch coach</div>
+          <div class="cell brand-col"><span class="yes"><svg viewBox="0 0 14 14" fill="none"><path d="M3 7.5l2.5 2.5 5.5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+          <div class="cell"><span class="no"><svg viewBox="0 0 14 14" fill="none"><path d="M3.5 3.5l7 7M10.5 3.5l-7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></div></div>
+      </div>
+
+      <p style="text-align:center;margin-top:24px"><a href="/pages/compare" style="color:var(--brand);font-weight:500;font-size:14.5px;border-bottom:1px solid rgba(61,76,255,.3)">See detailed comparisons →</a></p>
+    </div>
+  </section>
+
+  <!-- ===== Who Neweb is built for ===== -->
+  <section class="why-for">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow"><span class="dot"></span> Built for</span>
+        <h2>Who Neweb is <span class="serif">built for</span>.</h2>
+      </div>
+      <div class="persona-grid">
+        <a class="persona rise" href="/pages/solutions/restaurants">
+          <div class="p-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 7h16M6 7v13h12V7M9 4h6v3H9z"/><path d="M12 11v5"/></svg></div>
+          <h3>Restaurants &amp; bakeries</h3>
+          <p>Menus, reservations and food-first SEO that bring in weekend diners.</p>
+        </a>
+        <a class="persona rise" href="/pages/solutions/jewellers">
+          <div class="p-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M6 3h12l4 6-10 12L2 9z"/><path d="M2 9h20M8 3l-2 6 6 12M16 3l2 6-6 12"/></svg></div>
+          <h3>Jewellers &amp; showrooms</h3>
+          <p>Catalogue, bookings and showroom storytelling that convert.</p>
+        </a>
+        <a class="persona rise" href="/pages/solutions/clinics">
+          <div class="p-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M12 3v18M3 12h18M9 7h6v10H9z"/></svg></div>
+          <h3>Clinics &amp; doctors</h3>
+          <p>Doctor profiles, online bookings — DPDP-compliant out of the box.</p>
+        </a>
+        <a class="persona rise" href="/pages/solutions/tutoring">
+          <div class="p-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M4 5h12a2 2 0 0 1 2 2v14H6a2 2 0 0 1-2-2V5z"/><path d="M4 19a2 2 0 0 1 2-2h12"/></svg></div>
+          <h3>Tutoring centres</h3>
+          <p>Batches, results, parent enquiry flows — in your local language.</p>
+        </a>
+        <a class="persona rise" href="/pages/solutions">
+          <div class="p-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="10" r="2.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M14 20c0-2.5 1.8-4.5 4-4.5s3 2 3 4.5"/></svg></div>
+          <h3>Agencies &amp; resellers</h3>
+          <p>White-label sites for your clients — unlimited seats, one bill.</p>
+        </a>
+        <a class="persona rise" href="/pages/templates">
+          <div class="p-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2l3 6 6 .5-4.5 4 1.5 6.5L12 16l-6 3 1.5-6.5L3 8.5 9 8z"/></svg></div>
+          <h3>Founders &amp; solopreneurs</h3>
+          <p>Ship a credible site, claim Google Business, stop juggling logins.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Final blue CTA ===== -->
+  <section class="why-final">
+    <div class="wrap">
+      <h2>Your next presence <span class="serif">starts here</span>.</h2>
+      <p class="lede">Claim your free domain and get a live site, Google Business and SEO set up in 2–3 minutes.</p>
+      <form class="cta-box" action="https://dashboard.neweb.ai/signup" method="get" onsubmit="return true">
+        <input type="email" name="email" placeholder="Work email" aria-label="Work email" required>
+        <button type="submit" class="btn btn-brand">Claim your free domain</button>
+      </form>
+      <p class="or">or sign up with</p>
+      <div class="sso-row">
+        <a href="https://dashboard.neweb.ai/signup?provider=google" class="sso">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.5 12.2c0-.7-.1-1.3-.2-2H12v3.8h5.9c-.3 1.4-1 2.5-2.2 3.3v2.7h3.6c2.1-1.9 3.2-4.8 3.2-7.8z"/><path fill="#34A853" d="M12 23c2.9 0 5.4-1 7.2-2.6l-3.6-2.7c-1 .7-2.3 1.1-3.6 1.1-2.8 0-5.1-1.9-6-4.4H2.3v2.8C4.1 20.7 7.8 23 12 23z"/><path fill="#FBBC04" d="M6 14.4c-.2-.7-.4-1.4-.4-2.2s.1-1.5.4-2.2V7.2H2.3C1.5 8.7 1 10.3 1 12.2s.5 3.5 1.3 5l3.7-2.8z"/><path fill="#EA4335" d="M12 5.6c1.6 0 3 .5 4.1 1.6l3.1-3.1C17.4 2.3 14.9 1.3 12 1.3 7.8 1.3 4.1 3.6 2.3 7.2L6 10c.9-2.5 3.2-4.4 6-4.4z"/></svg>
+          Google
+        </a>
+        <a href="https://dashboard.neweb.ai/signup?provider=microsoft" class="sso">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#F25022" d="M3 3h8v8H3z"/><path fill="#7FBA00" d="M13 3h8v8h-8z"/><path fill="#00A4EF" d="M3 13h8v8H3z"/><path fill="#FFB900" d="M13 13h8v8h-8z"/></svg>
+          Microsoft
+        </a>
+      </div>
+      <p class="final-note">No credit card · cancel anytime</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="ft-top">
+      <div class="ft-brand">
+        <a href="/" class="brand" aria-label="neweb.ai">
+          <img src="/assets/neweb-logo.png" alt="Neweb logo" width="90" height="36" loading="lazy" decoding="async" style="height:36px" />
+        </a>
+        <p class="ft-tag"><em>Digital Dreams to Reality.</em> Neweb is the online presence manager for small businesses — website, domain, Google Business, and SEO in one subscription.</p>
+        <div class="ft-social" aria-label="Neweb on social media">
+          <a href="https://www.linkedin.com/company/newebai/" aria-label="LinkedIn" rel="noopener" target="_blank"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.11 1 2.48 1s2.5 1.12 2.5 2.5zM.22 8h4.52v14H.22V8zm7.5 0h4.33v1.92h.06c.6-1.14 2.08-2.34 4.27-2.34 4.57 0 5.42 3.01 5.42 6.92V22h-4.52v-6.27c0-1.5-.03-3.43-2.09-3.43-2.09 0-2.41 1.63-2.41 3.32V22H7.72V8z"/></svg></a>
+          <a href="https://www.instagram.com/neweb.ai/" aria-label="Instagram" rel="noopener" target="_blank"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 01-1.38-.9 3.7 3.7 0 01-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.77.13 4.9.33 4.14.63c-.79.3-1.46.71-2.13 1.38A5.9 5.9 0 00.63 4.14c-.3.76-.5 1.63-.56 2.9C.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.28.26 2.15.56 2.91.3.79.71 1.46 1.38 2.13.67.67 1.34 1.08 2.13 1.38.76.3 1.63.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.28-.06 2.15-.26 2.91-.56.79-.3 1.46-.71 2.13-1.38.67-.67 1.08-1.34 1.38-2.13.3-.76.5-1.63.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.28-.26-2.15-.56-2.91a5.9 5.9 0 00-1.38-2.13A5.9 5.9 0 0019.86.63c-.76-.3-1.63-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 100 12.32 6.16 6.16 0 000-12.32zM12 16a4 4 0 110-8 4 4 0 010 8zm6.4-11.85a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/></svg></a>
+        </div>
+      </div>
+      <div class="ft-col"><h3 class="ft-h">Product</h3>
+        <a href="/pages/features">Features</a>
+        <a href="/pages/pricing">Pricing</a>
+        <a href="/pages/why-neweb">Why Neweb</a>
+        <a href="/pages/templates">Templates</a>
+        <a href="/pages/changelog">Changelog</a>
+        <a href="/pages/domain-checker">Domain checker</a>
+      </div>
+      <div class="ft-col"><h3 class="ft-h">Solutions</h3>
+        <a href="/pages/solutions/restaurants">Restaurants</a>
+        <a href="/pages/solutions/jewellers">Jewellers</a>
+        <a href="/pages/solutions/clinics">Clinics</a>
+        <a href="/pages/solutions/tutoring">Tutoring centres</a>
+        <a href="/pages/solutions">All industries</a>
+      </div>
+      <div class="ft-col"><h3 class="ft-h">Resources</h3>
+        <a href="/pages/blog">Blog</a>
+        <a href="/pages/guides">Guides</a>
+        <a href="/pages/tools">Free tools</a>
+        <a href="/pages/compare">Compare</a>
+        <a href="/pages/customer-stories">Customer stories</a>
+        <a href="/pages/press">Press kit</a>
+      </div>
+      <div class="ft-col"><h3 class="ft-h">Company</h3>
+        <a href="/pages/about">About</a>
+        <a href="/pages/careers">Careers</a>
+        <a href="/pages/contact">Contact</a>
+        <a href="/pages/security">Security</a>
+        <a href="/pages/privacy">Privacy</a>
+        <a href="/pages/terms">Terms</a>
+        <a href="/pages/refund">Refund</a>
+      </div>
+    </div>
+
+    <div class="ft-offices">
+      <div class="ft-office">
+        <h4 class="ft-h">India Office</h4>
+        <p>909, Sharan Circle Business Hub,<br>Zundal Circle, Ahmedabad,<br>Gujarat, India &mdash; 382421</p>
+      </div>
+      <div class="ft-office">
+        <h4 class="ft-h">USA Office</h4>
+        <p>30 N Gould St Ste R,<br>Sheridan, WY 82801,<br>United States</p>
+      </div>
+      <div class="ft-office">
+        <h4 class="ft-h">Get in touch</h4>
+        <p><a href="mailto:support@neweb.ai">support@neweb.ai</a><br><a href="mailto:sales@neweb.ai">sales@neweb.ai</a><br><a href="tel:+19789811118">+1 978 981 1118</a></p>
+      </div>
+    </div>
+
+    <div class="ft-bot">
+      <span>&copy; 2026 Commerciax Infotech Private Limited. All Rights Reserved.</span>
+      <span>Made for the open web &middot; Built with AI &middot; Powered by Experts.</span>
+    </div>
+    <div class="foot-mega" aria-hidden="true" role="presentation">NEWEB.AI</div>
+  </div>
+</footer>
+<script>
+  (function(){
+    var io = new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})}, {threshold:.1});
+    var targets = new Set(document.querySelectorAll('.rise, .t-card, .ctab, .persona, .num-copy'));
+    targets.forEach(function(el){
+      if (!el.classList.contains('rise')) el.classList.add('rise');
+      io.observe(el);
+    });
+  })();
+</script>
+<script src="/assets/nav.js?v=3" defer></script>
+</body>
+</html>

@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="icon" type="image/svg+xml" href="/assets/neweb-mark.svg">
+<title>How to Accept UPI Payments on Your Business Website | Neweb</title>
+<meta name="description" content="6-step guide to accepting UPI payments on your Indian business website — business UPI ID, QR code, payment page, test transactions, and GST invoices in 2026.">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<link rel="canonical" href="https://neweb.ai/pages/guides/how-to-accept-upi-payments-website">
+<meta property="og:title" content="How to Accept UPI Payments on Your Business Website | Neweb">
+<meta property="og:description" content="6-step guide to accepting UPI payments on your Indian business website — business UPI ID, QR code, payment page, test transactions, and GST invoices in 2026.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://neweb.ai/pages/guides/how-to-accept-upi-payments-website">
+<meta property="og:image" content="https://neweb.ai/assets/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="Neweb">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@neweb_ai">
+<meta name="twitter:title" content="How to Accept UPI Payments on Your Business Website">
+<meta name="twitter:description" content="6-step guide to accepting UPI payments on your Indian business website: business UPI ID, QR code, payment page, test transactions, and GST invoices.">
+<meta name="twitter:image" content="https://neweb.ai/assets/og-default.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Accept UPI Payments on Your Business Website",
+  "description": "Step-by-step guide to setting up UPI payment acceptance on an Indian business website.",
+  "totalTime": "PT2H",
+  "estimatedCost": {"@type": "MonetaryAmount", "currency": "INR", "value": "0"},
+  "step": [
+    {"@type": "HowToStep", "position": 1, "name": "Get a business UPI ID", "text": "Create a UPI ID linked to your business current account through Razorpay, PayU, or your bank's business app. Use your business name, not a personal UPI ID."},
+    {"@type": "HowToStep", "position": 2, "name": "Generate your business UPI QR code", "text": "Download your static UPI QR from your payment gateway dashboard. Use this on your website, packaging, and at your counter."},
+    {"@type": "HowToStep", "position": 3, "name": "Embed a payment button or QR on your website", "text": "Add a 'Pay via UPI' button or embed your QR code on your payment or checkout page. Razorpay and PayU offer embed widgets."},
+    {"@type": "HowToStep", "position": 4, "name": "Test transactions before going live", "text": "Send a ₹1 test payment from a second phone. Verify the payment reflects in your dashboard within 2 minutes."},
+    {"@type": "HowToStep", "position": 5, "name": "Create a dedicated payment page", "text": "Build a clean payment page with all accepted UPI apps shown, your QR, and instructions. Reduces customer confusion and abandoned payments."},
+    {"@type": "HowToStep", "position": 6, "name": "Set up GST-compliant invoice generation", "text": "Use Razorpay Invoices, Zoho Invoice, or Vyapar to auto-generate GST invoices when a UPI payment is received."}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://neweb.ai/"},
+    {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://neweb.ai/pages/guides"},
+    {"@type": "ListItem", "position": 3, "name": "How to Accept UPI Payments on a Website", "item": "https://neweb.ai/pages/guides/how-to-accept-upi-payments-website"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to accept UPI payments on your business website",
+  "description": "6-step guide to accepting UPI payments on your Indian business website: business UPI ID, QR code, payment page, test transactions, and GST invoices.",
+  "datePublished": "2026-06-16",
+  "dateModified": "2026-06-16",
+  "inLanguage": "en-IN",
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://neweb.ai/pages/guides/how-to-accept-upi-payments-website"},
+  "author": {"@type": "Person", "name": "Harshit Rajput", "jobTitle": "Founder", "sameAs": ["https://www.linkedin.com/company/newebai/"]},
+  "publisher": {"@type": "Organization", "name": "Neweb", "logo": {"@type": "ImageObject", "url": "https://neweb.ai/assets/neweb-logo.png"}}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can I use my personal UPI ID for business payments?",
+      "acceptedAnswer": {"@type": "Answer", "text": "You can use a personal UPI ID, but it is not a good idea for a real business. It mixes personal and business money. That makes GST and income tax filing messy. It also looks unprofessional to B2B customers, who expect to pay a business name, not a person. Banks set lower limits too, and may flag a personal account that suddenly gets many merchant payments. The clean way is to open a business current account. Then link a business UPI ID through Razorpay, PayU, Cashfree, or your bank's merchant portal, so your handle reads like yourbusiness@razorpay. This keeps records tidy, gives you settlement reports, and lets you issue proper GST invoices. KYC takes a day or two with your PAN, GST number, and bank details. A tip: even sole proprietors and freelancers gain, because a separate business UPI ID makes year-end accounting simpler and builds trust at checkout."}
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a transaction limit for UPI payments?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Yes. UPI has transaction limits set by NPCI and by individual banks. The standard per-transaction limit is ₹1 lakh for most banks and apps. There is usually a daily cap of around ₹1 lakh and a limit of about 20 transactions per day on one account. Some categories get higher ceilings. Verified merchant accounts, and payments to bodies like hospitals, schools, and capital markets, can go up to ₹2 lakh or even ₹5 lakh under recent NPCI rules. For sales above these limits, ask the customer to split the amount into a few UPI transfers, or offer NEFT, IMPS, or RTGS instead. Limits also vary by app, so a customer may need to raise their own per-day limit in their UPI app. A tip: for big-ticket items like jewellery or hotel bookings, take a UPI advance to confirm the order and collect the balance by bank transfer or card."}
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need a payment gateway for UPI on my website?",
+      "acceptedAnswer": {"@type": "Answer", "text": "It depends on how you want to collect and track payments. If you only need a simple static QR code that customers scan and type the amount into, you do not need a gateway. Just put a UPI QR image on a payment page, and reconcile by hand by checking your bank or UPI app notifications. This suits low-volume freelancers, tutors, and service providers. But you may want a dynamic QR or pay button with the amount pre-filled per order, plus automatic confirmation, refunds, and settlement reports. For that you need a gateway such as Razorpay, PayU, or Cashfree. Gateway-based collection is the right choice for any e-commerce or booking flow. It removes wrong-amount errors and the slow work of matching payments to orders by hand. A tip: Neweb's payment page builder connects directly to your Razorpay or PayU account, so you get gateway-grade collection without writing any code."}
+    },
+    {
+      "@type": "Question",
+      "name": "What are Razorpay's charges for UPI payments?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Razorpay usually charges around 2 percent per transaction on its standard plan. That rate applies across UPI, cards, and netbanking, with the fee per transaction capped at the plan's limit. UPI itself has no MDR for normal person-to-merchant payments under government rules. But gateways still charge a platform fee for the dashboard, settlement, refunds, and invoicing they provide. That is what the roughly 2 percent covers. Rates can be lower for higher volumes, and some startup or small-business plans offer reduced pricing. PayU, Cashfree, and Paytm for Business work in a similar way. So compare more than the percentage. Look at the settlement period, typically T+1 to T+2, the ease of setup, and the quality of support. Factor these fees into your pricing. A tip: if most of your payments are pure UPI, ask each provider about their UPI-only rate, because it is sometimes lower than the blended card rate."}
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+<link rel="stylesheet" href="/pages/shared.css">
+<style>
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--brand);font-weight:500}
+  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 4px rgba(61,76,255,.12)}
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  @media(max-width:860px){.grid-3{grid-template-columns:1fr}}
+  .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:28px;transition:transform .25s,box-shadow .25s,border-color .25s}
+  .card:hover{transform:translateY(-3px);box-shadow:0 24px 48px -24px rgba(10,14,26,.1);border-color:var(--line-2)}
+  .card h3{font-size:18px;letter-spacing:-.02em;margin:14px 0 6px;font-weight:600}
+  .card p{color:var(--ink-2);font-size:14.5px;line-height:1.55;margin:0}
+  .card .ico{width:38px;height:38px;border-radius:10px;background:var(--brand-soft);color:var(--brand);display:grid;place-items:center;font-size:20px;border:1px solid rgba(61,76,255,.12)}
+  .cta-dark{background:var(--ink-dark);color:#fff;border-radius:24px;padding:56px 48px;text-align:center;position:relative;overflow:hidden;margin-top:40px}
+  .cta-dark:before{content:"";position:absolute;left:50%;top:-50%;transform:translateX(-50%);width:800px;height:600px;background:radial-gradient(circle,rgba(61,76,255,.25),transparent 60%);pointer-events:none}
+  .cta-dark h2{font-size:clamp(28px,3.6vw,42px);letter-spacing:-.03em;margin:0 0 12px;font-weight:600;line-height:1.08;position:relative}
+  .cta-dark h2 .serif{font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;color:var(--brand-2)}
+  .cta-dark p{color:#aab0c8;font-size:16px;max-width:520px;margin:0 auto 24px;position:relative}
+  .cta-dark .btns{position:relative;display:inline-flex;gap:10px}
+  .guide-steps{display:flex;flex-direction:column;gap:0}
+  .step{display:grid;grid-template-columns:56px 1fr;gap:24px;padding:28px 0;border-bottom:1px solid var(--line);align-items:start}
+  .step:last-child{border-bottom:0}
+  .step-n{width:44px;height:44px;border-radius:50%;background:var(--brand-soft);color:var(--brand);border:1px solid rgba(61,76,255,.18);display:grid;place-items:center;font-weight:700;font-size:16px;font-family:"JetBrains Mono",monospace}
+  .step-body h3{font-size:19px;font-weight:600;letter-spacing:-.015em;margin:0 0 8px;color:var(--ink)}
+  .step-body p{font-size:15.5px;line-height:1.65;color:var(--ink-2);margin:0 0 8px}
+  .step-body ul{padding-left:20px;margin:10px 0 0;color:var(--ink-2);font-size:15px;line-height:1.6}
+  .guide-meta{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:28px}
+  .guide-meta span{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:5px}
+  .guide-cta-box{background:var(--brand-soft);border-radius:16px;border:1px solid rgba(61,76,255,.15);padding:36px 40px;margin:40px 0;text-align:center}
+  .guide-cta-box h3{font-size:22px;font-weight:600;letter-spacing:-.02em;margin:0 0 10px;color:var(--ink)}
+  .guide-cta-box p{font-size:15.5px;color:var(--ink-2);margin:0 0 20px;line-height:1.6}
+  .faq-list{display:flex;flex-direction:column;gap:0}
+  .faq-item{border-bottom:1px solid var(--line);padding:22px 0}
+  .faq-item:last-child{border-bottom:0}
+  .faq-item h3{font-size:17px;font-weight:600;color:var(--ink);margin:0 0 8px;letter-spacing:-.01em}
+  .faq-item p{font-size:15px;color:var(--ink-2);line-height:1.65;margin:0}
+  .sec-mark{margin-bottom:32px}
+  .sec-mark h2{font-size:clamp(26px,3vw,36px);letter-spacing:-.025em;margin:10px 0 0;font-weight:600}
+  .sec-mark h2 .serif{font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;color:var(--brand)}
+</style>
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window,document,"clarity","script","qeya57o0ci");
+</script>
+</head>
+<body>
+
+<nav class="top">
+  <div class="wrap nav-row">
+    <a href="/" class="brand" aria-label="neweb.ai">
+      <img src="/assets/neweb-logo.png" alt="Neweb — online presence manager" width="70" height="28" decoding="async" fetchpriority="high" />
+    </a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/pages/features">Features</a>
+      <a href="/pages/pricing">Pricing</a>
+      <div class="nav-drop">
+        <button class="nav-drop-btn" type="button" aria-haspopup="true">Solutions <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="nav-drop-menu" role="menu">
+          <a class="mega-item" href="/pages/solutions"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div><div class="mega-txt"><p class="mega-t">All solutions</p><p class="mega-d">Every industry we serve</p></div></a>
+          <a class="mega-item" href="/pages/solutions/restaurants"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M6 7v13h12V7M9 4h6v3H9z"/></svg></div><div class="mega-txt"><p class="mega-t">Restaurants &amp; bakeries</p><p class="mega-d">Menus, reservations, food-first SEO</p></div></a>
+          <a class="mega-item" href="/pages/solutions/jewellers"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M6 3h12l4 6-10 12L2 9z"/></svg></div><div class="mega-txt"><p class="mega-t">Jewellers</p><p class="mega-d">Catalogue, bookings, showroom storytelling</p></div></a>
+          <a class="mega-item" href="/pages/solutions/clinics"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 3v18M3 12h18"/></svg></div><div class="mega-txt"><p class="mega-t">Clinics &amp; doctors</p><p class="mega-d">Doctor profiles, bookings, DPDP-ready</p></div></a>
+          <a class="mega-item" href="/pages/solutions/tutoring"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5h12a2 2 0 0 1 2 2v14H6a2 2 0 0 1-2-2V5z"/></svg></div><div class="mega-txt"><p class="mega-t">Tutoring &amp; coaching</p><p class="mega-d">Batches, results, parent enquiry flow</p></div></a>
+          <a class="mega-item" href="/pages/templates"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg></div><div class="mega-txt"><p class="mega-t">Templates</p><p class="mega-d">Industry-tuned starting points</p></div></a>
+        </div>
+      </div>
+      <a href="/pages/why-neweb">Why Neweb</a>
+      <a href="/pages/templates">Templates</a>
+      <div class="nav-drop">
+        <button class="nav-drop-btn" type="button" aria-haspopup="true">Resources <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="nav-drop-menu align-right" role="menu">
+          <a class="mega-item" href="/pages/blog"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h12l4 4v12H4z"/></svg></div><div class="mega-txt"><p class="mega-t">Blog</p><p class="mega-d">Notes from the Neweb team</p></div></a>
+          <a class="mega-item" href="/pages/guides"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 19.5V5a2 2 0 0 1 2-2h14v16H6a2 2 0 0 0-2 2z"/></svg></div><div class="mega-txt"><p class="mega-t">Guides</p><p class="mega-d">Practical how-tos for small businesses</p></div></a>
+          <a class="mega-item" href="/pages/tools"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M14.7 6.3a4 4 0 0 1-5.4 5.4L4 17l3 3 5.3-5.3a4 4 0 0 1 5.4-5.4L15 12l-3-3 2.7-2.7z"/></svg></div><div class="mega-txt"><p class="mega-t">Free tools</p><p class="mega-d">21 fast utilities for Indian small businesses</p></div></a>
+          <a class="mega-item" href="/pages/compare"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M7 4v16M17 4v16"/></svg></div><div class="mega-txt"><p class="mega-t">Compare</p><p class="mega-d">Neweb vs other website builders</p></div></a>
+          <a class="mega-item" href="/pages/customer-stories"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/></svg></div><div class="mega-txt"><p class="mega-t">Customer stories</p><p class="mega-d">Real businesses. Real numbers.</p></div></a>
+          <a class="mega-item" href="/pages/domain-checker"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/></svg></div><div class="mega-txt"><p class="mega-t">Domain checker</p><p class="mega-d">Check availability in seconds, free</p></div></a>
+          <a class="mega-item" href="/pages/changelog"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div><div class="mega-txt"><p class="mega-t">Changelog</p><p class="mega-d">Every update we ship</p></div></a>
+        </div>
+      </div>
+    </div>
+    <div class="nav-cta">
+      <a href="https://dashboard.neweb.ai/login" class="btn btn-ghost">Sign in</a>
+      <a href="https://dashboard.neweb.ai/signup" class="btn btn-brand">Get Started</a>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="crumbs"><a href="/">Neweb</a> <span class="sep">/</span> <a href="/pages/guides">Guides</a> <span class="sep">/</span> <span class="here">UPI Payments on Website</span></div>
+    <h1>How to accept <span class="serif">UPI payments</span> on your business website.</h1>
+    <div class="guide-meta">
+      <span>&#9201; 5 min read</span>
+      <span>&#128197; Updated June 2026</span>
+      <span>&#9997; By Neweb team</span>
+    </div>
+    <p class="lede">UPI is the world's largest real-time payment network, handling well over a billion transactions a day (NPCI, 2024). If your website does not accept UPI, you turn away customers right when they are ready to pay. This guide walks you through the 6 steps to set up UPI on your website. New to building an online presence? Start with our guide on <a href="/pages/guides/how-to-make-shop-website-india">how to make a shop website in India</a>.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="guide-steps">
+
+      <div class="step">
+        <div class="step-n">01</div>
+        <div class="step-body">
+          <h3>Get a business UPI ID linked to your current account</h3>
+          <p>The first step is to create a business UPI ID. Keep it separate from your personal UPI ID. A business UPI ID is usually linked to your business current account, not a savings account. It uses your business name, like <em>businessname@razorpay</em>, <em>businessname@payu</em>, or a bank handle like <em>businessname@icici</em>. This keeps your business income cleanly apart from personal money. That clean split makes GST and income tax filing much easier.</p>
+          <p>The easiest way to get one is to sign up for a payment gateway account. Your options are <strong>Razorpay</strong>, <strong>PayU</strong>, <strong>Cashfree</strong>, or <strong>Paytm for Business</strong>. All four are NPCI-certified payment providers and offer UPI. Sign up and complete KYC with your PAN, GST number, and bank details. Your business UPI ID and QR code are then generated automatically, usually within 24 to 48 hours.</p>
+          <ul>
+            <li>Use a current account, not savings, for business UPI. Some banks restrict UPI merchant features to current accounts.</li>
+            <li>Razorpay and Cashfree have the cleanest onboarding for small businesses. Activation usually takes one business day.</li>
+            <li>Your UPI ID will look like <em>yourbusiness@razorpay</em>. Keep it short and easy to recognise.</li>
+            <li>You can also enable UPI through your bank's merchant portal (ICICI Bank Merchant, HDFC SmartHub, etc.) without a third-party gateway if you prefer a direct banking relationship</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-n">02</div>
+        <div class="step-body">
+          <h3>Generate your business UPI QR code</h3>
+          <p>A UPI QR code is the simplest way to accept payments. Customers scan it with any UPI app, such as PhonePe, Google Pay, Paytm, BHIM, or a bank app, and pay in about ten seconds. There are two types of QR code. A <strong>static QR</strong> uses a fixed amount, or asks the customer to type the amount. A <strong>dynamic QR</strong> has the amount pre-filled and is unique per transaction. For websites, dynamic QR is the better choice. It removes the risk of a customer paying the wrong amount.</p>
+          <p>Download your static QR from your gateway dashboard as soon as your account is active. Use it on your website's payment page, on packaging, and at your physical counter. For dynamic QR in checkout flows, use your gateway's API or checkout widget. It generates a fresh QR for each order automatically.</p>
+          <ul>
+            <li>Print your static QR at 300 DPI or higher for physical use. Blurry QR codes fail to scan.</li>
+            <li>Download both PNG and SVG versions if available. SVG scales to any size without quality loss.</li>
+            <li>Do not share a fixed-amount QR on WhatsApp. WhatsApp compresses images, which can corrupt QR codes.</li>
+            <li>Add your business name, UPI ID, and "Scan to Pay" text below the QR code. Customers need that context.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-n">03</div>
+        <div class="step-body">
+          <h3>Embed a UPI payment button or QR on your website</h3>
+          <p>Your payment gateway provides an embed code (JavaScript snippet) that adds a "Pay Now" button to your website. When clicked, this opens a payment modal with UPI, credit/debit card, netbanking, and wallet options. For UPI specifically, it shows a QR code and a list of UPI app options (PhonePe, Google Pay, etc.). This is the standard integration for most Indian business websites.</p>
+          <p>You can also skip the full gateway integration. Just embed your UPI QR image on a payment page and ask customers to scan it and enter the amount. This works for low-volume businesses like freelancers, tutors, and service providers, where each payment is arranged one by one. The trade-off is manual reconciliation. You check your bank or UPI app notifications to confirm each payment.</p>
+          <ul>
+            <li>Razorpay's "Payment Link" feature creates a one-time link to share via WhatsApp or email. It is handy for service businesses.</li>
+            <li>PayU's checkout button installs with a single line of HTML. No developer is needed for basic setup.</li>
+            <li>Add UPI logos (PhonePe, Google Pay, Paytm, BHIM) on your payment page. Customers trust the step more when they see apps they already use.</li>
+            <li>Neweb includes a UPI payment page builder that connects to your Razorpay or PayU account. No coding is required (see <a href="/pages/pricing">Neweb pricing</a> from ₹249/month).</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-n">04</div>
+        <div class="step-body">
+          <h3>Test your payment setup before going live</h3>
+          <p>Never go live with an untested payment setup. A failed payment at checkout is one of the most trust-damaging things a customer can hit. It is worse than a slow website or a broken link. Before you announce online payments, run a full end-to-end test. Use a second phone with a different UPI app from your own.</p>
+          <p>Here is what to test. Pay using each major UPI app your customers use, such as Google Pay, PhonePe, Paytm, and BHIM. Check that the transaction shows up in your gateway dashboard within two minutes. Check that the settlement reaches your bank account in the expected window, typically T+1 for Razorpay and T+2 for PayU. Then test a refund. Issue a ₹1 refund from your dashboard and confirm it reaches the test payer.</p>
+          <ul>
+            <li>Always test with a real phone and a real UPI app. Sandbox modes do not catch every real-world issue.</li>
+            <li>Check that your gateway's notification emails work, both the confirmation to the customer and the alert to you.</li>
+            <li>Test on a slow 3G connection. Many Indian customers pay from areas with weak signal, so your page must handle timeouts well.</li>
+            <li>Set up a WhatsApp notification for every payment received. It is the fastest way for a busy owner to confirm.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-n">05</div>
+        <div class="step-body">
+          <h3>Create a dedicated payment page on your website</h3>
+          <p>A dedicated payment page, kept separate from your homepage and service pages, gives customers a clean place to pay. It should include a short summary of what they are paying for, the amount, your UPI QR code, the pay button, logos of accepted UPI apps, and your contact in case of a problem. A clear "Payment Successful" page afterwards eases customer anxiety.</p>
+          <p>Service businesses like tutors, consultants, and photographers get paid for individual jobs. For them, add a dropdown that connects to your gateway, such as "Select service: Photography package ₹8,000 or Editing only ₹2,500". This looks professional and removes the "how much do I pay?" confusion that leads to abandoned payments.</p>
+          <ul>
+            <li>Add a "Payment failed? Contact us on WhatsApp" link at the bottom of the page. It recovers payments lost to a technical glitch.</li>
+            <li>Show the amount clearly before the pay button. Surprises at checkout lead to abandonment.</li>
+            <li>After a successful payment, show a confirmation with the transaction reference number. Customers screenshot this as their receipt.</li>
+            <li>Send an automatic WhatsApp message to the customer after payment: "Payment of ₹X received! Ref: [TXNID]. Thank you, [Business Name]"</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-n">06</div>
+        <div class="step-body">
+          <h3>Set up GST-compliant invoice generation</h3>
+          <p>GST registration is mandatory once turnover crosses ₹20 lakh for services or ₹40 lakh for goods, as covered in our <a href="/pages/guides/website-cost-india">website cost in India</a> guide. If you are registered, you must issue a GST invoice for every B2B sale and for B2C sales above ₹200. A GST invoice must include your GSTIN, the customer's GSTIN for B2B, the invoice date and number, the HSN or SAC code, the taxable value, and the GST breakdown. Use CGST plus SGST for sales within your state, and IGST for sales to another state.</p>
+          <p>A few tools make GST invoicing easy and tie it to your UPI payments. <strong>Razorpay Invoices</strong> sends a GST invoice automatically after payment. <strong>Zoho Invoice</strong> connects to your gateway and generates invoices for you. <strong>Vyapar</strong> is a GST billing app popular with Indian SMBs, available for ₹599/year. <strong>ClearTax</strong> is another option. Choose based on your volume. Razorpay Invoices is easiest if you are already on Razorpay.</p>
+          <ul>
+            <li>Keep your invoice numbers sequential, like INV-2026-001 and INV-2026-002. Never skip or reuse a number.</li>
+            <li>For B2C sales below ₹200, a simplified bill of supply without GSTIN details is enough under GST rules.</li>
+            <li>Archive every invoice electronically. The GST portal requires you to keep records for at least 6 years.</li>
+            <li>Match your invoice amounts to your bank statement every month. Gaps cause GST reconciliation issues at filing time.</li>
+            <li>Neweb includes a basic GST invoice generator in the dashboard that uses your business details. You can generate and send invoices in two clicks.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="guide-cta-box">
+      <h3>The fastest way: Neweb does all of this in 38 seconds</h3>
+      <p>Neweb's payment setup includes a UPI payment page builder, Razorpay integration, and GST invoice generation, all built into your website dashboard. ₹249/month. No developer needed, and no extra fees beyond your payment gateway's transaction charges.</p>
+      <a href="https://dashboard.neweb.ai/signup" class="btn btn-brand">Set up UPI payments on your website</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-mark">
+      <span class="eyebrow"><span class="dot"></span> FAQ</span>
+      <h2 class="h">Common <span class="serif">questions</span>.</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <h3>Can I use my personal UPI ID for business payments?</h3>
+        <p>You can use a personal UPI ID, but it is not a good idea for a real business. It mixes personal and business money. That makes GST and income tax filing messy. It also looks unprofessional to B2B customers, who expect to pay a business name, not a person. Banks set lower limits too, and may flag a personal account that suddenly gets many merchant payments. The clean way is to open a business current account. Then link a business UPI ID through Razorpay, PayU, Cashfree, or your bank's merchant portal, so your handle reads like yourbusiness@razorpay. This keeps records tidy, gives you settlement reports, and lets you issue proper GST invoices. KYC takes a day or two with your PAN, GST number, and bank details. A tip: even sole proprietors and freelancers gain, because a separate business UPI ID makes year-end accounting simpler and builds trust at checkout.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Is there a transaction limit for UPI payments?</h3>
+        <p>Yes. UPI has transaction limits set by NPCI and by individual banks. The standard per-transaction limit is ₹1 lakh for most banks and apps. There is usually a daily cap of around ₹1 lakh and a limit of about 20 transactions per day on one account. Some categories get higher ceilings. Verified merchant accounts, and payments to bodies like hospitals, schools, and capital markets, can go up to ₹2 lakh or even ₹5 lakh under recent NPCI rules. For sales above these limits, ask the customer to split the amount into a few UPI transfers, or offer NEFT, IMPS, or RTGS instead. Limits also vary by app, so a customer may need to raise their own per-day limit in their UPI app. A tip: for big-ticket items like jewellery or hotel bookings, take a UPI advance to confirm the order and collect the balance by bank transfer or card.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Do I need a payment gateway for UPI on my website?</h3>
+        <p>It depends on how you want to collect and track payments. If you only need a simple static QR code that customers scan and type the amount into, you do not need a gateway. Just put a UPI QR image on a payment page, and reconcile by hand by checking your bank or UPI app notifications. This suits low-volume freelancers, tutors, and service providers. But you may want a dynamic QR or pay button with the amount pre-filled per order, plus automatic confirmation, refunds, and settlement reports. For that you need a gateway such as Razorpay, PayU, or Cashfree. Gateway-based collection is the right choice for any e-commerce or booking flow. It removes wrong-amount errors and the slow work of matching payments to orders by hand. A tip: Neweb's payment page builder connects directly to your Razorpay or PayU account, so you get gateway-grade collection without writing any code.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What are Razorpay's charges for UPI payments?</h3>
+        <p>Razorpay usually charges around 2 percent per transaction on its standard plan. That rate applies across UPI, cards, and netbanking, with the fee per transaction capped at the plan's limit. UPI itself has no MDR for normal person-to-merchant payments under government rules. But gateways still charge a platform fee for the dashboard, settlement, refunds, and invoicing they provide. That is what the roughly 2 percent covers. Rates can be lower for higher volumes, and some startup or small-business plans offer reduced pricing. PayU, Cashfree, and Paytm for Business work in a similar way. So compare more than the percentage. Look at the settlement period, typically T+1 to T+2, the ease of setup, and the quality of support. Factor these fees into your pricing. A tip: if most of your payments are pure UPI, ask each provider about their UPI-only rate, because it is sometimes lower than the blended card rate.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-mark">
+      <span class="eyebrow"><span class="dot"></span> Keep reading</span>
+      <h2 class="h">Related <span class="serif">pages</span>.</h2>
+    </div>
+    <div class="grid-3">
+      <a class="card rise" href="/pages/pricing" style="display:flex;flex-direction:column">
+        <div class="ico">↗</div>
+        <h3>Neweb pricing</h3>
+        <p>₹249/month includes UPI payment page builder, Razorpay integration, and GST invoice generation.</p>
+      </a>
+      <a class="card rise" href="/pages/features" style="display:flex;flex-direction:column">
+        <div class="ico">↗</div>
+        <h3>Neweb features</h3>
+        <p>UPI payments, WhatsApp integration, GST invoices, Google Business: all the Indian-specific features you need.</p>
+      </a>
+      <a class="card rise" href="/pages/guides/how-to-make-shop-website-india" style="display:flex;flex-direction:column">
+        <div class="ico">↗</div>
+        <h3>Shop website guide</h3>
+        <p>How to build a retail shop website in India with UPI, product catalogue, and Google Business.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="cta-dark">
+      <h2>Get paid online in <span class="serif">seconds</span>.</h2>
+      <p>Neweb's built-in UPI payment integration connects your website to Razorpay in one click. Accept payments, generate GST invoices, and grow your business, all for ₹249/month.</p>
+      <div class="btns">
+        <a href="https://dashboard.neweb.ai/signup" class="btn btn-brand">Start free — ₹249/month</a>
+        <a href="/pages/features" class="btn btn-ghost" style="background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.12);color:#fff">See payment features</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="ft-top">
+      <div class="ft-brand">
+        <a href="/" class="brand" aria-label="neweb.ai"><img src="/assets/neweb-logo.png" alt="Neweb logo" width="90" height="36" loading="lazy" decoding="async" style="height:36px" /></a>
+        <p class="ft-tag"><em>Digital Dreams to Reality.</em> Neweb is the online presence manager for small businesses — website, domain, Google Business, and SEO in one subscription.</p>
+        <div class="ft-social" aria-label="Neweb on social media">
+          <a href="https://www.linkedin.com/company/newebai/" aria-label="LinkedIn" rel="noopener" target="_blank"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.11 1 2.48 1s2.5 1.12 2.5 2.5zM.22 8h4.52v14H.22V8zm7.5 0h4.33v1.92h.06c.6-1.14 2.08-2.34 4.27-2.34 4.57 0 5.42 3.01 5.42 6.92V22h-4.52v-6.27c0-1.5-.03-3.43-2.09-3.43-2.09 0-2.41 1.63-2.41 3.32V22H7.72V8z"/></svg></a>
+          <a href="https://www.instagram.com/neweb.ai/" aria-label="Instagram" rel="noopener" target="_blank"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 01-1.38-.9 3.7 3.7 0 01-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.77.13 4.9.33 4.14.63c-.79.3-1.46.71-2.13 1.38A5.9 5.9 0 00.63 4.14c-.3.76-.5 1.63-.56 2.9C.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.28.26 2.15.56 2.91.3.79.71 1.46 1.38 2.13.67.67 1.34 1.08 2.13 1.38.76.3 1.63.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.28-.06 2.15-.26 2.91-.56.79-.3 1.46-.71 2.13-1.38.67-.67 1.08-1.34 1.38-2.13.3-.76.5-1.63.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.28-.26-2.15-.56-2.91a5.9 5.9 0 00-1.38-2.13A5.9 5.9 0 0019.86.63c-.76-.3-1.63-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 100 12.32 6.16 6.16 0 000-12.32zM12 16a4 4 0 110-8 4 4 0 010 8zm6.4-11.85a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/></svg></a>
+        </div>
+      </div>
+      <div class="ft-col"><h3 class="ft-h">Product</h3><a href="/pages/features">Features</a><a href="/pages/pricing">Pricing</a><a href="/pages/why-neweb">Why Neweb</a><a href="/pages/templates">Templates</a><a href="/pages/changelog">Changelog</a><a href="/pages/domain-checker">Domain checker</a></div>
+      <div class="ft-col"><h3 class="ft-h">Solutions</h3><a href="/pages/solutions/restaurants">Restaurants</a><a href="/pages/solutions/jewellers">Jewellers</a><a href="/pages/solutions/clinics">Clinics</a><a href="/pages/solutions/tutoring">Tutoring centres</a><a href="/pages/solutions">All industries</a></div>
+      <div class="ft-col"><h3 class="ft-h">Resources</h3><a href="/pages/blog">Blog</a><a href="/pages/guides">Guides</a><a href="/pages/tools">Free tools</a><a href="/pages/compare">Compare</a><a href="/pages/customer-stories">Customer stories</a><a href="/pages/press">Press kit</a></div>
+      <div class="ft-col"><h3 class="ft-h">Company</h3><a href="/pages/about">About</a><a href="/pages/careers">Careers</a><a href="/pages/contact">Contact</a><a href="/pages/security">Security</a><a href="/pages/privacy">Privacy</a><a href="/pages/terms">Terms</a><a href="/pages/refund">Refund</a></div>
+    </div>
+    <div class="ft-offices">
+      <div class="ft-office"><h4 class="ft-h">India Office</h4><p>909, Sharan Circle Business Hub,<br>Zundal Circle, Ahmedabad,<br>Gujarat, India &mdash; 382421</p></div>
+      <div class="ft-office"><h4 class="ft-h">USA Office</h4><p>30 N Gould St Ste R,<br>Sheridan, WY 82801,<br>United States</p></div>
+      <div class="ft-office"><h4 class="ft-h">Get in touch</h4><p><a href="mailto:support@neweb.ai">support@neweb.ai</a><br><a href="mailto:sales@neweb.ai">sales@neweb.ai</a><br><a href="tel:+19789811118">+1 978 981 1118</a></p></div>
+    </div>
+    <div class="ft-bot">
+      <span>&copy; 2026 Commerciax Infotech Private Limited. All Rights Reserved.</span>
+      <span>Made for the open web &middot; Built with AI &middot; Powered by Experts.</span>
+    </div>
+    <div class="foot-mega" aria-hidden="true" role="presentation">NEWEB.AI</div>
+  </div>
+</footer>
+<script>
+  (function(){
+    var io = new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.1});
+    var targets = new Set(document.querySelectorAll('.card, h2.h, .sec-mark, .cta-dark, .rise'));
+    targets.forEach(function(el){if(!el.classList.contains('rise')) el.classList.add('rise');io.observe(el);});
+  })();
+</script>
+</body>
+</html>
