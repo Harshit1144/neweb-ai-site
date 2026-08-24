@@ -3060,7 +3060,7 @@ function escHtml(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt
     solutionHref: '/pages/solutions',
     solutionLabel: 'All industries',
     metaTitle: 'Free EMI Calculator — Monthly EMI, Interest, Total Payable | Neweb',
-    metaDescription: 'Calculate your loan EMI instantly. Enter principal, annual interest rate, and tenure to see monthly EMI, total interest, and total amount payable. Free, browser-only.',
+    metaDescription: 'Calculate your loan EMI instantly. Enter principal, annual interest rate, and tenure to see monthly EMI, total interest, and amount payable. Free.',
     h1: 'EMI <span class="serif">Calculator</span>.',
     lede: 'Enter the loan amount, the annual interest rate, and the tenure. We compute your monthly EMI, the total interest, and the total amount payable using the standard reducing-balance EMI formula.',
     widget: {
@@ -3879,7 +3879,7 @@ function escHtml(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt
     solutionHref: '/pages/solutions',
     solutionLabel: 'All industries',
     metaTitle: 'Free Income Tax Calculator India FY 2025-26 — Old vs New Regime | Neweb',
-    metaDescription: 'Calculate your income tax under the old and new regime for FY 2025-26. Enter salary, deductions and exemptions to see tax, cess and take-home. Free, browser-only.',
+    metaDescription: 'Calculate income tax under the old and new regime for FY 2025-26. Enter salary, deductions and exemptions to see tax, cess and take-home. Free, browser-only.',
     h1: 'Income Tax <span class="serif">Calculator</span>.',
     lede: 'Enter your annual income and deductions. We compute your tax under both the old and new regime for FY 2025-26 side by side, so you can pick the one that saves you more. Runs entirely in your browser.',
     widget: {
@@ -4385,7 +4385,7 @@ function escHtml(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt
     solutionHref: '/pages/solutions',
     solutionLabel: 'All industries',
     metaTitle: 'Free Gratuity Calculator India — Payment of Gratuity Act | Neweb',
-    metaDescription: 'Calculate gratuity payout using the 15/26 formula from the Payment of Gratuity Act. Enter last drawn basic salary plus DA and years of service. Free, browser-only.',
+    metaDescription: 'Calculate gratuity using the 15/26 formula from the Payment of Gratuity Act. Enter last drawn basic salary plus DA and years of service. Free, browser-only.',
     h1: 'Gratuity <span class="serif">Calculator</span>.',
     lede: 'Enter your last drawn basic salary plus dearness allowance and your years of service. We compute your gratuity payout using the standard 15/26 formula. Runs entirely in your browser.',
     widget: {
@@ -4506,7 +4506,7 @@ function escHtml(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt
     solutionHref: '/pages/solutions',
     solutionLabel: 'All industries',
     metaTitle: 'Free SIP Calculator — Mutual Fund Maturity Value | Neweb',
-    metaDescription: 'Calculate your SIP maturity value. Enter monthly investment, expected annual return, and years to see the total invested, wealth gained, and final corpus. Free, browser-only.',
+    metaDescription: 'Calculate your SIP maturity value from monthly investment, expected annual return, and tenure. See total invested, wealth gained, and final corpus. Free.',
     h1: 'SIP <span class="serif">Calculator</span>.',
     lede: 'Enter your monthly SIP amount, the expected annual return, and the investment period. We compute your maturity value using monthly compounding, the standard method Indian mutual funds use. Runs entirely in your browser.',
     widget: {
@@ -4765,7 +4765,7 @@ function escHtml(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt
     solutionHref: '/pages/solutions',
     solutionLabel: 'For service businesses',
     metaTitle: 'Free Quotation Generator India — Business Estimate PDF | Neweb',
-    metaDescription: 'Generate a professional quotation or estimate PDF with line items, tax and validity. Free, browser-only, download instantly. Sits alongside our GST invoice generator.',
+    metaDescription: 'Generate a professional quotation or estimate PDF with line items, tax and validity. Free and browser-only, download instantly. Pairs with our GST invoice tool.',
     h1: 'Quotation <span class="serif">Generator</span>.',
     lede: 'Type your business details, client details and line items. We total everything, apply optional tax, and generate a clean A4 quotation PDF. Free, runs entirely in your browser.',
     widget: {
