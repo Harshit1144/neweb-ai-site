@@ -2240,7 +2240,7 @@ function mdToHtml(md){
 }
 function fmtDate(iso){
   if(!iso) return '';
-  try { return new Date(iso).toLocaleDateString('en-IN', { day:'numeric', month:'short', year:'numeric' }); }
+  try { return new Date(iso).toLocaleDateString('en-IN', { day:'numeric', month:'short', year:'numeric', timeZone:'Asia/Kolkata' }); }
   catch(_) { return ''; }
 }
 const BLOG_STYLES = `
@@ -2509,7 +2509,7 @@ async function build() {
   try {
     const blogIndexPath = path.join(OUT_DIR, 'blog.html');
     let blogIndexHtml = await fs.readFile(blogIndexPath, 'utf8');
-    const fmt = (iso) => { try { return new Date(iso).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}); } catch(_) { return ''; } };
+    const fmt = (iso) => { try { return new Date(iso).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric',timeZone:'Asia/Kolkata'}); } catch(_) { return ''; } };
     const initial = (t) => esc((t||'N').trim().charAt(0).toUpperCase());
     const coverH = (p) => p.cover ? `<div class="cover"><img src="${esc(p.cover)}" alt="" loading="lazy"></div>` : `<div class="cover">${initial(p.title)}</div>`;
     let featuredHtml = '', gridHtml = '';
