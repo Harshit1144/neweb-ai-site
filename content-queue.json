@@ -1,1 +1,110 @@
-[]
+[
+  {
+    "slug": "how-to-set-up-google-analytics-for-small-business",
+    "title": "How to Set Up Google Analytics for Your Small Business Website",
+    "angle": "Beginner walkthrough of installing and reading basic Google Analytics data for an Indian small business owner who has never used it.",
+    "source": "seed"
+  },
+  {
+    "slug": "website-loading-speed-why-it-matters-india",
+    "title": "Why Website Loading Speed Matters More on Indian Mobile Networks",
+    "angle": "Practical explanation of page speed and its impact on conversions and Google ranking for mobile-first Indian users.",
+    "source": "seed"
+  },
+  {
+    "slug": "how-to-write-seo-friendly-product-descriptions",
+    "title": "How to Write SEO-Friendly Product Descriptions That Actually Sell",
+    "angle": "Copywriting and SEO tips for small business product pages, with Indian examples.",
+    "source": "seed"
+  },
+  {
+    "slug": "common-mistakes-in-gst-invoices",
+    "title": "Common Mistakes Small Businesses Make on GST Invoices",
+    "angle": "Practical compliance checklist for invoice errors that trigger notices or lost input credit.",
+    "source": "seed"
+  },
+  {
+    "slug": "best-practices-for-mobile-friendly-websites-india",
+    "title": "Mobile-Friendly Website Best Practices for Indian Small Businesses",
+    "angle": "Why most Indian traffic is mobile-first and what that means for design choices.",
+    "source": "seed"
+  },
+  {
+    "slug": "how-to-set-business-hours-google-maps-correctly",
+    "title": "How to Set Business Hours on Google Maps Correctly (And Avoid Lost Customers)",
+    "angle": "Common GBP hours mistakes, holiday hours, special hours during festivals.",
+    "source": "seed"
+  },
+  {
+    "slug": "email-marketing-basics-for-small-business-india",
+    "title": "Email Marketing Basics for Indian Small Businesses",
+    "angle": "Simple intro to email marketing for retention, contrasted with WhatsApp broadcast limits.",
+    "source": "seed"
+  },
+  {
+    "slug": "how-to-create-a-return-refund-policy",
+    "title": "How to Create a Return and Refund Policy for Your Online Store",
+    "angle": "Legal and trust-building reasons every small ecommerce site needs a clear policy page.",
+    "source": "seed"
+  },
+  {
+    "slug": "local-business-schema-markup-explained",
+    "title": "Local Business Schema Markup Explained for Non-Developers",
+    "angle": "What schema markup is, why it helps local SEO, and how to add it without coding.",
+    "source": "seed"
+  },
+  {
+    "slug": "how-to-photograph-products-for-ecommerce",
+    "title": "How to Photograph Products for Your Website on a Phone Budget",
+    "angle": "Practical, low-cost product photography tips for small sellers using only a smartphone.",
+    "source": "seed"
+  },
+  {
+    "slug": "udyam-annual-update-why-it-matters",
+    "title": "Udyam Annual Update: Why MSMEs Must Refresh Their Registration Every Year",
+    "angle": "Explains the yearly Udyam data update requirement and consequences of skipping it.",
+    "source": "seed"
+  },
+  {
+    "slug": "e-invoicing-rules-for-small-business-2026",
+    "title": "E-Invoicing Rules in 2026: Does Your Small Business Need to Comply?",
+    "angle": "Explains the mandatory e-invoicing threshold and what small businesses below it should still consider.",
+    "source": "seed"
+  },
+  {
+    "slug": "how-to-build-trust-signals-on-your-website",
+    "title": "How to Build Trust Signals Into Your Small Business Website",
+    "angle": "Testimonials, certifications, secure payment badges, and other elements that reduce buyer hesitation.",
+    "source": "seed"
+  },
+  {
+    "slug": "difference-between-website-and-web-app",
+    "title": "Website vs Web App: What Does Your Small Business Actually Need?",
+    "angle": "Clarifies the difference for confused small business owners comparing quotes from developers.",
+    "source": "seed"
+  },
+  {
+    "slug": "how-to-choose-a-payment-gateway-india",
+    "title": "How to Choose a Payment Gateway for Your Website in India",
+    "angle": "Comparison of payment gateway options, fees, and settlement times for small businesses.",
+    "source": "seed"
+  },
+  {
+    "slug": "content-calendar-for-small-business-social-media",
+    "title": "How to Build a Simple Content Calendar for Your Small Business",
+    "angle": "Practical, low-effort planning system for owners juggling social media alongside daily operations.",
+    "source": "seed"
+  },
+  {
+    "slug": "how-to-handle-cash-on-delivery-vs-prepaid-orders",
+    "title": "Cash on Delivery vs Prepaid Orders: What Should Your Website Offer?",
+    "angle": "Weighs COD conversion benefits against fraud and logistics cost for small online sellers.",
+    "source": "seed"
+  },
+  {
+    "slug": "website-maintenance-checklist-small-business",
+    "title": "The Website Maintenance Checklist Every Small Business Should Follow",
+    "angle": "Simple recurring checklist covering updates, backups, broken links, and content freshness.",
+    "source": "seed"
+  }
+]
