@@ -5481,7 +5481,7 @@ function escHtml(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt
       html: `
         <div class="field"><label>Choose an image</label><input id="ir-file" type="file" accept="image/*"/></div>
         <div id="ir-preview-wrap" style="display:none;margin-top:14px">
-          <img id="ir-preview" style="max-width:100%;max-height:220px;border:1px solid var(--line);border-radius:10px;display:block;margin-bottom:14px"/>
+          <img id="ir-preview" alt="Uploaded image preview" style="max-width:100%;max-height:220px;border:1px solid var(--line);border-radius:10px;display:block;margin-bottom:14px"/>
           <div class="field"><label>Resize mode</label>
             <select id="ir-mode"><option value="pixels">Exact width and height (pixels)</option><option value="percent">Scale by percentage</option></select>
           </div>

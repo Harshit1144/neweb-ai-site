@@ -2401,7 +2401,7 @@ function mdToHtml(md){
     .replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>')
     .replace(/~~([^~]+)~~/g,'<del>$1</del>')
     .replace(/\*([^*]+)\*/g,'<em>$1</em>')
-    .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (_,text,url) => `<a href="${safeUrl(url.replace(/&amp;/g,'&'))}" rel="noopener">${text}</a>`);
+    .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (_,text,url) => `<a href="${safeUrl(url.replace(/&amp;/g,'&').replace(/^(\/pages\/[^?#]*?)\.html(?=$|[?#])/, '$1'))}" rel="noopener">${text}</a>`);
   let inTable = false, tableRowIdx = 0;
   const flushTable = () => { if(inTable){ html += '</tbody></table></div>'; inTable = false; tableRowIdx = 0; } };
   for(const line of lines){
@@ -2448,6 +2448,15 @@ function mdToHtml(md){
   flushTable();
   flushList();
   return html;
+}
+// Blog <title>: prefer the full " — Neweb Blog" suffix, fall back to a shorter
+// suffix or none so long routine-written titles stay near the 60-char SERP limit.
+function blogTitle(p){
+  const base = (p.seoTitle || p.title).trim();
+  for (const suffix of [' — Neweb Blog', ' | Neweb', '']) {
+    if ((base + suffix).length <= 60) return base + suffix;
+  }
+  return base;
 }
 function fmtDate(iso){
   if(!iso) return '';
@@ -2578,7 +2587,7 @@ function blogPostPage(p, allPosts) {
   return {
     slug: `blog/${slug}`,
     // seoTitle (optional) lets the <title>/og:title be shorter than the H1 (p.title).
-    title: `${p.seoTitle || p.title} — Neweb Blog`,
+    title: blogTitle(p),
     description: desc,
     canonicalPath,
     active: '',
