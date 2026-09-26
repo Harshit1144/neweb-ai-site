@@ -3,8 +3,10 @@
 // Run: `node build-pages.mjs`
 
 import fs from 'node:fs/promises';
+import fsSync from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { execSync } from 'node:child_process';
 import { TOOLS, TOOL_CATEGORIES, toolsByCategory, toolHref } from './tools-data.mjs';
 import { INDUSTRY_BODIES, GUIDE_BODIES, COMPARE_BODIES, SOLUTIONS_HUB_BODY, GUIDES_HUB_BODY, COMPARE_HUB_BODY, PAGE_EXTRAS } from './extra-content.mjs';
 
@@ -13,7 +15,54 @@ const OUT_DIR = path.join(__dirname, 'pages');
 const SUB_DIRS = ['solutions', 'compare', 'guides', 'tools'];
 
 const BRAND = 'Neweb';
+
+// ====== Static (hand-written) page discovery ======
+// Some pages under pages/<dir>/ are hand-written rather than generated. Hubs must
+// still link them, otherwise they become orphans every time the hub is rebuilt.
+function staticPageMeta(dir, excludeSlugs = []) {
+  const abs = path.join(__dirname, 'pages', dir);
+  if (!fsSync.existsSync(abs)) return [];
+  const skip = new Set(excludeSlugs);
+  const decode = t => String(t||'').replace(/&amp;/g,'&').replace(/&quot;/g,'"').replace(/&#39;/g,"'").replace(/&lt;/g,'<').replace(/&gt;/g,'>');
+  return fsSync.readdirSync(abs)
+    .filter(f => f.endsWith('.html'))
+    .map(f => f.replace(/\.html$/, ''))
+    .filter(slug => !skip.has(slug))
+    .map(slug => {
+      const html = fsSync.readFileSync(path.join(abs, slug + '.html'), 'utf8');
+      const title = decode((html.match(/<title>([^<]*)<\/title>/) || [,''])[1]).replace(/\s*[|—-]\s*Neweb.*$/,'').trim();
+      const description = decode((html.match(/<meta name="description" content="([^"]*)"/) || [,''])[1]).trim();
+      const h1 = decode((html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/) || [,''])[1].replace(/<[^>]+>/g,'')).replace(/\s+/g,' ').trim();
+      const noindex = /name="robots" content="[^"]*noindex/.test(html);
+      return { slug, title, description, h1, noindex };
+    })
+    .filter(p => !p.noindex && p.title)
+    .sort((a,b) => a.slug.localeCompare(b.slug));
+}
+const TOOL_COUNT = Math.floor((fsSync.readdirSync(path.join(__dirname,'pages','tools')).filter(f=>f.endsWith('.html')).length + 1) / 10) * 10;
+const STATIC_TOOL_CATEGORY = { 'whatsapp-greeting-generator': 'run' }; // everything else defaults to 'seo'
+
 const DOMAIN = 'https://neweb.ai';
+
+// ====== Text helpers ======
+// Escape a string for use inside an HTML attribute (content="…") or <title>.
+// Leaves already-encoded entities (&amp; &#39; …) alone so double-escaping can't happen.
+function escAttr(s) {
+  return String(s ?? '')
+    .replace(/&(?![a-zA-Z][a-zA-Z0-9]*;|#\d+;|#x[0-9a-fA-F]+;)/g, '&amp;')
+    .replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+// Trim a long string to <= max chars, preferring a sentence boundary; falls back
+// to a word boundary + ellipsis if the last sentence end is too early (< min).
+function truncateToSentence(str, max = 155, min = 110) {
+  const t = String(str || '').replace(/\s+/g, ' ').trim();
+  if (t.length <= max) return t;
+  const head = t.slice(0, max);
+  const m = head.match(/^[\s\S]*[.!?](?=\s|$)/);
+  if (m && m[0].length >= min) return m[0].trim();
+  const cut = head.slice(0, max - 1);
+  return cut.slice(0, cut.lastIndexOf(' ')).replace(/[,;:\-–—]$/, '') + '…';
+}
 
 // ====== JSON-LD helpers ======
 function jsonLdBlock(obj) {
@@ -27,9 +76,10 @@ function buildBreadcrumbLd(canonicalPath, title) {
   let accum = '';
   parts.forEach((p, i) => {
     accum += '/' + p;
+    if (p === 'pages') return; // /pages is not a real URL — skip it in the trail
     const isLast = i === parts.length - 1;
-    const name = isLast ? title.replace(/\s+—\s+Neweb.*$/,'').trim() : (p === 'pages' ? 'Pages' : p.charAt(0).toUpperCase()+p.slice(1).replace(/-/g,' '));
-    items.push({ '@type':'ListItem', position: i+2, name, item: DOMAIN + accum });
+    const name = isLast ? title.replace(/\s+[—|]\s+Neweb.*$/,'').trim() : p.charAt(0).toUpperCase()+p.slice(1).replace(/-/g,' ');
+    items.push({ '@type':'ListItem', position: items.length + 1, name, item: DOMAIN + accum });
   });
   return jsonLdBlock({ '@context':'https://schema.org', '@type':'BreadcrumbList', itemListElement: items });
 }
@@ -138,7 +188,7 @@ const nav = (active = '') => `
           </a>
           <a class="mega-item" href="/pages/tools">
             <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 1-5.4 5.4L4 17l3 3 5.3-5.3a4 4 0 0 1 5.4-5.4L15 12l-3-3 2.7-2.7z"/></svg></div>
-            <div class="mega-txt"><p class="mega-t">Free tools</p><p class="mega-d">21 fast utilities for Indian small businesses</p></div>
+            <div class="mega-txt"><p class="mega-t">Free tools</p><p class="mega-d">${TOOL_COUNT}+ free tools for Indian small businesses</p></div>
           </a>
           <a class="mega-item" href="/pages/compare">
             <div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4v16M17 4v16"/><path d="M5 8l2-2 2 2M15 16l2 2 2-2"/></svg></div>
@@ -213,6 +263,7 @@ const footer = `
         <a href="/pages/cities/ahmedabad">Ahmedabad</a>
         <a href="/pages/cities/chennai">Chennai</a>
         <a href="/pages/cities/kolkata">Kolkata</a>
+        <a href="/pages/cities">All cities →</a>
       </div>
       <div class="ft-col"><h3 class="ft-h">Company</h3>
         <a href="/pages/about">About</a>
@@ -314,23 +365,23 @@ function shell({ title, description, slug, canonicalPath, active, extraHead = ''
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="icon" type="image/svg+xml" href="/assets/neweb-mark.svg">
-<title>${title}</title>
-<meta name="description" content="${description}">
+<title>${escAttr(title)}</title>
+<meta name="description" content="${escAttr(description)}">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
 <link rel="canonical" href="${canonical}">
-<meta property="og:title" content="${title}">
-<meta property="og:description" content="${description}">
-<meta property="og:type" content="${ogType}">
-<meta property="og:url" content="${canonical}">
-<meta property="og:image" content="${ogImageAbs}">
+<meta property="og:title" content="${escAttr(title)}">
+<meta property="og:description" content="${escAttr(description)}">
+<meta property="og:type" content="${escAttr(ogType)}">
+<meta property="og:url" content="${escAttr(canonical)}">
+<meta property="og:image" content="${escAttr(ogImageAbs)}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:site_name" content="Neweb">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@neweb_ai">
-<meta name="twitter:title" content="${title}">
-<meta name="twitter:description" content="${description}">
-<meta name="twitter:image" content="${ogImageAbs}">
+<meta name="twitter:title" content="${escAttr(title)}">
+<meta name="twitter:description" content="${escAttr(description)}">
+<meta name="twitter:image" content="${escAttr(ogImageAbs)}">
 ${ld}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -751,8 +802,13 @@ function richProse(body, opts = {}) {
 
 // Hub page emitter
 function toolsHubPage() {
+  const staticTools = staticPageMeta('tools', TOOLS.map(t => t.slug)).map(p => ({
+    slug: p.slug, built: true, category: STATIC_TOOL_CATEGORY[p.slug] || 'seo',
+    name: p.title.split(/\s+[—:]\s+/)[0].replace(/^Free\s+/i,'').replace(/\s+(Online|Tool)$/i,''),
+    tagline: p.description.length > 120 ? p.description.slice(0, 117).replace(/\s+\S*$/,'') + '…' : p.description,
+  }));
   const groups = TOOL_CATEGORIES.map(cat => {
-    const items = toolsByCategory(cat.id);
+    const items = [...toolsByCategory(cat.id), ...staticTools.filter(t => t.category === cat.id)];
     const cards = items.map(t => {
       const href = toolHref(t);
       const pill = t.built ? `<span class="pill-corner live">Live</span>` : `<span class="pill-corner soon">Soon</span>`;
@@ -784,7 +840,7 @@ function toolsHubPage() {
 
   return {
     slug: 'tools',
-    title: 'Free Tools for Indian Small Businesses — QR, Invoice, SEO | Neweb',
+    title: 'Free Tools for Indian Small Businesses — QR, GST, SEO | Neweb',
     description: 'A growing kit of free tools for Indian SMBs. WhatsApp link generator, UPI QR, GST invoice, business name ideas, SEO helpers. No sign-up, no fluff.',
     canonicalPath: '/pages/tools',
     active: 'tools',
@@ -795,7 +851,7 @@ function toolsHubPage() {
       name:'Free tools for Indian small businesses',
       url:`${DOMAIN}/pages/tools`,
       isPartOf:{ '@type':'WebSite', name:'Neweb', url:'https://neweb.ai/' },
-      hasPart: TOOLS.map(t => ({
+      hasPart: [...TOOLS, ...staticTools].map(t => ({
         '@type':'WebApplication',
         name: t.name,
         url: `${DOMAIN}${toolHref(t) || `/pages/tools/${t.slug}`}`,
@@ -819,13 +875,21 @@ function toolsHubPage() {
 const pages = [];
 
 // ---------- PRICING ----------
+const PRICING_FAQ = [
+  { q:'Is there a free trial?', a:'You can build and preview your site before paying. Billing starts only when you publish on your domain. Cancel any time from the dashboard.' },
+  { q:'Is the free domain really free every year?', a:'Yes. One .in, .com, .co, .shop or .online domain is included for as long as your plan is active, renewals included. It is registered in your name, not ours.' },
+  { q:'Do you charge GST on top of ₹249?', a:'Prices shown are exclusive of GST. You receive a GST-compliant invoice every month, which registered businesses can claim as input credit.' },
+  { q:'Can I pay yearly instead of monthly?', a:'Yes. Annual billing is available on every plan and is the easiest option if you want one invoice a year for your accountant.' },
+  { q:'What happens to my website if I cancel?', a:'Your content is yours. Export the full WordPress site and transfer the domain to any registrar. We do not hold domains hostage.' },
+  { q:'Do I need to buy hosting or SSL separately?', a:'No. LiteSpeed hosting, SSL certificate, daily backups and CDN are included in every plan.' },
+];
 pages.push({
   slug: 'pricing',
   title: 'Pricing — Website + Domain + SEO from ₹249/month | Neweb',
-  description: 'Simple, transparent pricing for Neweb. One plan at ₹249/month includes website, domain, SSL, hosting, SEO autopilot, and Google Business — no tier upsells.',
+  description: 'Neweb pricing: Starter from ₹249/month with website, free domain, SSL, hosting, SEO autopilot and Google Business Profile. Growth and Enterprise plans too.',
   canonicalPath: '/pages/pricing',
   active: 'pricing',
-  extraHead: `
+  extraHead: FAQ_BLOCK_STYLES + `
     /* Currency toggle */
     .price-head{display:flex;align-items:center;justify-content:center;gap:14px;margin:0 0 28px;flex-wrap:wrap}
     .currency-toggle{display:inline-flex;border:1px solid var(--line-2);border-radius:10px;padding:3px;background:#fff}
@@ -840,7 +904,7 @@ pages.push({
     }
     .plan-price .per{font-size:14px;color:var(--muted);font-weight:400;margin-left:2px}
   `,
-  jsonLd: jsonLdBlock({
+  jsonLd: faqLd(PRICING_FAQ) + '\n' +  jsonLdBlock({
     "@context":"https://schema.org","@type":"Product","name":"Neweb",
     "description":"Online presence manager for small businesses — website, domain, Google Business, and SEO in one subscription.",
     "brand":{"@type":"Brand","name":"Neweb"},
@@ -923,7 +987,14 @@ pages.push({
       <dt>Google Business</dt><dd>Claim, verify, and sync your GBP. Hours, photos, services — one edit, everywhere.</dd>
       <dt>Content exports</dt><dd>WordPress export in one click. Your content is yours. No lock-in.</dd>
     </dl>
-  `) + cta() + `
+  `) + section(`
+    <div class="prose">
+      <h2>How Neweb pricing compares</h2>
+      <p>A typical small-business website in India costs ₹5,000–₹50,000 from a freelancer or ₹25,000–₹2 lakh from an agency, before the ₹800–₹1,500 a year for a domain, ₹2,000–₹6,000 a year for hosting, and whatever each later edit costs. Builders such as Wix or Squarespace start around ₹800–₹1,600 a month and still charge separately for the domain after the first year. Neweb's Starter plan bundles the website, a free .in or .com domain, hosting, SSL, Google Business Profile setup and SEO autopilot for ₹249 a month, billed in rupees with GST invoices. Full breakdown in our <a href="/pages/guides/website-cost-india">website cost in India</a> guide.</p>
+      <h2>What is not included</h2>
+      <p>Paid advertising budgets, premium domains (short or dictionary-word names that registrars price separately), and custom development beyond the dashboard editor. If you need something custom, <a href="/pages/contact">talk to us</a> before you sign up and we will tell you honestly whether Neweb fits.</p>
+    </div>
+  `, 'padding-top:0') + faqSection(PRICING_FAQ, 'Pricing questions') + cta() + `
 <script>
   (function(){
     var KEY='neweb_cur';
@@ -956,7 +1027,7 @@ pages.push({
 pages.push({
   slug: 'features',
   title: 'Features — Website builder, free domain, SEO autopilot | Neweb',
-  description: 'Everything Neweb does: website builder, free domain, Google Business Profile, SEO autopilot, multilingual content, newsletter, and the Presence Graph that keeps it all in sync.',
+  description: 'Everything Neweb does for ₹249/month: website builder, free domain, Google Business Profile, SEO autopilot, multilingual pages and newsletter, all kept in sync.',
   canonicalPath: '/pages/features',
   active: 'features',
   body: hero({
@@ -988,22 +1059,29 @@ pages.push({
 
 // ---------- TEMPLATES ----------
 const templates = [
-  {k:'Bakery', c:'#fff3e0 #ffd6b8', n:'Copper Oven Bakery', note:'Hero + menu + ordering + Instagram feed'},
-  {k:'Jewellery', c:'#f6efff #d8c2ff', n:'Laxmee Jewellers', note:'Catalogue + story + appointment booking'},
-  {k:'Clinic', c:'#e0fff1 #b8f0d4', n:'Dr. Mehta Clinic', note:'Services + doctors + booking + GBP'},
-  {k:'Tutoring', c:'#fff8cc #ffeaa3', n:'Kaveri Coaching', note:'Courses + results + enquiry form'},
-  {k:'Restaurant', c:'#ffe0e0 #ffb8b8', n:'Sheesha Restaurant', note:'Menu + reservations + photo gallery'},
-  {k:'Hotel', c:'#d9f5ff #a8e6ff', n:'Aravalli Stay', note:'Rooms + bookings + reviews + multilingual'},
-  {k:'Salon', c:'#ffd9e3 #ffb8cc', n:'Nirvana Salon', note:'Services + pricing + stylists + appointments'},
-  {k:'Retail', c:'#cfe7ff #a7cfff', n:'Elektrobazaar', note:'Catalogue + locations + WhatsApp chat'},
+  {k:'Bakery', c:'#fff3e0 #ffd6b8', n:'Copper Oven Bakery', note:'Hero + menu + ordering + Instagram feed', href:'/pages/solutions/bakeries'},
+  {k:'Jewellery', c:'#f6efff #d8c2ff', n:'Laxmee Jewellers', note:'Catalogue + story + appointment booking', href:'/pages/solutions/jewellers'},
+  {k:'Clinic', c:'#e0fff1 #b8f0d4', n:'Dr. Mehta Clinic', note:'Services + doctors + booking + GBP', href:'/pages/solutions/clinics'},
+  {k:'Tutoring', c:'#fff8cc #ffeaa3', n:'Kaveri Coaching', note:'Courses + results + enquiry form', href:'/pages/solutions/tutoring'},
+  {k:'Restaurant', c:'#ffe0e0 #ffb8b8', n:'Sheesha Restaurant', note:'Menu + reservations + photo gallery', href:'/pages/solutions/restaurants'},
+  {k:'Hotel', c:'#d9f5ff #a8e6ff', n:'Aravalli Stay', note:'Rooms + bookings + reviews + multilingual', href:'/pages/guides/how-to-make-hotel-website-india'},
+  {k:'Salon', c:'#ffd9e3 #ffb8cc', n:'Nirvana Salon', note:'Services + pricing + stylists + appointments', href:'/pages/solutions/salons'},
+  {k:'Retail', c:'#cfe7ff #a7cfff', n:'Elektrobazaar', note:'Catalogue + locations + WhatsApp chat', href:'/pages/solutions/boutiques'},
+];
+const TEMPLATES_FAQ = [
+  { q:'Are Neweb website templates free?', a:'Yes. Every template is included in every plan, starting at ₹249/month. There is no per-template fee and you can switch templates later without losing your content.' },
+  { q:'Can I customise a template without coding?', a:'Yes. Colours, fonts, sections, images and text are edited from your dashboard in plain English. Under the hood the site is WordPress, so a developer can go further if you ever want them to.' },
+  { q:'Do the templates work on mobile?', a:'All templates are mobile-first. Over 80% of small-business website visits in India come from phones, so every layout is designed on a phone screen first and then widened for desktop.' },
+  { q:'Which template should a business not listed here use?', a:'Pick the closest match by structure, not by name. A physiotherapist can start from the Clinic template, a boutique from Retail, a tiffin service from Restaurant. Or tell us your trade and we will suggest one.' },
+  { q:'Do templates include SEO and Google Business setup?', a:'Yes. Each template ships with the right page structure, meta tags, LocalBusiness schema and a linked Google Business Profile so you show up on Google Search and Maps from day one.' },
 ];
 pages.push({
   slug: 'templates',
-  title: 'Website Templates for Bakeries, Jewellers, Clinics & more | Neweb',
-  description: 'Industry-ready website templates for bakeries, jewellers, clinics, tutoring centres, restaurants, hotels, salons and retail. Each template is fast, responsive, and ready to customize.',
+  title: 'Website Templates for Bakeries, Jewellers & Clinics | Neweb',
+  description: 'Website templates for bakeries, jewellers, clinics, coaching centres, restaurants, hotels and salons in India. Fast, mobile-first, and live in minutes on Neweb.',
   canonicalPath: '/pages/templates',
   active: 'templates',
-  extraHead: `
+  extraHead: FAQ_BLOCK_STYLES + `
     .tpl{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:all .25s}
     .tpl:hover{transform:translateY(-3px);border-color:var(--line-2);box-shadow:0 24px 48px -24px rgba(10,14,26,.1)}
     .tpl .prev{aspect-ratio:16/10;background:linear-gradient(135deg,var(--c1),var(--c2));display:grid;place-items:center;font-family:"Instrument Serif",serif;font-style:italic;font-size:42px;color:rgba(10,14,26,.6);letter-spacing:-.02em}
@@ -1019,18 +1097,28 @@ pages.push({
   }) + section(`
     <div class="grid-3" style="grid-template-columns:repeat(4,1fr)">
       ${templates.map(t => `
-        <div class="tpl rise" style="--c1:${t.c.split(' ')[0]};--c2:${t.c.split(' ')[1]}">
+        <a class="tpl rise" href="${t.href}" style="--c1:${t.c.split(' ')[0]};--c2:${t.c.split(' ')[1]};display:block">
           <div class="prev">${t.n.split(' ').map(w=>w[0]).slice(0,2).join('')}</div>
           <div class="body">
             <span class="cat">${t.k}</span>
             <div class="n">${t.n}</div>
             <div class="note">${t.note}</div>
           </div>
-        </div>
+        </a>
       `).join('')}
     </div>
     <p style="margin-top:28px;color:var(--muted);font-size:14px;text-align:center">Need a custom template? <a href="/pages/contact" style="color:var(--brand);border-bottom:1px solid rgba(61,76,255,.3)">Tell us</a> — we ship one in 48 hours.</p>
-  `) + cta(),
+  `) + section(`
+    <div class="prose">
+      <h2>What makes a good small-business website template in India</h2>
+      <p>Most template galleries are built for the US market: a big hero photo, a blog, a contact form. An Indian shop, clinic or coaching centre needs different things above the fold — a WhatsApp button that opens a chat, a click-to-call number, a Google Maps pin, GST details on the footer, and a UPI or Razorpay link for advance payments. Every Neweb template is designed around those defaults, so you are not retrofitting them later.</p>
+      <h2>How templates work on Neweb</h2>
+      <p>Answer four questions about your business and Neweb picks the matching template, writes the first draft of your copy in your language, and publishes it on your free domain. From there you edit in plain English from the dashboard. Each template is a real WordPress theme on LiteSpeed hosting, so you can export the site or move your domain at any time — see our <a href="/pages/guides/website-cost-india">website cost guide</a> for what that would cost elsewhere.</p>
+      <h2>Templates by industry</h2>
+      <p>The eight starter templates above cover the trades we see most often. Each links to a deeper industry page with examples and a checklist: <a href="/pages/solutions/restaurants">restaurants</a>, <a href="/pages/solutions/clinics">clinics</a>, <a href="/pages/solutions/jewellers">jewellers</a>, <a href="/pages/solutions/tutoring">coaching centres</a>, <a href="/pages/solutions/salons">salons</a>, <a href="/pages/solutions/bakeries">bakeries</a>, <a href="/pages/solutions/boutiques">boutiques and retail</a>, plus <a href="/pages/solutions">all industries</a>. Not sure which builder to pick at all? Read the <a href="/pages/best-website-builder-india">best website builder in India</a> comparison first.</p>
+    </div>
+  `, 'padding-top:0') + faqSection(TEMPLATES_FAQ, 'Template questions') + cta(),
+  jsonLd: faqLd(TEMPLATES_FAQ),
 });
 
 // ---------- CHANGELOG ----------
@@ -1097,12 +1185,73 @@ pages.push({
 });
 
 // ---------- DOMAIN CHECKER (free tool) ----------
+const DOMAIN_CHECKER_FAQ = [
+  { q: `How do I check if a domain name is available?`, a: `Type the name you want (without the extension) into the domain name checker above and press Check availability. In about a second you get a result for .com, .in, .co, .shop, .co.in, .store, .org and .net. A green Available row means nobody is currently using that name on that extension. A red Taken row means it already points to a live site or is parked. The check runs through Google's public DNS, so it is fast and free, and the authoritative WHOIS confirmation happens the moment you register.` },
+  { q: `Is this domain checker really free?`, a: `Yes. There is no login, no limit on the number of names you can check, and no charge. Neweb makes money from its ₹249 a month online presence plan, which includes a free domain in the first year, so the checker is simply the first step of that journey. You are free to take an available name you found here and register it anywhere.` },
+  { q: `Should an Indian business choose .in or .com?`, a: `If most of your customers are in India, .in is a perfectly credible choice, is usually cheaper, and signals to Google and to buyers that you are a local business. If you expect customers abroad, or you want the extension people type by default, .com is still the safest. Many Indian businesses register both, use .com as the main site and forward .in to it, so nobody else can trade on the name. .co.in is fine too but is longer to say out loud.` },
+  { q: `What does it mean when a domain shows as Taken?`, a: `Taken means the name already has DNS records on that extension, which almost always means somebody registered it. It may be an active business, a parked page, or a domain investor holding it. You can look up the owner through a public WHOIS lookup and make an offer, but for a small business it is usually faster and cheaper to pick a variation or a different extension.` },
+  { q: `Can the checker be wrong?`, a: `Occasionally. This tool checks whether a name resolves in DNS rather than querying the registry directly, so a domain that is registered but has no DNS records can show as Available, and a name that was just released can briefly show as Taken. Treat the result as a strong signal, then confirm at registration. When you claim a domain through Neweb we run the authoritative registry check before charging you anything.` },
+  { q: `How much does a domain name cost in India?`, a: `Prices move with promotions, but in 2026 a .in domain typically costs ₹499 to ₹899 for the first year and ₹699 to ₹999 on renewal, while a .com is typically ₹799 to ₹1,200 in year one and ₹1,200 to ₹1,600 on renewal. Extensions like .shop and .store are often advertised at ₹99 to ₹299 for the first year but renew at ₹2,000 or more, so read the renewal price before you buy. Every Neweb plan includes one domain free for the first year.` },
+  { q: `Do I need a GST number or company registration to buy a domain?`, a: `No. Anyone in India can register a domain with just a name, an email address and a payment method, and .in domains only require that you provide accurate contact details to the registrar. GST or company registration matters later, when you want the business name on your invoices, your Udyam certificate and your domain to match, which is why it is worth checking the name on the MCA and trademark databases before you commit.` },
+  { q: `What if the .com is taken but the .in is free?`, a: `Registering the .in is a reasonable move if your business is India-focused, but first check who owns the .com. If it is an active company in the same line of business, using the same name on .in invites confusion and possible trademark complaints. If the .com is parked or unrelated, take the .in and consider a short prefix or suffix such as get, hq, india or your city so you can also secure a .com later.` },
+];
+const DOMAIN_CHECKER_BODY = `
+      <div class="prose" style="max-width:820px">
+        <h2>How to check a domain name in India</h2>
+        <p>Checking whether a website name is available takes three steps and about ten seconds. First, type the name you have in mind without the extension, for example <em>copperovenbakery</em>, not copperovenbakery.com. Second, press Check availability. The domain name checker looks up the name across the eight extensions Indian businesses ask for most: .com, .in, .co, .shop, .co.in, .store, .org and .net. Third, read the results. Green means the name is free on that extension right now, red means somebody already holds it.</p>
+        <p>Behind the scenes the tool asks Google's public DNS whether each name resolves. That is what makes it instant and free, but it also means the check is a strong signal rather than a legal guarantee. When you register the name, whether through Neweb or another registrar, an authoritative registry query runs before any money changes hands.</p>
+        <p>Keep names short (14 characters or fewer), avoid hyphens and numbers, and say the name aloud to someone before you fall in love with it. If they can type it after hearing it once, it passes. Our <a href="/pages/guides/picking-a-domain">guide to picking a domain name</a> walks through the full test.</p>
+
+        <h2>.in vs .com vs .co.in: which extension should you pick?</h2>
+        <ul>
+          <li><strong>.com</strong> is still the extension people type by default, and the one to choose if you sell outside India or want the broadest recognition. It is also the most contested, so short .com names are hard to find.</li>
+          <li><strong>.in</strong> is India's country extension. It is cheaper, easier to find, and tells both Google and customers that you are a local business. For a shop, clinic, school or service business that serves Indian customers, .in is a confident choice, not a compromise.</li>
+          <li><strong>.co.in</strong> works the same way as .in but is longer to say and type. Pick it only when the .in is taken and the name is worth keeping.</li>
+          <li><strong>.shop, .store, .co</strong> suit online stores and startups. Watch the renewal price, which is often several times the first-year promo.</li>
+        </ul>
+        <p>A common pattern for growing businesses: register the .com and the .in together, run the site on one and forward the other, so a competitor cannot take the twin.</p>
+
+        <h2>What to do if the domain name is taken</h2>
+        <p>Most first-choice names are taken, so plan for it. Try these in order:</p>
+        <ul>
+          <li><strong>Change the extension.</strong> If the .com is gone, check .in and .co.in. If those are gone too, the name may simply be too generic.</li>
+          <li><strong>Add a modifier.</strong> A city (copperovenjaipur), a category (copperovenbakery) or a short verb (getcopperoven, trycopperoven) often frees up a strong name. Modifiers that describe what you do also help people remember it.</li>
+          <li><strong>Try a variation.</strong> Run the <a href="/pages/tools/domain-name-generator">domain name generator</a> to get dozens of spellings, compounds and suffixes from one keyword, or start earlier with the <a href="/pages/tools/business-name-generator">business name generator</a> if the brand itself is still open.</li>
+          <li><strong>Make an offer.</strong> Parked domains are sometimes for sale. Expect to pay anywhere from a few thousand rupees to lakhs, and use an escrow service, never a direct transfer.</li>
+          <li><strong>Do not copy a live business.</strong> If the .com belongs to an active company in your category, taking the same name on .in invites confusion and trademark trouble.</li>
+        </ul>
+        <p>For more ways around a taken name, read <a href="/pages/blog/how-to-check-domain-name-availability-india">how to check domain name availability in India</a> and our <a href="/pages/blog/domain-name-tips-for-indian-business">domain name tips for Indian businesses</a>.</p>
+
+        <h2>How much does a domain cost in India in 2026?</h2>
+        <p>Registrar prices change with promotions, but these are the ranges you will typically see. Always look at the renewal price, not just the first-year offer.</p>
+        <table class="cmp-table" style="margin-top:12px">
+          <caption class="sr-only">Typical domain name prices in India by extension</caption>
+          <thead><tr><th scope="col">Extension</th><th scope="col">Typical first year</th><th scope="col">Typical renewal</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">.in</th><td>₹499–₹899 (promos from ₹199)</td><td>₹699–₹999 / year</td></tr>
+            <tr><th scope="row">.com</th><td>₹799–₹1,200</td><td>₹1,200–₹1,600 / year</td></tr>
+            <tr><th scope="row">.co.in</th><td>₹399–₹699</td><td>₹599–₹899 / year</td></tr>
+            <tr><th scope="row">.shop / .store</th><td>₹99–₹299 (promo)</td><td>₹2,000–₹3,500 / year</td></tr>
+            <tr><th scope="row">.org / .net</th><td>₹800–₹1,100</td><td>₹1,000–₹1,500 / year</td></tr>
+          </tbody>
+        </table>
+        <p style="font-size:14px;color:var(--muted);margin-top:10px">Indicative ranges as of September 2026, inclusive of GST at most Indian registrars. Confirm current pricing before you buy.</p>
+
+        <h2>Check the name against trademarks, GST and MCA too</h2>
+        <p>An available domain is not the same as a name you can safely use. Before you print signboards, run three more checks. Search the name on the <strong>IP India trademark public search</strong> in your class of goods or services; a registered mark can force you to give up the domain later. If you plan to register a company or LLP, check the <strong>MCA name availability</strong> tool, because the Registrar of Companies will reject names that are too close to an existing company. And if you are already GST-registered, keep the trade name on your GST certificate, your Udyam registration and your domain consistent, so customers and banks see one business, not three. Our <a href="/pages/tools/business-name-generator">business name generator</a> is built to produce names that pass all three checks.</p>
+
+        <h2>How Neweb gives you a free domain</h2>
+        <p>Every Neweb plan, including the ₹249 a month Starter plan, includes one domain free for the first year. Found an available name above? Sign up, enter it, and we register it in your own name, not ours, so you always own it. We handle DNS, SSL, and pointing the domain at your new website, and if you later leave Neweb the domain goes with you. From the second year the domain renews at the standard registrar rate, which we show you before it renews. Prefer to bring a domain you already own? Point it at Neweb in a few minutes with a guided DNS change.</p>
+      </div>
+    `;
+
 pages.push({
   slug: 'domain-checker',
-  title: 'Free Domain Name Checker — .com, .in, .shop availability | Neweb',
-  description: 'Check if a domain is available. Search .com, .in, .shop, .co, .co.in and more. Free, instant results. Every Neweb plan ships with a free domain.',
+  title: 'Domain Name Checker: Check Website Name Availability | Neweb',
+  description: 'Free domain name checker for India. See if a website name is available on .com, .in, .co.in and 5 more TLDs in one second, then claim it free with Neweb.',
   canonicalPath: '/pages/domain-checker',
-  extraHead: `
+  jsonLd: faqLd(DOMAIN_CHECKER_FAQ),
+  extraHead: FAQ_BLOCK_STYLES + `
     .dc-box{background:#fff;border:1px solid var(--line-2);border-radius:18px;padding:28px;box-shadow:0 30px 60px -40px rgba(10,14,26,.15);max-width:720px;margin:0 auto}
     .dc-row{display:flex;gap:10px;flex-wrap:wrap}
     .dc-row input{flex:1;min-width:220px;padding:14px 16px;border:1px solid var(--line-2);border-radius:12px;font:inherit;font-size:16px;color:var(--ink);background:#fff;transition:all .18s}
@@ -1119,8 +1268,8 @@ pages.push({
   `,
   body: hero({
     crumb: [{label:'Domain checker', href:'/pages/domain-checker'}],
-    h1: `Find your <span class="serif">name</span>.`,
-    lede: 'Type any name and we\'ll check availability across the most-requested TLDs in under a second. Free — every Neweb plan includes a registered domain.',
+    h1: `Domain name checker: check <span class="serif">website name</span> availability, free.`,
+    lede: 'Type any name and we\'ll check domain availability across .com, .in, .co.in and five more TLDs in under a second. Free, no login, unlimited searches. Every Neweb plan includes a registered domain in your name.',
   }) + section(`
     <div class="dc-box">
       <form id="dc-form" class="dc-row">
@@ -1175,7 +1324,14 @@ pages.push({
       })();
     </script>
     <p style="margin-top:22px;color:var(--muted);font-size:13px;text-align:center;max-width:560px;margin-left:auto;margin-right:auto">DNS-based check via Google's public resolver. For authoritative WHOIS results and registration, <a href="https://dashboard.neweb.ai/signup" style="color:var(--brand);border-bottom:1px solid rgba(61,76,255,.3)">sign up</a> — we register in your name.</p>
-  `) + cta({ h2: `Found one? <span class="serif">Claim it free.</span>`, p: 'Every Neweb plan includes one free domain for the first year. Registered in your name, pointed at your site.' }),
+  `) + section(DOMAIN_CHECKER_BODY, 'padding-top:0') + faqSection(DOMAIN_CHECKER_FAQ, 'Domain name checker questions') + related([
+    { href: '/pages/tools/domain-name-generator', title: 'Domain name generator', blurb: 'Dozens of available-looking variations from one keyword when your first choice is taken.' },
+    { href: '/pages/tools/business-name-generator', title: 'Business name generator', blurb: 'Brand names that pass the domain, trademark and MCA checks together.' },
+    { href: '/pages/guides/picking-a-domain', title: 'Picking the right domain name', blurb: '.com vs .in, length, spelling and the three-second test every good name passes.' },
+    { href: '/pages/blog/how-to-check-domain-name-availability-india', title: 'How to check domain availability in India', blurb: 'WHOIS, registrars, and what to do when the name you want is gone.' },
+    { href: '/pages/blog/domain-name-tips-for-indian-business', title: 'Domain name tips for Indian businesses', blurb: 'Practical naming advice for shops, clinics and service businesses.' },
+    { href: '/pages/pricing', title: 'Neweb pricing', blurb: 'Starter at ₹249/month with a free first-year domain, hosting, SSL and Google Business.' },
+  ]) + cta({ h2: `Found one? <span class="serif">Claim it free.</span>`, p: 'Every Neweb plan includes one free domain for the first year. Registered in your name, pointed at your site.' }),
 });
 
 // ---------- SOLUTIONS hub + industries ----------
@@ -1206,7 +1362,7 @@ const industries = [
       {q:'Does Neweb work for jewellers with multiple showrooms?', a:'Yes. One dashboard manages every showroom website, every Google Business Profile, every Maps pin, and the social content for each outlet. Changes can be chain-wide, such as a new collection launch, or specific to one showroom, such as a Friday holiday at a single branch. The result is one consistent brand voice across every customer touchpoint with the operational efficiency of running it all from a single place. For a jeweller with three or more showrooms, this alone justifies the subscription.'},
       {q:'Can I publish my jewellery website in Tamil, Marathi, or other languages?', a:'Yes. Neweb publishes in 14 Indian and international languages with one click each, and indexes every version separately for SEO. A jeweller in Coimbatore can publish in Tamil alongside English and capture the dominant Tamil-speaking buyer who would otherwise default to a larger chain. A Mumbai showroom can publish in Marathi and Gujarati. Conversion on a properly translated page typically runs 30 to 60 percent higher than the English-only baseline, because customers make a considered, high-value purchase in the language they trust.'},
     ]},
-  { slug:'clinics', h:'Clinics & doctors', crumb:'Clinics & doctors', serif:'care, online', lead:'A clinic\'s website is its first handshake. Neweb ships sites that load instantly, rank for "doctor near me", and take bookings without friction.',
+  { slug:'clinics', h:'Clinics & doctors', crumb:'Clinics & doctors', serif:'care, online', lead:'A clinic\'s website is its first handshake. Neweb ships clinic sites that load fast, rank for \'doctor near me\' searches, and take bookings without friction.',
     pts:[
       {h:'Doctor profiles', p:'Credentials, specialties, languages, and GBP review summary per practitioner. Patients pick the right one, faster.'},
       {h:'Bookings + teleconsults', p:'Embedded booking with timeslot management, or deep-link to Practo, Zocdoc, or Calendly. Teleconsult URLs included.'},
@@ -1232,7 +1388,7 @@ const industries = [
       {q:'Can I show course details, batch timings, and fee structures?', a:'Yes. Neweb course pages are template-driven with course name, target exam, duration, syllabus, fee, batch schedule, and demo availability. Parents can filter by exam such as NEET, JEE, CAT, CLAT, or UPSC, by stream, and by language of instruction. Batch calendars update as seats fill, and fee structures are configurable per batch with clear EMI breakdowns. Each course page has its own meta title, description, and schema, so a search for JEE coaching in Kota returns the right course page rather than a generic homepage.'},
       {q:'Can I publish course pages in Hindi or my regional language?', a:'Yes, and for tier-2 and tier-3 cities this is a quiet advantage. Neweb publishes in 14 languages including Hindi, Marathi, Tamil, Telugu, Kannada, Malayalam, Bengali, Gujarati, Punjabi, and Urdu, and indexes each version separately for SEO. A coaching centre in Patna that publishes course pages in Hindi ranks for queries the English-only competitors never see. The regional version usually converts better too, because a parent making a decision about their child education reads carefully in the language they are most comfortable with.'},
     ]},
-  { slug:'bakeries', h:'Bakeries & home bakers', crumb:'Bakeries', serif:'the first slice online', lead:'From home-kitchen bakers on Instagram to full storefront bakeries, customers decide on a cake or an order before they ever call. Neweb ships a site that shows the menu, takes the order, and gets found on Google.',
+  { slug:'bakeries', h:'Bakeries & home bakers', crumb:'Bakeries', serif:'the first slice online', lead:'From home-kitchen bakers on Instagram to full storefront bakeries, customers decide on a cake or an order before they ever call. Neweb ships a site that shows the menu, takes the order, and gets found on Google.', metaDescription:'Bakery website builder for India: show your menu, take cake and bulk orders, and get found on Google Maps. Templates, SEO and Google Business from ₹249/month.',
     pts:[
       {h:'Menu & catalogue that updates itself', p:'List cakes, cookies, and daily specials with prices and customization notes. Change a price once — it updates everywhere, including your Google Business Profile.'},
       {h:'Order via WhatsApp', p:'Every product card carries a WhatsApp button pre-filled with the item, so a customer can confirm a custom cake order — flavour, weight, message on top — in one tap.'},
@@ -1246,7 +1402,7 @@ const industries = [
       {q:'Is Neweb suitable for a home baker without a physical shop?', a:'Yes, and this is one of the more common bakery profiles we support on the platform today, alongside full storefront operations run from a shop. A home baker operating from their kitchen still benefits from every core piece: a proper catalogue instead of scrolling through an Instagram feed, a Google Business Profile listed as a service-area business rather than a walk-in shop, and local SEO tuned to your delivery radius rather than a fixed street address. Many home bakers find that a real website, rather than only social media, builds trust with new customers who have never ordered from them before, especially for higher-value orders like wedding cakes, hampers, or bulk festival orders where trust matters more than usual to close the sale confidently.'},
       {q:'Can I publish my bakery menu in Hindi or another regional language?', a:'Yes. Neweb publishes bakery and cafe menus in 14 Indian and international languages with one click each, and indexes every language version separately so a search in Marathi or Tamil returns the matching page rather than your English homepage by default every time. For a bakery in a tier-2 city, this regularly captures a segment of local customers who search and browse in their first language, particularly older customers ordering festival sweets or family celebration cakes who are far more comfortable reading in Hindi or their regional language than in English. Many bakeries find the regional version quietly outperforms the English page for exactly these occasion-based, trust-driven orders that depend on getting the details exactly right.'},
     ]},
-  { slug:'wedding-planners', h:'Wedding & event planners', crumb:'Wedding planners', serif:'the big day, planned', lead:'Couples shortlist three to five planners before a single call. Neweb ships a portfolio-first site that shows your best work, builds trust fast, and turns browsing into an enquiry.',
+  { slug:'wedding-planners', h:'Wedding & event planners', crumb:'Wedding planners', serif:'the big day, planned', lead:'Couples shortlist three to five planners before a single call. Neweb ships a portfolio-first site that shows your best work, builds trust fast, and turns browsing into an enquiry.', metaDescription:'Wedding planner website builder for India: a portfolio-first site that shows your best weddings, builds trust fast and turns browsing couples into enquiries.',
     pts:[
       {h:'Portfolio that does the selling', p:'Full-bleed galleries per wedding, sortable by venue, budget, or style. The Instrument Serif italic styling gives every gallery an editorial, magazine feel rather than a generic template look.'},
       {h:'Enquiry form built for the decision', p:'Capture wedding date, guest count, venue city, and budget range in one short form. Every submission lands in your inbox and opens a WhatsApp thread so you can respond within the hour.'},
@@ -1260,7 +1416,7 @@ const industries = [
       {q:'Will my wedding planning business show up in local Google searches?', a:'Neweb claims and syncs your Google Business Profile and ships LocalBusiness and Event schema so Google understands your service area, packages, and reviews properly rather than guessing from unstructured text. This helps you appear for searches like wedding planner in your city or destination wedding planner Rajasthan, often alongside a star rating pulled from Google reviews directly in the results page. Because wedding bookings are seasonal and geographically specific, keeping your service area and package pricing current in both your Google profile and website, which Neweb syncs automatically without manual work on your part, has a real measurable effect on how often you show up for the right searches at the right time of year, particularly during peak wedding season.'},
       {q:'Can I publish my packages and portfolio in Hindi or other regional languages?', a:'Yes. Neweb publishes in 14 Indian and international languages with one click each, and indexes each version separately for search rather than treating translation as an afterthought bolted on later after launch. For destination and regional weddings, this matters more than it first appears: a family planning a wedding in a tier-2 or tier-3 city often researches and shortlists vendors in their first language even if they can read English comfortably, and a planner whose site meets them there builds trust earlier in a high-stakes, high-value decision that involves the whole extended family, not just the couple. Many planners publish English for the couple and a regional language for the parents, who are frequently the ones doing the early vendor research and shortlisting before the couple even gets involved.'},
     ]},
-  { slug:'ngos-nonprofits', h:'NGOs & nonprofits', crumb:'NGOs & nonprofits', serif:'the mission, visible', lead:'Donors and volunteers decide to trust an NGO within seconds of landing on its website. Neweb ships a fast, credible site that shows your impact, takes donations, and keeps your story current without needing a developer.',
+  { slug:'ngos-nonprofits', h:'NGOs & nonprofits', crumb:'NGOs & nonprofits', serif:'the mission, visible', lead:'Donors and volunteers decide to trust an NGO within seconds of landing on its website. Neweb ships a fast, credible site that shows your impact, takes donations, and keeps your story current without needing a developer.', metaDescription:'NGO website builder for India: a fast, credible site that shows your impact, takes donations and stays current without a developer. SEO and GBP included.',
     pts:[
       {h:'Impact shown, not just claimed', p:'Structured impact blocks — beneficiaries reached, funds utilized, programs run — that update as easily as any other page content. Numbers a donor can actually verify build more trust than a mission statement alone.'},
       {h:'Donation & volunteer forms', p:'Embedded donation flow linked to your payment gateway, plus a volunteer sign-up form that routes straight to your coordination team. No separate donation-page tool needed.'},
@@ -1274,7 +1430,7 @@ const industries = [
       {q:'Can volunteers sign up and get matched to programs through the site?', a:'Yes. A volunteer sign-up form captures availability, location, and areas of interest, such as teaching, medical camps, or event support, and routes submissions to your coordination team or a nominated program lead automatically without anyone manually checking an inbox each morning. For NGOs running many parallel programs, this turns a scattered mix of phone calls and messages into an organized pipeline your team can actually manage and follow up on consistently, rather than losing track of interested volunteers between conversations and forgetting to reply. The form can be customized per program if you run distinctly different volunteer needs, for example a literacy program and a disaster relief response team, without needing separate websites or separate tools for each initiative you run.'},
       {q:'Can our NGO publish content in Hindi or regional languages for local beneficiaries and volunteers?', a:'Yes. Neweb publishes in 14 Indian and international languages with one click each, with every version indexed separately for search rather than as an afterthought translation bolted on later once the site already exists. This matters for two different audiences at once: donors and CSR partners who may prefer English for reporting and formal communication, and local beneficiaries, volunteers, and community members who are far more likely to engage in Hindi or their regional language day to day on the ground. An NGO running programs in rural Bihar or interior Maharashtra, for instance, can publish outreach and volunteer information in Hindi or Marathi while keeping donor-facing impact reports in English, all managed from the same single site without duplicating effort or maintaining two separate systems.'},
     ]},
-  { slug:'freelancers-consultants', h:'Freelancers & consultants', crumb:'Freelancers & consultants', serif:'expertise, credible', lead:'A prospective client Googles your name before a first call. Neweb ships a fast, professional site — services, case studies, credentials — that makes that search work in your favour instead of leaving them with only a LinkedIn profile.',
+  { slug:'freelancers-consultants', h:'Freelancers & consultants', crumb:'Freelancers & consultants', serif:'expertise, credible', lead:'A prospective client Googles your name before a first call. Neweb ships a fast, professional site — services, case studies, credentials — that makes that search work in your favour instead of leaving them with only a LinkedIn profile.', metaDescription:'Freelancer and consultant website builder for India: a professional site with services, case studies and credentials that wins the Google search first.',
     pts:[
       {h:'Services & pricing, laid out clearly', p:'List what you offer — strategy consulting, design, legal advice, HR services — with clear scope and pricing or a "request a quote" path. Clients self-qualify before they book a call.'},
       {h:'Case studies that prove the work', p:'Structured case-study blocks — challenge, approach, result — instead of a generic testimonials page. The single strongest converter for high-ticket consulting and freelance work.'},
@@ -1288,7 +1444,7 @@ const industries = [
       {q:'How do clients book a discovery call or consultation?', a:'Every services and case-study page carries a calendar booking widget synced to your Google Calendar, so a prospective client picks an open slot directly rather than exchanging several messages to find a time that works for both of you over several days. This alone removes a common point of friction where an interested lead goes cold during a slow back-and-forth over email or WhatsApp that drags on longer than it should. For consultants who prefer to screen before committing to a call, an optional short qualifying form, asking about budget range, project timeline, or company size, can sit in front of the booking calendar so you only spend calendar slots on genuinely qualified leads worth your time and attention.'},
       {q:'Does Neweb help me rank when someone searches for a consultant in my city or niche?', a:'Yes. Neweb ships ProfessionalService schema so Google understands your specialty, service area, and credentials clearly rather than guessing from plain unstructured text, and runs weekly SEO tuning across your services and case-study pages continuously without you asking for it each time. For a niche practice, an immigration consultant in Pune, a fractional CFO in Bangalore, a leadership coach in Delhi, ranking for the specific combination of service and city matters more than ranking for a broad, crowded generic term ever would to a genuinely qualified lead. Multilingual publishing is also available if part of your client base searches in Hindi or a regional language, which is common for consultants serving small and mid-size local businesses rather than only large corporates exclusively.'},
     ]},
-  { slug:'event-planners', h:'Event planners', crumb:'Event planners', serif:'every event, on brand', lead:'Corporate offsites, birthday parties, product launches — clients book an event planner on portfolio and responsiveness. Neweb ships a site that shows range, takes enquiries fast, and never goes stale between events.',
+  { slug:'event-planners', h:'Event planners', crumb:'Event planners', serif:'every event, on brand', lead:'Corporate offsites, birthday parties, product launches — clients book an event planner on portfolio and responsiveness. Neweb ships a site that shows range, takes enquiries fast, and never goes stale between events.', metaDescription:'Event planner website builder for India: show your range from corporate offsites to product launches, take enquiries fast, and never go stale between events.',
     pts:[
       {h:'Portfolio by event type', p:'Corporate, weddings, birthdays, product launches — filterable galleries so a client planning a 50-person offsite isn\'t scrolling past 200-guest wedding photos to find relevant work.'},
       {h:'Fast enquiry, WhatsApp-first', p:'Event date, guest count, budget range, and event type captured in one form, landing in your inbox and opening a WhatsApp thread — because event enquiries are often time-sensitive and need a same-day reply.'},
@@ -1305,8 +1461,8 @@ const industries = [
 ];
 pages.push({
   slug: 'solutions',
-  title: 'Solutions by Industry — Restaurants, Clinics, Jewellers & more | Neweb',
-  description: 'Neweb built for every small business: restaurants, jewellers, clinics, tutoring centres, salons, retail, hotels, and services. Industry-tuned templates, SEO, and GBP.',
+  title: 'Solutions by Industry — Restaurants, Clinics & more | Neweb',
+  description: 'Websites built for every Indian small business: restaurants, jewellers, clinics, coaching centres, salons, hotels. Templates, SEO and Google Business by Neweb.',
   canonicalPath: '/pages/solutions',
   extraHead: RICH_STYLES,
   body: hero({
@@ -1315,11 +1471,11 @@ pages.push({
     lede: 'Every industry has its own rhythm — what customers search, which channels matter, what "good" looks like. Neweb ships with presets that respect that.',
   }) + section(`
     <div class="grid-2">
-      ${industries.map(i => `
+      ${[...industries.map(i => ({ slug:i.slug, h:i.h, lead:i.lead })), ...staticPageMeta('solutions', industries.map(i => i.slug)).map(p => ({ slug:p.slug, h:p.title.replace(/\s+—.*$/,''), lead:p.description }))].map(i => `
         <a class="card rise" href="/pages/solutions/${i.slug}" style="display:flex;flex-direction:column">
           <div class="ico">→</div>
           <h3>${i.h}</h3>
-          <p>${i.lead.slice(0, 140)}…</p>
+          <p>${i.lead.length > 140 ? i.lead.slice(0, 140) + '…' : i.lead}</p>
           <span style="margin-top:auto;padding-top:14px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--brand);font-weight:500">Read more →</span>
         </a>
       `).join('')}
@@ -1343,8 +1499,8 @@ industries.forEach(ind => {
   const canonPath = `/pages/solutions/${ind.slug}`;
   pages.push({
     slug: `solutions/${ind.slug}`,
-    title: `${ind.h} Websites — Templates, SEO & Google Business | Neweb`,
-    description: `${ind.lead.slice(0, 158)}`,
+    title: `${ind.h} Websites — Templates & SEO | Neweb`,
+    description: ind.metaDescription || truncateToSentence(ind.lead, 158),
     canonicalPath: canonPath,
     extraHead: RICH_STYLES + FAQ_BLOCK_STYLES,
     jsonLd: serviceLd(ind, canonPath) + (ind.faq ? '\n' + faqLd(ind.faq) : ''),
@@ -1514,17 +1670,17 @@ pages.push({
     lede: 'We\'ve lined up the specs next to the biggest website builders so you can decide with eyes open. Pick your comparison below.',
   }) + section(`
     <div class="grid-2">
-      ${compares.map(c => `
+      ${[...compares.map(c => ({ slug:c.slug, tag:c.tag, intro:c.intro })), ...staticPageMeta('compare', compares.map(c => c.slug)).map(p => ({ slug:p.slug, tag:p.title.replace(/^Neweb\s+/,'').replace(/\s+—.*$/,''), intro:p.description }))].map(c => `
         <a class="card rise" href="/pages/compare/${c.slug}" style="display:flex;flex-direction:column">
           <div class="ico">↔</div>
           <h3>Neweb ${c.tag}</h3>
-          <p>${c.intro.slice(0, 140)}…</p>
+          <p>${c.intro.length > 140 ? c.intro.slice(0, 140) + '…' : c.intro}</p>
           <span style="margin-top:auto;padding-top:14px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--brand);font-weight:500">See comparison →</span>
         </a>
       `).join('')}
     </div>
     <p style="margin-top:28px;color:var(--muted);font-size:14px;text-align:center">Weighing up your options? Read our honest roundup of the <a href="/pages/best-website-builder-india" style="color:var(--brand);border-bottom:1px solid rgba(61,76,255,.3)">best website builders for small businesses in India</a>.</p>
-    <p style="margin-top:10px;color:var(--muted);font-size:14px;text-align:center">More comparisons coming — Shopify, WordPress.com, GoDaddy, Webflow. <a href="/pages/contact" style="color:var(--brand);border-bottom:1px solid rgba(61,76,255,.3)">Request one</a>.</p>
+    
   `) + richProse(COMPARE_HUB_BODY, { eyebrow: 'How to choose' }) + cta(),
 });
 
@@ -1545,7 +1701,7 @@ compares.forEach(c => {
   });
   pages.push({
     slug: `compare/${c.slug}`,
-    title: `Neweb vs ${c.name} — Features, Pricing, SEO Compared | Neweb`,
+    title: `Neweb vs ${c.name} — Pricing, Features & SEO | Neweb`,
     description: `A feature-by-feature comparison of Neweb and ${c.name} for small-business websites, domains, Google Business, and SEO.`,
     canonicalPath: `/pages/compare/${c.slug}`,
     extraHead: RICH_STYLES + FAQ_BLOCK_STYLES,
@@ -1578,43 +1734,68 @@ compares.forEach(c => {
 // ---------- ROUNDUP: Best website builders in India ----------
 (() => {
   const builders = [
-    { name:'Neweb', bestFor:'Indian SMBs wanting a managed presence', freeDomain:'Yes, first year, every plan', price:'₹249/mo', india:'Built for India, IST support, UPI' },
-    { name:'Wix', bestFor:'DIY drag-and-drop design', freeDomain:'1st year on Premium+', price:'~₹1,350/mo', india:'Global, partial UPI' },
-    { name:'Squarespace', bestFor:'Design-led brand sites', freeDomain:'1st year on annual', price:'~₹1,350/mo', india:'Global, USD billing' },
-    { name:'GoDaddy', bestFor:'Fast simple sites plus domains', freeDomain:'With annual plans', price:'~₹999/mo', india:'INR billing, India data centres' },
-    { name:'Hostinger', bestFor:'Budget hosting plus builder', freeDomain:'1st year on annual', price:'~₹149/mo billed yearly', india:'INR pricing, India servers' },
-    { name:'Shopify', bestFor:'Serious online stores', freeDomain:'No, domain extra', price:'~₹1,994/mo', india:'Strong India payments and shipping' },
-    { name:'WordPress', bestFor:'Full control and ownership', freeDomain:'Varies by host', price:'Hosting from ~₹199/mo', india:'Depends on your host' },
-    { name:'Webflow', bestFor:'Designers wanting pixel control', freeDomain:'No', price:'~₹1,150/mo', india:'Global, USD billing' },
+    { name:'Neweb', href:'/pages/pricing', price:'₹249/mo, flat', freeDomain:'Yes, first year, every plan', gstUpi:'Yes: UPI billing, GST invoice, UPI QR on your site', india:'Built for India, IST support, WhatsApp', bestFor:'Indian SMBs wanting the whole presence handled' },
+    { name:'Wix', href:'/pages/compare/wix', price:'~₹1,350/mo (approx.)', freeDomain:'First year on annual Premium plans', gstUpi:'Partial: UPI via payment apps, no GST invoicing', india:'Global support, INR or USD billing', bestFor:'DIY drag-and-drop design' },
+    { name:'Hostinger', href:'/pages/compare/hostinger', price:'~₹149–₹299/mo on long prepay (approx.)', freeDomain:'First year on annual plans', gstUpi:'INR billing; UPI on site needs plugins', india:'INR pricing, India servers, chat support', bestFor:'Lowest price, hands-on setup' },
+    { name:'GoDaddy', href:'/pages/compare/godaddy', price:'~₹830/mo (approx.)', freeDomain:'First year on annual plans', gstUpi:'INR billing; no native UPI or GST invoicing', india:'India phone support, INR billing', bestFor:'Domain, email and simple site in one place' },
+    { name:'Zoho Sites', href:'/pages/compare/zoho-sites', price:'~₹719/mo billed yearly (approx.)', freeDomain:'No, bring or buy separately', gstUpi:'INR billing; GST invoices via Zoho Books', india:'Indian company, India support', bestFor:'Businesses already on Zoho apps' },
+    { name:'WordPress', href:'/pages/compare/wordpress', price:'Hosting from ~₹199/mo + domain (approx.)', freeDomain:'Depends on host', gstUpi:'Via WooCommerce + Razorpay or PhonePe plugins', india:'Depends on your host', bestFor:'Full control and ownership' },
+    { name:'Shopify', href:'/pages/compare/shopify', price:'~₹1,994–₹2,420/mo (approx.)', freeDomain:'No, domain extra', gstUpi:'INR billing; UPI via Razorpay, PhonePe apps', india:'Strong India payments and shipping', bestFor:'Serious online stores' },
+    { name:'Dukaan', href:'/pages/compare/dukaan', price:'~₹552/mo billed yearly + gateway fees (approx.)', freeDomain:'No, paid add-on', gstUpi:'Yes: UPI checkout, GST-ready invoices', india:'Indian company, WhatsApp support', bestFor:'Quick D2C store with UPI checkout' },
+    { name:'Squarespace', href:'/pages/compare/squarespace', price:'~₹1,350/mo (approx.)', freeDomain:'First year on annual plans', gstUpi:'USD billing; UPI only via third-party', india:'Global, USD billing', bestFor:'Design-led brand sites' },
   ];
 
   const tableRows = builders.map(b => `
     <tr>
-      <th scope="row"${b.name==='Neweb'?' class="brand"':''}>${b.name}</th>
-      <td>${b.bestFor}</td>
-      <td>${b.freeDomain}</td>
+      <th scope="row"${b.name==='Neweb'?' class="brand"':''}><a href="${b.href}">${b.name}</a></th>
       <td>${b.price}</td>
+      <td>${b.freeDomain}</td>
+      <td>${b.gstUpi}</td>
       <td>${b.india}</td>
+      <td>${b.bestFor}</td>
     </tr>`).join('');
 
   const verdicts = `
     <h2>A short, honest take on each builder</h2>
     <h3>Neweb</h3>
-    <p>Neweb is an online-presence manager rather than a pure website builder. It bundles a fast website, a free first-year domain, Google Business Profile setup, weekly SEO tuning, and a newsletter into one ₹249 a month subscription. The trade-off is that you get less granular design control than a tool like Webflow, and it is aimed squarely at Indian small businesses, not large global stores. If you run a shop, clinic, restaurant, or coaching centre and you want your whole presence handled rather than just a page to design, it is a strong fit. If you want to hand-craft every pixel yourself, look elsewhere.</p>
+    <p>Neweb is an online-presence manager rather than a pure website builder. It bundles a fast website, a free first-year domain, Google Business Profile setup, weekly SEO tuning, and a newsletter into one ₹249 a month subscription, billed in rupees with a GST invoice and UPI accepted. The trade-off is that you get less granular design control than a tool like Squarespace, and it is aimed squarely at Indian small businesses, not large global stores. If you run a shop, clinic, restaurant, or coaching centre and you want your whole presence handled rather than just a page to design, it is a strong fit. If you want to hand-craft every pixel yourself, look elsewhere.</p>
     <h3>Wix</h3>
-    <p>Wix is the best known drag-and-drop builder and it is genuinely easy to start with. The template library is huge and the editor is forgiving. The honest downsides for Indian businesses are cost and creep: a custom domain, removing ads, and apps for SEO, bookings, or email all add up, and pricing leans on dollar billing. It also leaves Google Business Profile work to you. Wix suits a hobbyist or solo founder who enjoys building the site themselves and does not mind paying for extras over time.</p>
-    <h3>Squarespace</h3>
-    <p>Squarespace makes the most polished templates in this list and is a joy if visual design is your priority. It is a fair pick for portfolios, studios, and brand-led businesses. For an Indian small business the friction is annual USD billing, a domain that is only free on annual plans, and paid add-ons for newsletters and scheduling. There is no Google Business management. Choose Squarespace when how the site looks matters more than how cheaply and automatically it runs.</p>
-    <h3>GoDaddy</h3>
-    <p>GoDaddy is convenient if you also want your domain, email, and site under one familiar roof, and it bills in rupees. Its Websites and Marketing builder is quick to set up and fine for a simple brochure site. The honest limitation is depth: SEO controls and design flexibility are modest, and you can outgrow it. GoDaddy works for a business that wants something live this week with minimal fuss and is not planning a complex site later.</p>
+    <p>Wix is the best known drag-and-drop builder and it is genuinely easy to start with. The template library is huge and the editor is forgiving. The honest downsides for Indian businesses are cost and creep: a custom domain, removing ads, and apps for SEO, bookings, or email all add up, and UPI collection needs a third-party payment app. It also leaves Google Business Profile work to you. Wix suits a hobbyist or solo founder who enjoys building the site themselves and does not mind paying for extras over time. Full breakdown: <a href="/pages/compare/wix">Neweb vs Wix</a>.</p>
     <h3>Hostinger</h3>
-    <p>Hostinger is the value champion here, with very low INR pricing, servers in India, and a decent built-in builder alongside cheap WordPress hosting. If budget is the deciding factor and you are willing to do the setup and ongoing SEO yourself, it is hard to beat on price. The catch is that the headline rate needs a multi-year prepayment, and you are managing more of the work yourself. It suits the hands-on founder who is comfortable with hosting and wants to spend as little as possible.</p>
-    <h3>Shopify</h3>
-    <p>Shopify is the right answer when selling products online is the main goal. Its checkout, inventory, payments, and shipping tooling for India are excellent, and the app ecosystem is deep. It is overkill, and relatively pricey, for a business that mostly needs an informational site and a Google presence. Pick Shopify if e-commerce is central to your business, not an afterthought.</p>
+    <p>Hostinger is the value champion here, with very low INR pricing, servers in India, and a decent built-in builder alongside cheap WordPress hosting. If budget is the deciding factor and you are willing to do the setup and ongoing SEO yourself, it is hard to beat on price. The catch is that the headline rate needs a multi-year prepayment, renewals are several times higher, and you are managing more of the work yourself. It suits the hands-on founder who is comfortable with hosting and wants to spend as little as possible. See <a href="/pages/compare/hostinger">Neweb vs Hostinger</a>.</p>
+    <h3>GoDaddy</h3>
+    <p>GoDaddy is convenient if you also want your domain, email, and site under one familiar roof, and it bills in rupees with Indian phone support. Its Websites and Marketing builder is quick to set up and fine for a simple brochure site. The honest limitation is depth: SEO controls and design flexibility are modest, there is no native UPI or GST invoicing, and you can outgrow it. GoDaddy works for a business that wants something live this week with minimal fuss and is not planning a complex site later. See <a href="/pages/compare/godaddy">Neweb vs GoDaddy</a>.</p>
+    <h3>Zoho Sites</h3>
+    <p>Zoho Sites is the Indian-built option in this list, and it shines if you already run your business on Zoho Books, Zoho CRM, or Zoho Mail, because everything connects. The editor is capable, billing is in rupees, and GST invoicing comes through Zoho Books. On its own it is a middling website builder: no free domain, templates that feel dated next to Squarespace, and no help with Google Business or local SEO. Choose Zoho Sites when the rest of your stack is Zoho. See <a href="/pages/compare/zoho-sites">Neweb vs Zoho Sites</a>.</p>
     <h3>WordPress</h3>
-    <p>Self-hosted WordPress gives you the most ownership and flexibility of anything here, and it powers a huge share of the web. The cost is responsibility: you choose a host, manage updates, security, and SEO plugins, and assemble the pieces yourself. It rewards businesses with some technical comfort or a developer on call. Notably, Neweb is built on a managed WordPress base, so you get WordPress portability without the maintenance burden.</p>
-    <h3>Webflow</h3>
-    <p>Webflow offers near pixel-perfect design control with clean output, and designers love it. It is the most powerful visual builder for custom layouts. For a typical Indian small business it is the wrong tool: there is a real learning curve, billing is in USD, and there is no built-in domain, Google Business, or local SEO help. Choose Webflow only if you or your team have design and CSS skills and want full creative control.</p>
+    <p>Self-hosted WordPress gives you the most ownership and flexibility of anything here, and it powers a huge share of the web. The cost is responsibility: you choose a host, manage updates, security, and SEO plugins, and assemble UPI payments through WooCommerce and Razorpay or PhonePe yourself. It rewards businesses with some technical comfort or a developer on call. Notably, Neweb is built on a managed WordPress base, so you get WordPress portability without the maintenance burden. See <a href="/pages/compare/wordpress">Neweb vs WordPress</a>.</p>
+    <h3>Shopify</h3>
+    <p>Shopify is the right answer when selling products online is the main goal. Its checkout, inventory, payments, and shipping tooling for India are excellent, UPI works through Razorpay or PhonePe apps, and the app ecosystem is deep. It is overkill, and relatively pricey, for a business that mostly needs an informational site and a Google presence. Pick Shopify if e-commerce is central to your business, not an afterthought. See <a href="/pages/compare/shopify">Neweb vs Shopify</a>.</p>
+    <h3>Dukaan</h3>
+    <p>Dukaan is the Indian D2C store builder: you can have a catalogue, UPI checkout, and WhatsApp order alerts running in an afternoon, and it understands GST invoices and Indian shipping partners out of the box. The limits show up when you need more than a store, since content pages, SEO controls, and design flexibility are thin, and the domain and payment gateway fees sit on top of the plan. Dukaan fits a small brand selling a focused range of products to Indian customers. See <a href="/pages/compare/dukaan">Neweb vs Dukaan</a>.</p>
+    <h3>Squarespace</h3>
+    <p>Squarespace makes the most polished templates in this list and is a joy if visual design is your priority. It is a fair pick for portfolios, studios, and brand-led businesses. For an Indian small business the friction is USD billing, a domain that is only free on annual plans, no native UPI, and paid add-ons for newsletters and scheduling. There is no Google Business management. Choose Squarespace when how the site looks matters more than how cheaply and automatically it runs. See <a href="/pages/compare/squarespace">Neweb vs Squarespace</a>.</p>
+    <h3>Also considered</h3>
+    <p>Webflow (pixel-level design control, USD billing, real learning curve), Weebly, Jimdo, and IONOS all work, but none of them is a better fit for a typical Indian small business than the nine above. We keep <a href="/pages/compare">one-to-one comparisons</a> for each of them.</p>
+  `;
+
+  const quickPick = `
+    <h2>Best website builder in India by use case</h2>
+    <ul>
+      <li><strong>Best overall for Indian small businesses:</strong> Neweb, because the domain, hosting, Google Business Profile, SEO, and GST invoicing come bundled for ₹249 a month.</li>
+      <li><strong>Best on a tight budget:</strong> Hostinger, if you can prepay for a long term and do the setup yourself.</li>
+      <li><strong>Best for a serious online store:</strong> Shopify. <strong>Best for a quick UPI-first D2C store:</strong> Dukaan.</li>
+      <li><strong>Best for design control:</strong> Squarespace, with Wix as the easier DIY editor.</li>
+      <li><strong>Best if you already use Zoho:</strong> Zoho Sites.</li>
+      <li><strong>Best for full ownership and portability:</strong> self-hosted WordPress.</li>
+      <li><strong>Best for domain, email and a simple site in one account:</strong> GoDaddy.</li>
+    </ul>
+  `;
+
+  const methodology = `
+    <h2>How we evaluated these builders</h2>
+    <p>This roundup is written by the Neweb team, who build and maintain websites for Indian small businesses every day and have migrated customers off most of the tools listed here. We re-checked every builder in September 2026 against its current India pricing page, trial, and documentation, and converted dollar prices at roughly ₹83 to the dollar. Prices are marked approximate because builders change plans often and run frequent promotions.</p>
+    <p>We scored each builder on five things that matter to a business in India rather than a design studio in California: the real monthly cost in rupees after domain, SSL, and essential add-ons; whether a free domain is included and on what terms; whether you can bill in INR, get a GST invoice for the subscription, and collect UPI from customers; the quality of India-specific support and infrastructure; and how much ongoing work the tool leaves you with, especially for Google Business Profile and local SEO. We sell Neweb, so we have placed it fairly and said plainly where a rival is the better pick.</p>
   `;
 
   const howToChoose = `
@@ -1637,55 +1818,71 @@ compares.forEach(c => {
     { q:'Does a website builder include a free domain in India?', a:'Some do, but the terms vary, so read the fine print. Neweb includes a free domain for the first year on every plan, including its monthly plan. Wix, Squarespace, and Hostinger typically offer a free first-year domain only when you commit to an annual or longer plan, and renewals are charged at standard rates afterwards. Shopify and Webflow generally do not include a domain, so you buy it separately. GoDaddy bundles a domain with some annual plans, which makes sense given it is also a registrar. In every case the free part usually applies only to the first year, so factor in renewal costs from year two onward when you compare the true price of each option.' },
     { q:'Is a website builder or WordPress better for SEO?', a:'Both can rank well, so the difference is less about raw capability and more about who does the work. Self-hosted WordPress gives you total control over SEO through plugins, but you are responsible for configuring schema, sitemaps, page speed, and ongoing tuning yourself or via a developer. Hosted builders like Wix and Squarespace provide solid SEO basics but still expect you to write meta tags and maintain content. Managed services such as Neweb run SEO as an automated discipline, shipping schema, canonicals, sitemaps, and weekly on-page tuning without you touching settings, and they handle multilingual Indian-language SEO. If you want hands-off results, a managed option helps. If you want full control and have the skills, WordPress is excellent.' },
     { q:'Can I move my website to a different builder later?', a:'Usually yes, but how easy it is depends on the platform you start on. Self-hosted WordPress is the most portable, since you can export your content and move hosts freely. Tools like Wix and Squarespace are more locked in, because they do not provide a clean full-site export, so moving away means rebuilding the pages elsewhere. That is worth knowing before you commit years to one of them. Neweb is built on a managed WordPress base and exports cleanly to WordPress in one click, so you keep ownership and can leave without losing your content. When choosing a builder, check its export options early, because a platform that traps your content can quietly raise the cost of ever switching later.' },
+    { q:'Which website builder is best for an online store in India: Shopify or Dukaan?', a:'It depends on the size and ambition of the store. Dukaan is the faster, cheaper way to get a small catalogue live with UPI checkout, WhatsApp order alerts, and GST-ready invoices, and it is built by an Indian team for Indian sellers, so it fits a brand with a focused range of products and modest volumes. Shopify costs more, roughly ₹2,000 a month before apps, but it scales further: better inventory, discount and shipping logic, a far larger app ecosystem, and reliable UPI through Razorpay or PhonePe apps. If you expect to grow into hundreds of SKUs, multiple sales channels, or international orders, start on Shopify. If you mainly need a website with a small shop section attached, a managed builder like Neweb with a UPI QR and WhatsApp ordering is often enough and much cheaper.' },
+    { q:'Can I build my website in Hindi or a regional language with these builders?', a:'Every builder in this list lets you type content in Hindi, Tamil, Marathi, Bengali or any other Indian language, because they all support Unicode text. The differences are in how they handle a multilingual site, meaning an English version and a regional version of the same page with the correct hreflang tags so Google indexes each separately. Wix and Squarespace offer multilingual add-ons, WordPress needs a plugin such as Polylang or WPML, Shopify uses its Translate and Adapt app, and Zoho Sites and Dukaan have limited support. Neweb publishes each page in up to 14 Indian and international languages with one click and handles the SEO tags automatically, which matters in tier-2 and tier-3 cities where customers search in their own language. If regional-language reach is central to your business, test the multilingual workflow before you commit to a builder.' },
   ];
 
   const builderItemList = jsonLdBlock({
     '@context':'https://schema.org','@type':'ItemList',
-    name:'Best website builders for small businesses in India (2026)',
-    description:'Comparison of leading website builders for Indian small businesses, including Neweb, Wix, Squarespace, GoDaddy, Hostinger, Shopify, WordPress, and Webflow.',
+    name:'Best website builder in India (2026): 9 builders compared',
+    description:'Comparison of the best website builders for Indian small businesses in 2026: Neweb, Wix, Hostinger, GoDaddy, Zoho Sites, WordPress, Shopify, Dukaan, and Squarespace, compared on price in INR, free domain, GST invoicing and UPI, and Indian support.',
+    numberOfItems: builders.length,
     itemListElement: builders.map((b, i) => ({
-      '@type':'ListItem', position: i+1, name: b.name,
+      '@type':'ListItem', position: i+1, name: b.name, url: DOMAIN + b.href,
       description: `Best for ${b.bestFor.toLowerCase()}. Starting price ${b.price}. India support: ${b.india}.`
     }))
   });
 
   pages.push({
     slug: 'best-website-builder-india',
-    title: 'Best Website Builders for Small Businesses in India (2026) | Neweb',
-    description: 'An honest, hands-on comparison of the best website builders for Indian small businesses in 2026: Neweb, Wix, Squarespace, GoDaddy, Hostinger, Shopify, WordPress, and Webflow.',
+    title: 'Best Website Builder in India (2026): 9 Compared | Neweb',
+    description: 'Best website builder in India for 2026: Neweb, Wix, Hostinger, GoDaddy, Zoho Sites, Shopify, Dukaan and more compared on ₹ price, free domain, GST and UPI.',
     canonicalPath: '/pages/best-website-builder-india',
-    extraHead: FAQ_BLOCK_STYLES,
+    extraHead: FAQ_BLOCK_STYLES + `
+      .bwb-table{min-width:880px}
+      .bwb-table tbody th[scope=row]{width:auto;white-space:nowrap}
+      .bwb-table tbody th[scope=row] a{color:inherit;border-bottom:1px solid rgba(61,76,255,.3)}
+      .bwb-table td{font-size:13.5px}
+    `,
     jsonLd: builderItemList + '\n' + faqLd(roundupFaq),
     body: hero({
       crumb: [{label:'Compare', href:'/pages/compare'}, {label:'Best website builders in India', href:'/pages/best-website-builder-india'}],
-      h1: `Best website builders for <span class="serif">small businesses in India</span> (2026).`,
-      lede: 'A practical, balanced look at the website builders Indian small businesses actually consider, with a clear comparison table, an honest take on each, and a simple way to choose.',
+      h1: `Best website builder in <span class="serif">India</span> (2026): 9 builders compared.`,
+      lede: 'A practical, balanced look at the website builders Indian small businesses actually consider, compared on rupee pricing, free domains, GST invoicing, UPI, and Indian support, with an honest take on each and a simple way to choose. Updated September 2026.',
     }) + section(`
       <div class="prose" style="max-width:860px">
         <p>If you run a small business in India and you are choosing where to build your website, the sheer number of options is the hard part. The same handful of tools come up again and again, but they are built for very different people. Some are pure design playgrounds. Some are e-commerce engines. One or two are managed services that handle the whole job for you. This guide cuts through it.</p>
-        <p>Below is a side-by-side comparison of eight builders, followed by an honest paragraph on each, a short framework for choosing, and answers to the questions Indian business owners ask most. We sell one of these tools, Neweb, so we have placed it fairly and told you plainly where rivals are the better pick. Prices are indicative and were cross-checked in ${new Date().toISOString().slice(0,7)}; always confirm current rates before you buy.</p>
+        <p>Below is a side-by-side comparison of nine builders, a quick pick by use case, an honest paragraph on each, how we evaluated them, a short framework for choosing, and answers to the questions Indian business owners ask most. We sell one of these tools, Neweb, so we have placed it fairly and told you plainly where rivals are the better pick. Prices are approximate, shown in rupees, and were last reviewed in September 2026; always confirm current rates before you buy.</p>
+        <p style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:-4px">Last updated: 26 September 2026 · Reviewed by the Neweb team</p>
+        ${quickPick}
       </div>
     `) + section(`
-      <div class="sec-mark"><span class="eyebrow"><span class="dot"></span> At a glance</span><h2 class="h">Eight builders, <span class="serif">compared</span>.</h2></div>
-      <table class="cmp-table">
-        <caption class="sr-only">Comparison of website builders for small businesses in India by best use, free domain, starting price, and India support</caption>
+      <div class="sec-mark"><span class="eyebrow"><span class="dot"></span> At a glance</span><h2 class="h">Nine website builders in India, <span class="serif">compared</span>.</h2></div>
+      <div style="overflow-x:auto;-webkit-overflow-scrolling:touch">
+      <table class="cmp-table bwb-table">
+        <caption class="sr-only">Comparison of the best website builders in India by starting price in rupees, free domain, GST invoicing and UPI support, Indian support, and best use</caption>
         <thead>
           <tr>
             <th scope="col">Builder</th>
+            <th scope="col">Starting price (₹/mo, approx.)</th>
+            <th scope="col">Free domain?</th>
+            <th scope="col">GST invoicing / UPI</th>
+            <th scope="col">Indian support</th>
             <th scope="col">Best for</th>
-            <th scope="col">Free domain</th>
-            <th scope="col">Starting price</th>
-            <th scope="col">India support</th>
           </tr>
         </thead>
         <tbody>${tableRows}</tbody>
       </table>
-      <p style="margin-top:18px;color:var(--muted);font-size:13px">Prices are indicative, shown in INR where possible, and were last reviewed ${new Date().toISOString().slice(0,7)}. Builders change plans often, so verify current pricing on each provider's site.</p>
-    `, 'padding-top:0') + section(`<div class="prose" style="max-width:860px">${verdicts}${howToChoose}</div>`, 'padding-top:0')
+      </div>
+      <p style="margin-top:18px;color:var(--muted);font-size:13px">All prices are approximate, shown in INR (dollar plans converted at about ₹83), and were last reviewed in September 2026. Builders change plans often, so verify current pricing on each provider's site. Click a builder name for the full head-to-head comparison.</p>
+    `, 'padding-top:0') + section(`<div class="prose" style="max-width:860px">${verdicts}${methodology}${howToChoose}</div>`, 'padding-top:0')
       + faqSection(roundupFaq, 'Best website builder in India: FAQ')
       + related([
         { href: '/pages/compare/wix', title: 'Neweb vs Wix', blurb: 'A feature-by-feature look at how Neweb and Wix compare for Indian small businesses.' },
-        { href: '/pages/compare/squarespace', title: 'Neweb vs Squarespace', blurb: 'How Neweb stacks up against Squarespace on price, SEO, and local discovery.' },
+        { href: '/pages/compare/hostinger', title: 'Neweb vs Hostinger', blurb: 'Cheapest headline price versus an all-inclusive rupee subscription.' },
+        { href: '/pages/compare/dukaan', title: 'Neweb vs Dukaan', blurb: 'Indian D2C store builder versus a managed online presence.' },
+        { href: '/pages/guides/website-cost-india', title: 'How much does a website cost in India?', blurb: 'Freelancer, agency, DIY builder and managed prices for 2026, plus hidden costs.' },
+        { href: '/pages/compare', title: 'All comparisons', blurb: 'One-to-one comparisons of Neweb with every builder on this page.' },
         { href: '/pages/pricing', title: 'Neweb pricing', blurb: 'One plan from ₹249/month with a free domain, Google Business, and weekly SEO.' },
       ])
       + cta({ h2: `Want your whole presence <span class="serif">handled</span>?`, p: 'Claim a free domain and get your site, Google Business, and SEO set up for ₹249 a month. Cancel anytime, keep your content forever.' }),
@@ -1695,7 +1892,7 @@ compares.forEach(c => {
 // ---------- GUIDES hub + two guides ----------
 pages.push({
   slug: 'guides',
-  title: 'Guides — Domains, Google Business & SEO how-tos for SMBs | Neweb',
+  title: 'Small Business Guides — Domains, Google Business & SEO | Neweb',
   description: 'Practical guides for small businesses: building an online presence, SEO for local search, claiming Google Business, picking a domain, and more.',
   canonicalPath: '/pages/guides',
   extraHead: RICH_STYLES,
@@ -1744,7 +1941,7 @@ const guides = [
       ['Fields that actually move rankings','Primary category (be specific — not "Restaurant", but "Bakery"). Service area if you deliver. Opening hours including special hours. Services list with descriptions. Photos — at least 20.'],
       ['Review velocity > review count','Google weights recency. 1 review per week beats 50 two-year-old reviews. Ask every satisfied customer, the day they visit. Respond to every review, positive or negative, within 48 hours.'],
     ]},
-  { slug:'local-seo', h:'Local SEO for Indian small businesses', d:'Practical tactics to rank for "near me" searches in Indian cities and towns. Schema, reviews, vernacular keywords, and the things Google actually rewards.',
+  { slug:'local-seo', h:'Local SEO for Indian small businesses', d:'Practical local SEO for Indian small businesses: rank for \'near me\' searches with LocalBusiness schema, reviews, NAP consistency and Hindi or regional keywords.',
     sections:[
       ['Schema is the cheat code','Add LocalBusiness schema to your homepage. Add specific sub-types where relevant (Restaurant, MedicalBusiness, Store). Validate with Google\'s Rich Results Test. Most competitors haven\'t done this.'],
       ['Vernacular keywords matter','"दिल्ली में बेकरी" gets less competition than "bakery in Delhi". Create Hindi/regional-language versions of your key landing pages. Neweb does this in one click.'],
@@ -2205,7 +2402,20 @@ function mdToHtml(md){
     .replace(/~~([^~]+)~~/g,'<del>$1</del>')
     .replace(/\*([^*]+)\*/g,'<em>$1</em>')
     .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (_,text,url) => `<a href="${safeUrl(url.replace(/&amp;/g,'&'))}" rel="noopener">${text}</a>`);
+  let inTable = false, tableRowIdx = 0;
+  const flushTable = () => { if(inTable){ html += '</tbody></table></div>'; inTable = false; tableRowIdx = 0; } };
   for(const line of lines){
+    if(!inCode && /^\s*\|.*\|\s*$/.test(line)){
+      const cells = line.trim().replace(/^\|/,'').replace(/\|$/,'').split('|').map(c => c.trim());
+      if(cells.every(c => /^:?-{2,}:?$/.test(c))) continue; // alignment row
+      flushList();
+      if(!inTable){ html += '<div class="tbl-wrap"><table class="md-table"><tbody>'; inTable = true; tableRowIdx = 0; }
+      const tag = tableRowIdx === 0 ? 'th' : 'td';
+      html += '<tr>' + cells.map(c => `<${tag}>${inline(c)}</${tag}>`).join('') + '</tr>';
+      tableRowIdx++;
+      continue;
+    }
+    flushTable();
     if(line.trim().startsWith('```')){
       flushList();
       if(!inCode){ html += '<pre><code>'; inCode = true; }
@@ -2235,6 +2445,7 @@ function mdToHtml(md){
     html += `<p>${inline(line)}</p>`;
   }
   if(inCode) html += '</code></pre>';
+  flushTable();
   flushList();
   return html;
 }
@@ -2252,6 +2463,11 @@ const BLOG_STYLES = `
   .post-cover{aspect-ratio:16/7;border-radius:18px;overflow:hidden;background:linear-gradient(135deg,var(--brand-soft),#dde3ff);margin:32px 0}
   .post-cover img{width:100%;height:100%;object-fit:cover;display:block}
   .article{max-width:760px;margin:0 auto;font-size:18px;line-height:1.7;color:var(--ink-2)}
+  .article .tbl-wrap{overflow-x:auto;margin:8px 0 24px;border:1px solid var(--line);border-radius:12px}
+  .article table.md-table{width:100%;border-collapse:collapse;font-size:15px;line-height:1.5;min-width:520px}
+  .article table.md-table th,.article table.md-table td{padding:10px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+  .article table.md-table th{background:var(--bg-2);color:var(--ink);font-weight:600;font-size:13px;letter-spacing:.02em}
+  .article table.md-table tr:last-child td{border-bottom:0}
   .article h2{font-size:30px;letter-spacing:-.025em;color:var(--ink);margin:40px 0 14px;font-weight:600;line-height:1.2}
   .article h3{font-size:22px;letter-spacing:-.015em;color:var(--ink);margin:32px 0 10px;font-weight:600}
   .article p{margin:0 0 18px}
@@ -2280,7 +2496,11 @@ const BLOG_AUTHORS = {
 function blogPostPage(p, allPosts) {
   const slug = p.slug;
   const canonicalPath = `/pages/blog/${slug}`;
-  const desc = (p.excerpt || String(p.body||'').slice(0, 158).replace(/[#*_\[\]`\n]/g,' ').replace(/\s+/g,' ').trim());
+  // Meta/OG/schema description: explicit metaDescription wins; otherwise the
+  // excerpt trimmed to a sentence boundary (excerpt stays the visible lede as-is).
+  // Hard cap at 160 even when metaDescription is set, so an over-long field from the
+  // blog admin/routine never ships an over-length <meta description>.
+  const desc = truncateToSentence(p.metaDescription || p.excerpt || String(p.body||'').replace(/[#*_\[\]`\n]/g,' '), p.metaDescription ? 160 : 155);
   const author = BLOG_AUTHORS[p.tag] || BLOG_AUTHORS.default;
   const ogImage = p.cover || '/assets/og-default.png';
   const canonical = `${DOMAIN}${canonicalPath}`;
@@ -2357,7 +2577,8 @@ function blogPostPage(p, allPosts) {
   `;
   return {
     slug: `blog/${slug}`,
-    title: `${p.title} — Neweb Blog`,
+    // seoTitle (optional) lets the <title>/og:title be shorter than the H1 (p.title).
+    title: `${p.seoTitle || p.title} — Neweb Blog`,
     description: desc,
     canonicalPath,
     active: '',
@@ -2558,9 +2779,33 @@ async function build() {
   // homepage. This catches hand-written pages, generator output, and any pages
   // created by other tooling (city pages, extra guides, extra tools, etc.) so
   // nothing is orphaned from the sitemap.
-  // Only blog posts carry a <lastmod> (real per-page date). Every other URL
-  // omits lastmod, because Google discards a single batch-stamped deploy
-  // timestamp shared across many URLs (the audit flagged exactly this).
+  // <lastmod> must be a REAL per-URL date (Google ignores a batch-stamped
+  // build date shared by every URL). Blog posts use updatedAt/publishedAt from
+  // blogs.json. Every other page uses the date its HTML file last changed in
+  // git; a file whose content changed in this build (uncommitted) gets today.
+  // Pages with no git history and no diff get no lastmod at all.
+  function gitLastmodMap() {
+    const map = new Map();
+    try {
+      const opts = { cwd: __dirname, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024, stdio: ['ignore', 'pipe', 'ignore'] };
+      const log = execSync('git log --format=%x01%cI --name-only -- index.html pages', opts);
+      let cur = null;
+      for (const raw of log.split('\n')) {
+        if (raw.startsWith('\x01')) { cur = raw.slice(1).trim().slice(0, 10); continue; }
+        const f = raw.trim();
+        if (f && cur && !map.has(f)) map.set(f, cur);
+      }
+      const today = new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Kolkata' }); // YYYY-MM-DD in IST
+      const status = execSync('git status --porcelain --untracked-files=all -- index.html pages', opts);
+      for (const line of status.split('\n')) {
+        const f = line.slice(3).trim().split(' -> ').pop();
+        if (f) map.set(f, today);
+      }
+    } catch (e) { console.warn('git lastmod unavailable:', e.message); }
+    return map;
+  }
+  const fileLastmod = gitLastmodMap();
+  const urlToFile = (u) => u === '/' ? 'index.html' : u.replace(/^\//, '') + '.html';
   async function walkHtml(dir, base) {
     let out = [];
     const entries = await fs.readdir(dir, { withFileTypes: true });
@@ -2581,7 +2826,8 @@ async function build() {
   const urls = ['/', ...discovered].sort((a, b) => a === '/' ? -1 : b === '/' ? 1 : a.localeCompare(b));
   const all = urls.map(url => {
     const post = blogPostBySlug.get(url);
-    return { url, lastmod: post ? (post.updatedAt || post.publishedAt) : null };
+    const lastmod = post ? (post.updatedAt || post.publishedAt) : (fileLastmod.get(urlToFile(url)) || null);
+    return { url, lastmod };
   });
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

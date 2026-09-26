@@ -552,7 +552,7 @@ function escHtml(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt
     primaryKeyword: 'tagline generator for business',
     solutionHref: '/pages/solutions',
     solutionLabel: 'All industries',
-    metaTitle: 'Free Slogan Generator — Punchy Taglines for Indian SMBs | Neweb',
+    metaTitle: 'Free Slogan Generator — Taglines for Indian SMBs | Neweb',
     metaDescription: 'Generate 10 short, memorable slogans for your business. Three to seven words, easy to say out loud, ready for your homepage and ads.',
     h1: 'Slogan <span class="serif">Generator</span>.',
     lede: 'Type your business, industry and tone. We write 10 short, memorable slogans you can use on your homepage, your Google Business profile, and your ads.',
@@ -1003,14 +1003,14 @@ function escHtml(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt
     category: 'run',
     built: true,
     name: 'UPI QR Code Generator',
-    tagline: 'Free UPI QR for any UPI ID. Download as PNG, print at the till.',
+    tagline: 'Free merchant UPI QR for any UPI ID. Works with GPay, PhonePe, Paytm and BHIM. Download as PNG, print at the till.',
     primaryKeyword: 'upi qr code generator',
     solutionHref: '/pages/solutions/restaurants',
     solutionLabel: 'For restaurants',
-    metaTitle: 'Free UPI QR Code Generator — PNG Download | Neweb',
-    metaDescription: 'Generate a UPI QR code from any UPI ID. Optional fixed amount and note. Download as PNG and print at the till. Free, instant, browser-only.',
+    metaTitle: 'Free UPI QR Code Generator for Merchants (PNG) | Neweb',
+    metaDescription: 'Free UPI QR code generator for shops and merchants. Enter your UPI ID, get a QR that works with GPay, PhonePe, Paytm and BHIM. Download PNG, print at the till.',
     h1: 'UPI QR Code <span class="serif">Generator</span>.',
-    lede: 'Type your UPI ID and payee name. We render a UPI-spec-compliant QR you can download as PNG and print on a standee, on receipts, or at every table.',
+    lede: 'Type your UPI ID and payee name. We render a UPI-spec-compliant merchant QR that scans in Google Pay, PhonePe, Paytm and BHIM. Download it as PNG and print it on a standee, on receipts, or at every table. Free, no fees, nothing leaves your browser.',
     widget: {
       html: `
         <div class="tool-row">
@@ -1098,6 +1098,7 @@ function escHtml(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt
     intro: `
       <p>UPI QR is now the most reliable way for an Indian small business to accept payment. Customers scan with PhonePe, Google Pay, Paytm, BHIM, or any UPI app. You do not need a card machine, a POS subscription, or a battery to run it. Just one printed QR at the counter is enough. Some shops have a single laminated A4 QR by the till; others have small QR stickers at every table. Either way, the QR is just a structured string that follows the NPCI deep-link spec: <code>upi://pay?pa=yourid@bank&pn=YourName&am=100&tn=note</code>.</p>
       <p>This tool turns a UPI ID and a payee name into a valid UPI QR, with optional amount and note fields. The QR renders in your browser, you download a clean PNG, and you print it. Nothing leaves your machine. The output is tested with the four most-used UPI apps in India, and works for both personal and merchant VPAs.</p>
+      <p><strong>How the UPI QR spec works.</strong> Every UPI QR, whether it hangs at a kirana counter or sits on a Swiggy delivery bag, encodes a deep link of the form <code>upi://pay?pa=&lt;UPI ID&gt;&amp;pn=&lt;payee name&gt;&amp;am=&lt;amount&gt;&amp;cu=INR&amp;tn=&lt;note&gt;</code>. <code>pa</code> is the payee address (your VPA), <code>pn</code> the payee name shown to the customer, <code>am</code> an optional fixed amount, <code>cu</code> the currency (always INR), and <code>tn</code> an optional transaction note. Because the format is an NPCI standard, one QR works in every UPI app. A QR with no amount is a <strong>static QR</strong>: print it once and reuse it for every sale. A QR with an amount baked in is a <strong>dynamic QR</strong>: generate a fresh one per bill so the customer cannot edit the figure. This tool makes both.</p>
     `,
     howTo: [
       'Enter your <strong>UPI ID (VPA)</strong>. The format is name@bank, for example rohit@ybl, neha@upi, copperoven@hdfcbank. Find yours inside PhonePe under Profile → My UPI ID, or inside GPay under your profile picture.',
@@ -1136,6 +1137,12 @@ function escHtml(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt
       { q: 'What if my VPA gets blocked or compromised?', a: '<p>If your VPA is ever blocked, compromised or simply tied to an account you are closing, the fix is straightforward: create or switch to a new VPA inside your UPI app, then regenerate your QR here using the new ID and replace the printed or laminated copy at your counter and anywhere else you have shared it, your WhatsApp, your website, your Google Business photos. Because the QR is just an encoding of the VPA, the old printed code becomes useless the moment the VPA changes, so do not leave stale QRs lying around where a customer might pay into a dead or wrong account. Beyond emergencies, it is sensible to treat rotating your VPA and refreshing the printed QR as a light annual hygiene step, much like changing a password, especially if the code has been photographed and circulated widely. Keep a quick note of where all your QRs are published so a swap takes minutes rather than leaving an outdated code in circulation for weeks.</p>' },
       { q: 'Can I embed the QR on my Google Business listing?', a: '<p>You cannot drop a live, scannable payment widget directly into the Google Business profile interface, but you can still get your UPI QR in front of customers who find you on Google. The simplest route is to upload the QR image as a photo on your Google Business profile, so it appears in your business photos that customers browse before visiting. The stronger route is to place the QR on your own website, which your Google Business profile links to; visitors who tap through to your site can then scan or screenshot it to pay. Both surfaces are seen by customers in the research moment, right before they decide to call, visit or order, which is exactly when an easy payment option helps. For best results, pair the QR with a clear caption like your business name and "Scan to pay by UPI", so customers understand instantly what it is and feel confident the money reaches the right shop.</p>' },
       { q: 'Does this work for foreign currency or international payments?', a: '<p>No, UPI settles only in Indian rupees, so this QR cannot accept payments in dollars, pounds, euros or any other currency. UPI is a domestic Indian payments rail, and while cross-border UPI is slowly expanding to a handful of countries and select use cases, you cannot rely on it for an ordinary overseas customer paying you today. If you need to collect money from foreign customers, use a separate international payment method such as a Razorpay international payment link, a Stripe checkout, or a PayPal invoice, each of which handles currency conversion and overseas cards. Be aware those routes operate on different commercial terms, with higher fees and their own KYC and settlement rules, and they are a distinct workflow from your everyday UPI counter collections. The practical approach is to keep this UPI QR for your Indian customers, who are the vast majority for most small businesses, and set up an international link only when genuine overseas demand appears.</p>' },
+      { q: 'Does this QR work with Google Pay, PhonePe, Paytm and BHIM?', a: '<p>Yes. The QR encodes a standard NPCI UPI deep link, and every UPI app in India, including Google Pay, PhonePe, Paytm, BHIM, Amazon Pay, CRED, and the UPI section inside bank apps such as SBI YONO, HDFC PayZapp and ICICI iMobile, reads the same format. The customer opens any of these apps, taps Scan, points the camera at your printed QR, sees your payee name, enters or confirms the amount, and approves with their UPI PIN. There is no app-specific version to generate and no need to print separate GPay or PhonePe codes. Because a few apps handle very long payee names or unusual characters slightly differently, we still recommend a quick test scan with two apps before you print a large batch.</p>' },
+      { q: 'What is the difference between a static and a dynamic UPI QR code?', a: '<p>A static UPI QR contains only your UPI ID and payee name, with no amount. You print it once, stick it at the counter, and every customer types the amount they owe. It never expires and never needs regenerating unless your VPA changes. A dynamic UPI QR has the amount, and often a transaction note or order number, encoded inside it, so the customer only confirms and pays. Shops generate a fresh dynamic QR for each bill, usually from a billing app or a payment aggregator such as PhonePe for Business or Paytm for Business, which then reconcile each payment against the order automatically. This tool lets you make either kind: leave the amount blank for a reusable static QR, or fill in the amount to produce a fixed-value QR you can share over WhatsApp or show on a screen for one specific payment.</p>' },
+      { q: 'Is it safe to generate a UPI QR code online?', a: '<p>With this tool, yes, because nothing you type is sent anywhere. The QR is drawn inside your browser using JavaScript, and the PNG you download is created on your own device, so your UPI ID, payee name and amounts never reach our servers or any third party. A UPI QR is also only an instruction to send money to your VPA, so even if somebody copies your printed QR they can only pay you, never pull money out of your account. The real risks with UPI QRs are different: scammers who ask you to scan a QR to receive money (scanning never receives, it always pays), and tampered stickers where someone pastes their own QR over yours at the counter. Check your displayed QR every few days by scanning it yourself and confirming your own name appears, and never share your UPI PIN with anyone.</p>' },
+      { q: 'What size should I print the UPI QR for a shop counter?', a: '<p>For a counter standee or a laminated card the customer holds a phone close to, print the QR module (the square itself) at least 5 cm by 5 cm; 7 to 8 cm scans faster and copes with worn print. For a wall or door poster that customers scan from a metre away, go to 12 to 15 cm. A full A4 sheet with the QR at about 15 cm and your business name above it is the most common format at Indian shops and scans reliably even in poor light. Whatever the size, keep a plain white margin of at least 1 cm around the code, print in black on white, and avoid glossy lamination that reflects tube lights into the camera. The PNG this tool produces is high resolution, so it can be scaled up for a large poster without blurring.</p>' },
+      { q: 'Are there any fees for accepting payments through a UPI QR code?', a: '<p>Generating the QR here is free, and for a personal or sole-proprietor VPA linked to a regular bank account there is currently no merchant discount rate on UPI payments in India, so the full amount the customer pays lands in your account. If you take a merchant VPA through a payment aggregator or a bank merchant onboarding, the base UPI rate is still zero for most everyday transactions, though the aggregator may charge for its own services such as a soundbox, a settlement dashboard or a POS device, and some charge a small fee on UPI payments made through credit lines or wallets. Read the aggregator terms rather than assuming. There are also no fees payable to Google Pay, PhonePe or Paytm as apps, since the customer chooses the app and it costs neither side anything.</p>' },
+      { q: 'Can I use this as a merchant QR code generator for UPI?', a: '<p>Yes. If you enter a merchant VPA, the kind issued to a business by a bank or by an aggregator such as PhonePe for Business, Paytm for Business, BharatPe or Razorpay, the QR this tool generates is a valid merchant UPI QR that settles to your business account under the terms of that provider. The advantage of making your own is control: you choose the payee name, add a note like a shop or branch name, and print it at any size on your own signage rather than depending on the small branded sticker the provider posts to you. If you only have a personal VPA today, the tool still works, and you can regenerate the QR in a minute when you move to a merchant account. What this tool does not do is open a merchant account for you or reconcile payments; for that, use the business app your provider gives you alongside this printed QR.</p>' },
     ],
     related: [
       { href: '/pages/tools/whatsapp-link-generator', title: 'WhatsApp Link Generator', blurb: 'wa.me links and QR codes for your inbox.' },
@@ -1156,7 +1163,7 @@ function escHtml(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt
     primaryKeyword: 'free gst invoice generator india',
     solutionHref: '/pages/solutions',
     solutionLabel: 'For service businesses',
-    metaTitle: 'Free GST Invoice Generator India — CGST, SGST, IGST PDF | Neweb',
+    metaTitle: 'Free GST Invoice Generator India — CGST/SGST/IGST | Neweb',
     metaDescription: 'Generate a Rule 46 compliant GST invoice as a clean A4 PDF. Auto CGST + SGST split for intra-state, IGST for inter-state, total in words. Free, browser-only.',
     h1: 'GST Invoice <span class="serif">Generator</span>.',
     lede: 'Type seller, buyer and line items. We compute CGST, SGST or IGST automatically and emit a clean A4 PDF. Free, runs entirely in your browser.',
@@ -1716,7 +1723,7 @@ function loadScript(src){return new Promise(function(r,j){if(window.__ls&&window
     primaryKeyword: 'free email signature generator',
     solutionHref: '/pages/solutions',
     solutionLabel: 'All industries',
-    metaTitle: 'Free Email Signature Generator India — Gmail and Outlook | Neweb',
+    metaTitle: 'Free Email Signature Generator — Gmail & Outlook | Neweb',
     metaDescription: 'Create a clean HTML email signature in seconds. Name, title, company, phone, email, website, brand colour. Copy ready-to-paste into Gmail and Outlook.',
     h1: 'Email Signature <span class="serif">Generator</span>.',
     lede: 'Fill in your details, pick a brand colour, and copy a clean HTML signature you can paste directly into Gmail or Outlook. No images, no tracking, no broken layouts.',
@@ -3059,7 +3066,7 @@ function escHtml(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt
     primaryKeyword: 'emi calculator',
     solutionHref: '/pages/solutions',
     solutionLabel: 'All industries',
-    metaTitle: 'Free EMI Calculator — Monthly EMI, Interest, Total Payable | Neweb',
+    metaTitle: 'Free EMI Calculator — Monthly EMI & Total Interest | Neweb',
     metaDescription: 'Calculate your loan EMI instantly. Enter principal, annual interest rate, and tenure to see monthly EMI, total interest, and amount payable. Free.',
     h1: 'EMI <span class="serif">Calculator</span>.',
     lede: 'Enter the loan amount, the annual interest rate, and the tenure. We compute your monthly EMI, the total interest, and the total amount payable using the standard reducing-balance EMI formula.',
@@ -3173,7 +3180,7 @@ function escHtml(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt
     primaryKeyword: 'gst calculator',
     solutionHref: '/pages/solutions',
     solutionLabel: 'All industries',
-    metaTitle: 'Free GST Calculator — Add or Remove GST, CGST SGST Split | Neweb',
+    metaTitle: 'Free GST Calculator — Add/Remove GST, CGST SGST | Neweb',
     metaDescription: 'Calculate GST instantly. Add or remove GST at 5, 12, 18, or 28 percent, see the net amount, GST, CGST plus SGST split, and gross. Free, browser-only.',
     h1: 'GST <span class="serif">Calculator</span>.',
     lede: 'Enter an amount, choose your GST slab, and pick whether GST is to be added or removed. We show the net amount, the GST, the CGST and SGST split, and the gross. Runs entirely in your browser.',
@@ -3523,7 +3530,7 @@ function escHtml(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt
     primaryKeyword: 'character counter',
     solutionHref: '/pages/solutions',
     solutionLabel: 'All industries',
-    metaTitle: 'Free Character Counter — Live Count with Platform Limits | Neweb',
+    metaTitle: 'Free Character Counter — Live Count & Limits | Neweb',
     metaDescription: 'Count characters and words live as you type, with limit bars for Twitter, meta title, meta description, SMS, and Instagram. Free, browser-only.',
     h1: 'Character <span class="serif">Counter</span>.',
     lede: 'Type or paste your text and watch the character and word count update live, with progress bars showing how close you are to the limits for Twitter, meta titles, meta descriptions, SMS, and Instagram. Runs entirely in your browser.',
@@ -3878,7 +3885,7 @@ function escHtml(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt
     primaryKeyword: 'income tax calculator india',
     solutionHref: '/pages/solutions',
     solutionLabel: 'All industries',
-    metaTitle: 'Free Income Tax Calculator India FY 2025-26 — Old vs New Regime | Neweb',
+    metaTitle: 'Income Tax Calculator FY 2025-26: Old vs New Regime | Neweb',
     metaDescription: 'Calculate income tax under the old and new regime for FY 2025-26. Enter salary, deductions and exemptions to see tax, cess and take-home. Free, browser-only.',
     h1: 'Income Tax <span class="serif">Calculator</span>.',
     lede: 'Enter your annual income and deductions. We compute your tax under both the old and new regime for FY 2025-26 side by side, so you can pick the one that saves you more. Runs entirely in your browser.',
@@ -4048,7 +4055,7 @@ function escHtml(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt
     primaryKeyword: 'salary slip generator',
     solutionHref: '/pages/solutions',
     solutionLabel: 'All industries',
-    metaTitle: 'Free Salary Slip Generator India — Printable Payslip PDF | Neweb',
+    metaTitle: 'Free Salary Slip Generator India — Payslip PDF | Neweb',
     metaDescription: 'Generate a clean, printable salary slip with basic, HRA, allowances, PF and other deductions, and net pay. Free, browser-only, downloads as PDF.',
     h1: 'Salary Slip <span class="serif">Generator</span>.',
     lede: 'Enter employee details, earnings, and deductions. We total everything and generate a clean, printable payslip PDF. Free, runs entirely in your browser.',
@@ -4384,7 +4391,7 @@ function escHtml(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt
     primaryKeyword: 'gratuity calculator india',
     solutionHref: '/pages/solutions',
     solutionLabel: 'All industries',
-    metaTitle: 'Free Gratuity Calculator India — Payment of Gratuity Act | Neweb',
+    metaTitle: 'Free Gratuity Calculator India (Gratuity Act) | Neweb',
     metaDescription: 'Calculate gratuity using the 15/26 formula from the Payment of Gratuity Act. Enter last drawn basic salary plus DA and years of service. Free, browser-only.',
     h1: 'Gratuity <span class="serif">Calculator</span>.',
     lede: 'Enter your last drawn basic salary plus dearness allowance and your years of service. We compute your gratuity payout using the standard 15/26 formula. Runs entirely in your browser.',
@@ -4963,8 +4970,8 @@ function escHtml(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt
     primaryKeyword: 'payment receipt generator',
     solutionHref: '/pages/solutions',
     solutionLabel: 'All industries',
-    metaTitle: 'Free Payment Receipt Generator India — Printable PDF | Neweb',
-    metaDescription: 'Generate a numbered payment receipt with payer, amount, mode and purpose. Free, browser-only, downloads as a clean A4 PDF instantly.',
+    metaTitle: 'Free Payment Receipt Generator (UPI, Bank Transfer) | Neweb',
+    metaDescription: 'Generate a numbered payment receipt for UPI, bank transfer, cash, cheque or card payments. Free, browser-only, downloads as a clean A4 PDF in seconds.',
     h1: 'Payment Receipt <span class="serif">Generator</span>.',
     lede: 'Enter payer, amount, date, mode and purpose. We generate a clean, numbered payment receipt as a printable PDF, ready to hand over or email. Free, runs entirely in your browser.',
     widget: {
@@ -5111,6 +5118,9 @@ function escHtml(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt
       { q: 'What payment modes can I record on the receipt?', a: '<p>This tool lets you select from the common payment modes used by Indian small businesses: bank transfer, UPI, cheque, cash, and card, covering the vast majority of how customers actually pay today. Recording the correct mode matters beyond simple record-keeping, since it affects how the payment reconciles against your bank statement or your cash register, and cash payments in particular sometimes carry additional documentation conventions, such as a revenue stamp on receipts above a certain amount in some contexts, that electronic payments do not need. If your specific transaction used a payment method not explicitly listed here, for example a digital wallet or a specific payment gateway, choose the closest equivalent, typically UPI or bank transfer, or note the specific method in the purpose field so the detail is not lost even though the dropdown itself only covers the standard five categories.</p>' },
       { q: 'Can I edit or reprint a receipt after generating it?', a: '<p>This tool does not save your receipt after you close the tab or refresh the page, so you cannot come back later and reload a previously generated receipt to edit or reprint it through the tool itself; instead, keep the downloaded PDF file safely in your own records, since that saved file is the reprintable copy going forward. If you need to correct a mistake immediately after generating a receipt, simply adjust the fields in the form and regenerate a fresh PDF before you hand over or send the incorrect one, since nothing has been transmitted or logged anywhere that would need to be corrected on a server. If an error is discovered after a receipt has already been issued to a customer, the standard practice is not to silently replace it but to issue a clearly marked corrected or revised receipt referencing the original receipt number, so your records show an honest trail of the correction rather than two conflicting documents with no explanation.</p>' },
       { q: 'Is my payment data sent to a server?', a: '<p>No, every field you fill in, the payer name, amount, date, mode and purpose, is used only within your own browser to render the receipt preview and the final PDF through the jsPDF library, and none of it is transmitted to us or to any third-party server. There is no account, login or saved history, so you can record real customer names and payment amounts without any privacy concern, and the receipt generates instantly since nothing needs to travel over a network connection for your data specifically. The only network request involved is fetching the jsPDF library file itself from a content delivery network, which carries no receipt content at all. Once you close the tab or refresh the page, the details you entered are gone unless you have already downloaded the PDF, so save each receipt to your own records as you issue it.</p>' },
+      { q: 'Can I use this as a UPI payment receipt generator?', a: '<p>Yes. Choose UPI as the payment mode, and the receipt records that the money arrived through UPI along with the payer name, amount in figures and words, date and purpose. Many businesses also paste the 12-digit UPI transaction reference number (the UTR or RRN shown in Google Pay, PhonePe or Paytm after a successful payment) into the purpose or notes field, which turns the document into a UPI payment receipt that matches the entry on the bank statement exactly. That is useful for advances taken over UPI, for tuition or membership fees paid by scanning a QR, and for customers who need a formal acknowledgement rather than the app screenshot. If you also need the QR customers scan to pay you, generate it with our UPI QR code generator and hand over this receipt once the notification lands.</p>' },
+      { q: 'How do I make a bank transfer receipt for NEFT, RTGS or IMPS payments?', a: '<p>Select bank transfer as the payment mode, enter the payer name exactly as it appears on the incoming credit, the amount, and the date the funds were credited, and put the transfer reference in the purpose field, for example NEFT UTR N265240912345678 or IMPS reference 426512345678. The generated PDF then works as a bank transfer receipt that acknowledges the specific credit, which is what landlords, contractors, coaching institutes and B2B suppliers are usually asked for after a customer pays by NEFT, RTGS or IMPS. Issue it only after the amount shows in your account, not on the strength of a screenshot, because transfers can fail or be reversed. For a GST-registered sale, pair the bank transfer receipt with a proper tax invoice from our GST invoice generator, since the receipt confirms payment but is not a tax document by itself.</p>' },
+      { q: 'Does this work as a money transfer receipt or cash receipt?', a: '<p>It does. The receipt is deliberately generic, so it serves as a money transfer receipt for any inbound transfer, a cash receipt for counter payments, a cheque receipt with the cheque number in the purpose field, or an advance receipt for a part payment against a larger order. The numbered format, amount in words, and payment mode line are the elements a customer, an accountant or a dispute reviewer expects on an Indian receipt regardless of how the money moved. For cash receipts above the amounts where your state or your auditor expects a revenue stamp, print the PDF and affix the stamp before signing. Keep a copy of every PDF you issue, because the tool does not store receipts, and number them in sequence so your records are easy to reconcile at month end.</p>' },
     ],
     related: [
       { href: '/pages/tools/quotation-generator', title: 'Quotation Generator', blurb: 'Send the estimate before the sale is confirmed.' },
@@ -5238,7 +5248,7 @@ function escHtml(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt
     primaryKeyword: 'roi calculator',
     solutionHref: '/pages/solutions',
     solutionLabel: 'All industries',
-    metaTitle: 'Free ROI Calculator — Return on Investment, Gain, Annualized | Neweb',
+    metaTitle: 'Free ROI Calculator — Return on Investment | Neweb',
     metaDescription: 'Calculate ROI percentage, rupee gain or loss, and annualized return from your initial investment, final value, and holding period. Free, browser-only.',
     h1: 'ROI <span class="serif">Calculator</span>.',
     lede: 'Enter what you invested, what it is worth now, and how long you held it. We compute your total ROI, the rupee gain, and the annualized return. Runs entirely in your browser.',
@@ -5349,7 +5359,7 @@ function escHtml(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt
     primaryKeyword: 'break even calculator',
     solutionHref: '/pages/solutions',
     solutionLabel: 'All industries',
-    metaTitle: 'Free Break-Even Calculator — Units and Revenue to Break Even | Neweb',
+    metaTitle: 'Free Break-Even Calculator — Units & Revenue | Neweb',
     metaDescription: 'Calculate your break-even point in units and rupees. Enter fixed costs, variable cost per unit, and selling price per unit. Free, browser-only.',
     h1: 'Break-Even <span class="serif">Calculator</span>.',
     lede: 'Enter your fixed costs, variable cost per unit, and selling price per unit. We compute the exact number of units and the revenue you need to break even. Runs entirely in your browser.',
@@ -5616,6 +5626,1024 @@ function escHtml(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt
       { href: '/pages/tools/image-compressor', title: 'Image Compressor', blurb: 'Shrink file size without changing dimensions.' },
       { href: '/pages/tools/favicon-generator', title: 'Favicon Generator', blurb: 'Generate a favicon set from any image.' },
       { href: '/pages/tools/logo-maker', title: 'Logo Maker', blurb: 'Design a clean wordmark or icon logo.' },
+    ],
+  },
+  // =========================================================================
+  // ====================== BANK TRANSFER RECEIPT GENERATOR =================
+  // =========================================================================
+  {
+    slug: 'bank-transfer-receipt-generator',
+    category: 'run',
+    built: true,
+    name: 'Bank Transfer Receipt Generator',
+    tagline: 'Acknowledge a NEFT, IMPS, RTGS or UPI transfer with a printable receipt.',
+    primaryKeyword: 'bank transfer receipt generator',
+    solutionHref: '/pages/solutions/freelancers-consultants',
+    solutionLabel: 'Freelancers and consultants',
+    metaTitle: 'Bank Transfer Receipt Generator (NEFT, IMPS, UPI) | Neweb',
+    metaDescription: 'Generate a money transfer receipt for NEFT, IMPS, RTGS or UPI payments with UTR number, amount in words and signature lines. Free, printable, saves as PDF.',
+    h1: 'Bank Transfer Receipt <span class="serif">Generator</span>.',
+    lede: 'Record a NEFT, IMPS, RTGS or UPI transfer as a clean, signed receipt. Enter payer, payee, UTR, amount and date; we add the amount in words, then print it or save it as a PDF. Runs entirely in your browser.',
+    widget: {
+      html: `
+        <div class="tool-row">
+          <div class="field"><label for="btr-payer">Paid by (payer name)</label><input id="btr-payer" type="text" placeholder="e.g. Meera Traders"/></div>
+          <div class="field"><label for="btr-payee">Paid to (payee / beneficiary)</label><input id="btr-payee" type="text" placeholder="e.g. Arjun Design Studio"/></div>
+        </div>
+        <div class="tool-row">
+          <div class="field"><label for="btr-bank">Bank (payer or beneficiary bank)</label><input id="btr-bank" type="text" placeholder="e.g. HDFC Bank to SBI"/></div>
+          <div class="field"><label for="btr-acct">Account number, last 4 digits</label><input id="btr-acct" type="text" inputmode="numeric" maxlength="4" placeholder="e.g. 4821"/></div>
+        </div>
+        <div class="tool-row">
+          <div class="field"><label for="btr-mode">Transfer mode</label>
+            <select id="btr-mode"><option value="NEFT">NEFT</option><option value="IMPS" selected>IMPS</option><option value="RTGS">RTGS</option><option value="UPI">UPI</option></select>
+          </div>
+          <div class="field"><label for="btr-utr">UTR / transaction reference no.</label><input id="btr-utr" type="text" placeholder="e.g. HDFCN52026092612345678"/></div>
+        </div>
+        <div class="tool-row">
+          <div class="field"><label for="btr-amt">Amount transferred (in rupees)</label><input id="btr-amt" type="number" step="any" min="0" placeholder="e.g. 125000"/></div>
+          <div class="field"><label for="btr-date">Transfer date</label><input id="btr-date" type="date"/></div>
+        </div>
+        <div class="tool-row">
+          <div class="field"><label for="btr-remarks">Remarks / payment towards</label><input id="btr-remarks" type="text" placeholder="e.g. Invoice INV/2026/09/031, website design"/></div>
+          <div class="field"><label for="btr-size">Paper size</label>
+            <select id="btr-size"><option value="A5">A5 (half page)</option><option value="A4">A4</option></select>
+          </div>
+        </div>
+        <div class="tool-actions">
+          <button id="btr-preview" type="button" class="btn btn-ghost">Preview receipt</button>
+          <button id="btr-print" type="button" class="btn btn-brand">Print / save as PDF</button>
+          <button id="btr-copy" type="button" class="btn btn-ghost">Copy as text</button>
+        </div>
+        <div id="btr-msg" role="status" aria-live="polite" style="font-size:13px;color:var(--muted);margin-top:10px"></div>
+        <div id="btr-out" style="display:none;margin-top:18px"></div>
+      `,
+      help: 'Print / save as PDF opens your browser print dialog; choose Save as PDF as the destination. Nothing you type leaves your browser.',
+      js: ESCAPE_HTML + `
+(function(){
+  var out=document.getElementById('btr-out'), msg=document.getElementById('btr-msg');
+  function val(id){ return (document.getElementById(id).value||'').trim(); }
+  function fmt(n){ if(!isFinite(n)) return '0.00'; return (Math.round(n*100)/100).toLocaleString('en-IN',{minimumFractionDigits:2,maximumFractionDigits:2}); }
+  var dEl=document.getElementById('btr-date'); var d=new Date(); var pad=function(n){return n<10?'0'+n:n;};
+  dEl.value=d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());
+  function niceDate(iso){ if(!iso) return '—'; var p=iso.split('-'); var dt=new Date(+p[0],+p[1]-1,+p[2]); return dt.toLocaleDateString('en-IN',{day:'2-digit',month:'short',year:'numeric'}); }
+  function words(num){
+    if(num===0) return 'Zero';
+    var a=['','One','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten','Eleven','Twelve','Thirteen','Fourteen','Fifteen','Sixteen','Seventeen','Eighteen','Nineteen'];
+    var b=['','','Twenty','Thirty','Forty','Fifty','Sixty','Seventy','Eighty','Ninety'];
+    function two(n){ if(n<20) return a[n]; var t=Math.floor(n/10), u=n%10; return b[t]+(u?' '+a[u]:''); }
+    function three(n){ var h=Math.floor(n/100), r=n%100, s=''; if(h) s+=a[h]+' Hundred'; if(r){ if(s) s+=' '; s+=two(r);} return s; }
+    var crore=Math.floor(num/10000000); num%=10000000;
+    var lakh=Math.floor(num/100000); num%=100000;
+    var thou=Math.floor(num/1000); num%=1000;
+    var parts=[];
+    if(crore) parts.push((crore>=100?three(crore):two(crore))+' Crore');
+    if(lakh) parts.push(two(lakh)+' Lakh');
+    if(thou) parts.push(two(thou)+' Thousand');
+    if(num) parts.push(three(num));
+    return parts.join(' ');
+  }
+  function amountWords(amt){ var r=Math.floor(amt); var p=Math.round((amt-r)*100); if(p===100){r+=1;p=0;} var s='Rupees '+words(r); if(p) s+=' and '+words(p)+' Paise'; return s+' Only'; }
+  var CSS='.nwr{max-width:640px;margin:0 auto;border:1px solid #d6d9e0;border-radius:10px;padding:26px 28px;background:#fff;color:#111;font-family:Arial,Helvetica,sans-serif}'
+    +'.nwr-head{display:flex;justify-content:space-between;gap:16px;border-bottom:2px solid #111;padding-bottom:12px;margin-bottom:16px;flex-wrap:wrap}'
+    +'.nwr-title{font-size:17px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}.nwr-sub{font-size:12px;color:#555;margin-top:3px}'
+    +'.nwr-meta{font-size:12.5px;color:#333;text-align:right;line-height:1.6}'
+    +'.nwr-amt{font-size:28px;font-weight:700;margin:6px 0 2px}.nwr-words{font-size:13px;font-style:italic;color:#333;margin-bottom:16px}'
+    +'.nwr table{width:100%;border-collapse:collapse;font-size:13.5px}.nwr td{padding:8px 0;border-bottom:1px solid #e5e7eb;vertical-align:top}.nwr td:first-child{color:#555;width:38%}'
+    +'.nwr-sign{display:flex;justify-content:space-between;gap:20px;margin-top:44px}.nwr-sign div{width:45%;border-top:1px solid #111;padding-top:6px;font-size:12px;color:#333}'
+    +'.nwr-disc{margin-top:18px;font-size:10.5px;color:#666;line-height:1.5;border-top:1px dashed #ccc;padding-top:10px}';
+  function data(){
+    var amt=parseFloat(val('btr-amt'))||0;
+    return { payer:val('btr-payer')||'—', payee:val('btr-payee')||'—', bank:val('btr-bank')||'—', acct:val('btr-acct'), mode:val('btr-mode'), utr:val('btr-utr')||'—', amt:amt, date:niceDate(val('btr-date')), remarks:val('btr-remarks')||'—' };
+  }
+  function receiptHtml(x){
+    var acct=x.acct?'A/c ending '+escHtml(x.acct):'';
+    return '<style>'+CSS+'</style><div class="nwr">'
+      +'<div class="nwr-head"><div><div class="nwr-title">Bank Transfer Receipt</div><div class="nwr-sub">Acknowledgement of payment received by '+escHtml(x.mode)+'</div></div>'
+      +'<div class="nwr-meta">Date: '+escHtml(x.date)+'<br>Mode: '+escHtml(x.mode)+'</div></div>'
+      +'<div class="nwr-amt">Rs '+fmt(x.amt)+'</div><div class="nwr-words">'+amountWords(x.amt)+'</div>'
+      +'<table><tr><td>Paid by</td><td>'+escHtml(x.payer)+'</td></tr>'
+      +'<tr><td>Paid to (beneficiary)</td><td>'+escHtml(x.payee)+'</td></tr>'
+      +'<tr><td>Bank / account</td><td>'+escHtml(x.bank)+(acct?' · '+acct:'')+'</td></tr>'
+      +'<tr><td>UTR / reference no.</td><td style="font-family:monospace">'+escHtml(x.utr)+'</td></tr>'
+      +'<tr><td>Transfer date</td><td>'+escHtml(x.date)+'</td></tr>'
+      +'<tr><td>Remarks / towards</td><td>'+escHtml(x.remarks)+'</td></tr></table>'
+      +'<div class="nwr-sign"><div>Payer signature</div><div>Payee / received by</div></div>'
+      +'<div class="nwr-disc">This receipt is a self-generated acknowledgement prepared by the parties to the transfer. It is not issued, verified or endorsed by any bank. The UTR and amount should be matched against the bank statement or passbook of the account concerned. Generated with the Neweb Bank Transfer Receipt Generator, neweb.ai/pages/tools/bank-transfer-receipt-generator.</div></div>';
+  }
+  function receiptText(x){
+    return ['BANK TRANSFER RECEIPT ('+x.mode+')','Date: '+x.date,'Amount: Rs '+fmt(x.amt)+' ('+amountWords(x.amt)+')','Paid by: '+x.payer,'Paid to: '+x.payee,'Bank / account: '+x.bank+(x.acct?' (A/c ending '+x.acct+')':''),'UTR / reference: '+x.utr,'Remarks: '+x.remarks,'','Self-generated acknowledgement, not a bank-issued document. Verify UTR against the bank statement.'].join('\\n');
+  }
+  function render(){
+    var x=data();
+    if(!(x.amt>0)){ msg.textContent='Enter the amount transferred to build the receipt.'; out.style.display='none'; return null; }
+    msg.textContent='';
+    out.style.display='block'; out.innerHTML=receiptHtml(x);
+    return x;
+  }
+  function printDoc(inner, size, title){
+    var html='<!DOCTYPE html><html><head><meta charset="utf-8"><title>'+title+'</title><style>@page{size:'+size+';margin:12mm}body{margin:0;background:#fff}'+CSS+'.nwr{border:0;max-width:none;padding:0}</style></head><body>'+inner+'</body></html>';
+    var f=document.createElement('iframe'); f.setAttribute('aria-hidden','true'); f.setAttribute('title','print');
+    f.style.cssText='position:fixed;right:0;bottom:0;width:0;height:0;border:0;visibility:hidden';
+    document.body.appendChild(f);
+    var doc=f.contentWindow.document; doc.open(); doc.write(html); doc.close();
+    setTimeout(function(){ try{ f.contentWindow.focus(); f.contentWindow.print(); }catch(e){ window.print(); } setTimeout(function(){ if(f.parentNode) f.parentNode.removeChild(f); }, 60000); }, 300);
+  }
+  function copyText(t){
+    function done(){ msg.textContent='Receipt copied as plain text.'; }
+    function fail(){ msg.textContent='Copy failed. Select the receipt and copy manually.'; }
+    if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(t).then(done, function(){ legacy(); }); } else { legacy(); }
+    function legacy(){ var ta=document.createElement('textarea'); ta.value=t; ta.setAttribute('readonly',''); ta.style.cssText='position:fixed;top:0;left:0;opacity:0'; document.body.appendChild(ta); ta.select(); try{ document.execCommand('copy'); done(); }catch(e){ fail(); } document.body.removeChild(ta); }
+  }
+  document.getElementById('btr-preview').addEventListener('click', render);
+  document.getElementById('btr-print').addEventListener('click', function(){
+    var x=render(); if(!x) return;
+    var inner=receiptHtml(x).replace(/^<style>[\\s\\S]*?<\\/style>/,'');
+    printDoc(inner, val('btr-size')||'A5', 'Bank transfer receipt '+x.date);
+  });
+  document.getElementById('btr-copy').addEventListener('click', function(){ var x=render(); if(!x) return; copyText(receiptText(x)); });
+})();
+`,
+    },
+    exampleOutput: `
+      <div class="eo-item"><div><div class="eo-main">Rs 1,25,000.00 by IMPS on 26 Sep 2026</div><div class="eo-sub">Rupees One Lakh Twenty Five Thousand Only, printed under the figure.</div></div></div>
+      <div class="eo-item"><div><div class="eo-main">UTR: HDFCN52026092612345678</div><div class="eo-sub">The reference the payee can match against the bank statement.</div></div></div>
+      <div class="eo-item"><div><div class="eo-main">Paid by Meera Traders to Arjun Design Studio</div><div class="eo-sub">Towards Invoice INV/2026/09/031, website design.</div></div></div>
+      <div class="eo-note">Sample receipt. Enter your own transfer details above.</div>
+    `,
+    intro: `
+      <p>Most business payments in India now move by NEFT, IMPS, RTGS or UPI, and the bank app gives you a confirmation screen with a UTR. That screenshot is fine for you, but it is not a receipt the other side can file. A supplier who received a transfer wants a signed acknowledgement for their books; a customer who paid an advance wants a document that names the invoice it settles; a landlord, a freelancer or a society treasurer needs a paper record that a transfer of a specific amount on a specific date was received.</p>
+      <p>This tool produces that document. Enter who paid, who received, the bank and the last four digits of the account, the transfer mode, the UTR or reference number, the amount and the date. We convert the amount into words using Indian grouping (thousand, lakh, crore), lay it out as an A5 or A4 receipt with signature lines for both parties, and let you print it, save it as a PDF from the print dialog, or copy it as plain text to paste into WhatsApp or email.</p>
+      <p>Two things to know. The receipt is prepared by you, not by a bank; it carries a line that says so, and the UTR is what anyone can verify against a statement. And nothing you type is sent to us, so real names, account digits and amounts stay on your device.</p>
+    `,
+    howTo: [
+      'Enter the <strong>payer</strong> and the <strong>payee</strong> exactly as they appear on the bank accounts, so the receipt matches the statement narration.',
+      'Fill in the <strong>bank</strong> and the <strong>last 4 digits</strong> of the account. Never put a full account number on a receipt that may be forwarded around.',
+      'Pick the <strong>mode</strong> (NEFT, IMPS, RTGS or UPI) and paste the <strong>UTR or reference number</strong> from the bank app or SMS. This is the field that makes the receipt verifiable.',
+      'Enter the <strong>amount</strong> and <strong>date</strong>, add a remark such as the invoice number, and choose A5 or A4.',
+      'Click <strong>Preview</strong> to check the amount in words, then <strong>Print / save as PDF</strong>, or <strong>Copy as text</strong> to send it in a chat.',
+    ],
+    why: `
+      <p><strong>The UTR settles disputes.</strong> A receipt that carries the UTR, amount and date lets either side confirm the transfer in a statement within seconds, which is far quicker than digging through a phone gallery for a screenshot.</p>
+      <p><strong>Books need a document per payment.</strong> Accountants reconcile each bank credit against an invoice or a receipt. A signed acknowledgement that names the invoice keeps the ledger clean at year end and during a GST or income tax query.</p>
+      <p><strong>Customers expect it.</strong> Advance payments for orders, security deposits, consulting retainers and rent are all typically acknowledged in writing. A neat receipt signals that the business is organised.</p>
+    `,
+    tips: [
+      'Copy the UTR from the bank SMS or app rather than typing it; a single wrong character makes the receipt impossible to verify.',
+      'For NEFT and RTGS the UTR is usually 16 or 22 characters; IMPS uses a 12-digit RRN; UPI shows a 12-digit transaction ID. Any of them works in the reference field.',
+      'Use the remarks line to name the invoice, order or agreement the transfer settles. A receipt for a bare amount is much less useful six months later.',
+      'If the transfer is an advance against a GST supply, remember that GST on advances for services is payable when the advance is received; issue a receipt voucher under Rule 50 if applicable.',
+      'For cash payments use the cash receipt generator instead; the revenue-stamp and cash-limit rules are different.',
+    ],
+    example: `
+      <p>A freelance web designer in Pune finishes a website for a trading firm and raises an invoice for Rs 1,25,000. The client pays by IMPS on 26 September and forwards the confirmation screenshot on WhatsApp. The client accountant then asks for a signed acknowledgement to attach to the payment voucher.</p>
+      <p>The designer opens this tool, enters the client as payer, her studio as payee, the bank and last four digits of her current account, the IMPS reference from the credit SMS, the amount and the date, and writes "Invoice INV/2026/09/031, website design" in remarks. She previews the receipt, confirms it reads "Rupees One Lakh Twenty Five Thousand Only", saves it as an A5 PDF from the print dialog, signs it and emails it back. The accountant matches the UTR against the bank statement and files it the same day.</p>
+    `,
+    faq: [
+      { q: 'Is this a bank-issued receipt or transaction certificate?', a: '<p>No. Banks issue their own transaction advices, statements and, on request, a payment confirmation letter; those documents come from the bank system and carry the bank name and authentication. This tool generates a receipt prepared by the payer or payee themselves, which acknowledges that a transfer of a certain amount with a certain UTR was made or received. The receipt says this clearly in its footer so that nobody mistakes it for a bank document. It is the same category of document as a handwritten or Excel receipt, only cleaner, and its evidentiary weight comes from the UTR, which anyone can match against a bank statement, and from the signatures of the parties.</p>' },
+      { q: 'What is a UTR number and where do I find it?', a: '<p>UTR stands for Unique Transaction Reference. It is the identifier a bank assigns to every NEFT, RTGS and IMPS transfer so that both the sending and receiving banks can trace it. For NEFT it is typically a 16-character code starting with the bank code, for RTGS a 22-character code, and for IMPS a 12-digit RRN. UPI payments show a 12-digit UPI transaction ID or reference number that serves the same purpose. You will find it in the confirmation screen of your bank app, in the debit SMS or email, and in the narration column of your account statement. The receiver sees the same number against the credit entry, which is exactly why a receipt should carry it.</p>' },
+      { q: 'Should the receipt show the full bank account number?', a: '<p>It is safer not to. A receipt is often photographed, forwarded on WhatsApp and attached to emails, and a full account number together with the account holder name is the kind of detail phishing and fraud attempts rely on. Showing only the last four digits is enough for the accountant on either side to identify which account was used, while the UTR does the actual work of proving the transfer. That is why the form here accepts only the last four digits. If a counterparty insists on a full account number for a formal record, share it separately over a secure channel rather than on the receipt itself.</p>' },
+      { q: 'Can I use this for NEFT, RTGS, IMPS and UPI alike?', a: '<p>Yes, the receipt format is the same; only the mode label and the reference number style differ. NEFT settles in half-hourly batches and is used for most routine payments. RTGS is for amounts of Rs 2 lakh and above and settles in real time. IMPS works round the clock for instant transfers, typically up to Rs 5 lakh depending on the bank. UPI is the app-based instant transfer with a per-transaction limit of Rs 1 lakh for most uses and higher limits for specific categories. Pick the mode that the bank confirmation shows and paste its reference number; the receipt records it and the payee can verify it against their credit entry.</p>' },
+      { q: 'Does a bank transfer receipt need a revenue stamp?', a: '<p>The one-rupee revenue stamp requirement under the Indian Stamp Act applies to receipts for cash or for cheques and other instruments where the receipt itself is the evidence of payment above Rs 5,000. For electronic transfers the bank record is the primary evidence and the practice of affixing a revenue stamp to an acknowledgement of a NEFT or UPI credit is not common. Many businesses still stamp receipts above Rs 5,000 out of habit or because an auditor asks for it, which does no harm. If your accountant or a government counterparty asks for a stamped receipt, print this receipt and affix the stamp across the signature.</p>' },
+      { q: 'Is a payment screenshot from the bank app enough as proof?', a: '<p>For the payer, the debit entry in their own statement is the strongest proof, and the screenshot is a convenient copy of it. For the payee, a screenshot from someone else phone is weak evidence, because it can be edited and it does not show that the money actually arrived. What the payee should keep is the credit entry in their own statement and, for their customer file, a signed acknowledgement that ties that credit to a specific invoice or purpose. This receipt is that acknowledgement. It is not a replacement for the statement, it is the document that sits in the file alongside it and explains what the transfer was for.</p>' },
+      { q: 'Does the tool save or send my data anywhere?', a: '<p>No. The names, amount, UTR and remarks you type are used only in your browser to render the preview, the print view and the copied text. There is no account, no server call and no stored history; when you close the tab the details are gone unless you have printed, saved or copied the receipt. The print step uses your own browser print dialog, where you can choose Save as PDF as the destination on Chrome, Edge, Safari and Firefox on desktop and on most Android phones. If you want a copy of every receipt you issue, save the PDF into a folder named by month, the same way you would file invoices.</p>' },
+      { q: 'How is this different from the payment receipt and cash receipt generators?', a: '<p>All three produce a signed acknowledgement of money received, but they capture different details. The payment receipt generator is the general-purpose version with a receipt number and a mode dropdown, and it downloads a PDF directly. The cash receipt generator adds an auto-incrementing receipt number, a received-from and towards line, and a revenue stamp box for cash above Rs 5,000. This bank transfer version is built around the UTR, the transfer mode, the bank and the last four digits of the account, which are the details an accountant needs to reconcile an electronic credit. Use whichever matches how the money actually moved.</p>' },
+    ],
+    related: [
+      { href: '/pages/tools/payment-receipt-generator', title: 'Payment Receipt Generator', blurb: 'General-purpose numbered receipt as a PDF.' },
+      { href: '/pages/tools/cash-receipt-generator', title: 'Cash Receipt Generator', blurb: 'Cash-specific receipt with auto numbering.' },
+      { href: '/pages/tools/upi-qr-code-generator', title: 'UPI QR Code Generator', blurb: 'Collect the payment in the first place.' },
+    ],
+  },
+  // =========================================================================
+  // ========================== CASH RECEIPT GENERATOR ======================
+  // =========================================================================
+  {
+    slug: 'cash-receipt-generator',
+    category: 'run',
+    built: true,
+    name: 'Cash Receipt Generator',
+    tagline: 'Numbered cash receipt with received-from, towards and signature line.',
+    primaryKeyword: 'cash receipt generator',
+    solutionHref: '/pages/solutions/boutiques',
+    solutionLabel: 'Boutiques and retail shops',
+    metaTitle: 'Cash Receipt Generator — Printable, Numbered, Free | Neweb',
+    metaDescription: 'Make a numbered cash receipt in seconds: received from, amount in words, towards, date and signature line. Auto receipt numbering, printable A5 or A4, free.',
+    h1: 'Cash Receipt <span class="serif">Generator</span>.',
+    lede: 'Issue a numbered cash payment receipt with received-from, towards, amount in words and a signature line. The receipt number advances automatically each time you print. Runs entirely in your browser.',
+    widget: {
+      html: `
+        <div class="tool-row">
+          <div class="field"><label for="cr-biz">Received by (your business or name)</label><input id="cr-biz" type="text" placeholder="e.g. Sharma Boutique, Karol Bagh"/></div>
+          <div class="field"><label for="cr-no">Receipt number (auto)</label>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><input id="cr-prefix" type="text" placeholder="Prefix" aria-label="Receipt number prefix"/><input id="cr-no" type="text" aria-label="Receipt serial number" inputmode="numeric"/></div>
+          </div>
+        </div>
+        <div class="tool-row">
+          <div class="field"><label for="cr-from">Received from</label><input id="cr-from" type="text" placeholder="Name of the person paying"/></div>
+          <div class="field"><label for="cr-date">Date</label><input id="cr-date" type="date"/></div>
+        </div>
+        <div class="tool-row">
+          <div class="field"><label for="cr-amt">Amount received in cash (in rupees)</label><input id="cr-amt" type="number" step="any" min="0" placeholder="e.g. 4500"/></div>
+          <div class="field"><label for="cr-size">Paper size</label>
+            <select id="cr-size"><option value="A5">A5 (half page)</option><option value="A4">A4</option></select>
+          </div>
+        </div>
+        <div class="field"><label for="cr-towards">Towards (what the payment is for)</label><input id="cr-towards" type="text" placeholder="e.g. Bill no. 118, two kurta sets"/></div>
+        <div class="tool-row">
+          <div class="field"><label for="cr-sig">Signature line label</label><input id="cr-sig" type="text" value="Authorised signatory"/></div>
+          <div class="field"><label for="cr-bal">Balance due, if any (in rupees)</label><input id="cr-bal" type="number" step="any" min="0" placeholder="0"/></div>
+        </div>
+        <div class="tool-actions">
+          <button id="cr-preview" type="button" class="btn btn-ghost">Preview receipt</button>
+          <button id="cr-print" type="button" class="btn btn-brand">Print / save as PDF</button>
+          <button id="cr-copy" type="button" class="btn btn-ghost">Copy as text</button>
+          <button id="cr-reset" type="button" class="btn btn-ghost" style="margin-left:auto;font-size:13px">Reset numbering</button>
+        </div>
+        <div id="cr-msg" role="status" aria-live="polite" style="font-size:13px;color:var(--muted);margin-top:10px"></div>
+        <div id="cr-out" style="display:none;margin-top:18px"></div>
+      `,
+      help: 'The receipt number, prefix and your business name are remembered in this browser (localStorage) and the serial advances each time you print. Nothing is sent to a server.',
+      js: ESCAPE_HTML + `
+(function(){
+  var out=document.getElementById('cr-out'), msg=document.getElementById('cr-msg');
+  var KEY='nw-cash-receipt';
+  function val(id){ return (document.getElementById(id).value||'').trim(); }
+  function setv(id,v){ document.getElementById(id).value=v; }
+  function fmt(n){ if(!isFinite(n)) return '0.00'; return (Math.round(n*100)/100).toLocaleString('en-IN',{minimumFractionDigits:2,maximumFractionDigits:2}); }
+  function pad4(n){ n=String(n); while(n.length<4) n='0'+n; return n; }
+  var d=new Date(); var pad=function(n){return n<10?'0'+n:n;};
+  setv('cr-date', d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate()));
+  function fy(){ var y=d.getFullYear(); var m=d.getMonth()+1; var s=m>=4?y:y-1; return String(s).slice(2)+'-'+String(s+1).slice(2); }
+  function load(){ try{ return JSON.parse(localStorage.getItem(KEY)||'{}'); }catch(e){ return {}; } }
+  function save(o){ try{ localStorage.setItem(KEY, JSON.stringify(o)); }catch(e){} }
+  var st=load();
+  setv('cr-prefix', st.prefix || ('CR/'+fy()+'/'));
+  setv('cr-no', pad4(st.seq || 1));
+  if(st.biz) setv('cr-biz', st.biz);
+  if(st.sig) setv('cr-sig', st.sig);
+  function niceDate(iso){ if(!iso) return '—'; var p=iso.split('-'); var dt=new Date(+p[0],+p[1]-1,+p[2]); return dt.toLocaleDateString('en-IN',{day:'2-digit',month:'short',year:'numeric'}); }
+  function words(num){
+    if(num===0) return 'Zero';
+    var a=['','One','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten','Eleven','Twelve','Thirteen','Fourteen','Fifteen','Sixteen','Seventeen','Eighteen','Nineteen'];
+    var b=['','','Twenty','Thirty','Forty','Fifty','Sixty','Seventy','Eighty','Ninety'];
+    function two(n){ if(n<20) return a[n]; var t=Math.floor(n/10), u=n%10; return b[t]+(u?' '+a[u]:''); }
+    function three(n){ var h=Math.floor(n/100), r=n%100, s=''; if(h) s+=a[h]+' Hundred'; if(r){ if(s) s+=' '; s+=two(r);} return s; }
+    var crore=Math.floor(num/10000000); num%=10000000;
+    var lakh=Math.floor(num/100000); num%=100000;
+    var thou=Math.floor(num/1000); num%=1000;
+    var parts=[];
+    if(crore) parts.push((crore>=100?three(crore):two(crore))+' Crore');
+    if(lakh) parts.push(two(lakh)+' Lakh');
+    if(thou) parts.push(two(thou)+' Thousand');
+    if(num) parts.push(three(num));
+    return parts.join(' ');
+  }
+  function amountWords(amt){ var r=Math.floor(amt); var p=Math.round((amt-r)*100); if(p===100){r+=1;p=0;} var s='Rupees '+words(r); if(p) s+=' and '+words(p)+' Paise'; return s+' Only'; }
+  var CSS='.nwr{max-width:640px;margin:0 auto;border:1px solid #d6d9e0;border-radius:10px;padding:26px 28px;background:#fff;color:#111;font-family:Arial,Helvetica,sans-serif}'
+    +'.nwr-head{display:flex;justify-content:space-between;gap:16px;border-bottom:2px solid #111;padding-bottom:12px;margin-bottom:16px;flex-wrap:wrap}'
+    +'.nwr-title{font-size:17px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}.nwr-sub{font-size:12px;color:#555;margin-top:3px}'
+    +'.nwr-meta{font-size:12.5px;color:#333;text-align:right;line-height:1.6}'
+    +'.nwr-amt{font-size:28px;font-weight:700;margin:6px 0 2px}.nwr-words{font-size:13px;font-style:italic;color:#333;margin-bottom:16px}'
+    +'.nwr table{width:100%;border-collapse:collapse;font-size:13.5px}.nwr td{padding:8px 0;border-bottom:1px solid #e5e7eb;vertical-align:top}.nwr td:first-child{color:#555;width:38%}'
+    +'.nwr-sign{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;margin-top:36px}.nwr-sign .line{width:45%;border-top:1px solid #111;padding-top:6px;font-size:12px;color:#333}'
+    +'.nwr-stamp{width:84px;height:64px;border:1px dashed #999;display:flex;align-items:center;justify-content:center;font-size:9px;color:#777;text-align:center;padding:4px;line-height:1.3}'
+    +'.nwr-disc{margin-top:18px;font-size:10.5px;color:#666;line-height:1.5;border-top:1px dashed #ccc;padding-top:10px}';
+  function data(){
+    return { biz:val('cr-biz')||'—', no:(val('cr-prefix')+val('cr-no'))||'—', from:val('cr-from')||'—', date:niceDate(val('cr-date')), amt:parseFloat(val('cr-amt'))||0, towards:val('cr-towards')||'—', sig:val('cr-sig')||'Authorised signatory', bal:parseFloat(val('cr-bal'))||0 };
+  }
+  function receiptHtml(x){
+    var stamp = x.amt>5000 ? '<div class="nwr-stamp">Affix Re 1 revenue stamp (cash receipt above Rs 5,000)</div>' : '';
+    return '<style>'+CSS+'</style><div class="nwr">'
+      +'<div class="nwr-head"><div><div class="nwr-title">Cash Receipt</div><div class="nwr-sub">'+escHtml(x.biz)+'</div></div>'
+      +'<div class="nwr-meta">Receipt no.: <strong>'+escHtml(x.no)+'</strong><br>Date: '+escHtml(x.date)+'</div></div>'
+      +'<div class="nwr-amt">Rs '+fmt(x.amt)+'</div><div class="nwr-words">'+amountWords(x.amt)+'</div>'
+      +'<table><tr><td>Received from</td><td>'+escHtml(x.from)+'</td></tr>'
+      +'<tr><td>Towards</td><td>'+escHtml(x.towards)+'</td></tr>'
+      +'<tr><td>Mode of payment</td><td>Cash</td></tr>'
+      +(x.bal>0?'<tr><td>Balance due</td><td>Rs '+fmt(x.bal)+'</td></tr>':'')
+      +'</table>'
+      +'<div class="nwr-sign">'+stamp+'<div class="line">'+escHtml(x.sig)+' / for '+escHtml(x.biz)+'</div></div>'
+      +'<div class="nwr-disc">Cash received as stated above. This receipt is not a tax invoice. Generated with the Neweb Cash Receipt Generator, neweb.ai/pages/tools/cash-receipt-generator.</div></div>';
+  }
+  function receiptText(x){
+    return ['CASH RECEIPT · '+x.no,x.biz,'Date: '+x.date,'Received from: '+x.from,'Amount: Rs '+fmt(x.amt)+' ('+amountWords(x.amt)+')','Towards: '+x.towards,'Mode: Cash'].concat(x.bal>0?['Balance due: Rs '+fmt(x.bal)]:[]).concat(['',x.sig+' / for '+x.biz]).join('\\n');
+  }
+  function render(){
+    var x=data();
+    if(!(x.amt>0)){ msg.textContent='Enter the cash amount received to build the receipt.'; out.style.display='none'; return null; }
+    msg.textContent = x.amt>=200000 ? 'Note: receiving Rs 2 lakh or more in cash from one person in a day is barred by Section 269ST of the Income-tax Act.' : '';
+    out.style.display='block'; out.innerHTML=receiptHtml(x);
+    return x;
+  }
+  function persist(){ var s=load(); s.prefix=val('cr-prefix'); s.biz=val('cr-biz'); s.sig=val('cr-sig'); s.seq=parseInt(val('cr-no'),10)||1; save(s); }
+  function printDoc(inner, size, title){
+    var html='<!DOCTYPE html><html><head><meta charset="utf-8"><title>'+title+'</title><style>@page{size:'+size+';margin:12mm}body{margin:0;background:#fff}'+CSS+'.nwr{border:0;max-width:none;padding:0}</style></head><body>'+inner+'</body></html>';
+    var f=document.createElement('iframe'); f.setAttribute('aria-hidden','true'); f.setAttribute('title','print');
+    f.style.cssText='position:fixed;right:0;bottom:0;width:0;height:0;border:0;visibility:hidden';
+    document.body.appendChild(f);
+    var doc=f.contentWindow.document; doc.open(); doc.write(html); doc.close();
+    setTimeout(function(){ try{ f.contentWindow.focus(); f.contentWindow.print(); }catch(e){ window.print(); } setTimeout(function(){ if(f.parentNode) f.parentNode.removeChild(f); }, 60000); }, 300);
+  }
+  function copyText(t){
+    function done(){ msg.textContent='Receipt copied as plain text.'; }
+    function fail(){ msg.textContent='Copy failed. Select the receipt and copy manually.'; }
+    function legacy(){ var ta=document.createElement('textarea'); ta.value=t; ta.setAttribute('readonly',''); ta.style.cssText='position:fixed;top:0;left:0;opacity:0'; document.body.appendChild(ta); ta.select(); try{ document.execCommand('copy'); done(); }catch(e){ fail(); } document.body.removeChild(ta); }
+    if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(t).then(done, legacy); } else { legacy(); }
+  }
+  document.getElementById('cr-preview').addEventListener('click', function(){ persist(); render(); });
+  document.getElementById('cr-print').addEventListener('click', function(){
+    var x=render(); if(!x) return;
+    var inner=receiptHtml(x).replace(/^<style>[\\s\\S]*?<\\/style>/,'');
+    printDoc(inner, val('cr-size')||'A5', 'Cash receipt '+x.no);
+    var next=(parseInt(val('cr-no'),10)||1)+1; setv('cr-no', pad4(next)); persist();
+    msg.textContent='Receipt '+x.no+' sent to print. Next receipt number: '+val('cr-prefix')+pad4(next)+'.';
+  });
+  document.getElementById('cr-copy').addEventListener('click', function(){ var x=render(); if(!x) return; copyText(receiptText(x)); });
+  document.getElementById('cr-reset').addEventListener('click', function(){ setv('cr-no', pad4(1)); setv('cr-prefix','CR/'+fy()+'/'); persist(); msg.textContent='Numbering reset to '+val('cr-prefix')+'0001.'; });
+})();
+`,
+    },
+    exampleOutput: `
+      <div class="eo-item"><div><div class="eo-main">Receipt CR/26-27/0042 · Rs 4,500.00</div><div class="eo-sub">Rupees Four Thousand Five Hundred Only, received in cash from Priya Nair.</div></div></div>
+      <div class="eo-item"><div><div class="eo-main">Towards: Bill no. 118, two kurta sets</div><div class="eo-sub">The line an accountant uses to match the receipt to the sale.</div></div></div>
+      <div class="eo-item"><div><div class="eo-main">Next receipt: CR/26-27/0043</div><div class="eo-sub">The serial advances automatically after each print.</div></div></div>
+      <div class="eo-note">Sample receipt. Enter your own details above; numbering is remembered in your browser.</div>
+    `,
+    intro: `
+      <p>Cash has not gone away. Boutiques, tuition classes, repair shops, clinics, caterers and small traders still take a large share of payments in notes, and every one of those payments should end with a receipt. A receipt with a running serial number is what makes a cash book auditable: your accountant can see that receipts 41, 42 and 43 exist, add up the day, and match the total against the cash deposited. Without numbering, cash sales blur into each other and a single dispute over whether a customer paid the balance becomes your word against theirs.</p>
+      <p>This tool issues a proper cash receipt in the format Indian businesses expect: receipt number, date, received from, amount in figures and in Indian words, towards, mode of payment marked as cash, an optional balance due, and a signature line. The serial number is stored in your browser and advances automatically every time you print, so consecutive receipts do not collide. When the amount is above Rs 5,000 the receipt shows a box for the one-rupee revenue stamp that the Indian Stamp Act requires on cash receipts of that size.</p>
+      <p>Print on A5 to fit two receipts per sheet, or on A4 with room for a letterhead. Use the copy button to send the receipt text on WhatsApp when the customer is not in front of you.</p>
+    `,
+    howTo: [
+      'Enter your <strong>business name</strong> once. It is remembered in this browser along with your receipt prefix and signature label.',
+      'Check the <strong>receipt number</strong>. The default prefix uses the current financial year (for example CR/26-27/) and the serial starts at 0001; change either if you are continuing an existing series.',
+      'Fill in <strong>received from</strong>, the <strong>cash amount</strong>, the <strong>date</strong> and what the payment is <strong>towards</strong>, such as a bill number or a service.',
+      'Add a <strong>balance due</strong> if this is a part payment, then click <strong>Preview receipt</strong> to check the amount in words.',
+      'Click <strong>Print / save as PDF</strong>. The serial advances automatically for the next receipt. Use <strong>Copy as text</strong> to send a plain-text version on WhatsApp.',
+    ],
+    why: `
+      <p><strong>Cash needs the strongest paper trail.</strong> A bank transfer leaves a record on both sides by itself. Cash leaves nothing unless you create the record, and a numbered receipt is the standard way to do that.</p>
+      <p><strong>Numbered receipts make the cash book reconcile.</strong> The day total of receipts should equal cash in the drawer plus deposits. Gaps in the sequence show missing receipts before an auditor finds them.</p>
+      <p><strong>Income tax rules watch cash closely.</strong> Section 269ST bars receiving Rs 2 lakh or more in cash from a person in a day or for one transaction, with a penalty equal to the amount. Section 40A(3) disallows cash expenses above Rs 10,000 for the payer. A clear receipt protects both sides.</p>
+    `,
+    tips: [
+      'Do not reuse a serial. If a receipt is cancelled, keep the number, write cancelled across it and issue the next serial for the corrected receipt.',
+      'Start a new prefix each financial year, such as CR/26-27/, so the series restarts cleanly on 1 April and matches your books.',
+      'Affix a one-rupee revenue stamp across the signature on cash receipts above Rs 5,000; the receipt shows a placeholder box when this applies.',
+      'For a part payment, fill the balance due field so the customer sees what remains and your staff do not have to work it out from the bill.',
+      'A cash receipt is not a tax invoice. If the sale is a GST supply, raise a tax invoice or bill of supply and treat this receipt as the payment acknowledgement.',
+      'Keep the printed duplicate or the PDF for at least 6 years; that is the period for which books are normally required under the Income-tax Act, and longer under GST if a notice is pending.',
+    ],
+    example: `
+      <p>A boutique in Karol Bagh sells two kurta sets for Rs 6,500. The customer pays Rs 4,500 in cash and will collect the altered pieces and pay the balance next week. The owner opens this tool, which already shows her shop name and the next serial CR/26-27/0042, enters the customer name, Rs 4,500, "Bill no. 118, two kurta sets" and a balance due of Rs 2,000.</p>
+      <p>She previews the receipt, sees it reads "Rupees Four Thousand Five Hundred Only" with the balance shown below, and prints it on A5. The serial advances to 0043 for the next customer. When the customer returns, the owner issues receipt 0047 for the Rs 2,000 balance and writes "Balance on bill no. 118" in the towards line. Her month-end cash book shows two numbered receipts adding up to the bill, and nothing to explain.</p>
+    `,
+    faq: [
+      { q: 'What should a cash receipt in India contain?', a: '<p>A usable cash receipt carries a serial number, the date, the name of the person paying, the amount in figures and in words, what the payment is for, the mode of payment (cash), the name of the business receiving it and a signature. If the payment is partial, it should state the balance still due. For amounts above Rs 5,000 a one-rupee revenue stamp is customary and, under the Indian Stamp Act, required on receipts as evidence of payment. This tool includes every one of those elements and adds the revenue stamp box automatically above that threshold. Add your GSTIN in the business name field if your customers regularly ask for it, though a cash receipt is not a substitute for a tax invoice.</p>' },
+      { q: 'How does the automatic receipt numbering work?', a: '<p>The tool keeps a small record in your browser storage (localStorage) with your prefix, your business name, the signature label and the next serial number. Each time you click Print, the current serial is used on the receipt and the stored counter moves forward by one, so the next receipt you issue on the same browser continues the sequence. If you preview without printing, the number does not advance. The counter lives only in that browser: a different laptop, a different browser or a cleared browsing history will start again from 0001, so if more than one person issues receipts, either use one shared device or give each a different prefix such as CR/A/ and CR/B/. Use the Reset numbering button at the start of a new financial year.</p>' },
+      { q: 'Is a revenue stamp compulsory on a cash receipt?', a: '<p>Under Article 53 of Schedule I of the Indian Stamp Act, a receipt for an amount exceeding Rs 5,000 attracts a stamp duty of one rupee, paid by affixing a revenue stamp that the recipient signs across. In practice this applies to cash receipts and to receipts given for cheques and drafts, and it is widely followed by shops, landlords and professionals. Where a receipt is not stamped, the main consequence is that it may not be admitted as evidence in court unless the duty and a penalty are paid later; it does not make the payment itself invalid. Many state amendments keep the threshold at Rs 5,000, though you should confirm the position in your state. The tool prints a dashed stamp box whenever the amount crosses Rs 5,000 as a reminder.</p>' },
+      { q: 'Is there a limit on how much cash a business can accept?', a: '<p>Yes. Section 269ST of the Income-tax Act prohibits any person from receiving Rs 2,00,000 or more in cash in aggregate from one person in a day, in respect of a single transaction, or in respect of transactions relating to one event or occasion. The penalty under Section 271DA equals the amount received. The rule looks at the receiver, so a shop that accepts Rs 2 lakh in cash for a single bill, even across several receipts on the same day, is exposed. Separately, Section 40A(3) means the payer cannot claim a cash expense above Rs 10,000 to one person in a day as a business deduction, which is why business customers increasingly insist on paying larger amounts by transfer. The tool shows a warning when the receipt amount reaches Rs 2 lakh.</p>' },
+      { q: 'Is a cash receipt the same as an invoice or bill?', a: '<p>No. An invoice or bill records a sale and what is owed; a receipt records that money has been received. Under GST a registered supplier must issue a tax invoice or a bill of supply for the sale, and the cash receipt then acknowledges the payment against it, which is why the towards line on this receipt is meant to carry the bill number. Unregistered small businesses that only issue a bill of sale still benefit from a separate receipt for part payments and advances, because it states clearly what has been paid and what remains. If you need the invoice itself, the GST invoice generator on this site builds a Rule 46 compliant document, and this cash receipt becomes its companion.</p>' },
+      { q: 'Can I print two receipts on one page or use my letterhead?', a: '<p>Choose A5 as the paper size and, in the browser print dialog, set pages per sheet to 2 to get two receipts on one A4 sheet, which is the layout most receipt books use. For letterhead, pick A4 and load your pre-printed paper; the receipt is laid out with margins so the header area stays clear, and you can leave the business name field short so it does not repeat what the letterhead already shows. On Chrome, Edge, Safari and Firefox the same dialog lets you select Save as PDF instead of a printer, which is how you keep a digital duplicate of every receipt.</p>' },
+      { q: 'Does the tool store my customer names or amounts?', a: '<p>Only your own settings are stored: the business name, the prefix, the signature label and the running serial number, all in your browser localStorage so that you do not retype them. Customer names, amounts and the towards text are used just to render the receipt and are not saved anywhere or sent to any server. When you close the tab they are gone, so print or save the PDF before moving on. Because everything runs locally, the tool keeps working once the page has loaded even if your shop internet drops.</p>' },
+    ],
+    related: [
+      { href: '/pages/tools/payment-receipt-generator', title: 'Payment Receipt Generator', blurb: 'One receipt format for any payment mode.' },
+      { href: '/pages/tools/bank-transfer-receipt-generator', title: 'Bank Transfer Receipt', blurb: 'Acknowledge NEFT, IMPS, RTGS or UPI with the UTR.' },
+      { href: '/pages/tools/rent-receipt-generator', title: 'Rent Receipt Generator', blurb: 'Monthly rent receipts for HRA claims.' },
+    ],
+  },
+  // =========================================================================
+  // ============================== HRA CALCULATOR ==========================
+  // =========================================================================
+  {
+    slug: 'hra-calculator',
+    category: 'run',
+    built: true,
+    name: 'HRA Calculator',
+    tagline: 'Work out your HRA exemption under Section 10(13A) and the taxable part.',
+    primaryKeyword: 'hra calculator',
+    solutionHref: '/pages/solutions/tutoring',
+    solutionLabel: 'Coaching centres and tutors',
+    metaTitle: 'HRA Calculator — HRA Exemption for FY 2025-26 | Neweb',
+    metaDescription: 'Calculate HRA exemption under Section 10(13A): enter basic, DA, HRA received, rent paid and metro or non-metro city to see the exempt and taxable HRA. Free.',
+    h1: 'HRA Exemption <span class="serif">Calculator</span>.',
+    lede: 'Enter basic salary, dearness allowance, HRA received, rent paid and whether you live in a metro city. We show the three limits under Rule 2A, the exempt HRA and the taxable part, monthly and for the year. Runs entirely in your browser.',
+    widget: {
+      html: `
+        <div class="tool-row">
+          <div class="field"><label for="hra-period">Figures entered are</label>
+            <select id="hra-period"><option value="m" selected>Per month</option><option value="y">Per year</option></select>
+          </div>
+          <div class="field"><label for="hra-city">City of residence</label>
+            <select id="hra-city"><option value="metro">Metro: Delhi, Mumbai, Kolkata, Chennai (50%)</option><option value="non" selected>Any other city (40%)</option></select>
+          </div>
+        </div>
+        <div class="tool-row">
+          <div class="field"><label for="hra-basic">Basic salary (in rupees)</label><input id="hra-basic" type="number" step="any" min="0" placeholder="e.g. 40000"/></div>
+          <div class="field"><label for="hra-da">Dearness allowance, if part of retirement benefits</label><input id="hra-da" type="number" step="any" min="0" placeholder="0"/></div>
+        </div>
+        <div class="tool-row">
+          <div class="field"><label for="hra-recd">HRA received from employer</label><input id="hra-recd" type="number" step="any" min="0" placeholder="e.g. 16000"/></div>
+          <div class="field"><label for="hra-rent">Rent actually paid</label><input id="hra-rent" type="number" step="any" min="0" placeholder="e.g. 15000"/></div>
+        </div>
+        <div class="tool-actions">
+          <button id="hra-go" type="button" class="btn btn-brand">Calculate HRA exemption</button>
+        </div>
+        <div id="hra-out" style="display:none;margin-top:18px"></div>
+      `,
+      help: 'HRA exemption is available only under the old tax regime. The default regime from FY 2023-24 is the new regime, where HRA is fully taxable. All maths runs in your browser.',
+      js: `
+(function(){
+  var out=document.getElementById('hra-out');
+  function num(id){ return parseFloat(document.getElementById(id).value)||0; }
+  function fmt(n){ if(!isFinite(n)) return '0'; return Math.round(n).toLocaleString('en-IN'); }
+  function err(m){ out.style.display='block'; out.innerHTML='<div style="padding:18px;background:#fde8e8;border:1px solid rgba(220,38,38,.2);border-radius:12px;color:#9b1c1c">'+m+'</div>'; }
+  document.getElementById('hra-go').addEventListener('click', function(){
+    var per=document.getElementById('hra-period').value; var metro=document.getElementById('hra-city').value==='metro';
+    var k = per==='m' ? 12 : 1;
+    var basic=num('hra-basic')*k, da=num('hra-da')*k, hra=num('hra-recd')*k, rent=num('hra-rent')*k;
+    if(basic<=0){ err('Enter your basic salary.'); return; }
+    if(hra<=0){ err('Enter the HRA you receive. If your salary has no HRA component, no exemption under Section 10(13A) is available (see Section 80GG instead).'); return; }
+    var sal=basic+da;
+    var a=hra, b=Math.max(0, rent-0.10*sal), c=(metro?0.50:0.40)*sal;
+    var ex=Math.max(0, Math.min(a,b,c));
+    var taxable=hra-ex;
+    var which = ex===0 ? 'none' : (ex===b ? 'b' : (ex===a ? 'a' : 'c'));
+    var reason = { a:'Actual HRA received is the lowest of the three, so the whole HRA is exempt.', b:'Rent paid minus 10% of salary is the lowest, so this decides the exemption.', c:(metro?'50%':'40%')+' of salary is the lowest, so this caps the exemption.', none:'Rent paid does not exceed 10% of basic plus DA, so nothing is exempt.' }[which];
+    function row(l,v,hl){ return '<dt style="color:'+(hl?'var(--ink);font-weight:600':'var(--muted)')+'">'+l+'</dt><dd style="margin:0;text-align:right;'+(hl?'font-weight:600;color:var(--ink)':'')+'">Rs '+fmt(v/12)+' / mo · Rs '+fmt(v)+' / yr</dd>'; }
+    out.style.display='block';
+    out.innerHTML='<div style="padding:18px;background:#f0fdf5;border:1px solid rgba(22,163,74,.25);border-radius:12px">'
+      +'<div style="font-family:JetBrains Mono,monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)">Exempt HRA (annual)</div>'
+      +'<div style="font-weight:700;color:#0a6b3d;font-size:30px;margin:4px 0 2px">Rs '+fmt(ex)+'</div>'
+      +'<div style="font-size:13.5px;color:var(--ink-2);margin-bottom:14px">Rs '+fmt(ex/12)+' per month · '+reason+'</div>'
+      +'<dl style="display:grid;grid-template-columns:1fr auto;gap:8px 16px;font-size:14px;color:var(--ink-2);margin:0">'
+      +row('(a) Actual HRA received', a, which==='a')
+      +row('(b) Rent paid minus 10% of basic + DA', b, which==='b')
+      +row('(c) '+(metro?'50%':'40%')+' of basic + DA', c, which==='c')
+      +row('Exempt HRA = lowest of a, b, c', ex, true)
+      +row('Taxable HRA (added to salary income)', taxable, false)
+      +'</dl>'
+      +(rent>100000?'<p style="margin:14px 0 0;font-size:13px;color:var(--ink-2);line-height:1.5">Annual rent exceeds Rs 1,00,000: give your landlord PAN (or a declaration if they have none) to your employer with Form 12BB.</p>':'')
+      +'<p style="margin:10px 0 0;font-size:13px;color:var(--muted);line-height:1.5">Exemption under Section 10(13A) read with Rule 2A, available only if you opt for the old tax regime. Under the new regime the full HRA of Rs '+fmt(hra)+' is taxable.</p>'
+      +'</div>';
+  });
+})();
+`,
+    },
+    exampleOutput: `
+      <div class="eo-item"><div><div class="eo-main">Exempt HRA: Rs 1,32,000 per year</div><div class="eo-sub">Basic Rs 40,000, HRA Rs 16,000, rent Rs 15,000 per month in a non-metro city.</div></div></div>
+      <div class="eo-item"><div><div class="eo-main">(a) Rs 1,92,000 · (b) Rs 1,32,000 · (c) Rs 1,92,000</div><div class="eo-sub">Rent minus 10% of salary is the lowest, so it sets the exemption.</div></div></div>
+      <div class="eo-item"><div><div class="eo-main">Taxable HRA: Rs 60,000</div><div class="eo-sub">The balance of the HRA is added to salary income under the old regime.</div></div></div>
+      <div class="eo-note">Sample calculation. Enter your own salary and rent above.</div>
+    `,
+    intro: `
+      <p>House Rent Allowance is the most common salary component that Indian employees can partly shield from tax, and also the one most often calculated wrongly. The exemption under Section 10(13A) of the Income-tax Act, read with Rule 2A, is not the HRA you receive and not the rent you pay; it is the lowest of three figures: the actual HRA, the rent paid minus 10 percent of salary, and 50 percent of salary in Delhi, Mumbai, Kolkata or Chennai or 40 percent elsewhere. Salary for this purpose means basic pay plus dearness allowance that counts for retirement benefits, plus any fixed commission on turnover.</p>
+      <p>This calculator does that comparison for you. Enter the four numbers per month or per year, pick your city, and you get all three limits, the exempt HRA, and the taxable balance that goes into your salary income. Small employers use it to fill Form 16 and answer staff questions at proof-submission time; employees use it to decide whether the old regime with HRA and Section 80C still beats the new regime.</p>
+      <p>Remember that the exemption exists only in the old regime. Since FY 2023-24 the new regime is the default, and under it HRA is fully taxable, so the figure here matters only if you opt out of the new regime when filing or when giving your declaration to your employer.</p>
+    `,
+    howTo: [
+      'Choose whether you are entering <strong>monthly</strong> or <strong>annual</strong> figures. The result shows both.',
+      'Pick your <strong>city</strong>. Only Delhi, Mumbai, Kolkata and Chennai count as metro for the 50 percent limit; Bengaluru, Hyderabad, Pune and every other city use 40 percent.',
+      'Enter <strong>basic salary</strong>, <strong>dearness allowance</strong> if it forms part of retirement benefits, the <strong>HRA received</strong> from your salary slip, and the <strong>rent actually paid</strong>.',
+      'Click <strong>Calculate</strong>. The lowest of the three limits is highlighted, and the taxable HRA is what gets added to your salary income under the old regime.',
+    ],
+    why: `
+      <p><strong>For employers.</strong> If you run payroll for even five people, you compute this exemption at proof-submission time and again in Form 16. Getting it wrong means either excess TDS for staff or a short deduction that the employer answers for.</p>
+      <p><strong>For employees.</strong> Since the new regime became the default, HRA is the single biggest reason the old regime may still win. Knowing the exempt amount is the first step in that comparison.</p>
+      <p><strong>For rent paid to family.</strong> Paying rent to parents is allowed if the money actually moves, rent receipts exist and the parent declares the rental income. The calculation is identical.</p>
+    `,
+    tips: [
+      'Only basic and DA (if it counts for retirement benefits) form salary for this rule. Special allowance, bonus and reimbursements do not.',
+      'If you changed cities or rent during the year, compute each period separately and add the exempt amounts; the rule applies month by month, not on annual totals.',
+      'Rent above Rs 1,00,000 a year requires the landlord PAN in your Form 12BB declaration; if the landlord has no PAN, a declaration from them is required.',
+      'Keep rent receipts and, ideally, bank transfers for every month. The rent receipt generator on this site produces monthly receipts with a revenue stamp box.',
+      'No HRA in your salary but still paying rent? Section 80GG allows a deduction up to Rs 5,000 a month, subject to its own limits, again only under the old regime.',
+      'Owning a house in the same city where you claim HRA on a rented one is a common query; the exemption is still available if you genuinely live in the rented house.',
+    ],
+    example: `
+      <p>A coaching centre in Jaipur pays a senior teacher a basic salary of Rs 40,000 a month with HRA of Rs 16,000, and no dearness allowance. The teacher pays Rs 15,000 a month in rent for a flat near the centre. Jaipur is not one of the four metro cities, so the third limit is 40 percent.</p>
+      <p>The three annual figures are: actual HRA Rs 1,92,000; rent paid Rs 1,80,000 minus 10 percent of salary Rs 48,000, which is Rs 1,32,000; and 40 percent of salary, Rs 1,92,000. The lowest is Rs 1,32,000, so that much of the HRA is exempt and the remaining Rs 60,000 is taxable. Because annual rent is above Rs 1 lakh, the teacher gives the landlord PAN with Form 12BB. The centre owner uses the same figures in Form 16 at year end.</p>
+    `,
+    faq: [
+      { q: 'How is the HRA exemption calculated?', a: '<p>Under Section 10(13A) and Rule 2A, the exempt portion of HRA is the least of three amounts: the HRA actually received for the period; the rent paid for the period minus 10 percent of salary; and 50 percent of salary if the rented house is in Delhi, Mumbai, Kolkata or Chennai, or 40 percent of salary in any other city. Salary here means basic pay plus dearness allowance if the terms of employment count it for retirement benefits, plus commission fixed as a percentage of turnover. Whatever part of the HRA is not exempt is taxed as salary. The calculation is done for the period the conditions hold, so a change in rent, city or salary mid-year means computing each period separately and adding the results.</p>' },
+      { q: 'Is HRA exemption available under the new tax regime?', a: '<p>No. The new regime under Section 115BAC, which is the default from FY 2023-24 onwards, does away with most exemptions and deductions, including the HRA exemption under Section 10(13A), Section 80C, Section 80D and the deduction for home loan interest on a self-occupied house. In exchange it offers lower slab rates and, from FY 2025-26, no tax on income up to Rs 12 lakh after the Section 87A rebate, plus a standard deduction of Rs 75,000 for salaried taxpayers. Whether the old regime with HRA still works out better depends on your rent, your 80C investments and your income level. Run this calculator, then compare the two regimes with the income tax calculator on this site.</p>' },
+      { q: 'Which cities count as metro for the 50 percent limit?', a: '<p>Only four: Delhi, Mumbai, Kolkata and Chennai. The list comes from Rule 2A and has not been updated even though Bengaluru, Hyderabad, Pune, Ahmedabad and Gurugram have grown into large expensive cities. For every city other than the four, including all of those, the limit is 40 percent of salary. Note that the rule refers to the city where the rented accommodation is situated, not where the employer office is, so an employee living in a rented flat in Noida or Gurugram while working in Delhi uses 40 percent, whereas one renting inside Delhi uses 50 percent.</p>' },
+      { q: 'Can I claim HRA if I pay rent to my parents or spouse?', a: '<p>Rent paid to parents is accepted as long as the arrangement is genuine: the house belongs to the parent, you actually pay the rent, preferably by bank transfer, you hold rent receipts, and the parent shows the rent as income in their own return. Tax tribunals have allowed such claims repeatedly when the money trail exists, and disallowed them when it did not. Rent paid to a spouse is treated with more suspicion because spouses are generally seen as one household, and while there are isolated rulings allowing it, most employers will not accept it in proofs. If you do pay rent to a parent, get a simple rent agreement, use the rent receipt generator on this site each month and keep the bank records.</p>' },
+      { q: 'What proof does my employer need for the HRA exemption?', a: '<p>Under Rule 26C the employee gives Form 12BB to the employer with the rent details, the landlord name and address, and the landlord PAN if the total rent for the year exceeds Rs 1,00,000. Employers usually ask for rent receipts for each month or quarter, and many ask for a copy of the rent agreement as well. If the landlord does not have a PAN, a signed declaration from the landlord to that effect is required. Employees who miss the proof deadline can still claim the exemption in their income tax return, as long as they are in the old regime and hold the evidence, but the TDS during the year will have been deducted without the benefit.</p>' },
+      { q: 'What if my salary has no HRA component at all?', a: '<p>Then Section 10(13A) does not apply, because there is no HRA to exempt. Employees and self-employed people who pay rent without receiving HRA can look at Section 80GG instead, which allows a deduction equal to the least of Rs 5,000 per month, 25 percent of total income, or rent paid minus 10 percent of total income, provided neither they nor their spouse or minor child own a house in the city where they live and work. Section 80GG needs Form 10BA to be filed and, like the HRA exemption, is available only under the old regime.</p>' },
+      { q: 'Is dearness allowance always included in salary for HRA?', a: '<p>Only when the terms of employment provide that DA counts for retirement benefits such as provident fund or gratuity, which is typical of government and public sector pay structures. In most private companies there is no DA at all, and the salary for the HRA rule is simply the basic pay. If you are unsure, check your appointment letter or ask HR; a wrong assumption changes both the 10 percent deduction from rent and the 40 or 50 percent limit. Fixed commission calculated as a percentage of turnover also forms part of salary for this rule, though it is rare in ordinary salaried jobs.</p>' },
+      { q: 'Does this calculator send my salary details anywhere?', a: '<p>No. The figures are used only inside your browser to compute the three limits and the exempt amount, and nothing is stored or transmitted. There is no login and no history, so you can enter real salary and rent numbers freely and re-run the calculation as many times as you like. If you want to keep the result, note it down or take a screenshot before you change the inputs.</p>' },
+    ],
+    related: [
+      { href: '/pages/tools/income-tax-calculator', title: 'Income Tax Calculator', blurb: 'Compare old and new regime after HRA.' },
+      { href: '/pages/tools/rent-receipt-generator', title: 'Rent Receipt Generator', blurb: 'Monthly rent receipts for your proofs.' },
+      { href: '/pages/tools/salary-slip-generator', title: 'Salary Slip Generator', blurb: 'Show HRA as a separate component on the slip.' },
+    ],
+  },
+  // =========================================================================
+  // ============================== TDS CALCULATOR ==========================
+  // =========================================================================
+  {
+    slug: 'tds-calculator',
+    category: 'run',
+    built: true,
+    name: 'TDS Calculator',
+    tagline: 'TDS on contractors, professionals, rent, commission and purchases for FY 2025-26.',
+    primaryKeyword: 'tds calculator',
+    solutionHref: '/pages/solutions/freelancers-consultants',
+    solutionLabel: 'Freelancers and consultants',
+    metaTitle: 'TDS Calculator FY 2025-26 — 194C, 194J, 194H, 194I | Neweb',
+    metaDescription: 'Calculate TDS on contractor, professional, rent, commission and goods purchase payments with FY 2025-26 rates and thresholds. See TDS, net payable and the rule.',
+    h1: 'TDS <span class="serif">Calculator</span>.',
+    lede: 'Pick the section, enter the payment and whether the payee has a PAN. We apply the FY 2025-26 rate and threshold, show the TDS to deduct, the net amount to pay, and the rule in plain words. Runs entirely in your browser.',
+    widget: {
+      html: `
+        <div class="field"><label for="tds-sec">Nature of payment (section)</label>
+          <select id="tds-sec">
+            <option value="194C" selected>194C · Contractor / sub-contractor (job work, transport, labour, AMC)</option>
+            <option value="194J-prof">194J · Professional fees (CA, lawyer, doctor, architect, consultant)</option>
+            <option value="194J-tech">194J · Technical services, call centre, royalty on films</option>
+            <option value="194H">194H · Commission or brokerage</option>
+            <option value="194I-lb">194-I · Rent of land, building or furniture</option>
+            <option value="194I-pm">194-I · Rent of plant, machinery or equipment</option>
+            <option value="194IB">194-IB · Rent paid by individual / HUF not liable to audit</option>
+            <option value="194Q">194Q · Purchase of goods (buyer turnover above Rs 10 crore)</option>
+            <option value="194A">194A · Interest other than on securities (non-bank)</option>
+            <option value="192">192 · Salary (use the income tax calculator)</option>
+          </select>
+        </div>
+        <div class="tool-row">
+          <div class="field"><label for="tds-amt">Payment amount, excluding GST (in rupees)</label><input id="tds-amt" type="number" step="any" min="0" placeholder="e.g. 75000"/></div>
+          <div class="field"><label for="tds-ptype">Payee is</label>
+            <select id="tds-ptype"><option value="ind" selected>Individual or HUF</option><option value="oth">Company, firm, LLP or other</option></select>
+          </div>
+        </div>
+        <div class="tool-row">
+          <div class="field"><label for="tds-pan">Payee has furnished PAN</label>
+            <select id="tds-pan"><option value="y" selected>Yes</option><option value="n">No (Section 206AA higher rate)</option></select>
+          </div>
+          <div class="field"><label for="tds-crossed">Threshold already crossed this FY</label>
+            <select id="tds-crossed"><option value="auto" selected>Check this payment against the threshold</option><option value="y">Yes, deduct regardless of this amount</option></select>
+          </div>
+        </div>
+        <div class="tool-actions">
+          <button id="tds-go" type="button" class="btn btn-brand">Calculate TDS</button>
+        </div>
+        <div id="tds-out" style="display:none;margin-top:18px"></div>
+        <p style="margin:14px 0 0;font-size:12.5px;color:var(--muted);line-height:1.5">Rates and thresholds as of FY 2025-26 (from 1 April 2025). Verify against the current CBDT notifications before deducting.</p>
+      `,
+      help: 'Enter the taxable value excluding GST when GST is shown separately on the invoice (CBDT Circular 23/2017). All maths runs in your browser.',
+      js: `
+(function(){
+  var out=document.getElementById('tds-out');
+  function fmt(n){ if(!isFinite(n)) return '0.00'; return (Math.round(n*100)/100).toLocaleString('en-IN',{minimumFractionDigits:2,maximumFractionDigits:2}); }
+  function inr(n){ return 'Rs '+Math.round(n).toLocaleString('en-IN'); }
+  var S={
+    '194C':{ name:'Section 194C, payment to contractors', rate:function(p){ return p==='ind'?1:2; }, rateNote:'1% for an individual or HUF payee, 2% for any other payee', thrSingle:30000, thrAgg:100000, thrText:'No TDS if a single payment is up to Rs 30,000 and the total to the payee in the financial year is up to Rs 1,00,000. Once either limit is crossed, deduct on the whole amount.', noPan:20, extra:'No TDS on a transporter owning up to 10 goods carriages who gives a declaration with PAN (Section 194C(6)).' },
+    '194J-prof':{ name:'Section 194J, fees for professional services', rate:10, rateNote:'10% on professional fees', thrAgg:50000, thrText:'No TDS if total professional fees to the payee in the financial year are up to Rs 50,000 (limit raised from Rs 30,000 in FY 2025-26).', noPan:20, extra:'Covers legal, medical, engineering, architectural, accountancy, interior decoration, advertising and notified professions.' },
+    '194J-tech':{ name:'Section 194J, fees for technical services', rate:2, rateNote:'2% on fees for technical services, call centre payments and royalty for sale or exhibition of films', thrAgg:50000, thrText:'No TDS if total fees to the payee in the financial year are up to Rs 50,000.', noPan:20, extra:'' },
+    '194H':{ name:'Section 194H, commission or brokerage', rate:2, rateNote:'2% (reduced from 5% with effect from 1 October 2024)', thrAgg:20000, thrText:'No TDS if total commission to the payee in the financial year is up to Rs 20,000 (raised from Rs 15,000 in FY 2025-26).', noPan:20, extra:'Insurance commission falls under Section 194D, not here.' },
+    '194I-lb':{ name:'Section 194-I, rent of land, building or furniture', rate:10, rateNote:'10% on rent of land, building or furniture', thrMonthly:50000, thrText:'From FY 2025-26, no TDS if rent is up to Rs 50,000 per month or part of a month (earlier Rs 2,40,000 per year).', noPan:20, extra:'Applies to businesses and to individuals or HUFs who were liable to tax audit in the previous year; others use Section 194-IB.' },
+    '194I-pm':{ name:'Section 194-I, rent of plant, machinery or equipment', rate:2, rateNote:'2% on rent of plant, machinery or equipment', thrMonthly:50000, thrText:'From FY 2025-26, no TDS if rent is up to Rs 50,000 per month or part of a month.', noPan:20, extra:'' },
+    '194IB':{ name:'Section 194-IB, rent paid by individual or HUF not liable to audit', rate:2, rateNote:'2% (reduced from 5% with effect from 1 October 2024)', thrMonthly:50000, thrText:'Applies only when rent exceeds Rs 50,000 per month or part of a month. Deduct once a year, in the last month of the year or of tenancy, using Form 26QC; no TAN needed.', noPan:20, extra:'Without PAN the deduction is capped at the rent for the last month.' },
+    '194Q':{ name:'Section 194Q, purchase of goods', rate:0.1, rateNote:'0.1% on the value exceeding Rs 50 lakh', thrExcess:5000000, thrText:'Applies to a buyer whose turnover exceeded Rs 10 crore in the previous financial year, on purchases from one seller exceeding Rs 50 lakh in the year. TDS is on the excess over Rs 50 lakh only.', noPan:5, extra:'If 194Q applies, the seller does not collect TCS under Section 206C(1H).' },
+    '194A':{ name:'Section 194A, interest other than on securities', rate:10, rateNote:'10% on interest', thrAgg:10000, thrText:'No TDS if interest paid by a non-bank payer to the payee in the year is up to Rs 10,000. For bank, co-operative bank and post office deposits the limit is Rs 50,000, and Rs 1,00,000 for senior citizens (FY 2025-26).', noPan:20, extra:'' }
+  };
+  function box(html, red){ out.style.display='block'; out.innerHTML='<div style="padding:18px;background:'+(red?'#fde8e8':'#f0fdf5')+';border:1px solid '+(red?'rgba(220,38,38,.2)':'rgba(22,163,74,.25)')+';border-radius:12px;'+(red?'color:#9b1c1c':'')+'">'+html+'</div>'; }
+  document.getElementById('tds-go').addEventListener('click', function(){
+    var sec=document.getElementById('tds-sec').value;
+    if(sec==='192'){ box('TDS on salary under Section 192 depends on the employee total income, regime choice and declared deductions, not a flat rate. Use the <a href="/pages/tools/income-tax-calculator" style="color:var(--brand);border-bottom:1px solid rgba(61,76,255,.3)">income tax calculator</a> to work out the annual tax and divide it across the remaining months.', false); return; }
+    var amt=parseFloat(document.getElementById('tds-amt').value);
+    if(isNaN(amt)||amt<=0){ box('Enter the payment amount.', true); return; }
+    var p=document.getElementById('tds-ptype').value, pan=document.getElementById('tds-pan').value==='y', crossed=document.getElementById('tds-crossed').value==='y';
+    var s=S[sec]; var rate=typeof s.rate==='function'?s.rate(p):s.rate;
+    var appliedRate=rate, panNote='';
+    if(!pan){ appliedRate=Math.max(rate, s.noPan); panNote='Payee has not furnished PAN: Section 206AA applies the higher of the normal rate or '+s.noPan+'%, so '+appliedRate+'% is used.'; }
+    var base=amt, below=false, why='';
+    if(!crossed){
+      if(s.thrExcess!==undefined){ base=Math.max(0, amt-s.thrExcess); if(base===0){ below=true; why='Purchases from this seller have not crossed Rs 50 lakh in the year, so no TDS on this payment yet.'; } else { why='TDS applies only on the portion above Rs 50 lakh: '+inr(base)+'.'; } }
+      else if(s.thrMonthly!==undefined){ if(amt<=s.thrMonthly){ below=true; why='Rent of '+inr(amt)+' does not exceed Rs 50,000 for the month, so no TDS is required.'; } }
+      else if(s.thrSingle!==undefined){ if(amt<=s.thrSingle){ below=true; why='This payment is within the Rs 30,000 single-payment limit. If total payments to this payee in the year cross Rs 1,00,000, select Threshold already crossed and deduct on the full amount.'; } }
+      else if(s.thrAgg!==undefined){ if(amt<=s.thrAgg){ below=true; why='This payment is within the annual limit of '+inr(s.thrAgg)+'. If total payments to this payee in the year cross it, select Threshold already crossed and deduct on the full amount.'; } }
+    } else if(s.thrExcess!==undefined){ why='Threshold already crossed: TDS on the full amount of this purchase.'; }
+    var tds= below ? 0 : base*appliedRate/100;
+    var net=amt-tds;
+    var html='<div style="font-family:JetBrains Mono,monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)">TDS to deduct</div>'
+      +'<div style="font-weight:700;color:#0a6b3d;font-size:30px;margin:4px 0 2px">Rs '+fmt(tds)+'</div>'
+      +'<div style="font-size:13.5px;color:var(--ink-2);margin-bottom:14px">'+s.name+' · '+(below?'below threshold':appliedRate+'% on '+inr(base))+'</div>'
+      +'<dl style="display:grid;grid-template-columns:1fr auto;gap:8px 16px;font-size:14px;color:var(--ink-2);margin:0">'
+      +'<dt style="color:var(--muted)">Payment amount (excluding GST)</dt><dd style="margin:0;text-align:right">Rs '+fmt(amt)+'</dd>'
+      +'<dt style="color:var(--muted)">Rate applied</dt><dd style="margin:0;text-align:right">'+(below?'0%':appliedRate+'%')+'</dd>'
+      +'<dt style="color:var(--muted)">TDS</dt><dd style="margin:0;text-align:right">Rs '+fmt(tds)+'</dd>'
+      +'<dt style="color:var(--ink);font-weight:600">Net payable to payee</dt><dd style="margin:0;text-align:right;font-weight:600;color:var(--ink)">Rs '+fmt(net)+'</dd>'
+      +'</dl>'
+      +'<div style="margin-top:14px;font-size:13px;color:var(--ink-2);line-height:1.55">'
+      +'<p style="margin:0 0 6px"><strong>Rate:</strong> '+s.rateNote+'.</p>'
+      +'<p style="margin:0 0 6px"><strong>Threshold:</strong> '+s.thrText+'</p>'
+      +(why?'<p style="margin:0 0 6px">'+why+'</p>':'')
+      +(panNote?'<p style="margin:0 0 6px">'+panNote+'</p>':'')
+      +(s.extra?'<p style="margin:0 0 6px">'+s.extra+'</p>':'')
+      +(tds>0?'<p style="margin:0">Deposit by the 7th of the following month (30 April for March deductions) using challan ITNS 281, report it in the quarterly return (Form 26Q'+(sec==='194IB'?', or Form 26QC for 194-IB':'')+') and issue Form 16A to the payee.</p>':'')
+      +'</div>';
+    box(html, false);
+  });
+})();
+`,
+    },
+    exampleOutput: `
+      <div class="eo-item"><div><div class="eo-main">TDS: Rs 7,500.00 on professional fees of Rs 75,000</div><div class="eo-sub">Section 194J at 10%; payee has PAN; annual limit of Rs 50,000 crossed.</div></div></div>
+      <div class="eo-item"><div><div class="eo-main">Net payable: Rs 67,500.00</div><div class="eo-sub">Pay the consultant this amount and deposit Rs 7,500 by the 7th of next month.</div></div></div>
+      <div class="eo-item"><div><div class="eo-main">No PAN? Rate becomes 20%</div><div class="eo-sub">Section 206AA: TDS would be Rs 15,000 and net payable Rs 60,000.</div></div></div>
+      <div class="eo-note">Sample calculation with FY 2025-26 rates. Enter your own payment above.</div>
+    `,
+    intro: `
+      <p>Once a business is liable for tax audit, or is a company, LLP or firm, it must deduct tax at source on many routine payments: the contractor who does job work, the CA or lawyer who bills a fee, the agent who earns a commission, the landlord of the office, and for larger buyers, the supplier of goods. Each of these has its own section, rate and threshold, and the Finance Act 2025 changed several of the thresholds from 1 April 2025. Deducting too little makes the payer liable for the shortfall with interest; deducting too much annoys the payee who then waits for a refund.</p>
+      <p>This calculator covers the sections a small or mid-sized business meets most: 194C, 194J for professional and technical fees, 194H, 194-I for both kinds of rent, 194-IB for individuals paying high rent, 194Q for goods purchases and 194A for interest. Choose the section, enter the amount excluding GST, tell it whether the payee is an individual and whether a PAN has been furnished, and it returns the TDS, the net amount to pay, and the rule in plain words, including the due date for deposit and the form to file.</p>
+      <p>Rates and thresholds are current for FY 2025-26. Tax law changes each Budget, so treat the note under the calculator seriously: confirm against the CBDT rate chart before you deduct.</p>
+    `,
+    howTo: [
+      'Select the <strong>section</strong> that matches the payment. If you are unsure whether a payment is contractual (194C) or professional (194J), read the FAQ below; the distinction changes the rate from 1 or 2 percent to 10 percent.',
+      'Enter the <strong>amount excluding GST</strong>. When the invoice shows GST separately, TDS is on the value before GST.',
+      'Say whether the <strong>payee is an individual or HUF</strong> (this changes the 194C rate) and whether they have <strong>furnished a PAN</strong>.',
+      'Leave the threshold option on automatic to test this payment against the limit, or choose <strong>already crossed</strong> if earlier payments in the year have used up the limit.',
+      'Click <strong>Calculate TDS</strong> and read the rate, the TDS, the net payable and the deposit deadline.',
+    ],
+    why: `
+      <p><strong>The payer carries the risk.</strong> Under Section 201 a deductor who fails to deduct or deposit is treated as an assessee in default, with interest at 1 percent a month for late deduction and 1.5 percent for late deposit, and the expense can be disallowed in part under Section 40(a)(ia).</p>
+      <p><strong>Thresholds moved in FY 2025-26.</strong> Rent went to Rs 50,000 a month, professional fees to Rs 50,000 a year, commission to Rs 20,000 and bank interest for senior citizens to Rs 1 lakh. A chart from last year is wrong now.</p>
+      <p><strong>Payees plan cash flow on the net amount.</strong> A freelancer quoting Rs 75,000 needs to know Rs 67,500 will land in the account; this calculator gives both sides the same number.</p>
+    `,
+    tips: [
+      'Ask for the PAN before the first payment. Without it Section 206AA forces 20 percent and the payee cannot see the credit in Form 26AS.',
+      'Job work, AMC, printing, catering, transport and labour supply are contracts under 194C; advice, audit, design and consultancy are professional services under 194J.',
+      'TDS is deducted when the amount is credited or paid, whichever is earlier, so an unpaid invoice booked on 31 March still triggers TDS for that quarter.',
+      'Individuals and HUFs not liable to audit do not deduct under 194C, 194J or 194H, but they do under 194-IB for rent above Rs 50,000 a month and 194M for contract or professional payments above Rs 50 lakh in a year.',
+      'Sections 206AB and 206CCA, which imposed higher rates on non-filers, were removed with effect from 1 April 2025, so you no longer need to check filing status before deducting.',
+      'File Form 26Q quarterly (31 July, 31 October, 31 January, 31 May) and issue Form 16A within 15 days of the return due date; late filing attracts Rs 200 a day under Section 234E.',
+    ],
+    example: `
+      <p>A private limited company in Ahmedabad hires a freelance brand consultant for Rs 75,000 plus 18 percent GST. The invoice shows Rs 75,000 as the fee and Rs 13,500 as GST. Consulting is a professional service, so Section 194J applies at 10 percent. The consultant has already billed Rs 40,000 earlier in the year, so the annual limit of Rs 50,000 is crossed with this invoice.</p>
+      <p>The accounts team selects 194J professional fees, enters Rs 75,000, individual payee, PAN furnished, and threshold already crossed. The calculator shows TDS of Rs 7,500 and net payable of Rs 80,000 after adding back the GST of Rs 13,500 to the Rs 67,500 net fee. The company pays Rs 81,000 to the consultant, deposits Rs 7,500 by the 7th of the next month using challan ITNS 281, reports it in Form 26Q and issues Form 16A, which the consultant uses to claim the credit in her return.</p>
+    `,
+    faq: [
+      { q: 'What are the TDS rates for FY 2025-26 for common business payments?', a: '<p>For payments from 1 April 2025: Section 194C contractors, 1 percent for individual or HUF payees and 2 percent for others; Section 194J, 10 percent for professional fees and 2 percent for technical services, call centre payments and film royalty; Section 194H commission, 2 percent; Section 194-I rent, 10 percent for land, building and furniture and 2 percent for plant and machinery; Section 194-IB rent by non-audited individuals, 2 percent; Section 194Q purchase of goods, 0.1 percent on the value above Rs 50 lakh; Section 194A interest, 10 percent. Where the payee has not furnished a PAN, Section 206AA raises the rate to 20 percent (5 percent for 194Q). These are the rates this calculator applies; confirm them against the CBDT chart before each financial year begins.</p>' },
+      { q: 'Which TDS thresholds changed from 1 April 2025?', a: '<p>The Finance Act 2025 raised several limits. Rent under Section 194-I moved from Rs 2,40,000 per year to Rs 50,000 per month or part of a month. Professional and technical fees under Section 194J moved from Rs 30,000 to Rs 50,000 a year. Commission under 194H moved from Rs 15,000 to Rs 20,000. Interest under 194A from banks and post offices moved to Rs 50,000 for general depositors and Rs 1,00,000 for senior citizens, and to Rs 10,000 for other payers. Section 194C stayed at Rs 30,000 per payment and Rs 1,00,000 in aggregate. The higher rates for non-filers under Sections 206AB and 206CCA were removed altogether. The calculator uses these updated limits.</p>' },
+      { q: 'Is TDS deducted on the GST component of an invoice?', a: '<p>No, provided the GST is shown separately on the invoice. CBDT Circular 23 of 2017 clarified that when the GST on services is indicated separately, tax is deducted on the amount excluding GST, and the same principle is followed for goods. So on an invoice of Rs 75,000 plus Rs 13,500 GST, TDS under 194J is 10 percent of Rs 75,000, not of Rs 88,500. If an invoice shows a single inclusive figure with no GST break-up, deductors generally apply TDS to the whole amount. Enter the pre-GST value in this calculator and add the GST back when working out what to actually pay the supplier.</p>' },
+      { q: 'What is the difference between 194C and 194J for a small business?', a: '<p>Section 194C covers work done under a contract: job work, manufacturing with material supplied by the customer, transport, catering, advertising production, security and housekeeping, annual maintenance contracts, printing and labour supply. Section 194J covers services that need professional qualification or technical expertise: legal, accountancy, medical, architecture, engineering, interior design, IT consultancy, advertising strategy and management consulting. The practical test is whether you are paying for a task to be performed (194C) or for expert knowledge and advice (194J). The rate gap is large, 1 or 2 percent against 10 percent, and misclassifying professional fees as contract work is a common finding in TDS assessments.</p>' },
+      { q: 'Do I need to deduct TDS if the payee does not have a PAN?', a: '<p>Yes, and at a higher rate. Section 206AA says that when the payee does not furnish a PAN, tax is deducted at the higher of the rate in the relevant section, the rate in force, or 20 percent; for Section 194Q the higher rate is 5 percent. The payee then cannot get the credit reflected in Form 26AS because there is no PAN to map it to, so the deduction becomes a real cost to them. This is why every vendor onboarding form should collect the PAN and verify it. From 1 April 2025 the separate higher rates for non-filers under Sections 206AB and 206CCA no longer apply.</p>' },
+      { q: 'When must TDS be deposited and reported?', a: '<p>TDS deducted in any month must be deposited by the 7th of the following month, except for March, where the due date is 30 April. Deposit is through challan ITNS 281 on the income tax e-filing portal. Quarterly returns in Form 26Q for non-salary payments are due on 31 July, 31 October, 31 January and 31 May for the four quarters. Form 16A, the TDS certificate, must be issued to the payee within 15 days of the return due date. Individuals deducting under Section 194-IB use Form 26QC within 30 days of the end of the month of deduction and issue Form 16C; no TAN is required for that section.</p>' },
+      { q: 'Do freelancers and small proprietors have to deduct TDS on their own payments?', a: '<p>An individual or HUF has to deduct under Sections 194C, 194H, 194J and 194-I only if their business turnover exceeded Rs 1 crore, or professional receipts exceeded Rs 50 lakh, in the previous financial year, which is the tax audit threshold. Below that, they are outside these sections but still covered by Section 194-IB, rent above Rs 50,000 a month at 2 percent, and by Section 194M, which requires 2 percent TDS when total payments to one contractor or professional in a year exceed Rs 50 lakh. Both of these are paid using a PAN-based challan-cum-statement, so a TAN is not needed.</p>' },
+      { q: 'Does this calculator store my payment details?', a: '<p>No. The amount, section and payee details are used only in your browser to compute the TDS and the net amount, and nothing is saved or sent anywhere. It is a working tool for a single calculation; keep your own TDS register in your accounting software or a spreadsheet, and use this page to sanity-check a rate or explain a deduction to a vendor.</p>' },
+    ],
+    related: [
+      { href: '/pages/tools/income-tax-calculator', title: 'Income Tax Calculator', blurb: 'Salary TDS under Section 192 starts here.' },
+      { href: '/pages/tools/gst-calculator', title: 'GST Calculator', blurb: 'Separate the GST before you apply TDS.' },
+      { href: '/pages/tools/gst-invoice-generator', title: 'GST Invoice Generator', blurb: 'Show the taxable value and GST separately.' },
+    ],
+  },
+  // =========================================================================
+  // ========================== OFFER LETTER GENERATOR ======================
+  // =========================================================================
+  {
+    slug: 'offer-letter-generator',
+    category: 'run',
+    built: true,
+    name: 'Offer Letter Generator',
+    tagline: 'Formal Indian-style offer letter with CTC, joining date, probation and notice period.',
+    primaryKeyword: 'offer letter generator',
+    solutionHref: '/pages/solutions/restaurants',
+    solutionLabel: 'Restaurants and cafes',
+    metaTitle: 'Offer Letter Generator — Offer Letter Format India | Neweb',
+    metaDescription: 'Generate a formal offer letter in the Indian format with designation, CTC in words, joining date, probation and notice period. Print, save as PDF or copy. Free.',
+    h1: 'Offer Letter <span class="serif">Generator</span>.',
+    lede: 'Fill in the company, candidate, designation, CTC, joining date, probation and notice period. We draft a formal offer letter in the format Indian employers use, ready to print on letterhead, save as PDF or copy into an email. Runs entirely in your browser.',
+    widget: {
+      html: `
+        <div class="tool-row">
+          <div class="field"><label for="ol-company">Company name</label><input id="ol-company" type="text" placeholder="e.g. Saffron Kitchen Pvt Ltd"/></div>
+          <div class="field"><label for="ol-addr">Company address (one line)</label><input id="ol-addr" type="text" placeholder="e.g. 12 MG Road, Indiranagar, Bengaluru 560038"/></div>
+        </div>
+        <div class="tool-row">
+          <div class="field"><label for="ol-cand">Candidate full name</label><input id="ol-cand" type="text" placeholder="e.g. Rahul Verma"/></div>
+          <div class="field"><label for="ol-date">Letter date</label><input id="ol-date" type="date"/></div>
+        </div>
+        <div class="tool-row">
+          <div class="field"><label for="ol-desig">Designation</label><input id="ol-desig" type="text" placeholder="e.g. Restaurant Manager"/></div>
+          <div class="field"><label for="ol-dept">Department (optional)</label><input id="ol-dept" type="text" placeholder="e.g. Operations"/></div>
+        </div>
+        <div class="tool-row">
+          <div class="field"><label for="ol-ctc">Annual CTC (in rupees)</label><input id="ol-ctc" type="number" step="any" min="0" placeholder="e.g. 480000"/></div>
+          <div class="field"><label for="ol-join">Joining date</label><input id="ol-join" type="date"/></div>
+        </div>
+        <div class="tool-row">
+          <div class="field"><label for="ol-loc">Work location</label><input id="ol-loc" type="text" placeholder="e.g. Bengaluru"/></div>
+          <div class="field"><label for="ol-mgr">Reporting manager (name, title)</label><input id="ol-mgr" type="text" placeholder="e.g. Neha Rao, Operations Head"/></div>
+        </div>
+        <div class="tool-row">
+          <div class="field"><label for="ol-prob">Probation period (months)</label><input id="ol-prob" type="number" min="0" max="24" value="6"/></div>
+          <div class="field"><label for="ol-notice">Notice period (days)</label><input id="ol-notice" type="number" min="0" max="180" value="30"/></div>
+        </div>
+        <div class="tool-row">
+          <div class="field"><label for="ol-sign">Signatory name and title</label><input id="ol-sign" type="text" placeholder="e.g. Anil Mehta, Director"/></div>
+          <div class="field"><label for="ol-valid">Offer valid for (days)</label><input id="ol-valid" type="number" min="1" max="60" value="7"/></div>
+        </div>
+        <div class="tool-actions">
+          <button id="ol-preview" type="button" class="btn btn-ghost">Preview letter</button>
+          <button id="ol-print" type="button" class="btn btn-brand">Print / save as PDF</button>
+          <button id="ol-copy" type="button" class="btn btn-ghost">Copy letter text</button>
+        </div>
+        <div id="ol-msg" role="status" aria-live="polite" style="font-size:13px;color:var(--muted);margin-top:10px"></div>
+        <div id="ol-out" style="display:none;margin-top:18px"></div>
+      `,
+      help: 'The letter is a general template for Indian private employers. Terms such as probation, notice and confidentiality should be checked against your state Shops and Establishments rules and, for larger teams, reviewed by an HR or legal adviser.',
+      js: ESCAPE_HTML + `
+(function(){
+  var out=document.getElementById('ol-out'), msg=document.getElementById('ol-msg');
+  function val(id){ return (document.getElementById(id).value||'').trim(); }
+  function fmt(n){ if(!isFinite(n)) return '0'; return Math.round(n).toLocaleString('en-IN'); }
+  var d=new Date(); var pad=function(n){return n<10?'0'+n:n;};
+  function iso(dt){ return dt.getFullYear()+'-'+pad(dt.getMonth()+1)+'-'+pad(dt.getDate()); }
+  document.getElementById('ol-date').value=iso(d);
+  var j=new Date(d.getTime()+14*86400000); document.getElementById('ol-join').value=iso(j);
+  function longDate(s){ if(!s) return '________'; var p=s.split('-'); var dt=new Date(+p[0],+p[1]-1,+p[2]); return dt.toLocaleDateString('en-IN',{day:'numeric',month:'long',year:'numeric'}); }
+  function addDays(s,n){ if(!s) return ''; var p=s.split('-'); var dt=new Date(+p[0],+p[1]-1,+p[2]); dt.setDate(dt.getDate()+n); return iso(dt); }
+  function words(num){
+    if(num===0) return 'Zero';
+    var a=['','One','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten','Eleven','Twelve','Thirteen','Fourteen','Fifteen','Sixteen','Seventeen','Eighteen','Nineteen'];
+    var b=['','','Twenty','Thirty','Forty','Fifty','Sixty','Seventy','Eighty','Ninety'];
+    function two(n){ if(n<20) return a[n]; var t=Math.floor(n/10), u=n%10; return b[t]+(u?' '+a[u]:''); }
+    function three(n){ var h=Math.floor(n/100), r=n%100, s=''; if(h) s+=a[h]+' Hundred'; if(r){ if(s) s+=' '; s+=two(r);} return s; }
+    var crore=Math.floor(num/10000000); num%=10000000;
+    var lakh=Math.floor(num/100000); num%=100000;
+    var thou=Math.floor(num/1000); num%=1000;
+    var parts=[];
+    if(crore) parts.push((crore>=100?three(crore):two(crore))+' Crore');
+    if(lakh) parts.push(two(lakh)+' Lakh');
+    if(thou) parts.push(two(thou)+' Thousand');
+    if(num) parts.push(three(num));
+    return parts.join(' ');
+  }
+  function data(){
+    var cand=val('ol-cand')||'________';
+    return { company:val('ol-company')||'________', addr:val('ol-addr'), cand:cand, first:cand.split(' ')[0], date:val('ol-date'), desig:val('ol-desig')||'________', dept:val('ol-dept'), ctc:parseFloat(val('ol-ctc'))||0, join:val('ol-join'), loc:val('ol-loc')||'________', mgr:val('ol-mgr')||'________', prob:parseInt(val('ol-prob'),10)||0, notice:parseInt(val('ol-notice'),10)||0, sign:val('ol-sign')||'Authorised Signatory', valid:parseInt(val('ol-valid'),10)||7 };
+  }
+  function paras(x){
+    var ctcWords = x.ctc>0 ? 'Rs '+fmt(x.ctc)+' (Rupees '+words(Math.round(x.ctc))+' Only) per annum' : 'Rs ________ per annum';
+    var monthly = x.ctc>0 ? ', which works out to approximately Rs '+fmt(x.ctc/12)+' per month' : '';
+    var probText = x.prob>0
+      ? 'You will be on probation for a period of '+x.prob+' month'+(x.prob===1?'':'s')+' from your date of joining. On satisfactory completion of probation, your employment will be confirmed in writing. The Company may, at its discretion, extend the probation period.'
+      : 'Your appointment is confirmed from the date of joining without a probation period.';
+    var noticeText = x.notice>0
+      ? 'Either party may terminate this employment by giving '+x.notice+' days notice in writing or salary in lieu of notice'+(x.prob>0?'. The same notice applies during probation unless otherwise stated in your appointment letter':'')+'.'
+      : 'Notice period will be as set out in your appointment letter.';
+    return [
+      { h:'', t:'We are pleased to offer you the position of '+x.desig+(x.dept?' in the '+x.dept+' department':'')+' at '+x.company+' (the Company), on the terms set out below.' },
+      { h:'1. Position and reporting', t:'You will join as '+x.desig+' and report to '+x.mgr+'. Your place of work will be '+x.loc+'. The Company may require you to work at any of its other locations or with any of its clients in India, subject to reasonable notice.' },
+      { h:'2. Date of joining', t:'You are expected to join on or before '+longDate(x.join)+'. If you are unable to join by this date, please inform us in writing; the offer may otherwise be treated as withdrawn.' },
+      { h:'3. Compensation', t:'Your annual Cost to Company (CTC) will be '+ctcWords+monthly+'. The break-up of your CTC into basic salary, allowances, statutory contributions and benefits will be provided in the annexure to your appointment letter. Salary is payable monthly in arrears and is subject to tax deducted at source, Provident Fund, ESI and Professional Tax as applicable.' },
+      { h:'4. Probation', t:probText },
+      { h:'5. Notice period', t:noticeText },
+      { h:'6. Working hours and leave', t:'Working hours, weekly offs, holidays and leave will be as per the Company policy in force and the Shops and Establishments Act applicable to the workplace.' },
+      { h:'7. Confidentiality', t:'During and after your employment you will keep confidential all business, customer, financial and technical information of the Company and its clients, and you will not use it for any purpose other than your work for the Company.' },
+      { h:'8. Documents required on joining', t:'PAN card, Aadhaar, proof of address, educational and experience certificates, relieving letter and last three salary slips from your previous employer (if any), bank account details for salary credit, and two passport-size photographs.' },
+      { h:'9. Background verification', t:'This offer is subject to satisfactory verification of the information and documents you have provided and of your references. Any misrepresentation may result in withdrawal of the offer or termination of employment.' },
+      { h:'10. Acceptance', t:'This offer is valid until '+longDate(addDays(x.date, x.valid))+'. Please sign and return a copy of this letter to confirm your acceptance. Detailed terms and conditions of employment will be set out in your appointment letter, which along with the Company policies will govern your employment.' }
+    ];
+  }
+  var CSS='.nwl{max-width:680px;margin:0 auto;background:#fff;color:#111;font-family:Georgia,\\'Times New Roman\\',serif;font-size:14px;line-height:1.6;padding:28px 32px;border:1px solid #d6d9e0;border-radius:10px}'
+    +'.nwl .co{font-family:Arial,Helvetica,sans-serif;font-weight:700;font-size:16px}.nwl .addr{font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#444;margin-bottom:18px}'
+    +'.nwl .meta{margin:0 0 14px}.nwl h4{font-family:Arial,Helvetica,sans-serif;font-size:13px;margin:16px 0 4px}.nwl p{margin:0 0 10px}.nwl .subj{font-weight:700;margin:14px 0}'
+    +'.nwl .sig{margin-top:28px}.nwl .acc{margin-top:26px;border-top:1px solid #999;padding-top:12px;font-size:13px}.nwl .disc{margin-top:16px;font-family:Arial,Helvetica,sans-serif;font-size:10.5px;color:#666;border-top:1px dashed #ccc;padding-top:8px}';
+  function letterHtml(x){
+    var body=paras(x).map(function(p){ return (p.h?'<h4>'+escHtml(p.h)+'</h4>':'')+'<p>'+escHtml(p.t)+'</p>'; }).join('');
+    return '<style>'+CSS+'</style><div class="nwl">'
+      +'<div class="co">'+escHtml(x.company)+'</div>'+(x.addr?'<div class="addr">'+escHtml(x.addr)+'</div>':'<div class="addr"></div>')
+      +'<p class="meta">Date: '+escHtml(longDate(x.date))+'</p>'
+      +'<p class="meta">To,<br>'+escHtml(x.cand)+'</p>'
+      +'<p class="subj">Subject: Offer of employment for the position of '+escHtml(x.desig)+'</p>'
+      +'<p>Dear '+escHtml(x.first)+',</p>'
+      +body
+      +'<p>We look forward to welcoming you to the team.</p>'
+      +'<div class="sig">For '+escHtml(x.company)+'<br><br><br>____________________<br>'+escHtml(x.sign)+'</div>'
+      +'<div class="acc"><strong>Acceptance</strong><br>I, '+escHtml(x.cand)+', accept the above offer on the terms stated and will join on or before '+escHtml(longDate(x.join))+'.<br><br>Signature: ____________________ &nbsp; Date: ____________</div>'
+      +'<div class="disc">Template generated with the Neweb Offer Letter Generator. This is an offer of employment and not a substitute for a detailed appointment letter or employment agreement; review terms for compliance with the applicable state Shops and Establishments Act and labour laws.</div>'
+      +'</div>';
+  }
+  function letterText(x){
+    var lines=[x.company]; if(x.addr) lines.push(x.addr);
+    lines.push('', 'Date: '+longDate(x.date), '', 'To,', x.cand, '', 'Subject: Offer of employment for the position of '+x.desig, '', 'Dear '+x.first+',', '');
+    paras(x).forEach(function(p){ if(p.h) lines.push(p.h); lines.push(p.t, ''); });
+    lines.push('We look forward to welcoming you to the team.', '', 'For '+x.company, '', '____________________', x.sign, '', 'Acceptance', 'I, '+x.cand+', accept the above offer on the terms stated and will join on or before '+longDate(x.join)+'.', 'Signature: ____________________   Date: ____________');
+    return lines.join('\\n');
+  }
+  function render(){
+    var x=data();
+    if(!val('ol-company')||!val('ol-cand')||!val('ol-desig')){ msg.textContent='Fill in at least the company, candidate and designation.'; out.style.display='none'; return null; }
+    msg.textContent='';
+    out.style.display='block'; out.innerHTML=letterHtml(x); return x;
+  }
+  function printDoc(inner, title){
+    var html='<!DOCTYPE html><html><head><meta charset="utf-8"><title>'+title+'</title><style>@page{size:A4;margin:18mm 16mm}body{margin:0;background:#fff}'+CSS+'.nwl{border:0;max-width:none;padding:0}</style></head><body>'+inner+'</body></html>';
+    var f=document.createElement('iframe'); f.setAttribute('aria-hidden','true'); f.setAttribute('title','print');
+    f.style.cssText='position:fixed;right:0;bottom:0;width:0;height:0;border:0;visibility:hidden';
+    document.body.appendChild(f);
+    var doc=f.contentWindow.document; doc.open(); doc.write(html); doc.close();
+    setTimeout(function(){ try{ f.contentWindow.focus(); f.contentWindow.print(); }catch(e){ window.print(); } setTimeout(function(){ if(f.parentNode) f.parentNode.removeChild(f); }, 60000); }, 300);
+  }
+  function copyText(t){
+    function done(){ msg.textContent='Letter text copied. Paste it into an email or Word document.'; }
+    function fail(){ msg.textContent='Copy failed. Select the letter and copy manually.'; }
+    function legacy(){ var ta=document.createElement('textarea'); ta.value=t; ta.setAttribute('readonly',''); ta.style.cssText='position:fixed;top:0;left:0;opacity:0'; document.body.appendChild(ta); ta.select(); try{ document.execCommand('copy'); done(); }catch(e){ fail(); } document.body.removeChild(ta); }
+    if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(t).then(done, legacy); } else { legacy(); }
+  }
+  document.getElementById('ol-preview').addEventListener('click', render);
+  document.getElementById('ol-print').addEventListener('click', function(){ var x=render(); if(!x) return; var inner=letterHtml(x).replace(/^<style>[\\s\\S]*?<\\/style>/,''); printDoc(inner, 'Offer letter '+x.cand); });
+  document.getElementById('ol-copy').addEventListener('click', function(){ var x=render(); if(!x) return; copyText(letterText(x)); });
+})();
+`,
+    },
+    exampleOutput: `
+      <div class="eo-item"><div><div class="eo-main">Subject: Offer of employment for the position of Restaurant Manager</div><div class="eo-sub">Addressed to the candidate, dated today, on your company name and address.</div></div></div>
+      <div class="eo-item"><div><div class="eo-main">CTC: Rs 4,80,000 (Rupees Four Lakh Eighty Thousand Only) per annum</div><div class="eo-sub">Approximately Rs 40,000 per month, break-up in the appointment letter annexure.</div></div></div>
+      <div class="eo-item"><div><div class="eo-main">6 months probation · 30 days notice · valid for 7 days</div><div class="eo-sub">Plus joining documents, confidentiality, verification and an acceptance block.</div></div></div>
+      <div class="eo-note">Sample letter. Enter your own company and candidate details above.</div>
+    `,
+    intro: `
+      <p>The first document a new hire receives from your business sets the tone for everything that follows. A WhatsApp message saying "you are selected, salary 40k, join Monday" leaves the joining date, the notice period, the probation and even the CTC open to argument later. A one-page offer letter closes those gaps, and candidates in India expect one before they resign from their current job, because the relieving process at the old employer usually starts with showing the new offer.</p>
+      <p>This tool drafts that letter in the format Indian private employers use. It states the designation, department and reporting manager, the annual CTC in figures and in words with the monthly equivalent, the joining date, the probation period and the notice period, and it adds the standard clauses on working hours, confidentiality, joining documents, background verification and validity of the offer, followed by an acceptance block for the candidate to sign. Preview it, print it on your letterhead or save it as a PDF from the print dialog, or copy the plain text into an email.</p>
+      <p>An offer letter is not the appointment letter. Keep it short and issue the detailed appointment letter with the salary annexure on the joining day. For teams of ten or more, or roles with restrictive clauses, have the wording checked against your state Shops and Establishments Act.</p>
+    `,
+    howTo: [
+      'Enter your <strong>company name and address</strong>, the <strong>candidate name</strong> and the <strong>letter date</strong>.',
+      'Fill in the <strong>designation</strong>, optional department, <strong>reporting manager</strong> and <strong>work location</strong>.',
+      'Enter the <strong>annual CTC</strong>; the letter shows it in words and as a monthly figure. Set the <strong>joining date</strong>, <strong>probation</strong> in months and <strong>notice period</strong> in days.',
+      'Add the <strong>signatory name and title</strong> and how many days the offer stays valid, then click <strong>Preview letter</strong>.',
+      'Click <strong>Print / save as PDF</strong> to print on letterhead or save a PDF, or <strong>Copy letter text</strong> to paste into an email.',
+    ],
+    why: `
+      <p><strong>It protects both sides.</strong> The letter fixes the CTC, the joining date and the notice period in writing, which prevents the most common early disputes between a small employer and a new hire.</p>
+      <p><strong>Candidates need it to resign.</strong> Most employers ask for a copy of the new offer before processing a resignation; a proper letter speeds up the candidate exit and your onboarding.</p>
+      <p><strong>It is a compliance record.</strong> Under state Shops and Establishments Acts and the Code on Wages, employers must be able to show the terms of employment; a signed offer plus the appointment letter is the simplest evidence.</p>
+    `,
+    tips: [
+      'Quote CTC, not take-home. The employer PF contribution, gratuity provision and insurance are part of CTC; the in-hand figure belongs in the salary annexure and the CTC to in-hand calculator on this site.',
+      'Keep the notice period symmetric. A 30-day notice on the employee and 7 days on the employer reads badly to candidates and is hard to enforce.',
+      'Match the probation period to what your state Shops and Establishments rules allow; six months is the most common and generally accepted.',
+      'Print on letterhead and sign in ink, or add a digital signature; an unsigned PDF is often rejected by a candidate current employer for relieving.',
+      'Set a short validity, seven to ten days, and follow up. An open-ended offer leaves you unable to move to the next candidate.',
+      'Issue the appointment letter with the salary break-up on joining day and get both copies signed; the offer letter alone is not the employment contract.',
+    ],
+    example: `
+      <p>A cafe chain in Bengaluru with three outlets selects a restaurant manager after two interviews. The owner opens this tool, enters the company name and Indiranagar address, the candidate name, Restaurant Manager in the Operations department reporting to the Operations Head, an annual CTC of Rs 4,80,000, a joining date two weeks out, six months probation, 30 days notice, and her own name as Director. The letter shows the CTC as Rupees Four Lakh Eighty Thousand Only with the monthly equivalent of about Rs 40,000.</p>
+      <p>She previews it, prints it on letterhead, signs it and hands it over. The candidate uses it to resign from his current job, returns the signed acceptance the next day, and on joining receives the appointment letter with the full salary annexure prepared with the salary slip generator on this site.</p>
+    `,
+    faq: [
+      { q: 'What should an offer letter in India include?', a: '<p>A standard offer letter names the employer and the candidate, the designation and department, the reporting manager, the work location, the annual CTC in figures and words, the joining date, the probation period, the notice period, a line on working hours and leave as per company policy, a confidentiality clause, the list of documents to bring on joining, a statement that the offer is subject to background verification, and the date until which the offer is valid. It ends with the signature of an authorised person and an acceptance block for the candidate. Detailed matters such as the salary break-up, leave entitlement, code of conduct and any restrictive covenants belong in the appointment letter and company policies rather than in the offer.</p>' },
+      { q: 'Is an offer letter legally binding in India?', a: '<p>An offer letter becomes a binding contract once the candidate accepts it, usually by signing and returning it, because the Indian Contract Act treats an offer plus acceptance with consideration as an agreement. In practice courts are reluctant to force an employee to join or an employer to employ, so the remedy for a broken offer is limited to damages that can be proved, and Indian employers rarely pursue candidates who do not join. What the letter reliably does is fix the agreed terms, which matters when there is a later dispute about the CTC, the joining date or the notice period. Conditions such as background verification and document checks should be stated expressly so that the employer can withdraw if they fail.</p>' },
+      { q: 'What is the difference between an offer letter and an appointment letter?', a: '<p>The offer letter is issued after selection and before joining. It is short, states the key terms and asks the candidate to accept. The appointment letter is issued on or around the joining date once the candidate has actually reported and submitted documents; it is the detailed employment contract, with the salary annexure, leave rules, working hours, code of conduct, intellectual property and confidentiality terms, termination provisions and any restrictive clauses. Many small businesses issue only one document and call it either name; that works for very small teams but leaves the employer without a proper record of the detailed terms, so the two-step approach is recommended.</p>' },
+      { q: 'Should the offer letter show CTC or in-hand salary?', a: '<p>Show the annual CTC in the offer letter and put the break-up in the appointment letter annexure. CTC is the total cost the employer bears, including the employer contribution to Provident Fund, ESI where applicable, gratuity provision, insurance premiums and any fixed bonus. The in-hand or net salary is what remains after employee PF, professional tax and TDS, and it depends on the candidate tax regime and declarations, which the employer does not know at offer stage. Candidates do want to know the take-home figure, so mention the approximate monthly gross in the letter, as this tool does, and point them to the CTC to in-hand calculator for the rest.</p>' },
+      { q: 'What probation and notice periods are normal for small businesses?', a: '<p>Six months of probation with a 30-day notice period is the most common combination for junior and mid-level roles in Indian SMBs; three months probation is also frequent for entry-level and hourly roles, and senior positions often carry 60 or 90 days notice. State Shops and Establishments Acts set minimum notice for confirmed employees, typically 30 days or one month of wages in lieu after a qualifying period of service, and some states require the notice to be the same for both parties. Keep the notice period symmetric, state clearly whether it applies during probation, and avoid periods longer than 90 days, which candidates resist and which tribunals may read down.</p>' },
+      { q: 'Do I need to include PF, ESI and other statutory terms?', a: '<p>The offer letter should say that salary is subject to statutory deductions such as Provident Fund, ESI and Professional Tax as applicable; the exact contributions belong in the salary annexure. Whether they apply depends on the business: EPF registration is mandatory once an establishment has 20 or more employees, though many smaller firms register voluntarily, and ESI applies to establishments with 10 or more employees in notified areas for staff earning up to Rs 21,000 a month. Professional Tax is a state levy with its own slabs. If your business is below these thresholds, the generic wording still holds, because it says as applicable.</p>' },
+      { q: 'Can I add a bond, non-compete or training cost clause?', a: '<p>You can, but be careful. Training bonds that require an employee to repay actual training costs if they leave within a stated period have been upheld when the amount is reasonable and the training was real; penalties far exceeding the cost are generally struck down. Non-compete clauses that operate after employment ends are unenforceable in India under Section 27 of the Indian Contract Act, although non-solicitation of clients and confidentiality obligations are usually respected. Such clauses belong in the appointment letter or a separate agreement rather than in the offer letter, and for anything beyond a plain confidentiality clause it is worth a short consultation with a lawyer.</p>' },
+      { q: 'Is my candidate data stored or sent anywhere?', a: '<p>No. The company, candidate and salary details are used only in your browser to render the letter, the print view and the copied text. Nothing is saved on our side and nothing is transmitted; there is no login and no history. Save the PDF or paste the text into your HR folder before closing the tab, and treat the candidate information with the care that personal data deserves under the Digital Personal Data Protection Act.</p>' },
+    ],
+    related: [
+      { href: '/pages/tools/salary-slip-generator', title: 'Salary Slip Generator', blurb: 'Build the monthly slip once they join.' },
+      { href: '/pages/tools/ctc-in-hand-calculator', title: 'CTC to In-Hand Calculator', blurb: 'Show the candidate the take-home figure.' },
+      { href: '/pages/tools/email-signature-generator', title: 'Email Signature Generator', blurb: 'Set up the new hire with a signature.' },
+    ],
+  },
+  // =========================================================================
+  // ======================= TITLE TAG LENGTH CHECKER =======================
+  // =========================================================================
+  {
+    slug: 'title-tag-length-checker',
+    category: 'seo',
+    built: true,
+    name: 'Title Tag Length Checker',
+    tagline: 'Count title and meta description characters and pixels against Google limits.',
+    primaryKeyword: 'title tag length checker',
+    solutionHref: '/pages/solutions/restaurants',
+    solutionLabel: 'Restaurants and cafes',
+    metaTitle: 'Title Tag Length Checker — Characters and Pixels | Neweb',
+    metaDescription: 'Check your page title and meta description length in characters and pixels against Google 580 px and 920 px limits, with a live SERP preview. Free, no sign-up.',
+    h1: 'Title Tag Length <span class="serif">Checker</span>.',
+    lede: 'Type a page title and meta description and see the character count, the estimated pixel width, and whether Google would truncate either one, with a live search-result preview. Runs entirely in your browser.',
+    widget: {
+      html: `
+        <div class="field"><label for="tl-title">Page title (title tag)</label><input id="tl-title" type="text" placeholder="e.g. Best Cafe in Indiranagar, Bengaluru | Saffron Kitchen" autocomplete="off"/></div>
+        <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin:-6px 0 14px">
+          <div><span id="tl-tchars" style="font-family:JetBrains Mono,monospace;font-size:22px;font-weight:700;color:var(--ink)">0</span> <span style="font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em">chars</span></div>
+          <div><span id="tl-tpx" style="font-family:JetBrains Mono,monospace;font-size:22px;font-weight:700;color:var(--ink)">0</span> <span style="font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em">px of 580</span></div>
+          <span id="tl-tstatus" style="font-family:JetBrains Mono,monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:var(--bg-2);color:var(--muted)">Start typing</span>
+        </div>
+        <div style="height:6px;background:var(--bg-2);border-radius:999px;overflow:hidden;margin-bottom:18px"><div id="tl-tbar" style="height:100%;width:0;background:#16a34a;transition:width .15s"></div></div>
+        <div class="field"><label for="tl-desc">Meta description</label><textarea id="tl-desc" rows="3" placeholder="e.g. Wood-fired pizzas, South Indian filter coffee and weekend brunch in Indiranagar. Open 8am to 11pm, table booking on WhatsApp."></textarea></div>
+        <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin:-6px 0 14px">
+          <div><span id="tl-dchars" style="font-family:JetBrains Mono,monospace;font-size:22px;font-weight:700;color:var(--ink)">0</span> <span style="font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em">chars</span></div>
+          <div><span id="tl-dpx" style="font-family:JetBrains Mono,monospace;font-size:22px;font-weight:700;color:var(--ink)">0</span> <span style="font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em">px of 920</span></div>
+          <span id="tl-dstatus" style="font-family:JetBrains Mono,monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:var(--bg-2);color:var(--muted)">Start typing</span>
+        </div>
+        <div style="height:6px;background:var(--bg-2);border-radius:999px;overflow:hidden;margin-bottom:18px"><div id="tl-dbar" style="height:100%;width:0;background:#16a34a;transition:width .15s"></div></div>
+        <div class="field"><label for="tl-url">Page URL (for the preview)</label><input id="tl-url" type="text" value="https://www.yourbusiness.in/" autocomplete="off"/></div>
+        <div style="font-family:JetBrains Mono,monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:6px 0 8px">Google desktop preview (approximate)</div>
+        <div id="tl-serp" style="background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 18px;max-width:640px;font-family:Arial,Helvetica,sans-serif">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px"><div style="width:26px;height:26px;border-radius:50%;background:#f1f3f4;border:1px solid #dadce0"></div><div><div id="tl-psite" style="font-size:14px;color:#202124;line-height:1.3">yourbusiness.in</div><div id="tl-purl" style="font-size:12px;color:#4d5156;line-height:1.3">https://www.yourbusiness.in/</div></div></div>
+          <div id="tl-ptitle" style="font-size:20px;color:#1a0dab;line-height:1.3;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:clip">Your page title appears here</div>
+          <div id="tl-pdesc" style="font-size:14px;color:#4d5156;line-height:1.58">Your meta description appears here.</div>
+        </div>
+        <div id="tl-notes" style="font-size:13px;color:var(--ink-2);line-height:1.55;margin-top:14px"></div>
+      `,
+      help: 'Pixel widths are estimated from Arial metrics at 20 px for titles and 14 px for descriptions, the sizes Google uses on desktop. Counts update live; nothing is sent to a server.',
+      js: ESCAPE_HTML + `
+(function(){
+  var W=[278,278,355,556,556,889,667,191,333,333,389,584,278,333,278,278,556,556,556,556,556,556,556,556,556,556,278,278,584,584,584,556,1015,667,667,722,722,667,611,778,722,278,500,667,556,833,722,778,667,778,722,667,611,722,667,944,667,667,611,278,278,278,469,556,333,556,556,500,556,556,278,556,556,222,222,500,222,833,556,556,556,556,333,500,278,556,500,722,500,500,500,334,260,334,584];
+  function cw(ch){ var c=ch.charCodeAt(0); if(c>=32&&c<=126) return W[c-32]; if(c===8211) return 556; if(c===8212) return 1000; if(c===8226) return 350; if(c===8377) return 556; if(c===8216||c===8217) return 222; if(c===8220||c===8221) return 333; if(c>=2304&&c<=2431) return 700; return 620; }
+  function width(s, size){ var w=0; for(var i=0;i<s.length;i++) w+=cw(s[i]); return Math.round(w/1000*size); }
+  function fit(s, limit, size){ if(width(s,size)<=limit) return s; var ell=width(' ...',size), w=0, out=''; for(var i=0;i<s.length;i++){ var c=cw(s[i])/1000*size; if(w+c>limit-ell) break; w+=c; out+=s[i]; } return out.replace(/\\s+$/,'')+' ...'; }
+  var T_LIMIT=580, D_LIMIT=920;
+  var tIn=document.getElementById('tl-title'), dIn=document.getElementById('tl-desc'), uIn=document.getElementById('tl-url');
+  var el=function(id){ return document.getElementById(id); };
+  function pill(node, state, text){ var c={ok:['#dcfce7','#166534'],warn:['#fef3c7','#92400e'],bad:['#fee2e2','#991b1b'],idle:['var(--bg-2)','var(--muted)']}[state]; node.style.background=c[0]; node.style.color=c[1]; node.textContent=text; }
+  function bar(node, px, limit, state){ node.style.width=Math.min(100, px/limit*100)+'%'; node.style.background= state==='bad'?'#dc2626':(state==='warn'?'#d97706':'#16a34a'); }
+  function render(){
+    var t=tIn.value, d=dIn.value.replace(/\\s+/g,' ').trim(), u=uIn.value.trim()||'https://www.yourbusiness.in/';
+    var tpx=width(t,20), dpx=width(d,14);
+    el('tl-tchars').textContent=t.length; el('tl-tpx').textContent=tpx;
+    el('tl-dchars').textContent=d.length; el('tl-dpx').textContent=dpx;
+    var ts = !t ? 'idle' : (tpx>T_LIMIT ? 'bad' : (tpx>540 || t.length<30 ? 'warn' : 'ok'));
+    var ds = !d ? 'idle' : (dpx>D_LIMIT ? 'bad' : (dpx>870 || d.length<70 ? 'warn' : 'ok'));
+    pill(el('tl-tstatus'), ts, ts==='idle'?'Start typing':(ts==='ok'?'Fits':(ts==='bad'?'Will be cut':(tpx>540?'Close to limit':'Short'))));
+    pill(el('tl-dstatus'), ds, ds==='idle'?'Start typing':(ds==='ok'?'Fits':(ds==='bad'?'Will be cut':(dpx>870?'Close to limit':'Short'))));
+    bar(el('tl-tbar'), tpx, T_LIMIT, ts); bar(el('tl-dbar'), dpx, D_LIMIT, ds);
+    var host=u.replace(/^https?:\\/\\//,'').replace(/^www\\./,'').split('/')[0]||'yourbusiness.in';
+    el('tl-psite').textContent=host; el('tl-purl').textContent=u;
+    el('tl-ptitle').textContent= t ? fit(t, T_LIMIT, 20) : 'Your page title appears here';
+    el('tl-pdesc').textContent= d ? fit(d, D_LIMIT, 14) : 'Your meta description appears here.';
+    var notes=[];
+    if(ts==='bad') notes.push('Title is about '+(tpx-T_LIMIT)+' px over the desktop limit; Google will cut it or rewrite it. Move the keyword and city to the front and shorten the brand suffix.');
+    if(ts==='warn' && t.length<30) notes.push('Title is short. You have room for a location, a modifier such as price or timing, or the brand name.');
+    if(ds==='bad') notes.push('Description is about '+(dpx-D_LIMIT)+' px over; the ending will be truncated. Put the offer and the call to action in the first 120 characters.');
+    if(t && /\\|.*\\|/.test(t)) notes.push('Two separators in the title read as keyword stuffing; keep one.');
+    if(t && t===t.toUpperCase() && /[A-Z]/.test(t)) notes.push('All-caps titles are wider in pixels and often rewritten by Google.');
+    if(!t && !d) notes.push('Aim for a title of 50 to 60 characters (under 580 px) and a description of 120 to 155 characters (under 920 px).');
+    el('tl-notes').innerHTML=notes.map(function(n){ return '<p style="margin:0 0 6px">'+escHtml(n)+'</p>'; }).join('');
+  }
+  tIn.addEventListener('input', render); dIn.addEventListener('input', render); uIn.addEventListener('input', render);
+  render();
+})();
+`,
+    },
+    exampleOutput: `
+      <div class="eo-item"><div><div class="eo-main">Title: 53 characters, 471 px, fits</div><div class="eo-sub">Best Cafe in Indiranagar, Bengaluru | Saffron Kitchen</div></div></div>
+      <div class="eo-item"><div><div class="eo-main">Description: 112 characters, 722 px, fits</div><div class="eo-sub">Wood-fired pizzas, filter coffee and weekend brunch in Indiranagar. Open 8am to 11pm, table booking on WhatsApp.</div></div></div>
+      <div class="eo-item"><div><div class="eo-main">Google preview with truncation</div><div class="eo-sub">Anything past 580 px in the title or 920 px in the description is replaced with an ellipsis.</div></div></div>
+      <div class="eo-note">Sample values. Type your own title and description above for a live check.</div>
+    `,
+    intro: `
+      <p>Google does not cut titles at a character count. It cuts them at a pixel width, roughly 580 pixels on desktop in the 20 px Arial it renders titles in, and about 920 pixels for the two-line description at 14 px. That is why a 60-character title full of wide capitals and W and M gets truncated while a 65-character title made of narrow letters survives. A plain character counter tells you half the story; this checker measures the width the way the search result does and shows the preview with the ellipsis where Google would put it.</p>
+      <p>Type the title tag and the meta description for a page and the counts update live: characters, estimated pixels, a green, amber or red status, and a desktop search preview with your own URL. Notes under the preview flag the common mistakes: titles that run over, descriptions that lose the call to action, double separators and all-caps text.</p>
+      <p>For an Indian small business the title is where the city and the service go, "Bridal Makeup Artist in Lucknow" before the brand name, so that the part that gets cut is never the part that earns the click. Use this alongside the meta title and description generator to write the text and the SERP snippet preview to see it on mobile.</p>
+    `,
+    howTo: [
+      'Paste or type your <strong>page title</strong>. The character count, pixel width and status update as you type.',
+      'Add the <strong>meta description</strong>. Keep the offer, city and call to action in the first 120 characters so they survive truncation.',
+      'Enter the <strong>page URL</strong> so the preview shows your domain the way Google displays it.',
+      'Read the <strong>status pills</strong>: green fits, amber is close to the limit or too short, red will be truncated. Edit until both are green.',
+      'Check the <strong>preview</strong> and the notes, then paste the final text into your page head or your website builder SEO settings.',
+    ],
+    why: `
+      <p><strong>The title is the headline of your search listing.</strong> A truncated title hides the very words, the service and the city, that make a searcher click. Google also rewrites titles it considers too long or stuffed, and its rewrite may drop your brand or your location.</p>
+      <p><strong>Pixels, not characters, decide the cut.</strong> Two titles of 58 characters can differ by 100 px. Measuring width removes the guesswork that character counters leave in.</p>
+      <p><strong>Descriptions drive the click.</strong> A description that ends with an ellipsis before the offer or the phone number wastes the space. Keeping it under 920 px keeps the call to action visible.</p>
+    `,
+    tips: [
+      'Lead with the service and the city, follow with a modifier, and end with the brand: "Dental Clinic in Andheri West | Same-day Appointments | Smile Care".',
+      'Use one separator, either a pipe or a dash. Two or more make the title look automated and invite a rewrite.',
+      'Avoid all caps and wide characters where you can; W, M and capitals eat pixels that a lowercase phrase would not.',
+      'Mobile shows slightly more of the title and description than desktop, so a title that fits at 580 px is safe on both.',
+      'Write a unique title and description for every page; duplicates across pages are the most common issue our meta tags analyzer finds on small business sites.',
+      'The description is not a ranking factor, but it is the copy that earns the click; write it like a two-line ad with a reason to choose you and a next step.',
+    ],
+    example: `
+      <p>A cafe owner in Indiranagar, Bengaluru drafts the homepage title "SAFFRON KITCHEN | Best Cafe in Indiranagar Bengaluru | Wood-fired Pizza, Coffee, Brunch". The checker shows 87 characters and about 830 px, red, and the preview cuts it after "Indiranagar", leaving the all-caps brand and losing the food terms. The notes flag both the length and the double separator.</p>
+      <p>She rewrites it as "Best Cafe in Indiranagar, Bengaluru | Saffron Kitchen", 53 characters and about 470 px, green. For the description she writes 112 characters that fit in about 720 px, ending with "table booking on WhatsApp". The preview now shows the service, the area, the brand and the call to action with nothing truncated, and she pastes both into her website SEO settings.</p>
+    `,
+    faq: [
+      { q: 'What is the ideal length for a title tag?', a: '<p>Aim for 50 to 60 characters and, more importantly, under about 580 pixels of width at the 20 px Arial size Google uses for desktop titles. Google truncates by width, so the exact character limit depends on which letters you use: a title of narrow letters can run to 65 characters and still fit, while one heavy with capitals and letters like W and M may be cut at 55. There is no ranking penalty for a long title, but the visible part is what searchers see, so keep the important words, the service, the city and the brand, within the first 580 pixels. The checker shows both the character count and the estimated width so you can see which one is the constraint.</p>' },
+      { q: 'How long should a meta description be?', a: '<p>Keep the description between 120 and 155 characters and under about 920 pixels, which is roughly two lines of 14 px text on desktop. Google sometimes shows longer descriptions, especially on mobile or when it pulls a snippet from the page instead of the tag, but anything beyond the limit is not guaranteed to appear. The safest structure is to put the offer, the location and the call to action in the first 120 characters and use the rest for supporting detail, so that even a shortened snippet still says what you do, where, and what to do next. The description is not used for ranking, but it strongly affects whether a searcher clicks.</p>' },
+      { q: 'Why does Google measure titles in pixels instead of characters?', a: '<p>Because the search result has a fixed width, roughly 600 pixels for the title area on desktop, and characters are not all the same width. In Arial, the font Google renders results in, a lowercase i is about a fifth of the width of a W, and capital letters are wider than lowercase. Counting characters would let some titles overflow and cut others unnecessarily, so Google measures the rendered width and truncates when it exceeds the space. This tool estimates the same width using a per-character table of Arial metrics at 20 px for titles and 14 px for descriptions; the estimate is usually within a few pixels of what Google renders, which is close enough to decide whether a title fits.</p>' },
+      { q: 'Does Google rewrite title tags?', a: '<p>Yes. Since 2021 Google generates its own title for a result when it considers the title tag too long, stuffed with keywords, boilerplate, missing or not descriptive, and it may use the H1, anchor text or other page text instead. Titles that are the right length, describe the page plainly and use one separator are rewritten far less often. Keeping the title under 580 px, leading with the specific service and location, and avoiding repeated keywords are the practical ways to keep the title you wrote. You can check what Google actually shows by searching for your brand or your page and comparing it with the title tag in the page source.</p>' },
+      { q: 'Should the city or the brand name come first in the title?', a: '<p>For a local business page, lead with the service and the city, and put the brand at the end. Searchers type "salon in Vashi" or "CA firm Kochi", not your brand name, and the front of the title is both the part they scan first and the part that survives truncation. The brand still belongs in the title, because it builds recognition and appears in brand searches, but it is the part you can afford to lose if the title is cut. The homepage is the exception: it usually carries the brand first, followed by a short description of what the business does and where.</p>' },
+      { q: 'How is this different from the character counter and SERP snippet preview tools?', a: '<p>The character counter on this site counts characters and words for any text against several platform limits, including 60 for a meta title, but it does not measure pixel width. The SERP snippet preview focuses on how the whole snippet looks on mobile and desktop with your URL. This title tag length checker sits between them: it is built specifically for the question of whether a title or description will be truncated, so it estimates pixels, shows green, amber or red status, and flags formatting problems such as double separators and all-caps text. Use whichever matches the question you have; all three are free and run in your browser.</p>' },
+      { q: 'Does the pixel estimate work for Hindi or other Indian-language titles?', a: '<p>Approximately. The width table is exact for the Latin letters, digits and punctuation used in English titles, and the tool assigns a typical wider width to Devanagari and other non-Latin characters, which Google renders in a different font. That gives a reasonable indication for a Hindi or mixed-language title, but the exact cut point may differ by a few characters. If you publish pages in Hindi, Marathi, Tamil or another Indian language, keep the title comfortably under the limit, around 500 px in this tool, and check the live result in Google once the page is indexed.</p>' },
+    ],
+    related: [
+      { href: '/pages/tools/character-counter', title: 'Character Counter', blurb: 'Count any text against platform limits.' },
+      { href: '/pages/tools/serp-snippet-preview', title: 'SERP Snippet Preview', blurb: 'See the full snippet on mobile and desktop.' },
+      { href: '/pages/tools/meta-title-description-generator', title: 'Meta Title and Description Generator', blurb: 'Draft the text, then check its length here.' },
     ],
   },
 ];

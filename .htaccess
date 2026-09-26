@@ -90,7 +90,7 @@ Options -Indexes
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresDefault                           "access plus 1 month"
-  ExpiresByType text/html                  "access plus 0 seconds"
+  ExpiresByType text/html                  "access plus 1 hour"
   ExpiresByType text/xml                   "access plus 0 seconds"
   ExpiresByType application/xml            "access plus 0 seconds"
   ExpiresByType application/json           "access plus 0 seconds"
@@ -108,13 +108,22 @@ Options -Indexes
   ExpiresByType application/font-woff2     "access plus 1 year"
 </IfModule>
 
-# Strong Cache-Control for versioned/immutable assets
+# Cache-Control: 1 year immutable for static assets (/assets/*, images, svg, js, css, fonts);
+# 1 hour for HTML (extensionless URLs rewrite to .html internally, so this FilesMatch applies);
+# short for sitemap/robots/json.
 <IfModule mod_headers.c>
   <FilesMatch "\.(css|js|png|jpe?g|gif|webp|avif|svg|ico|woff2?|ttf|otf|eot)$">
     Header set Cache-Control "public, max-age=31536000, immutable"
   </FilesMatch>
-  <FilesMatch "\.(html|xml|json|txt)$">
+  <FilesMatch "\.html$">
+    Header set Cache-Control "public, max-age=3600, must-revalidate"
+  </FilesMatch>
+  <FilesMatch "\.(xml|json|txt)$">
     Header set Cache-Control "public, max-age=0, must-revalidate"
+  </FilesMatch>
+  # Let caches key on encoding for compressed text responses
+  <FilesMatch "\.(html|css|js|json|xml|svg|txt)$">
+    Header append Vary "Accept-Encoding"
   </FilesMatch>
 </IfModule>
 
